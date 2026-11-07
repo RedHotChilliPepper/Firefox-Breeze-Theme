@@ -15,23 +15,23 @@ This is an alpha release, though it works on Firefox 159 (lower version have not
 
 The UX is not completely unified, the main goal was to unify the design though not e.g. padding between different components (contributions would be helpful)
 
-[Main Preview](media/1.jpg)
+[Main Preview](media/1.png)
 <details>
 <summary><b>Click to view more screenshots (2–8)</b></summary>
 <br>
 <p align="center">
-  <img src="media/2.jpg" width="48%">
-  <img src="media/3.jpg" width="48%">
+  <img src="media/2.png" width="48%">
+  <img src="media/3.png" width="48%">
 </p>
 <p align="center">
-  <img src="media/4.jpg" width="48%">
-  <img src="media/5.jpg" width="48%">
+  <img src="media/4.png" width="48%">
+  <img src="media/5.png" width="48%">
 </p>
 <p align="center">
-  <img src="media/6.jpg" width="48%">
-  <img src="media/7.jpg" width="48%">
+  <img src="media/6.png" width="48%">
+  <img src="media/7.png" width="48%">
 </p>
 <p align="center">
-  <img src="media/8.jpg" width="80%">
+  <img src="media/8.png" width="80%">
 </p>
 </details>
