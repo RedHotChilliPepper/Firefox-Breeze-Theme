@@ -1,0 +1,2805 @@
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze In-Content, Subdialog, Sidebar, Print, PDF & DevTools
+   General Style Language (GSL): Authentic Qt6 Breeze Dark (Dolphin / System Settings)
+   ========================================================================== */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+  :root,
+  :host {
+    color-scheme: dark !important;
+    --kde-window-bg: rgb(32, 35, 38);
+    --kde-window-bg-alt: rgb(41, 44, 48);
+    --kde-window-fg: rgb(252, 252, 252);
+    --kde-window-fg-inactive: rgb(161, 169, 177);
+    --kde-view-bg: rgb(20, 22, 24);
+    --kde-view-fg: rgb(252, 252, 252);
+    --kde-button-bg: rgb(41, 44, 48);
+    --kde-button-fg: rgb(252, 252, 252);
+    --kde-accent: rgb(61, 174, 233);
+    --kde-border-color: rgb(58, 63, 68);
+    --kde-border-color-subtle: rgb(49, 54, 59);
+
+    /* Firefox legacy in-content variables */
+    --in-content-page-background: #141618 !important;
+    --in-content-page-color: #fcfcfc !important;
+    --in-content-box-background: #202326 !important;
+    --in-content-box-background-odd: #181b1e !important;
+    --in-content-box-info-background: #181a1d !important;
+    --in-content-box-border-color: #3a3f44 !important;
+    --in-content-border-color: #31363b !important;
+    --in-content-button-background: #292c30 !important;
+    --in-content-button-background-hover: #31363b !important;
+    --in-content-button-background-active: rgba(61, 174, 233, 0.28) !important;
+    --in-content-button-border-radius: 4px !important;
+    --in-content-button-text-color: #fcfcfc !important;
+    --in-content-button-text-color-hover: #ffffff !important;
+    --in-content-primary-button-background: rgb(41, 128, 185) !important;
+    --in-content-primary-button-text-color: #ffffff !important;
+    --in-content-primary-button-hover-background: #3daee9 !important;
+    --in-content-primary-button-active-background: rgba(61, 174, 233, 0.45) !important;
+    --in-content-focus-outline-color: #3daee9 !important;
+    --in-content-item-hover: rgba(61, 174, 233, 0.18) !important;
+    --in-content-item-hover-text: #ffffff !important;
+    --in-content-item-selected: rgba(61, 174, 233, 0.28) !important;
+    --in-content-item-selected-text: #ffffff !important;
+    --in-content-link-color: #3daee9 !important;
+    --in-content-link-color-hover: #62c1f2 !important;
+    --in-content-link-color-active: #3daee9 !important;
+    --link-color: #3daee9 !important;
+    --link-color-hover: #62c1f2 !important;
+    --link-color-active: #3daee9 !important;
+
+    /* Flush sidebar to edge matching KDE System Settings */
+    --page-nav-margin-inline-start: 0px !important;
+    --page-space-inline-start: 0px !important;
+    --page-nav-border-color: transparent !important;
+
+    /* Remove all Firefox dotted focus rings globally (GSL No-Dotted-Lines Standard) */
+    --default-focusring: none !important;
+    --default-focusring-width: 0px !important;
+
+    /* Firefox 159 / Nova Design System Tokens (GSL 8px Popup Corner Standard) */
+    --border-radius-xsmall: 3px !important;
+    --border-radius-small: 4px !important;
+    --border-radius-medium: 4px !important;
+    --border-radius-large: 8px !important;
+
+    --background-color-canvas: #141618 !important;
+    --background-color-box: #202326 !important;
+    --background-color-box-info: #181a1d !important;
+    --text-color: #fcfcfc !important;
+    --text-color-deemphasized: #a1a9b1 !important;
+    --color-accent-primary: #3daee9 !important;
+    --color-accent-primary-hover: #52bcf0 !important;
+    --color-accent-primary-active: #2980b9 !important;
+    --color-accent-primary-selected: #3daee9 !important;
+
+    --border-color: #31363b !important;
+    --border-color-card: #31363b !important;
+    --border-color-deemphasized: #2a2e32 !important;
+    --border-color-interactive: #3a3f44 !important;
+    --border-color-interactive-hover: #3daee9 !important;
+    --border-color-interactive-active: #3daee9 !important;
+    --border-color-selected: #3daee9 !important;
+
+    --focus-outline: 1px solid #3daee9 !important;
+    --focus-outline-color: #3daee9 !important;
+    --focus-outline-offset: 0px !important;
+    --focus-outline-inset: -1px !important;
+
+    /* Promo & Callout Cards (fixes brown/violet cards across Settings) */
+    --promo-background-color: #181a1d !important;
+    --promo-background-color-vibrant: #181a1d !important;
+    --promo-border-color: #31363b !important;
+    --promo-border-color-vibrant: #31363b !important;
+    --promo-border-radius: 6px !important;
+    --promo-message-text-color: #fcfcfc !important;
+    --promo-message-text-color-vibrant: #fcfcfc !important;
+    --promo-heading-text-color: #fcfcfc !important;
+    --promo-heading-text-color-vibrant: #fcfcfc !important;
+
+    /* Cards & Accordion Headers (fixes purple hover/active in keybinds & settings) */
+    --card-border-radius: 6px !important;
+    --card-border-radius-compact: 6px !important;
+    --card-background-color: #202326 !important;
+    --card-border-color: #31363b !important;
+    --card-box-shadow: none !important;
+    --card-header-background-color: transparent !important;
+    --card-header-background-color-hover: rgba(61, 174, 233, 0.14) !important;
+    --card-header-background-color-active: rgba(61, 174, 233, 0.25) !important;
+    --card-header-border-color: transparent !important;
+    --card-header-border-color-hover: rgba(61, 174, 233, 0.5) !important;
+    --card-header-border-color-active: #3daee9 !important;
+    --card-header-text-color: #fcfcfc !important;
+    --card-header-text-color-hover: #ffffff !important;
+    --card-header-text-color-active: #ffffff !important;
+
+    /* Box Groups & Box Items (Permissions rows, Search Engines list, Autofill lists) */
+    --box-border-color: #31363b !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    --box-padding: 12px 16px !important;
+    --box-icon-size: 20px !important;
+    --box-button-background-color: #202326 !important;
+    --box-button-background-color-hover: rgba(61, 174, 233, 0.14) !important;
+    --box-button-background-color-active: rgba(61, 174, 233, 0.25) !important;
+    --box-button-text-color: #fcfcfc !important;
+    --box-button-text-color-hover: #ffffff !important;
+    --box-button-text-color-active: #ffffff !important;
+
+    /* Buttons (fixes unselected blue border & triple-nested button boxes) */
+    --button-border-radius: 4px !important;
+    --button-border: 1px solid var(--button-border-color) !important;
+    --button-background-color: #292c30 !important;
+    --button-background-color-hover: #31363b !important;
+    --button-background-color-active: rgba(61, 174, 233, 0.25) !important;
+    --button-background-color-selected: rgba(61, 174, 233, 0.25) !important;
+    --button-border-color: #3a3f44 !important;
+    --button-border-color-hover: #3daee9 !important;
+    --button-border-color-active: #3daee9 !important;
+    --button-border-color-selected: #3daee9 !important;
+    --button-text-color: #fcfcfc !important;
+    --button-text-color-hover: #ffffff !important;
+    --button-text-color-active: #ffffff !important;
+    --button-text-color-selected: #ffffff !important;
+
+    --button-background-color-primary: rgb(41, 128, 185) !important;
+    --button-background-color-primary-hover: #3daee9 !important;
+    --button-background-color-primary-active: rgba(61, 174, 233, 0.45) !important;
+    --button-border-color-primary: #3daee9 !important;
+    --button-border-color-primary-hover: #3daee9 !important;
+    --button-border-color-primary-active: #3daee9 !important;
+    --button-text-color-primary: #ffffff !important;
+    --button-text-color-primary-hover: #ffffff !important;
+    --button-text-color-primary-active: #ffffff !important;
+
+    --button-background-color-ghost: transparent !important;
+    --button-background-color-ghost-hover: rgba(61, 174, 233, 0.16) !important;
+    --button-background-color-ghost-active: rgba(61, 174, 233, 0.28) !important;
+    --button-border-color-ghost: transparent !important;
+    --button-border-color-ghost-hover: rgba(61, 174, 233, 0.5) !important;
+    --button-border-color-ghost-active: #3daee9 !important;
+    --button-text-color-ghost: #fcfcfc !important;
+    --button-text-color-ghost-hover: #ffffff !important;
+    --button-text-color-ghost-active: #ffffff !important;
+
+    --button-background-color-menu: transparent !important;
+    --button-background-color-menu-hover: rgba(61, 174, 233, 0.2) !important;
+    --button-background-color-menu-active: rgba(61, 174, 233, 0.3) !important;
+    --button-text-color-menu: #fcfcfc !important;
+    --button-text-color-menu-hover: #ffffff !important;
+    --button-text-color-menu-active: #ffffff !important;
+
+    /* Toggle Switch Tokens (<moz-toggle>) */
+    --toggle-background-color: #141618 !important;
+    --toggle-background-color-hover: #1e2226 !important;
+    --toggle-background-color-active: #292c30 !important;
+    --toggle-background-color-pressed: #3daee9 !important;
+    --toggle-background-color-pressed-hover: #52bcf0 !important;
+    --toggle-background-color-pressed-active: #2980b9 !important;
+    --toggle-border-color: #535659 !important;
+    --toggle-border-color-hover: #3daee9 !important;
+    --toggle-border-color-active: #3daee9 !important;
+    --toggle-dot-background-color: #a1a9b1 !important;
+    --toggle-dot-background-color-hover: #ffffff !important;
+    --toggle-dot-background-color-active: #ffffff !important;
+    --toggle-dot-background-color-on-pressed: #ffffff !important;
+    --toggle-border-radius: 999px !important;
+    --toggle-width: 34px !important;
+    --toggle-height: 18px !important;
+
+    /* Select & Panel-List Tokens */
+    --select-border-radius: 4px !important;
+    --select-background-color: #292c30 !important;
+    --select-background-color-hover: #31363b !important;
+    --select-border-color: #3a3f44 !important;
+    --select-border-color-hover: #3daee9 !important;
+    --select-text-color: #fcfcfc !important;
+    --select-text-color-hover: #ffffff !important;
+    --select-min-height: 32px !important;
+    --select-space-inline: 10px !important;
+
+    --panel-list-background-color: rgb(28, 31, 34) !important;
+    --panel-list-border-color: rgb(76, 78, 81) !important;
+    --panel-list-border-radius: 8px !important;
+    --panel-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+    --panel-item-button-border-radius: 4px !important;
+
+    /* Text Inputs & Search Inputs */
+    --input-text-background-color: #141618 !important;
+    --input-text-border-color: #3a3f44 !important;
+    --input-text-border-color-hover: #3daee9 !important;
+    --input-text-border-radius: 4px !important;
+    --input-text-min-height: 32px !important;
+
+    /* Visual Picker Item (Browser Layout cards & Profile Theme cards) */
+    --visual-picker-item-border-radius: 6px !important;
+    --visual-picker-item-border-radius-inner: 5px !important;
+    --visual-picker-item-border-color: #3a3f44 !important;
+    --visual-picker-item-border-width: 1px !important;
+    --visual-picker-item-border-width-checked: 2px !important;
+
+    /* Badges (Keybind shortcuts) */
+    --badge-border-radius: 4px !important;
+    --badge-border-color: #3a3f44 !important;
+    --badge-text-color: #fcfcfc !important;
+
+    /* Note: Do NOT set --input-width with !important on :host here because
+       moz-toggle uses --input-width: var(--toggle-width) for its 34px track! */
+    --checkbox-size: 18px !important;
+
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  body,
+  window:not([type="child"]):not(#aboutDialog):not(#commonDialogWindow):not(#SanitizeDialog):not(#placesWindow) {
+    background-color: var(--kde-view-bg) !important;
+    color: var(--kde-view-fg) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* Dialog roots (e.g. Add Card / editCreditCard.xhtml 055400.png & editAddress.xhtml)
+     must keep #202326 on both html[dialogroot] and body so there is no inner dark seam! */
+  :root[dialogroot],
+  :root[dialogroot] body,
+  html[dialogroot],
+  html[dialogroot] body {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+  }
+
+  /* ==========================================================================
+     Left Navigation Sidebar (System Settings / Dolphin Places Style)
+     ========================================================================== */
+
+  #preferences-root,
+  #preferences-body,
+  #preferences-stack {
+    margin-inline-start: 0 !important;
+    padding-inline-start: 0 !important;
+    --page-nav-margin-inline-start: 0px !important;
+    --page-space-inline-start: 0px !important;
+  }
+
+  #categories,
+  .navigation,
+  #sidebar,
+  moz-page-nav {
+    margin-inline-start: 0 !important;
+    padding-inline-start: 8px !important;
+    padding-inline-end: 8px !important;
+    --page-nav-margin-inline-start: 0px !important;
+    --page-nav-border-color: transparent !important;
+    background-color: var(--kde-window-bg) !important;
+    border-right: 1px solid var(--kde-border-color) !important;
+    border-inline-end: 1px solid var(--kde-border-color) !important;
+  }
+
+  /* Prevent double right-border & double padding in about:addons (#sidebar > categories-box > moz-page-nav)
+     and about:preferences (.navigation > moz-page-nav#categories) (063204.png) */
+  #sidebar :is(#categories, categories-box, moz-page-nav),
+  .navigation :is(#categories, categories-box, moz-page-nav),
+  categories-box,
+  :host(moz-page-nav) {
+    border-right: none !important;
+    border-inline-end: none !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+    background-color: transparent !important;
+    --page-nav-border-color: transparent !important;
+  }
+
+  /* Standalone body > moz-page-nav (e.g. about:keyboard) keeps its own single right border & padding */
+  body > moz-page-nav {
+    background-color: var(--kde-window-bg) !important;
+    border-inline-end: 1px solid var(--kde-border-color) !important;
+    padding-inline: 8px !important;
+  }
+
+  moz-page-nav-button {
+    --page-nav-button-background-color: transparent !important;
+    --page-nav-button-background-color-hover: rgba(61, 174, 233, 0.14) !important;
+    --page-nav-button-background-color-active: rgba(61, 174, 233, 0.26) !important;
+    --page-nav-button-background-color-selected: rgba(61, 174, 233, 0.26) !important;
+    --page-nav-button-border-color: transparent !important;
+    --page-nav-button-border-color-hover: rgba(61, 174, 233, 0.4) !important;
+    --page-nav-button-border-color-active: rgba(61, 174, 233, 0.55) !important;
+    --page-nav-button-border-color-selected: rgba(61, 174, 233, 0.55) !important;
+    --page-nav-button-border-radius: 5px !important;
+    --page-nav-button-text-color: #a1a9b1 !important;
+    --page-nav-button-text-color-hover: #ffffff !important;
+    --page-nav-button-text-color-selected: #ffffff !important;
+    --page-nav-button-indicator-width: 0px !important;
+    --page-nav-button-padding: 8px 12px !important;
+  }
+
+  /* Inactive sidebar category button */
+  moz-page-nav-button:not([selected]):not(:state(selected)),
+  button[role="tab"]:not([selected]):not([aria-selected="true"]),
+  .category:not([selected="true"]) {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #a1a9b1 !important;
+    border-radius: 5px !important;
+  }
+
+  /* Hover state for sidebar category */
+  moz-page-nav-button:not([selected]):not(:state(selected)):hover,
+  button[role="tab"]:not([selected]):not([aria-selected="true"]):hover,
+  .category:not([selected="true"]):hover {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.4) !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  /* Selected category card - Matches Dolphin Places reference (063833.png) */
+  moz-page-nav-button[selected],
+  moz-page-nav-button:state(selected),
+  button[role="tab"][selected],
+  button[role="tab"][aria-selected="true"],
+  .category[selected="true"],
+  button.category[aria-selected="true"],
+  .category.selected {
+    background-color: rgba(61, 174, 233, 0.26) !important;
+    border: 1px solid rgba(61, 174, 233, 0.55) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  /* ==========================================================================
+     Promo & Info Callout Cards (Fixes brown/violet backgrounds in Settings)
+     ========================================================================== */
+
+  moz-promo {
+    --promo-background-color: #181a1d !important;
+    --promo-background-color-vibrant: #181a1d !important;
+    --promo-border-color: #31363b !important;
+    --promo-border-color-vibrant: #31363b !important;
+    --promo-border-radius: 6px !important;
+    --promo-message-text-color: #fcfcfc !important;
+    --promo-message-text-color-vibrant: #fcfcfc !important;
+    --promo-heading-text-color: #fcfcfc !important;
+    --promo-heading-text-color-vibrant: #fcfcfc !important;
+  }
+
+  moz-promo::part(container),
+  .info-box-container,
+  .ai-controls-description,
+  .qr-code-box,
+  .privacy-detailedoption,
+  #blockAiGroup {
+    background-color: #181a1d !important;
+    border: 1px solid #31363b !important;
+    border-radius: 6px !important;
+    color: #fcfcfc !important;
+  }
+
+  .privacy-detailedoption.selected {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: #3daee9 !important;
+  }
+
+  moz-message-bar,
+  message-bar,
+  .addon-card-message,
+  .disco-description-container {
+    --message-bar-background-color: #181a1d !important;
+    --message-bar-border-color: #31363b !important;
+    --message-bar-border-radius: 6px !important;
+    --message-bar-text-color: #fcfcfc !important;
+    --in-content-box-info-background: #181a1d !important;
+    background-color: #181a1d !important;
+    border: 1px solid #31363b !important;
+    border-inline-start: 3px solid #3daee9 !important;
+    border-radius: 6px !important;
+    color: #fcfcfc !important;
+  }
+
+  /* ==========================================================================
+     Settings Cards (<moz-card>, .card, groupbox) & Accordions
+     Fixes nested fieldset borders in Turn on backup (050953) & Restore (051008)
+     and fixes accordion overlap in Keyboard Shortcuts (051525)
+     ========================================================================== */
+
+  moz-card,
+  .card,
+  groupbox {
+    --card-border: 1px solid #31363b !important;
+    --card-border-radius: 6px !important;
+    --card-border-radius-compact: 6px !important;
+    --card-background-color: #202326 !important;
+    --card-box-shadow: none !important;
+    background-color: #202326 !important;
+    border: 1px solid #31363b !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+  }
+
+  /* Never draw extra card borders around internal <fieldset> layout wrappers! */
+  fieldset {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  /* Accordion headers (e.g. Keybinds categories in about:keyboard - 051525.png) */
+  moz-card::part(summary),
+  details > summary {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    color: #fcfcfc !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  moz-card[expanded]::part(summary),
+  details[open] > summary {
+    border-bottom: 1px solid #31363b !important;
+    border-radius: 5px 5px 0 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  moz-card::part(summary):hover,
+  details > summary:hover {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+    color: #ffffff !important;
+  }
+
+  moz-card::part(summary):active,
+  details > summary:active {
+    background-color: rgba(61, 174, 233, 0.25) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  moz-card[expanded] > moz-box-group,
+  details[open] > #content {
+    margin-top: 4px !important;
+  }
+
+  /* ==========================================================================
+     Box Rows (<moz-box-group>, <moz-box-item>, <moz-box-button>, <moz-box-link>)
+     Fixes small/squished Permissions rows and double-nested borders
+     ========================================================================== */
+
+  moz-box-group {
+    --box-border: 1px solid #31363b !important;
+    --box-border-color: #31363b !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    background-color: #202326 !important;
+  }
+
+  moz-box-button,
+  moz-box-item,
+  moz-box-link {
+    --box-border-color: #31363b !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    --box-padding: 12px 16px !important;
+    --box-icon-size: 20px !important;
+    --box-button-background-color: #202326 !important;
+    --box-button-background-color-hover: rgba(61, 174, 233, 0.14) !important;
+    --box-button-background-color-active: rgba(61, 174, 233, 0.25) !important;
+    --box-button-text-color: #fcfcfc !important;
+    --box-button-text-color-hover: #ffffff !important;
+    --box-button-text-color-active: #ffffff !important;
+    background-color: #202326 !important;
+    font-size: 13.5px !important;
+  }
+
+  moz-box-button::part(button),
+  moz-box-link::part(button) {
+    padding: 12px 16px !important;
+    min-height: 46px !important;
+    font-size: 13.5px !important;
+  }
+
+  /* ==========================================================================
+     Visual Picker Items (Browser Layout cards - fixes double border)
+     ========================================================================== */
+
+  moz-visual-picker-item {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    --visual-picker-item-border-radius: 6px !important;
+    --visual-picker-item-border-radius-inner: 5px !important;
+    --visual-picker-item-border-color: #3a3f44 !important;
+    --visual-picker-item-border-width: 1px !important;
+    --visual-picker-item-border-width-checked: 2px !important;
+  }
+
+  /* ==========================================================================
+     Form Controls: Buttons (<moz-button>, XUL/HTML <button>)
+     Single clean Breeze box; NO triple padding; NO unselected blue border
+     ========================================================================== */
+
+  /* 1. Keep <moz-button> host and its inner #main-button unboxed so only .button-background renders the box */
+  moz-button,
+  moz-button::part(button),
+  #main-button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* 2. Style .button-background inside <moz-button> Shadow DOM as the single Breeze button box */
+  .button-background {
+    border-radius: 4px !important;
+    background-color: #292c30 !important;
+    border: 1px solid #3a3f44 !important;
+    color: #fcfcfc !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    box-shadow: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  #main-button:hover:not(:disabled) > .button-background,
+  .button-background:hover:not([disabled]) {
+    background-color: #31363b !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  #main-button:active:not(:disabled) > .button-background,
+  :host([attention]) #main-button > .button-background,
+  :host([aria-expanded="true"]) #main-button > .button-background {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* Primary <moz-button type="primary"> */
+  .button-background[type="primary"],
+  :host([type="primary"]) .button-background {
+    background-color: rgb(41, 128, 185) !important;
+    border: 1px solid #3daee9 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+  }
+
+  #main-button:hover:not(:disabled) > .button-background[type="primary"],
+  :host([type="primary"]) #main-button:hover:not(:disabled) > .button-background {
+    background-color: #3daee9 !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  #main-button:active:not(:disabled) > .button-background[type="primary"],
+  :host([type="primary"]) #main-button:active:not(:disabled) > .button-background {
+    background-color: rgba(61, 174, 233, 0.45) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* Ghost & Icon-only <moz-button> (Back buttons, Close [X] buttons, Edit/Delete icon buttons) */
+  .button-background[type="ghost"],
+  .button-background[type="icon"],
+  .button-background[type="icon ghost"],
+  :host([type="ghost"]) .button-background,
+  :host([type="icon"]) .button-background {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    color: #fcfcfc !important;
+  }
+
+  #main-button:hover:not(:disabled) > .button-background:is([type="ghost"], [type="icon"], [type="icon ghost"]),
+  :host(:is([type="ghost"], [type="icon"])) #main-button:hover:not(:disabled) > .button-background {
+    background-color: rgba(61, 174, 233, 0.16) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+    color: #ffffff !important;
+  }
+
+  #main-button:active:not(:disabled) > .button-background:is([type="ghost"], [type="icon"], [type="icon ghost"]),
+  :host(:is([type="ghost"], [type="icon"])) #main-button:active:not(:disabled) > .button-background {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* 3. Standalone light-DOM HTML/XUL <button> (excludes Shadow DOM internal buttons, DevTools menu items & special link buttons) */
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #292c30 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    padding: 6px 14px !important;
+    min-height: 30px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
+    background-color: #31363b !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* Disabled buttons */
+  button:disabled,
+  button[disabled="true"],
+  #main-button:disabled > .button-background {
+    opacity: 0.45 !important;
+    cursor: default !important;
+  }
+
+  /* Primary standalone XUL/HTML button */
+  button.primary:not(.personalize-button),
+  button[primary="true"]:not(.personalize-button),
+  button[default="true"],
+  button[default],
+  button[dlgtype="accept"] {
+    background-color: rgb(41, 128, 185) !important;
+    border: 1px solid #3daee9 !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+  }
+
+  button.primary:not(.personalize-button):hover:not([disabled]):not(:disabled),
+  button[primary="true"]:not(.personalize-button):hover:not([disabled]):not(:disabled),
+  button[default="true"]:hover:not([disabled]):not(:disabled),
+  button[default]:hover:not([disabled]):not(:disabled),
+  button[dlgtype="accept"]:hover:not([disabled]):not(:disabled) {
+    background-color: #3daee9 !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* Close / Ghost / Back buttons in headers & dialogs (removes initial focus ring in 051434.png) */
+  .close-button,
+  .dialogClose,
+  .back-button,
+  button.ghost-button,
+  button.close,
+  moz-button.close-button {
+    appearance: none !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    --focus-outline: none !important;
+    --button-focus-outline: none !important;
+    color: #fcfcfc !important;
+  }
+
+  .close-button:hover,
+  .dialogClose:hover,
+  .back-button:hover,
+  button.ghost-button:hover,
+  button.close:hover {
+    background-color: rgba(61, 174, 233, 0.16) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+    color: #ffffff !important;
+  }
+
+  /* ==========================================================================
+     Form Controls: Text, Search & Folder Inputs
+     Fixes icon overlap in Backup/Restore (050953, 051008), Passwords (051921),
+     Cookies (051258), and Local Network Devices (051552)
+     ========================================================================== */
+
+  moz-input-text,
+  moz-input-search,
+  moz-input-password,
+  moz-input-tel,
+  moz-input-email,
+  moz-input-url,
+  moz-input-number,
+  moz-input-folder,
+  #searchInput {
+    --input-text-background-color: #141618 !important;
+    --input-text-border-color: #3a3f44 !important;
+    --input-text-border-color-hover: #3daee9 !important;
+    --input-text-border-radius: 4px !important;
+    --input-background-color: #141618 !important;
+    --input-border: 1px solid #3a3f44 !important;
+    --input-border-radius: 4px !important;
+    --input-search-border-radius: 4px !important;
+    --input-text-color: #fcfcfc !important;
+    --focus-outline: 1px solid #3daee9 !important;
+  }
+
+  input:is([type="text"], [type="search"], [type="password"], [type="url"], [type="email"], [type="tel"], [type="number"]):not(.textbox-input),
+  textarea,
+  search-textbox {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    padding-block: 5px !important;
+    padding-inline: 10px !important;
+    min-height: 30px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: border-color 0.15s ease !important;
+  }
+
+  /* Inner input inside XUL <search-textbox> must not have a second border or clobber the search icon */
+  search-textbox {
+    display: flex !important;
+    align-items: center !important;
+    padding: 2px 8px !important;
+  }
+
+  search-textbox > .textbox-search-sign {
+    margin-inline-end: 6px !important;
+    opacity: 0.8 !important;
+  }
+
+  .textbox-input {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #fcfcfc !important;
+    padding: 2px 4px !important;
+  }
+
+  /* Preserve 34px left padding for all inputs that draw an internal icon
+     (Fixes Save files to / Downloads folder input in 063418.png, Backup/Restore, Passwords, Cookies) */
+  input.with-icon:not(.textbox-input),
+  #input.with-icon:not(.textbox-input),
+  input[type="search"]:not(.textbox-input),
+  #backup-filepicker-input,
+  #new-backup-location-input,
+  input.filter[type="text"],
+  #login-filter-input {
+    background-position: 10px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px 16px !important;
+    padding-inline-start: 34px !important;
+    padding-inline-end: 10px !important;
+  }
+
+  input:is([type="text"], [type="search"], [type="password"], [type="url"], [type="email"], [type="tel"], [type="number"]):not(.textbox-input):hover:not(:disabled),
+  textarea:hover:not(:disabled),
+  search-textbox:hover:not([disabled]) {
+    border-color: rgba(61, 174, 233, 0.65) !important;
+  }
+
+  input:is([type="text"], [type="search"], [type="password"], [type="url"], [type="email"], [type="tel"], [type="number"]):not(.textbox-input):focus,
+  textarea:focus,
+  search-textbox[focused="true"] {
+    border-color: #3daee9 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35) !important;
+  }
+
+  /* ==========================================================================
+     Form Controls: Toggle Switches (<moz-toggle>, .toggle-button)
+     Fixes invisible toggle track & label overlap across the entire UI
+     (Firefox Home 055248.png, Search 055326.png, Add-ons 055648.png, New Tab 055707.png)
+     ========================================================================== */
+
+  moz-toggle,
+  :host(moz-toggle) {
+    --toggle-width: 34px !important;
+    --toggle-height: 18px !important;
+    --input-width: 34px !important;
+    --toggle-border-radius: 999px !important;
+    --toggle-background-color: #141618 !important;
+    --toggle-background-color-hover: #1e2226 !important;
+    --toggle-background-color-active: #292c30 !important;
+    --toggle-background-color-pressed: #3daee9 !important;
+    --toggle-background-color-pressed-hover: #52bcf0 !important;
+    --toggle-background-color-pressed-active: #2980b9 !important;
+    --toggle-border-color: #535659 !important;
+    --toggle-border-color-hover: #3daee9 !important;
+    --toggle-border-color-active: #3daee9 !important;
+    --toggle-dot-background-color: #a1a9b1 !important;
+    --toggle-dot-background-color-hover: #ffffff !important;
+    --toggle-dot-background-color-active: #ffffff !important;
+    --toggle-dot-background-color-on-pressed: #ffffff !important;
+    --toggle-dot-width: 12px !important;
+    --toggle-dot-height: 12px !important;
+  }
+
+  /* Note: NEVER override `margin` on `button.toggle-button` / `#input` inside `moz-toggle`,
+     because `moz-input-common.css` sets negative `margin-inline-start: -42px` on `#input`
+     to position the toggle inside the label's padding-inline-start! */
+  moz-toggle::part(button),
+  button.toggle-button,
+  button#input.toggle-button[part="button"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 34px !important;
+    height: 18px !important;
+    min-width: 34px !important;
+    min-height: 18px !important;
+    max-width: 34px !important;
+    max-height: 18px !important;
+    border-radius: 999px !important;
+    border: 1.5px solid #535659 !important;
+    background-color: #141618 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  moz-toggle:hover::part(button),
+  button.toggle-button:hover:not(:disabled),
+  button#input.toggle-button[part="button"]:hover:not(:disabled) {
+    background-color: #1e2226 !important;
+    border-color: #3daee9 !important;
+  }
+
+  moz-toggle[pressed]::part(button),
+  button.toggle-button[aria-pressed="true"],
+  button#input.toggle-button[part="button"][aria-pressed="true"] {
+    background-color: #3daee9 !important;
+    border-color: #3daee9 !important;
+  }
+
+  moz-toggle[pressed]:hover::part(button),
+  button.toggle-button[aria-pressed="true"]:hover:not(:disabled),
+  button#input.toggle-button[part="button"][aria-pressed="true"]:hover:not(:disabled) {
+    background-color: #52bcf0 !important;
+    border-color: #52bcf0 !important;
+  }
+
+  button.toggle-button::before,
+  button#input.toggle-button[part="button"]::before {
+    background-color: #a1a9b1 !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+  }
+
+  button.toggle-button:hover:not(:disabled)::before,
+  button.toggle-button[aria-pressed="true"]::before,
+  button#input.toggle-button[part="button"][aria-pressed="true"]::before {
+    background-color: #ffffff !important;
+  }
+
+  /* ==========================================================================
+     Form Controls: Checkboxes & Radio Buttons
+     Uses chrome://global/skin/icons/check.svg with -moz-context-properties so
+     checkmarks render even under strict CSP (img-src blob: chrome:; in profiles.html
+     063231.png), and preserves #input negative margin-inline inside moz-checkbox!
+     ========================================================================== */
+
+  moz-checkbox {
+    --input-width: 18px !important;
+    --input-height: 18px !important;
+    --size-item-small: 18px !important;
+    --checkbox-size: 18px !important;
+    --color-accent-primary: #3daee9 !important;
+    accent-color: #3daee9 !important;
+    width: auto !important;
+  }
+
+  moz-checkbox::part(input),
+  input[type="checkbox"]:not(.toggle-button),
+  checkbox .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    border-radius: 3px !important;
+    border: 1.5px solid #535659 !important;
+    background-color: #141618 !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+  }
+
+  /* Only apply explicit margin to standalone checkboxes, NOT #input inside moz-checkbox Shadow DOM! */
+  input[type="checkbox"]:not(.toggle-button):not(#input),
+  checkbox .checkbox-check {
+    margin: 2px 6px 2px 2px !important;
+  }
+
+  moz-checkbox:hover::part(input),
+  input[type="checkbox"]:not(.toggle-button):hover,
+  checkbox:hover .checkbox-check {
+    border-color: var(--kde-accent) !important;
+  }
+
+  moz-checkbox[checked]::part(input),
+  :host([checked]) #input[type="checkbox"],
+  input[type="checkbox"]:not(.toggle-button):checked,
+  checkbox[checked="true"] .checkbox-check {
+    background-color: var(--kde-accent) !important;
+    border-color: var(--kde-accent) !important;
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  moz-radio {
+    --input-width: 18px !important;
+    --input-height: 18px !important;
+    --color-accent-primary: #3daee9 !important;
+  }
+
+  moz-radio::part(input),
+  input[type="radio"],
+  radio .radio-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid #535659 !important;
+    background-color: #141618 !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+  }
+
+  input[type="radio"]:not(#input),
+  radio .radio-check {
+    margin: 2px 6px 2px 2px !important;
+  }
+
+  moz-radio:hover::part(input),
+  input[type="radio"]:hover,
+  radio:hover .radio-check {
+    border-color: var(--kde-accent) !important;
+  }
+
+  moz-radio[checked]::part(input),
+  input[type="radio"]:checked,
+  radio[selected="true"] .radio-check {
+    border-color: var(--kde-accent) !important;
+    background-color: #141618 !important;
+    background-image: radial-gradient(circle, #3daee9 0%, #3daee9 42%, transparent 46%) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 14px 14px !important;
+  }
+
+  /* ==========================================================================
+     Form Controls: Unified Dropdowns (<moz-select>, <select>, <menulist>, <panel-list>)
+     ========================================================================== */
+
+  moz-select {
+    --select-border-radius: 4px !important;
+    --button-border-radius: 4px !important;
+    --select-background-color: #292c30 !important;
+    --select-background-color-hover: #31363b !important;
+    --select-border-color: #3a3f44 !important;
+    --select-border-color-hover: #3daee9 !important;
+    --select-text-color: #fcfcfc !important;
+    --select-text-color-hover: #ffffff !important;
+    --select-min-height: 32px !important;
+    --select-space-inline: 10px !important;
+  }
+
+  .select-wrapper {
+    border-radius: 4px !important;
+    background-color: #292c30 !important;
+    border: 1px solid #3a3f44 !important;
+    min-height: 32px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .select-wrapper:hover,
+  .select-wrapper:has(select:open),
+  .select-wrapper:has(+ [open]),
+  .select-wrapper:focus-within {
+    border-color: #3daee9 !important;
+    background-color: #31363b !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+
+  .select-wrapper > select,
+  .select-wrapper > .panel-trigger {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    min-height: 30px !important;
+    color: inherit !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+  }
+
+  .select-wrapper .select-option-icon {
+    inset-inline-start: 10px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .select-wrapper .select-chevron-icon {
+    inset-inline-end: 10px !important;
+  }
+
+  .select-wrapper:not(.with-icon) > select,
+  .select-wrapper:not(.with-icon) > .panel-trigger {
+    padding-inline: 10px 30px !important;
+  }
+
+  .select-wrapper.with-icon > select,
+  .select-wrapper.with-icon > .panel-trigger {
+    padding-inline-start: 34px !important;
+    padding-inline-end: 30px !important;
+  }
+
+  select:not(.select-wrapper > select),
+  menulist {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 4px !important;
+    background-color: #292c30 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    min-height: 32px !important;
+    padding: 4px 28px 4px 10px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  select:not(.select-wrapper > select):not([iconic]):not([multiple]):not([size]) {
+    background-image: url("chrome://global/skin/icons/arrow-down-12.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 8px center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill !important;
+    fill: #fcfcfc !important;
+  }
+
+  select:not(.select-wrapper > select):hover:not(:disabled),
+  menulist:hover:not([disabled="true"]),
+  menulist[open="true"] {
+    border-color: #3daee9 !important;
+    background-color: #31363b !important;
+    color: #ffffff !important;
+  }
+
+  select option,
+  menupopup {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: rgb(28, 31, 34) !important;
+    color: #fcfcfc !important;
+    border: 1px solid rgb(76, 78, 81) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    margin: 0 !important;
+
+    /* Nullify internal panel variables so menupopup::part(content) does NOT draw a second border/padding (070600.png) */
+    --panel-border-color: transparent !important;
+    --panel-border-width: 0px !important;
+    --panel-box-shadow: none !important;
+    --panel-box-shadow-margin: 0px !important;
+    --panel-padding: 0px !important;
+    --panel-padding-block: 0px !important;
+    --panel-background: transparent !important;
+    --panel-background-color: transparent !important;
+  }
+
+  menupopup::part(content),
+  menupopup::part(arrowscrollbox),
+  menupopup::part(scrollbox),
+  menupopup > arrowscrollbox,
+  menupopup > .menupopup-arrowscrollbox,
+  menupopup .menupopup-arrowscrollbox,
+  .menupopup-arrowscrollbox {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  menuitem {
+    appearance: none !important;
+    background-color: transparent !important;
+    color: #fcfcfc !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 5px 10px !important;
+  }
+
+  menuitem:hover,
+  menuitem[_moz-menuactive="true"],
+  select option:checked,
+  select option:hover {
+    background-color: rgba(61, 174, 233, 0.30) !important;
+    border-color: rgba(61, 174, 233, 0.85) !important;
+    color: #ffffff !important;
+  }
+
+  /* Dropdown Popover Lists (<panel-list>, <panel-item>) with 8px corners & fade-in/out */
+  panel-list {
+    --panel-list-background-color: rgb(28, 31, 34) !important;
+    --panel-list-border-color: rgb(76, 78, 81) !important;
+    --panel-list-border-radius: 8px !important;
+    --panel-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+    background-color: rgb(28, 31, 34) !important;
+    border: 1px solid rgb(76, 78, 81) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  panel-list:not([open]) {
+    opacity: 0 !important;
+    transform: translateY(-3px) scale(0.985) !important;
+  }
+
+  panel-item {
+    --panel-item-button-border-radius: 4px !important;
+    --panel-item-button-margin: 1px 2px !important;
+    --button-background-color-menu-hover: rgba(61, 174, 233, 0.30) !important;
+    --button-text-color-menu-hover: #ffffff !important;
+    --button-background-color-menu-active: rgba(61, 174, 233, 0.40) !important;
+    --button-text-color-menu-active: #ffffff !important;
+  }
+
+  panel-item::part(button),
+  button[part="button"]:not(#main-button):not(.toggle-button):not(#input) {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+    color: #fcfcfc !important;
+    padding-block: 6px !important;
+    padding-inline-start: 10px !important;
+    padding-inline-end: 12px !important;
+    margin: 1px 2px !important;
+    font-size: 12.5px !important;
+    text-align: start !important;
+  }
+
+  panel-item[icon]::part(button),
+  panel-item[type="checkbox"]::part(button),
+  :host([icon]) button[part="button"]:not(#main-button):not(.toggle-button):not(#input),
+  :host([type="checkbox"]) button[part="button"]:not(#main-button):not(.toggle-button):not(#input) {
+    background-position: 8px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px 16px !important;
+    padding-inline-start: 34px !important;
+  }
+
+  panel-item:hover::part(button),
+  button[part="button"]:not(#main-button):not(.toggle-button):not(#input):enabled:hover {
+    background-color: rgba(61, 174, 233, 0.30) !important;
+    border-color: rgba(61, 174, 233, 0.85) !important;
+    color: #ffffff !important;
+  }
+
+  panel-item[selected]::part(button),
+  panel-item:active::part(button),
+  :host([selected]) button[part="button"]:not(#main-button):not(.toggle-button):not(#input),
+  button[part="button"]:not(#main-button):not(.toggle-button):not(#input):enabled:hover:active {
+    background-color: rgba(61, 174, 233, 0.38) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* ==========================================================================
+     Unified GSL Subdialogs & Modal Popups (8px Corners & Popup Padding Standard)
+     (Primary Password 063358, Fonts 063456, Device Manager 063320, ETP 051237,
+      Clear Data 051251/051314, Manage Cookies 051258, Connection Settings 051353,
+      Cert Manager 051410, Saved Passwords Exceptions 051434, Autofill 051450/051459)
+     ========================================================================== */
+
+  html|dialog,
+  .dialogBox {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65) !important;
+    overflow: hidden !important;
+  }
+
+  .dialogFrame {
+    border: none !important;
+    outline: none !important;
+    background-color: #202326 !important;
+  }
+
+  .dialogTitleBar {
+    background-color: #1b1d20 !important;
+    border-bottom: 1px solid #31363b !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+  }
+
+  window[type="child"],
+  dialog,
+  #SanitizeDialog,
+  #ConnectionsDialog,
+  #certmanager,
+  #devicemanager,
+  #PermissionsDialog,
+  #SiteDataSettingsDialog,
+  #FontsDialog,
+  #changemp,
+  #commonDialog,
+  #commonDialogWindow {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* GSL Popup Padding Standard: unified outer dialog padding & clean vertical rhythm */
+  window[type="child"] > dialog,
+  dialog {
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  dialog::part(dialog-button-box),
+  .dialog-button-box {
+    border-top: 1px solid #31363b !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  separator.groove,
+  separator:not([orient="vertical"]) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border: none !important;
+    border-top: 1px solid #31363b !important;
+    background: transparent !important;
+    height: 0 !important;
+    margin-block: 12px !important;
+  }
+
+  /* Fonts Subdialog De-cluttering & Padding Alignment (063456.png - fonts.xhtml) */
+  #FontsDialog groupbox {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #FontsDialog hbox {
+    align-items: center !important;
+    gap: 8px !important;
+    margin-block: 5px !important;
+  }
+
+  #FontsDialog menulist {
+    min-width: 72px !important;
+    margin-inline: 2px !important;
+  }
+
+  #FontsDialog checkbox {
+    margin-block: 4px !important;
+  }
+
+  /* Change Primary Password Subdialog & Progress Meter (063358.png - changemp.xhtml) */
+  #changemp description {
+    color: #a1a9b1 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+  }
+
+  #changemp label {
+    color: #fcfcfc !important;
+    font-weight: 500 !important;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  progress,
+  html|progress,
+  #pwmeter {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #141618 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    height: 10px !important;
+    width: 100% !important;
+    margin-block: 10px 4px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  progress::-moz-progress-bar,
+  html|progress::-moz-progress-bar,
+  #pwmeter::-moz-progress-bar {
+    background-color: #3daee9 !important;
+    border-radius: 3px !important;
+  }
+
+  /* Fix squished Remove Website / Remove All Websites buttons (051237, 051327, 051434) */
+  .actionButtons,
+  hbox.actionButtons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-block: 10px 4px !important;
+    min-height: 34px !important;
+  }
+
+  #removePermission,
+  #removeAllPermissions,
+  #btnRemove,
+  #btnRemoveAll,
+  .actionButtons > button {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 5px 14px !important;
+    font-size: 12.5px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Clear Browsing Data & Cookies (sanitize_v2.xhtml - 051251.png, 051314.png) */
+  #sanitizeDurationChoice {
+    min-height: 32px !important;
+    border-radius: 4px !important;
+  }
+
+  .sanitize-Option {
+    padding-block: 4px !important;
+  }
+
+  /* Connection Settings (connection.xhtml - 051353.png) */
+  #ConnectionsDialog groupbox {
+    background-color: #181a1d !important;
+    border: 1px solid #31363b !important;
+    border-radius: 6px !important;
+    padding: 12px 14px !important;
+    margin-block: 6px !important;
+  }
+
+  .proxy-grid-row {
+    margin-block: 6px !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  input[type="number"].proxy-port-input,
+  input[hidespinbuttons="true"] {
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+    min-width: 74px !important;
+    width: 74px !important;
+    padding: 5px 8px !important;
+    text-align: center !important;
+  }
+
+  /* Certificate Manager & Device Manager Tabs & Trees (051410.png, 063320.png) */
+  tabs {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #16181b !important;
+    border-bottom: 1px solid #3a3f44 !important;
+    padding: 4px 6px 0 6px !important;
+  }
+
+  tab {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #1b1d20 !important;
+    color: #a1a9b1 !important;
+    border: 1px solid #282c30 !important;
+    border-bottom: none !important;
+    border-radius: 5px 5px 0 0 !important;
+    padding: 6px 14px !important;
+    margin-inline: 1px !important;
+    font-size: 12.5px !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  tab:hover:not([selected="true"]) {
+    background-color: #272a2e !important;
+    color: #fcfcfc !important;
+  }
+
+  tab[selected="true"] {
+    background-color: #202326 !important;
+    color: #ffffff !important;
+    border-top: 3px solid #3daee9 !important;
+    border-left: 1px solid #3a3f44 !important;
+    border-right: 1px solid #3a3f44 !important;
+    margin-bottom: -1px !important;
+    font-weight: 600 !important;
+  }
+
+  tabpanels {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #202326 !important;
+    border: 1px solid #3a3f44 !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+    padding: 12px !important;
+  }
+
+  /* ==========================================================================
+     GSL Tables, Columns & Trees Standard (Dolphin Details 064038 & Places 063833)
+     Eliminates all dotted lines (063107, 063137, 063320) and styles headers/rows
+     ========================================================================== */
+
+  *:focus,
+  *:focus-visible,
+  *:-moz-focusring {
+    outline-style: none !important;
+  }
+
+  *::-moz-focus-inner {
+    border: 0 !important;
+  }
+
+  richlistbox,
+  tree {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #31363b !important;
+    border-radius: 6px !important;
+    outline: none !important;
+  }
+
+  /* Collapse hidden column headers vertically WITHOUT display:none or visibility:collapse,
+     so Gecko's nsTreeBodyFrame preserves column width and renders cell text (070454.png, 071103.png)! */
+  treecol[hideheader="true"],
+  treecols:not(:has(> treecol:not([hideheader="true"]))),
+  #placesList > treecols,
+  .sidebar-placesTree > treecols {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Dolphin Details Table Column Header Bar (064038.png, 063107.png, 063320.png) */
+  listheader,
+  treecols:has(> treecol:not([hideheader="true"])) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #181a1d !important;
+    border-bottom: 1px solid #2d3136 !important;
+    min-height: 26px !important;
+  }
+
+  treecol:not([hideheader="true"]),
+  treecolpicker {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #181a1d !important;
+    color: #a1a9b1 !important;
+    border: none !important;
+    border-inline-end: 1px solid #2d3136 !important;
+    padding: 4px 10px !important;
+    min-height: 26px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.12s ease, color 0.12s ease !important;
+  }
+
+  treecol:not([hideheader="true"]):hover,
+  treecolpicker:hover {
+    background-color: #222529 !important;
+    color: #fcfcfc !important;
+  }
+
+  /* Remove dotted tree hierarchy connector lines (Device Manager 063320.png) & dotted focus rings (063107/063137) */
+  treechildren::-moz-tree-line {
+    visibility: hidden !important;
+    border: none !important;
+  }
+
+  treechildren::-moz-tree-row,
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(current),
+  treechildren::-moz-tree-row(focus),
+  treechildren::-moz-tree-row(current, focus),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    outline: none !important;
+    outline-width: 0 !important;
+  }
+
+  /* Dolphin Details Table Alternating Zebra Rows & 5px Rounded Selection (064038.png) */
+  treechildren::-moz-tree-row {
+    background-color: #141618 !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    min-height: 28px !important;
+    height: 28px !important;
+  }
+
+  treechildren::-moz-tree-row(multicol, odd),
+  treechildren::-moz-tree-row(odd) {
+    background-color: #1a1d20 !important;
+  }
+
+  treechildren::-moz-tree-row(hover) {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.40) !important;
+    border-radius: 5px !important;
+  }
+
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    background-color: rgba(61, 174, 233, 0.24) !important;
+    border: 1px solid rgba(61, 174, 233, 0.85) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  treechildren::-moz-tree-cell {
+    padding-inline: 6px !important;
+  }
+
+  treechildren::-moz-tree-image {
+    margin-inline-end: 6px !important;
+  }
+
+  treechildren::-moz-tree-cell-text {
+    color: #fcfcfc !important;
+  }
+
+  treechildren::-moz-tree-cell-text(selected),
+  treechildren::-moz-tree-cell-text(selected, focus) {
+    color: #ffffff !important;
+  }
+
+  richlistitem {
+    background-color: transparent !important;
+    color: #fcfcfc !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    padding: 4px 8px !important;
+    min-height: 32px !important;
+    outline: none !important;
+  }
+
+  richlistitem:hover {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.40) !important;
+  }
+
+  richlistitem[selected="true"] {
+    background-color: rgba(61, 174, 233, 0.24) !important;
+    border-color: rgba(61, 174, 233, 0.85) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+
+  /* ==========================================================================
+     Choose a Firefox Profile (051018.png, 063231.png - profiles.html)
+     ========================================================================== */
+
+  .profile-card {
+    background-color: #202326 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  .profile-card:hover {
+    background-color: #262a2e !important;
+    border-color: #3daee9 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  .new-profile-card {
+    background-color: #181a1d !important;
+    border: 1.5px dashed #535659 !important;
+    border-radius: 8px !important;
+  }
+
+  .new-profile-card:hover {
+    background-color: rgba(61, 174, 233, 0.12) !important;
+    border-color: #3daee9 !important;
+  }
+
+  .profile-details {
+    background-color: #202326 !important;
+    border-top: 1px solid #31363b !important;
+    color: #fcfcfc !important;
+  }
+
+  /* ==========================================================================
+     About Mozilla Firefox Window (051851.png - aboutDialog.xhtml)
+     ========================================================================== */
+
+  #aboutDialog,
+  #aboutDialogContainer,
+  #clientBox {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+  }
+
+  #bottomBox {
+    background-color: #141618 !important;
+    border-top: 1px solid #31363b !important;
+    color: #a1a9b1 !important;
+  }
+
+  #trademark {
+    color: #a1a9b1 !important;
+  }
+
+  /* ==========================================================================
+     Add Card & Add Address Subdialogs (055400.png - editCreditCard.xhtml & editAddress.xhtml)
+     ========================================================================== */
+
+  .editCreditCardForm,
+  .editAddressForm,
+  #form {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    padding: 4px 2px !important;
+    gap: 10px !important;
+  }
+
+  .editCreditCardForm > label,
+  .editCreditCardForm > div,
+  .editAddressForm > label {
+    color: #fcfcfc !important;
+    font-size: 13px !important;
+  }
+
+  .editCreditCardForm .label-text,
+  .editAddressForm .label-text {
+    display: inline-block !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+    color: #fcfcfc !important;
+  }
+
+  #controls-container {
+    border-top: 1px solid #31363b !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+    background-color: #202326 !important;
+  }
+
+  /* ==========================================================================
+     Print Preview Sidebar & Toolbar (055428.png - chrome://global/content/print.html)
+     ========================================================================== */
+
+  #print,
+  body#print {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    --background-color-canvas: #202326 !important;
+    --background-color-box: #181a1d !important;
+    --color-accent-primary: #3daee9 !important;
+    --button-background-color-primary: rgb(41, 128, 185) !important;
+    --button-background-color-primary-hover: #3daee9 !important;
+    --button-border-color-primary: #3daee9 !important;
+    --button-text-color-primary: #ffffff !important;
+    --focus-outline: 1px solid #3daee9 !important;
+    --focus-outline-color: #3daee9 !important;
+  }
+
+  .header-container {
+    background-color: #1b1d20 !important;
+    border-bottom: 1px solid #31363b !important;
+    padding: 12px 16px !important;
+  }
+
+  .body-container {
+    background-color: #202326 !important;
+    padding: 12px 16px !important;
+  }
+
+  .footer-container {
+    background-color: #1b1d20 !important;
+    border-top: 1px solid #31363b !important;
+    padding: 12px 16px !important;
+  }
+
+  #print hr {
+    border: none !important;
+    border-top: 1px solid #31363b !important;
+  }
+
+  /* Destination select with printer/PDF icon (#printer-picker[iconic] in 055428.png) */
+  select[iconic],
+  #printer-picker {
+    padding-inline-start: 32px !important;
+    padding-inline-end: 28px !important;
+    background-position: right 10px center, left 8px center !important;
+    background-repeat: no-repeat, no-repeat !important;
+  }
+
+  /* Segmented Control (Portrait / Landscape in 055428.png) */
+  moz-segmented-control,
+  .segmented-button {
+    --segmented-control-background-color: #141618 !important;
+    --segmented-control-border-radius: 6px !important;
+    background-color: #141618 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 6px !important;
+    padding: 2px !important;
+  }
+
+  moz-segmented-control-item {
+    --button-border-radius: 4px !important;
+    --button-background-color-primary: rgb(41, 128, 185) !important;
+    --button-background-color-primary-hover: #3daee9 !important;
+    --button-border-color-primary: #3daee9 !important;
+    --button-text-color-primary: #ffffff !important;
+    --button-background-color-ghost: transparent !important;
+    --button-background-color-ghost-hover: rgba(61, 174, 233, 0.16) !important;
+    --button-text-color-ghost: #a1a9b1 !important;
+    --button-text-color-ghost-hover: #ffffff !important;
+  }
+
+  #more-settings > summary {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 6px 8px !important;
+    color: #fcfcfc !important;
+  }
+
+  #more-settings > summary:hover {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+  }
+
+  /* ==========================================================================
+     Library Window: Show All History / Manage Bookmarks
+     (063107.png, 063137.png - chrome://browser/content/places/places.xhtml)
+     ========================================================================== */
+
+  #placesWindow,
+  #places {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  #placesToolbar {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border-bottom: 1px solid #31363b !important;
+    padding: 3px 8px !important;
+    min-height: 34px !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  /* Back / Forward & Organize / Views / Maintenance toolbar buttons in Library */
+  #placesToolbar > toolbarbutton,
+  #placesMenu > menu {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: transparent !important;
+    color: #fcfcfc !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 3px 8px !important;
+    margin: 0 1px !important;
+    min-height: 26px !important;
+    height: 26px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  #placesToolbar > #back-button,
+  #placesToolbar > #forward-button {
+    padding: 3px 5px !important;
+    min-width: 26px !important;
+    width: 26px !important;
+  }
+
+  #placesToolbar > toolbarbutton:not([disabled="true"]):hover,
+  #placesMenu > menu:not([disabled="true"]):hover {
+    background-color: rgba(61, 174, 233, 0.16) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+    color: #ffffff !important;
+  }
+
+  #placesToolbar > toolbarbutton:not([disabled="true"]):is(:active, [open="true"]),
+  #placesMenu > menu:is([open="true"], [_moz-menuactive="true"]) {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* Unbox <moz-input-search id="searchFilter"> host so there is NO search-box-in-a-search-box (063107.png) */
+  #searchFilter,
+  moz-input-search#searchFilter {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 2px !important;
+    min-height: 28px !important;
+  }
+
+  #detailsPane input,
+  #detailsPane textarea {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    min-height: 28px !important;
+    padding: 3px 8px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  #detailsPane input:hover:not(:disabled),
+  #detailsPane textarea:hover:not(:disabled) {
+    border-color: rgba(61, 174, 233, 0.65) !important;
+  }
+
+  #detailsPane input:focus,
+  #detailsPane textarea:focus {
+    border-color: #3daee9 !important;
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35) !important;
+  }
+
+  /* Left Places Sidebar Tree (#placesList) matching Dolphin Places panel (063833.png) */
+  #placesView {
+    background-color: #141618 !important;
+  }
+
+  #placesList {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border: none !important;
+    border-inline-end: 1px solid #31363b !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 4px !important;
+  }
+
+  #placesList > treechildren::-moz-tree-row,
+  .sidebar-placesTree > treechildren::-moz-tree-row {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    outline: none !important;
+  }
+
+  #placesList > treechildren::-moz-tree-row(hover),
+  .sidebar-placesTree > treechildren::-moz-tree-row(hover) {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.40) !important;
+    border-radius: 5px !important;
+  }
+
+  #placesList > treechildren::-moz-tree-row(selected),
+  #placesList > treechildren::-moz-tree-row(selected, focus),
+  .sidebar-placesTree > treechildren::-moz-tree-row(selected),
+  .sidebar-placesTree > treechildren::-moz-tree-row(selected, focus) {
+    background-color: rgba(61, 174, 233, 0.26) !important;
+    border: 1px solid rgba(61, 174, 233, 0.55) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  #placesList > treechildren::-moz-tree-cell-text(selected),
+  .sidebar-placesTree > treechildren::-moz-tree-cell-text(selected) {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+  }
+
+  #placesView > splitter {
+    border: none !important;
+    border-inline-end: 1px solid #31363b !important;
+    background-color: transparent !important;
+    min-width: 1px !important;
+    width: 1px !important;
+  }
+
+  /* Right Content Tree (#placeContent) & Bottom Inspector Details Pane (#detailsPane) */
+  #contentView,
+  #placeContent {
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  #detailsPane {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border-top: 1px solid #31363b !important;
+    padding: 12px 16px !important;
+  }
+
+  #detailsPane .infoBoxExpanderLabel {
+    color: #a1a9b1 !important;
+  }
+
+  /* ==========================================================================
+     Browser Sidebar Documents (051818.png - Bookmarks, History, Launcher)
+     ========================================================================== */
+
+  .sidebar-panel {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+  }
+
+  #sidebar-search-container {
+    padding: 8px !important;
+    background-color: #202326 !important;
+    border-bottom: 1px solid #31363b !important;
+  }
+
+  #sidebar-search-container #search-box {
+    min-height: 30px !important;
+    height: 30px !important;
+    border-radius: 4px !important;
+    background-color: #141618 !important;
+    border: 1px solid #3a3f44 !important;
+  }
+
+  .sidebar-placesTree {
+    background-color: #141618 !important;
+    border: none !important;
+  }
+
+  /* ==========================================================================
+     Keybinds Page (about:keyboard / customkeys)
+     ========================================================================== */
+
+  .key-actions {
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+  }
+
+  .key-actions .currentShortcut {
+    max-width: none !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  .moz-badge {
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    outline: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    padding: 4px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Library Downloads View folder action button (071103.png) */
+  .downloadButton {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #292c30 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    min-width: 32px !important;
+    width: 32px !important;
+    max-width: 32px !important;
+    min-height: 32px !important;
+    height: 32px !important;
+    max-height: 32px !important;
+    margin: auto 0 auto 8px !important;
+    padding: 0 !important;
+    align-self: center !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .downloadButton:hover:not(:disabled) {
+    background-color: rgba(61, 174, 233, 0.30) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+  }
+
+  /* In-page Search Handoff UI (<content-search-handoff-ui> in about:newtab & about:privatebrowsing 070816.png) */
+  content-search-handoff-ui,
+  :host(content-search-handoff-ui) {
+    --content-search-handoff-ui-background-color: #202326 !important;
+    --content-search-handoff-ui-color: #fcfcfc !important;
+    --content-search-handoff-ui-fill: #fcfcfc !important;
+    --content-search-handoff-ui-caret-color: #3daee9 !important;
+    --content-search-handoff-ui-border-width: 1px !important;
+    --content-search-handoff-ui-border-radius: 4px !important;
+    --content-search-handoff-ui-unfocused-border-color: #3a3f44 !important;
+    --content-search-handoff-ui-fakefocus-border-color: #3daee9 !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-inner: rgba(61, 174, 233, 0.35) !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-outer: transparent !important;
+  }
+
+  button.search-handoff-button,
+  .search-handoff-button {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  button.search-handoff-button:hover,
+  .search-handoff-button:hover {
+    background-color: #262a2e !important;
+    border-color: #3daee9 !important;
+  }
+
+  :host([fakefocus]:not([disabled])) .search-handoff-button,
+  button.search-handoff-button:focus {
+    background-color: #141618 !important;
+    border-color: #3daee9 !important;
+    box-shadow: 0 0 0 1px #3daee9, 0 0 6px rgba(61, 174, 233, 0.45) !important;
+  }
+
+  /* Slim Breeze Scrollbars */
+  * {
+    scrollbar-color: #4e5459 transparent !important;
+    scrollbar-width: thin !important;
+  }
+}
+
+/* Keybinds page (about:keyboard) layout alignment */
+@-moz-document url-prefix("about:keyboard"),
+               url-prefix("chrome://browser/content/customkeys/") {
+  body {
+    padding-inline-start: 0 !important;
+    padding-inline-end: 24px !important;
+    gap: 24px !important;
+  }
+}
+
+/* ==========================================================================
+   New Tab & Private Browsing New Tab (about:newtab, about:home, about:privatebrowsing)
+   Fixes Private Mode New Tab (070816.png), gear icon (051056.png) & customize drawer
+   ========================================================================== */
+
+@-moz-document url("about:newtab"),
+               url("about:home"),
+               url-prefix("about:privatebrowsing"),
+               url-prefix("chrome://browser/content/aboutPrivateBrowsing.html") {
+  :root,
+  html,
+  html.private,
+  body {
+    --background-color-canvas: #141618 !important;
+    --newtab-background-color: #141618 !important;
+    --newtab-background-color-secondary: #202326 !important;
+    --link-color: #3daee9 !important;
+    --link-color-hover: #62c1f2 !important;
+    --link-color-active: #2980b9 !important;
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* Unbox .search-inner-wrapper so it never double-borders .search-handoff-button */
+  .search-inner-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .search-wrapper .search-handoff-button {
+    background-color: #202326 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    color: #fcfcfc !important;
+  }
+
+  .search-wrapper .search-handoff-button:hover {
+    background-color: #262a2e !important;
+    border-color: #3daee9 !important;
+  }
+
+  .search-wrapper .search-handoff-button:focus {
+    background-color: #141618 !important;
+    border-color: #3daee9 !important;
+    box-shadow: 0 0 0 1px #3daee9, 0 0 6px rgba(61, 174, 233, 0.45) !important;
+  }
+
+  #private-browsing-myths:link,
+  #private-window-basics:link,
+  #nova-promo-link:link {
+    color: #3daee9 !important;
+  }
+
+  #private-browsing-myths:link:hover,
+  #private-window-basics:link:hover,
+  #nova-promo-link:link:hover {
+    color: #62c1f2 !important;
+  }
+
+  /* Customize Slide-Out Drawer (051056.png) */
+  .customize-menu {
+    background-color: #202326 !important;
+    color: #fcfcfc !important;
+    border-inline-start: 1px solid #3a3f44 !important;
+    border-radius: 8px 0 0 8px !important;
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.55) !important;
+    --customize-menu-bg: #202326 !important;
+    --newtab-background-color-secondary: #202326 !important;
+  }
+
+  /* Fix gear icon overlapping "Manage more settings" in bottom footer (051056.png) */
+  .external-link {
+    appearance: none !important;
+    background-color: transparent !important;
+    background-position: 8px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px 16px !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 6px 12px 6px 32px !important;
+    color: #3daee9 !important;
+    fill: #3daee9 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  .external-link:hover {
+    background-color: rgba(61, 174, 233, 0.14) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Edit / Customize Page Button (Bottom Right) */
+  .personalizeButtonWrapper,
+  menu.personalizeButtonWrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .personalize-button,
+  moz-button.open-customization-button,
+  .open-customization-button {
+    background-color: #202326 !important;
+    border: 1px solid #31363b !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+    color: #fcfcfc !important;
+    --button-background-color-primary: #202326 !important;
+    --button-border-color-primary: #31363b !important;
+    --button-background-color: #202326 !important;
+    --button-border-color: #31363b !important;
+    --button-border-radius: 4px !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .personalize-button:hover,
+  moz-button.open-customization-button:hover,
+  .open-customization-button:hover {
+    background-color: #292c30 !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+    --button-background-color-primary: #292c30 !important;
+    --button-border-color-primary: #3daee9 !important;
+  }
+
+  .personalize-button[aria-expanded="true"],
+  moz-button.open-customization-button[aria-expanded="true"],
+  .open-customization-button[aria-expanded="true"],
+  .personalize-button:is(:active, [open]),
+  moz-button.open-customization-button:is(:active, [open]) {
+    background-color: rgb(41, 128, 185) !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+    --button-background-color-primary: rgb(41, 128, 185) !important;
+    --button-border-color-primary: #3daee9 !important;
+  }
+}
+
+/* ==========================================================================
+   PDF.js Built-In PDF Viewer (resource://pdf.js/web/viewer.html)
+   ========================================================================== */
+
+@-moz-document url-prefix("resource://pdf.js/"),
+               url-prefix("chrome://pdfjs/"),
+               url-prefix("about:pdf") {
+  :root {
+    --main-color: #fcfcfc !important;
+    --body-bg-color: #141618 !important;
+    --toolbar-bg-color: #202326 !important;
+    --sidebar-toolbar-bg-color: #202326 !important;
+    --sidebar-bg-color: #202326 !important;
+    --sidebar-narrow-bg-color: #202326 !important;
+    --toolbar-border-color: #31363b !important;
+    --separator-color: #31363b !important;
+    --field-color: #fcfcfc !important;
+    --field-bg-color: #141618 !important;
+    --field-border-color: #3a3f44 !important;
+    --button-hover-color: rgba(61, 174, 233, 0.18) !important;
+    --toggled-btn-color: #ffffff !important;
+    --toggled-btn-text-color: #ffffff !important;
+    --toggled-btn-bg-color: rgba(61, 174, 233, 0.28) !important;
+    --toggled-hover-active-btn-color: rgba(61, 174, 233, 0.38) !important;
+    --dropdown-btn-bg-color: #292c30 !important;
+    --dropdown-btn-border: 1px solid #3a3f44 !important;
+    --doorhanger-bg-color: #202326 !important;
+    --doorhanger-border-color: #3a3f44 !important;
+    --doorhanger-hover-bg-color: rgba(61, 174, 233, 0.25) !important;
+    --doorhanger-hover-color: #ffffff !important;
+    --doorhanger-separator-color: #31363b !important;
+    --progressBar-color: #3daee9 !important;
+    --progressBar-bg-color: #181a1d !important;
+  }
+
+  #toolbarContainer,
+  .findbar,
+  #secondaryToolbar {
+    background-color: #202326 !important;
+    border-color: #31363b !important;
+  }
+
+  .toolbarButton,
+  .secondaryToolbarButton,
+  .dialogButton {
+    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .toolbarButton:hover,
+  .secondaryToolbarButton:hover {
+    background-color: rgba(61, 174, 233, 0.16) !important;
+    border-color: rgba(61, 174, 233, 0.5) !important;
+  }
+
+  .toolbarButton.toggled,
+  .splitToolbarButton.toggled > .toolbarButton {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    border-color: #3daee9 !important;
+  }
+
+  .toolbarField {
+    background-color: #141618 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    color: #fcfcfc !important;
+  }
+
+  .toolbarField:focus {
+    border-color: #3daee9 !important;
+  }
+}
+
+/* ==========================================================================
+   Web Developer Tools (051659.png) & Parent Process Browser Console (051720.png)
+   ========================================================================== */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools") {
+  :root {
+    --theme-body-background: #141618 !important;
+    --theme-body-emphasized-background: #202326 !important;
+    --theme-body-alternate-emphasized-background: #1b1d20 !important;
+    --theme-sidebar-background: #202326 !important;
+    --theme-tab-toolbar-background: #16181b !important;
+    --theme-toolbar-background: #202326 !important;
+    --theme-toolbar-alternate-background: #1b1d20 !important;
+    --theme-toolbar-color: #fcfcfc !important;
+    --theme-toolbar-selected-color: #ffffff !important;
+    --theme-toolbar-background-hover: rgba(61, 174, 233, 0.14) !important;
+    --theme-toolbar-background-alt: #181a1d !important;
+    --theme-toolbar-hover: rgba(61, 174, 233, 0.16) !important;
+    --theme-toolbar-hover-active: rgba(61, 174, 233, 0.25) !important;
+    --theme-toolbar-separator: #31363b !important;
+    --toolbarbutton-background: #292c30 !important;
+    --toolbarbutton-hover-background: rgba(61, 174, 233, 0.18) !important;
+    --toolbarbutton-checked-background: rgba(61, 174, 233, 0.28) !important;
+    --toolbarbutton-checked-color: #ffffff !important;
+    --theme-accordion-header-background: #202326 !important;
+    --theme-accordion-header-hover-background: #292c30 !important;
+    --theme-selection-background: rgba(61, 174, 233, 0.28) !important;
+    --theme-selection-background-hover: rgba(61, 174, 233, 0.16) !important;
+    --theme-selection-color: #ffffff !important;
+    --theme-splitter-color: #31363b !important;
+    --theme-emphasized-splitter-color: #3a3f44 !important;
+    --theme-popup-background: #202326 !important;
+    --theme-popup-color: #fcfcfc !important;
+    --theme-popup-border-color: #3a3f44 !important;
+    --theme-popup-dimmed: rgba(61, 174, 233, 0.18) !important;
+    --theme-focus-outline-color: #3daee9 !important;
+    --blue-50: #3daee9 !important;
+    --blue-55: #3daee9 !important;
+    --blue-60: #2980b9 !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* DevTools Top Tab Bar & Inspector Sub-Tabs */
+  .devtools-tabbar,
+  .tabs-menu {
+    background-color: #16181b !important;
+    border-bottom: 1px solid #31363b !important;
+  }
+
+  .devtools-tab,
+  .tabs-menu-item {
+    background-color: transparent !important;
+    color: #a1a9b1 !important;
+    border-radius: 4px 4px 0 0 !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  .devtools-tab:hover:not(.selected),
+  .tabs-menu-item:hover:not(.is-active) {
+    background-color: #272a2e !important;
+    color: #fcfcfc !important;
+  }
+
+  .devtools-tab.selected,
+  .devtools-tab[aria-selected="true"],
+  .tabs-menu-item.is-active {
+    background-color: #202326 !important;
+    color: #ffffff !important;
+  }
+
+  .devtools-tab-line {
+    background-color: #3daee9 !important;
+    height: 2px !important;
+  }
+
+  /* DevTools Filter & Search Inputs */
+  .devtools-filterinput,
+  .devtools-searchinput {
+    background-color: #141618 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    color: #fcfcfc !important;
+  }
+
+  .devtools-filterinput:focus,
+  .devtools-searchinput:focus {
+    border-color: #3daee9 !important;
+  }
+
+  /* DevTools Buttons */
+  .devtools-button {
+    border-radius: 4px !important;
+  }
+
+  .devtools-button:hover:not(:disabled) {
+    background-color: rgba(61, 174, 233, 0.16) !important;
+  }
+
+  .devtools-button.checked,
+  .devtools-button[aria-pressed="true"] {
+    background-color: rgba(61, 174, 233, 0.28) !important;
+    color: #ffffff !important;
+  }
+
+  /* Parent Process Browser Console Header Bar (051720.png) */
+  .chrome-debug-toolbar {
+    background-color: #202326 !important;
+    border-bottom: 1px solid #31363b !important;
+    color: #fcfcfc !important;
+    padding: 4px 8px !important;
+  }
+
+  .chrome-debug-toolbar input[type="radio"] {
+    accent-color: #3daee9 !important;
+  }
+
+  .webconsole-output,
+  .jsterm-input-container {
+    background-color: #141618 !important;
+  }
+
+  /* DevTools Doorhanger Settings & Meatball Menus
+     (Fixes Browser Console gear menu 055741.png, Debugger gear menu 055910.png,
+      and DevTools meatball '...' menu 055928.png) */
+  *:focus,
+  *:focus-visible,
+  *:-moz-focusring {
+    outline-style: none !important;
+  }
+
+  *::-moz-focus-inner {
+    border: 0 !important;
+  }
+
+  .tooltip-container[type="doorhanger"] {
+    filter: none !important;
+  }
+
+  .tooltip-container[type="doorhanger"] > .tooltip-panel,
+  .tooltip-panel {
+    background-color: rgb(28, 31, 34) !important;
+    color: #fcfcfc !important;
+    border: 1px solid rgb(76, 78, 81) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  /* Hide speech-bubble tail arrow on DevTools doorhanger menus */
+  .tooltip-arrow {
+    display: none !important;
+  }
+
+  .tooltip-container .menu,
+  .tooltip-panel ul.menu,
+  .menu-standard-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  .tooltip-container hr,
+  .tooltip-panel hr,
+  .tooltip-panel [role="separator"] {
+    border: none !important;
+    border-top: 1px solid rgb(76, 78, 81) !important;
+    background: transparent !important;
+    height: 0 !important;
+    margin: 4px 8px !important;
+  }
+
+  .tooltip-container .menuitem > .command,
+  .tooltip-panel .menuitem > .command,
+  .tooltip-panel button.command,
+  .tooltip-panel [role^="menuitem"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    color: #fcfcfc !important;
+    padding-block: 5px !important;
+    padding-inline-start: 28px !important;
+    padding-inline-end: 12px !important;
+    margin: 1px 2px !important;
+    min-height: 28px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    box-shadow: none !important;
+    width: calc(100% - 4px) !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.08s ease, border-color 0.08s ease !important;
+  }
+
+  .tooltip-container .menuitem > .command:hover:not(:disabled):not([aria-disabled="true"]),
+  .tooltip-container .menuitem > .command:focus-visible,
+  .tooltip-panel .menuitem > .command:hover:not(:disabled):not([aria-disabled="true"]),
+  .tooltip-panel .menuitem > .command:focus-visible,
+  .tooltip-panel button.command:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: rgba(61, 174, 233, 0.30) !important;
+    border: 1px solid rgba(61, 174, 233, 0.85) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+
+  .tooltip-container .menuitem > .command:disabled,
+  .tooltip-container .menuitem > .command[aria-disabled="true"],
+  .tooltip-panel .menuitem > .command:disabled,
+  .tooltip-panel .menuitem > .command[aria-disabled="true"] {
+    color: #a1a9b1 !important;
+    opacity: 0.6 !important;
+  }
+
+  /* DevTools <select> & Toolbar Dropdowns (Fixes Memory View: Tree Map in 055946.png & Settings F1) */
+  select,
+  .devtools-toolbar-select {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: #292c30 !important;
+    color: #fcfcfc !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 4px !important;
+    padding: 3px 24px 3px 8px !important;
+    min-height: 24px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12px !important;
+    background-image: url("chrome://global/skin/icons/arrow-down-12.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 6px center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill !important;
+    fill: #fcfcfc !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  select:hover:not(:disabled),
+  .devtools-toolbar-select:hover:not(:disabled),
+  select:focus,
+  .devtools-toolbar-select:focus {
+    background-color: #31363b !important;
+    border-color: #3daee9 !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+
+  /* DevTools Checkboxes & Radios (Settings F1 panel, Memory tool 055946.png, Browser Console 055741.png) */
+  input[type="checkbox"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    border-radius: 3px !important;
+    border: 1.5px solid #535659 !important;
+    background-color: #141618 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  input[type="checkbox"]:hover:not(:disabled) {
+    border-color: #3daee9 !important;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #3daee9 !important;
+    border-color: #3daee9 !important;
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 11px 11px !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+  }
+
+  input[type="radio"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid #535659 !important;
+    background-color: #141618 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+  }
+
+  input[type="radio"]:hover:not(:disabled) {
+    border-color: #3daee9 !important;
+  }
+
+  input[type="radio"]:checked {
+    border-color: #3daee9 !important;
+    background-color: #141618 !important;
+    background-image: radial-gradient(circle, #3daee9 0%, #3daee9 42%, transparent 46%) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 13px 13px !important;
+  }
+
+  /* DevTools Settings Panel (F1 - chrome://devtools/content/framework/toolbox-options.html) */
+  #options-panel,
+  .options-groupbox {
+    color: #fcfcfc !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  #options-panel label,
+  #options-panel legend {
+    color: #fcfcfc !important;
+  }
+
+  #options-panel .options-groupdescription,
+  #options-panel .preference-description {
+    color: #a1a9b1 !important;
+  }
+}
+
+/* ==========================================================================
+   View Page Source (060028.png - view-source:)
+   KDE Kate / KSyntaxHighlighting Breeze Dark Color Scheme
+   ========================================================================== */
+
+@-moz-document url-prefix("view-source:") {
+  :root,
+  html,
+  body,
+  body#viewsource {
+    color-scheme: dark !important;
+    background-color: #141618 !important;
+    color: #fcfcfc !important;
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+
+  pre {
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+  }
+
+  /* Line number gutter matching KDE Kate Breeze Dark */
+  body#viewsource {
+    padding-inline-start: 52px !important;
+  }
+
+  span[id]::before {
+    color: #7f8c8d !important;
+    background-color: #1b1d20 !important;
+    border-inline-end: 1px solid #31363b !important;
+    padding-inline-end: 8px !important;
+    margin-inline-start: -52px !important;
+    width: 40px !important;
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+    user-select: none !important;
+  }
+
+  /* HTML/XML Tags (<div, </div>) - Breeze Blue (#3daee9) */
+  .start-tag,
+  .end-tag {
+    color: #3daee9 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Attribute Names (class=, href=, src=) - Breeze Warm Amber (#fdbc4b) */
+  .attribute-name {
+    color: #fdbc4b !important;
+    font-weight: 500 !important;
+  }
+
+  /* Attribute Values ("...") - Breeze Emerald Green (#27ae60) */
+  .attribute-value {
+    color: #27ae60 !important;
+    font-weight: 400 !important;
+  }
+
+  a.attribute-value {
+    color: #2ecc71 !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(46, 204, 113, 0.55) !important;
+  }
+
+  a.attribute-value:hover {
+    color: #58d68d !important;
+    text-decoration-color: #58d68d !important;
+  }
+
+  /* Comments (<!-- ... -->) - Breeze Muted Slate (#7f8c8d) */
+  .comment {
+    color: #7f8c8d !important;
+    font-style: italic !important;
+  }
+
+  /* Doctype & Markup Declarations (<!DOCTYPE html>) - Breeze Purple (#af7ac5) */
+  .doctype,
+  .markupdeclaration {
+    color: #af7ac5 !important;
+    font-style: italic !important;
+  }
+
+  /* Processing Instructions & Entities (&amp;, &#160;) - Breeze Cyan (#29b6f6) */
+  .pi,
+  .entity {
+    color: #29b6f6 !important;
+    font-weight: 400 !important;
+  }
+
+  /* CDATA Sections */
+  .cdata {
+    color: #f39c12 !important;
+  }
+
+  /* Parse Errors - Breeze Negative Red (#da4453) */
+  .error,
+  .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype, .pi, .entity, .attribute-name, .attribute-value) {
+    color: #da4453 !important;
+    font-weight: 600 !important;
+    text-decoration: underline wavy #da4453 !important;
+  }
+
+  ::selection {
+    background-color: rgba(61, 174, 233, 0.35) !important;
+    color: #ffffff !important;
+  }
+
+  * {
+    scrollbar-color: #4e5459 transparent !important;
+    scrollbar-width: thin !important;
+  }
+}

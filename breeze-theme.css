@@ -1,0 +1,2526 @@
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze Theme for Mozilla Firefox
+   Replicates the exact UI and UX design language of Qt6 Breeze (Dolphin)
+   ========================================================================== */
+
+:root {
+  /* Design Tokens from KDE Breeze Dark */
+  --kde-window-bg: rgb(32, 35, 38);
+  --kde-window-bg-alt: rgb(41, 44, 48);
+  --kde-window-fg: rgb(252, 252, 252);
+  --kde-window-fg-inactive: rgb(161, 169, 177);
+  --kde-view-bg: rgb(20, 22, 24);
+  --kde-view-bg-alt: rgb(29, 31, 34);
+  --kde-view-fg: rgb(252, 252, 252);
+  --kde-view-fg-inactive: rgb(161, 169, 177);
+  --kde-button-bg: rgb(41, 44, 48);
+  --kde-button-fg: rgb(252, 252, 252);
+  --kde-selection-bg: rgb(61, 174, 233);
+  --kde-selection-fg: rgb(252, 252, 252);
+  --kde-selection-hover: rgba(61, 174, 233, 0.25);
+  --kde-selection-card: rgba(61, 174, 233, 0.22);
+  --kde-tooltip-bg: rgb(41, 44, 48);
+  --kde-tooltip-fg: rgb(252, 252, 252);
+  --kde-accent: rgb(61, 174, 233);
+  --kde-accent-fg: rgb(35, 38, 39);
+  --kde-border-color: rgb(58, 63, 68);
+  --kde-border-color-subtle: rgb(49, 54, 59);
+  --kde-hover-bg: rgba(61, 174, 233, 0.16);
+  --kde-active-bg: rgba(61, 174, 233, 0.25);
+  --kde-negative: rgb(218, 68, 83);
+  --kde-positive: rgb(39, 174, 96);
+  --kde-btn-primary-bg: rgb(41, 128, 185);
+  --kde-btn-primary-hover: rgb(61, 174, 233);
+
+  /* Geometry & Typography metrics matching Qt6 Breeze (GSL 8px Popup Standard) */
+  --breeze-radius: 5px;
+  --breeze-menu-radius: 8px;
+  --navbar-height: 38px;
+  --urlbar-height: 30px;
+  --tab-min-height: 32px;
+
+  /* Remove all Firefox dotted focus rings globally (GSL No-Dotted-Lines Standard) */
+  --default-focusring: none !important;
+  --default-focusring-width: 0px !important;
+  --focus-outline: none !important;
+}
+
+:root,
+:root[privatebrowsingmode],
+:root[privatebrowsingmode="temporary"],
+:root[lwtheme] {
+  /* Overriding Firefox internal & Private Window (firefox-privatewindow@mozilla.org) theme variables */
+  --lwt-accent-color: #16181b !important;
+  --lwt-accent-color-inactive: #16181b !important;
+  --lwt-text-color: var(--kde-window-fg) !important;
+  --toolbar-bgcolor: var(--kde-window-bg) !important;
+  --toolbar-color: var(--kde-window-fg) !important;
+  --tab-selected-bgcolor: var(--kde-window-bg) !important;
+  --tab-selected-textcolor: var(--kde-window-fg) !important;
+  --tab-line-color: var(--kde-accent) !important;
+  --tab-border-color-selected-trailing: #3a3f44 !important;
+  --chrome-content-separator-color: var(--kde-border-color) !important;
+  --lwt-toolbar-field-background-color: var(--kde-view-bg) !important;
+  --lwt-toolbar-field-color: var(--kde-view-fg) !important;
+  --lwt-toolbar-field-focus-background-color: var(--kde-view-bg) !important;
+  --lwt-toolbar-field-focus-color: var(--kde-view-fg) !important;
+  --lwt-toolbar-field-border-color: var(--kde-border-color) !important;
+  --toolbar-field-background-color: var(--kde-view-bg) !important;
+  --toolbar-field-focus-background-color: var(--kde-view-bg) !important;
+  --toolbar-field-color: var(--kde-view-fg) !important;
+  --toolbar-field-focus-color: var(--kde-view-fg) !important;
+  --toolbar-field-text-color: var(--kde-view-fg) !important;
+  --toolbar-field-text-color-focus: var(--kde-view-fg) !important;
+  --toolbar-field-border-color: var(--kde-border-color) !important;
+  --toolbar-field-focus-border-color: var(--kde-accent) !important;
+  --toolbar-field-border-color-focus: var(--kde-accent) !important;
+  --urlbar-background-color: var(--kde-view-bg) !important;
+  --urlbar-background-color-focus: var(--kde-view-bg) !important;
+  --toolbarbutton-hover-background: var(--kde-hover-bg) !important;
+  --toolbarbutton-active-background: var(--kde-active-bg) !important;
+  --toolbarbutton-border-radius: var(--breeze-radius) !important;
+  --tab-border-radius: var(--breeze-radius) !important;
+  --button-border-radius: 4px !important;
+
+  /* URL bar metrics, border-radius & overhang reset tokens (prevents dropdown overlapping urlbar in 070732.png) */
+  --urlbar-border-radius: 4px !important;
+  --urlbar-background-border-radius: 4px !important;
+  --urlbar-inner-border-radius: 4px !important;
+  --urlbarview-border-radius: 8px !important;
+  --urlbar-background-overhang-open: 0px !important;
+  --urlbar-joint-background-overlap: 0px !important;
+  --urlbar-joint-background-shadow-margin: 0px !important;
+  --urlbarview-joint-background-outset-inline: 0px !important;
+  --urlbarview-joint-background-outset-block: 0px !important;
+  --urlbar-input-growth-open-inline: 0px !important;
+  --urlbar-input-growth-open-block: 0px !important;
+  --urlbarview-margin-inline: 0px !important;
+  --urlbarview-margin-block: 4px !important;
+
+  /* Tab strip variables */
+  --tab-margin-block: 0px !important;
+  --tab-background-color: #1b1d20 !important;
+  --tab-background-color-hover: #272a2e !important;
+  --tab-background-color-selected: #202326 !important;
+  --tab-text-color-selected: #ffffff !important;
+  --tab-border-color-selected: #3a3f44 !important;
+  --tab-border: 1px solid #282c30 !important;
+  --tab-border-color: #282c30 !important;
+  --tab-border-color-hover: #3a3f44 !important;
+  --lwt-selected-tab-background-color: #202326 !important;
+
+  /* Neutralize hamburger menu rainbow divider variable */
+  --panel-separator-zap-gradient: none !important;
+
+  font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+}
+
+/* ==========================================================================
+   1. Window Titlebar & Non-CSD Clean Up
+   ========================================================================== */
+
+/* Non-CSD mode (browser.tabs.inTitlebar = 0):
+   KWin draws native window decorations. Hide Firefox's internal titlebar
+   spacers, buttonboxes, and inactive menubar slivers above tabs */
+:root:not([tabsintitlebar]) #toolbar-menubar[inactive] {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+}
+
+:root:not([tabsintitlebar]) .titlebar-buttonbox-container,
+:root:not([tabsintitlebar]) .titlebar-buttonbox,
+:root:not([tabsintitlebar]) .titlebar-spacer {
+  display: none !important;
+}
+
+/* CSD Mode (when tabs are in titlebar) */
+:root[tabsintitlebar] .titlebar-buttonbox {
+  margin-inline-end: 4px !important;
+  align-items: center !important;
+}
+
+:root[tabsintitlebar] .titlebar-button {
+  padding: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: var(--breeze-radius) !important;
+  margin: 2px 1px !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+:root[tabsintitlebar] .titlebar-button .toolbarbutton-icon {
+  width: 18px !important;
+  height: 18px !important;
+  background: none !important;
+  -moz-context-properties: none !important;
+}
+
+:root[tabsintitlebar] .titlebar-min .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-min:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+:root[tabsintitlebar] .titlebar-min:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-min:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-max .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-max:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+:root[tabsintitlebar] .titlebar-max:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-max:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-restore .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-restore:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+:root[tabsintitlebar] .titlebar-restore:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-restore:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-close .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-close:hover {
+  background-color: var(--kde-negative) !important;
+  border-color: var(--kde-negative) !important;
+}
+:root[tabsintitlebar] .titlebar-close:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-close:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close-active.svg") !important;
+}
+
+/* ==========================================================================
+   2. Tabs and Tabs Bar (Dolphin / Qt6 Breeze QTabBar Style + Container Colors)
+   ========================================================================== */
+
+#TabsToolbar {
+  --tab-min-height: 32px !important;
+  min-height: 32px !important;
+  max-height: 34px !important;
+  background-color: #16181b !important; /* Authentic Dolphin QTabBar strip background */
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  padding: 0 !important;
+}
+
+#tabbrowser-tabs {
+  --tab-min-height: 32px !important;
+  min-height: 32px !important;
+  padding-inline-start: 0 !important;
+  margin-inline-start: 0 !important;
+  border-inline-start: none !important;
+}
+
+.tabbrowser-tab {
+  min-height: 32px !important;
+  padding-inline: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+.tabbrowser-tab[fadein]:not([pinned]) {
+  max-width: 240px !important;
+  min-width: 100px !important;
+}
+
+.tabbrowser-tab .tab-stack {
+  min-height: 32px !important;
+  height: 32px !important;
+}
+
+/* Inactive Tab: distinct darker slate background with 1px border */
+.tabbrowser-tab .tab-background {
+  min-height: 32px !important;
+  height: 32px !important;
+  margin-block: 0 !important;
+  margin-inline: 1px !important;
+  border-radius: var(--breeze-radius) var(--breeze-radius) 0 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #282c30 !important;
+  border-bottom: 1px solid #16181b !important;
+  background-color: #1b1d20 !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+.tabbrowser-tab:not([selected]):not([multiselected]) .tab-label,
+.tabbrowser-tab:not([selected]):not([multiselected]) .tab-text {
+  color: var(--kde-window-fg-inactive) !important;
+}
+
+/* Inactive Tab Hover */
+.tabbrowser-tab:not([selected]):not([multiselected]):hover .tab-background {
+  background-color: #272a2e !important;
+  border-color: var(--kde-border-color) !important;
+}
+
+.tabbrowser-tab:not([selected]):not([multiselected]):hover .tab-label,
+.tabbrowser-tab:not([selected]):not([multiselected]):hover .tab-text {
+  color: var(--kde-window-fg) !important;
+}
+
+/* Active Tab: Dolphin / Qt6 Breeze signature active tab
+   Flush with navbar below, background #202326, solid 3px Breeze Blue top accent */
+.tabbrowser-tab[selected],
+.tabbrowser-tab[multiselected],
+.tabbrowser-tab:is([selected], [multiselected]) {
+  z-index: 5 !important;
+}
+
+.tabbrowser-tab[selected] .tab-background,
+.tabbrowser-tab[multiselected] .tab-background,
+.tabbrowser-tab:is([selected], [multiselected]) .tab-background {
+  background-color: var(--kde-window-bg) !important;
+  border-top: 3px solid var(--kde-accent) !important;
+  border-left: 1px solid var(--kde-border-color) !important;
+  border-right: 1px solid var(--kde-border-color) !important;
+  border-bottom: 1px solid var(--kde-window-bg) !important;
+  margin-bottom: -1px !important;
+  border-radius: var(--breeze-radius) var(--breeze-radius) 0 0 !important;
+}
+
+.tabbrowser-tab[selected] .tab-label,
+.tabbrowser-tab[selected] .tab-text,
+.tabbrowser-tab:is([selected], [multiselected]) .tab-label,
+.tabbrowser-tab:is([selected], [multiselected]) .tab-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   Tab Coloring: Firefox Multi-Account Containers in Qt6 Breeze Style
+   Applies container identity colors directly to the top accent bar
+   ========================================================================== */
+
+.tabbrowser-tab[usercontextid] .tab-background {
+  border-top-color: var(--identity-tab-color) !important;
+}
+
+.tabbrowser-tab[usercontextid]:not([selected]):not([multiselected]) .tab-background {
+  border-top: 2px solid var(--identity-tab-color) !important;
+}
+
+.tabbrowser-tab[usercontextid]:is([selected], [multiselected]) .tab-background {
+  border-top: 3px solid var(--identity-tab-color) !important;
+}
+
+/* Hide default underline line in favor of Breeze top accent */
+.tab-line,
+.tab-context-line {
+  display: none !important;
+}
+
+/* Tab Close Button */
+.tab-close-button {
+  width: 16px !important;
+  height: 16px !important;
+  padding: 1px !important;
+  margin: 0 4px !important;
+  border-radius: 50% !important;
+  opacity: 0.65 !important;
+  list-style-image: url("icons/close.svg") !important;
+  -moz-context-properties: fill, stroke !important;
+  fill: currentColor !important;
+  transition: opacity 0.15s ease, background-color 0.15s ease !important;
+}
+
+.tabbrowser-tab:hover .tab-close-button,
+.tabbrowser-tab[selected] .tab-close-button {
+  opacity: 0.9 !important;
+}
+
+.tab-close-button:hover {
+  background-color: var(--kde-negative) !important;
+  opacity: 1 !important;
+  fill: #ffffff !important;
+}
+
+/* New Tab Button (+) */
+#tabs-newtab-button,
+#new-tab-button {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 2px 4px !important;
+  padding: 4px !important;
+  border-radius: var(--breeze-radius) !important;
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+}
+
+#tabs-newtab-button .toolbarbutton-icon,
+#new-tab-button .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+  list-style-image: url("icons/newtab.svg") !important;
+  fill: currentColor !important;
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+/* ==========================================================================
+   3. Navigation Toolbar (Dolphin Toolbar UX & UI)
+   ========================================================================== */
+
+#nav-bar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding-inline: 6px !important;
+  padding-block: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#nav-bar-customization-target {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Hide flexible spring spacers in navbar to prevent strange gaps */
+#nav-bar toolbarspring,
+#nav-bar [id^="customizableui-special-spring"] {
+  display: none !important;
+}
+
+/* Standardized 28x28px Flat Breeze toolbar buttons */
+.toolbarbutton-1:not(:where(#urlbar-search-button)) {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  border-radius: var(--breeze-radius) !important;
+  padding: 0 !important;
+  margin: 1px 1px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* Ensure hidden / collapsed buttons are NEVER forced visible (fixes reload+stop coexistence) */
+.toolbarbutton-1[hidden="true"],
+.toolbarbutton-1[collapsed="true"],
+#stop-button[hidden="true"],
+#reload-button[hidden="true"] {
+  display: none !important;
+}
+
+.toolbarbutton-1:not(:where(#urlbar-search-button)) .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: currentColor !important;
+}
+
+/* Ensure inner badges and text never paint opaque backgrounds or extra padding over the button */
+.toolbarbutton-1 > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack),
+#unified-extensions-button .toolbarbutton-badge-stack,
+#downloads-button .toolbarbutton-badge-stack,
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* All toolbar buttons and URL bar page action buttons (Translate, Star/Favorites, Reader mode, Downloads, Menu, etc.) */
+.toolbarbutton-1:not([disabled="true"]):hover,
+#downloads-button:not([disabled="true"]):hover,
+#PanelUI-menu-button:not([disabled="true"]):hover,
+#unified-extensions-button:not([disabled="true"]):hover,
+.urlbar-page-action:not([disabled="true"]):hover,
+.urlbar-icon:not([disabled="true"]):hover,
+#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+.toolbarbutton-1:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
+#back-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
+#forward-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
+#reload-button:not([disabled="true"]):is(:active, :hover:active),
+#stop-button:not([disabled="true"]):is(:active, :hover:active),
+#downloads-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [attention]),
+#PanelUI-menu-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
+#unified-extensions-button:is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
+.urlbar-page-action:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
+.urlbar-icon:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
+#star-button-box:is(:active, :hover:active, [open], [open="true"], [starred="true"]),
+#reader-mode-button:is(:active, :hover:active, [open], [open="true"], [readeractive]),
+#translations-button:is(:active, :hover:active, [open], [open="true"], [translationsactive]),
+#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]) {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+}
+
+/* Starred bookmark & reader active icon fill */
+#star-button-box[starred="true"] #star-button {
+  fill: var(--kde-accent) !important;
+}
+
+#reader-mode-button[readeractive] > .urlbar-icon {
+  fill: var(--kde-accent) !important;
+}
+
+.urlbar-page-action {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  margin: 1px 1px !important;
+  padding: 0 !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-radius) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Preserve Firefox's native conditional visibility for URL bar page actions */
+.urlbar-page-action[hidden="true"],
+.urlbar-page-action[hidden],
+.urlbar-page-action[collapsed="true"],
+.urlbar-icon[hidden="true"],
+.urlbar-icon[hidden],
+.urlbar-input-container[pageproxystate="invalid"] > #page-action-buttons > .urlbar-page-action:not(#share-button),
+#identity-box.chromeUI ~ #page-action-buttons > .urlbar-page-action:not(#star-button-box, #split-view-button, #share-button),
+#urlbar[usertyping] > .urlbar-input-container > #page-action-buttons,
+.urlbar:not([usertyping]) > .urlbar-input-container > .urlbar-go-button,
+#urlbar-revert-button-container {
+  display: none !important;
+}
+
+/* Navigation Chevrons Group: < and > adjacent cluster matching Dolphin */
+#back-button {
+  margin-inline-end: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+#forward-button {
+  margin-inline-start: -1px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+#back-button:not([disabled="true"]):hover,
+#forward-button:not([disabled="true"]):hover {
+  z-index: 2 !important;
+}
+
+/* Micro-animations for Back, Forward, and Reload toolbar buttons */
+#back-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon,
+#reload-button .toolbarbutton-icon {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transform-origin: center center !important;
+}
+
+#back-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: translateX(-2px) !important;
+}
+
+#back-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: translateX(-4px) scale(0.92) !important;
+}
+
+#forward-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: translateX(2px) !important;
+}
+
+#forward-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: translateX(4px) scale(0.92) !important;
+}
+
+#reload-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: rotate(45deg) !important;
+}
+
+#reload-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: rotate(180deg) scale(0.92) !important;
+}
+
+#stop-reload-button {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+}
+
+#stop-reload-button > .toolbarbutton-1 {
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   3b. Bookmarks Toolbar (#PersonalToolbar - Qt6 Breeze Flat Toolbar Style)
+   ========================================================================== */
+
+#PersonalToolbar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  min-height: 28px !important;
+  padding: 2px 6px !important;
+  color: var(--kde-window-fg) !important;
+}
+
+#PlacesToolbarItems {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton),
+#PersonalToolbar #OtherBookmarks,
+#PersonalToolbar #import-button {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  margin: 1px 1px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):hover,
+#PersonalToolbar #OtherBookmarks:not([disabled="true"]):hover,
+#PersonalToolbar #import-button:not([disabled="true"]):hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+  color: #ffffff !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):is(:active, :hover:active, [open="true"], [open]),
+#PersonalToolbar #OtherBookmarks:not([disabled="true"]):is(:active, :hover:active, [open="true"], [open]),
+#PersonalToolbar #import-button:not([disabled="true"]):is(:active, :hover:active) {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+  color: #ffffff !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item > .toolbarbutton-icon,
+#PersonalToolbar #OtherBookmarks > .toolbarbutton-icon,
+#PersonalToolbar #import-button > .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+  margin-inline-end: 5px !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: currentColor !important;
+}
+
+/* ==========================================================================
+   4. Address Bar (Location / Breadcrumb Bar - Matches Qt6 Reference Image)
+   ========================================================================== */
+
+#urlbar-container {
+  --urlbar-container-height: 30px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding-block: 0 !important;
+  margin-block: auto !important;
+  margin-inline: 4px !important;
+  flex: 1 1 auto !important;
+  max-width: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#urlbar {
+  --urlbar-height: 30px !important;
+  --urlbar-toolbar-height: 30px !important;
+  --urlbar-border-radius: 4px !important;
+  --urlbar-background-border-radius: 4px !important;
+  --urlbar-inner-border-radius: 4px !important;
+  --urlbarview-border-radius: 4px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  border-radius: 4px !important;
+  top: 0 !important;
+  margin-block: auto !important;
+}
+
+.urlbar-background,
+#urlbar-background,
+.urlbar[popover-open] > .urlbar-background {
+  background-color: var(--kde-view-bg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+  inset: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  clip-path: none !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#urlbar:not([focused="true"]):not([focused]):hover > .urlbar-background,
+#urlbar:not([focused="true"]):not([focused]):hover > #urlbar-background {
+  border-color: #535659 !important;
+}
+
+/* Breeze Focus: crisp 1px #3daee9 border + subtle blue outer glow matching KDE reference */
+#urlbar[focused="true"] > .urlbar-background,
+#urlbar[focused] > .urlbar-background,
+#urlbar:focus-within > .urlbar-background,
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar:focus-within > #urlbar-background {
+  border-color: var(--kde-accent) !important;
+  box-shadow: 0 0 0 1px var(--kde-accent), 0 0 4px rgba(61, 174, 233, 0.45) !important;
+  border-radius: 4px !important;
+  outline: none !important;
+}
+
+/* Remove pill shape on URL bar search button and input adornments */
+#urlbar-search-button,
+#urlbar-search-mode-indicator,
+.searchmode-switcher {
+  border-radius: 4px !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  margin-block: auto !important;
+  height: 24px !important;
+  min-height: 24px !important;
+
+  /* Override moz-button Shadow DOM tokens so the switcher button matches Breeze */
+  --button-border-radius: 4px !important;
+  --button-border: 1px solid transparent !important;
+  --button-padding: 0 6px !important;
+  --button-min-height: 24px !important;
+  --button-background-color: transparent !important;
+  --button-background-color-hover: var(--kde-hover-bg) !important;
+  --button-border-color-hover: rgba(61, 174, 233, 0.5) !important;
+  --button-background-color-active: var(--kde-active-bg) !important;
+  --button-border-color-active: var(--kde-accent) !important;
+  --button-background-color-selected: var(--kde-active-bg) !important;
+  --button-border-color-selected: var(--kde-accent) !important;
+  --button-background-color-muted: transparent !important;
+  --button-border-color-muted: transparent !important;
+  --button-background-color-muted-hover: var(--kde-hover-bg) !important;
+  --button-border-color-muted-hover: rgba(61, 174, 233, 0.5) !important;
+  --button-background-color-muted-active: var(--kde-active-bg) !important;
+  --button-border-color-muted-active: var(--kde-accent) !important;
+  --button-background-color-muted-selected: var(--kde-active-bg) !important;
+  --button-border-color-muted-selected: var(--kde-accent) !important;
+  --button-background-color-ghost: transparent !important;
+  --button-border-color-ghost: transparent !important;
+  --button-background-color-ghost-hover: var(--kde-hover-bg) !important;
+  --button-border-color-ghost-hover: rgba(61, 174, 233, 0.5) !important;
+  --button-background-color-ghost-active: var(--kde-active-bg) !important;
+  --button-border-color-ghost-active: var(--kde-accent) !important;
+  --button-background-color-ghost-selected: var(--kde-active-bg) !important;
+  --button-border-color-ghost-selected: var(--kde-accent) !important;
+  --focus-outline: none !important;
+  --focus-outline-offset: 0px !important;
+}
+
+#urlbar-search-button:hover,
+#urlbar-search-mode-indicator:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+.searchmode-switcher:is([open], [open="true"], [aria-expanded="true"]) {
+  --button-background-color: var(--kde-active-bg) !important;
+  --button-background-color-muted: var(--kde-active-bg) !important;
+  --button-background-color-ghost: var(--kde-active-bg) !important;
+  --button-border: 1px solid var(--kde-accent) !important;
+  --button-border-color-muted: var(--kde-accent) !important;
+  --button-border-color-ghost: var(--kde-accent) !important;
+}
+
+/* Tight compact centered URL input container matching KDE search field */
+.urlbar-input-container {
+  height: 30px !important;
+  min-height: 30px !important;
+  padding-block: 0 !important;
+  padding-inline: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 4px !important;
+}
+
+/* Remove dark oval pill shape on security identity box wrapper and style individual left URL bar icons */
+#identity-box {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-inline: 0 !important;
+  height: 24px !important;
+  align-items: center !important;
+}
+
+/* Preserve Firefox's native conditional visibility for identity and tracking icons */
+#identity-box[hidden="true"],
+#identity-box[hidden],
+#trust-icon-container[hidden="true"],
+#trust-icon-container[hidden],
+#tracking-protection-icon-container[hidden="true"],
+#tracking-protection-icon-container[hidden],
+#identity-permission-box[hidden="true"],
+#identity-permission-box[hidden],
+#urlbar[pageproxystate="invalid"] #trust-icon-container,
+#urlbar[pageproxystate="invalid"] #tracking-protection-icon-container,
+#urlbar[pageproxystate="invalid"]:not([persistsearchterms]) #identity-box {
+  display: none !important;
+}
+
+#trust-icon-container,
+#tracking-protection-icon-container,
+#identity-icon-box,
+#identity-permission-box {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-radius) !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  padding-inline: 5px !important;
+  padding-block: 0 !important;
+  margin-block: auto !important;
+  margin-inline: 1px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#trust-icon-container:not([disabled="true"]):hover,
+#tracking-protection-icon-container:not([disabled="true"]):hover,
+#identity-icon-box:not([disabled="true"]):hover,
+#identity-permission-box:not([disabled="true"]):hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+#trust-icon-container:is(:active, :hover:active, [open], [open="true"]),
+#tracking-protection-icon-container:is(:active, :hover:active, [open], [open="true"]),
+#identity-icon-box:is(:active, :hover:active, [open], [open="true"]),
+#identity-permission-box:is(:active, :hover:active, [open], [open="true"]) {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+}
+
+/* Prevent breakout balloon expansion & popover overhang over toolbar buttons (070732.png) */
+#urlbar[breakout][breakout-extend],
+.urlbar[popover-open] {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+}
+
+#urlbar[breakout][breakout-extend] > .urlbar-input-container,
+.urlbar[popover-open] > .urlbar-input-container,
+.urlbar[popover-open][focused] > .urlbar-input-container {
+  height: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  padding-block: 0 !important;
+  padding-inline: 4px !important;
+  margin: 0 !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.urlbar-input-box {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+#urlbar-input {
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--kde-view-fg) !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  padding-block: 2px 0 !important;
+  padding-inline: 4px 6px !important;
+  margin-block: auto !important;
+  margin-inline: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Autocomplete Dropdown - Detached GSL 8px KDE Breeze Popup (Fixes 070732.png overlap & group labels) */
+.urlbarView-background {
+  display: none !important;
+}
+
+.urlbarView {
+  background: rgb(28, 31, 34) !important;
+  background-color: rgb(28, 31, 34) !important;
+  color: #fcfcfc !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  margin-block-start: 4px !important;
+  margin-inline: 0 !important;
+  width: 100% !important;
+  padding: 6px !important;
+  overflow-clip-margin: 0px !important;
+}
+
+.urlbarView-body-outer,
+.urlbarView-body-inner {
+  border-top: none !important;
+  background: transparent !important;
+}
+
+.urlbarView-results {
+  padding-block: 2px !important;
+  margin-inline: 0 !important;
+  width: 100% !important;
+  border-top: none !important;
+}
+
+.urlbarView-row {
+  border-radius: 5px !important;
+  margin-block: 1px !important;
+  margin-inline: 2px !important;
+  padding: 0 !important;
+  border: 1px solid transparent !important;
+  background-clip: border-box !important;
+  min-height: 30px !important;
+  transition: background-color 0.12s ease, border-color 0.12s ease !important;
+}
+
+/* Preserve top spacing for labeled section header rows ("Trending on Google" in 070732.png) */
+.urlbarView-row[label] {
+  margin-block-start: 28px !important;
+  margin-block-end: 1px !important;
+  margin-inline: 2px !important;
+  position: relative !important;
+}
+
+.urlbarView-row[label]::before {
+  top: -21px !important;
+  left: 8px !important;
+  margin: 0 !important;
+  color: #a1a9b1 !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+.urlbarView-row-inner {
+  padding-block: 4px !important;
+  padding-inline: 8px !important;
+  min-height: 28px !important;
+  border-radius: 5px !important;
+  align-items: center !important;
+}
+
+.urlbarView-title {
+  color: #fcfcfc !important;
+  font-size: 13px !important;
+}
+
+.urlbarView-url,
+.urlbarView-action {
+  color: #3daee9 !important;
+  font-size: 12.5px !important;
+}
+
+.urlbarView-row:hover:not([selected]) {
+  background-color: rgba(61, 174, 233, 0.16) !important;
+  border-color: rgba(61, 174, 233, 0.45) !important;
+  border-radius: 5px !important;
+}
+
+.urlbarView-row[selected] {
+  background-color: rgba(61, 174, 233, 0.28) !important;
+  border-color: rgba(61, 174, 233, 0.85) !important;
+  border-radius: 5px !important;
+  color: #ffffff !important;
+}
+
+.urlbarView-row[selected] .urlbarView-title,
+.urlbarView-row[selected] .urlbarView-url,
+.urlbarView-row[selected] .urlbarView-action {
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   5. Sidebar (Dolphin Places Sidebar Style & Vertical Launcher Strip)
+   ========================================================================== */
+
+:root {
+  --sidebar-background-color: var(--kde-window-bg) !important;
+  --sidebar-text-color: var(--kde-window-fg) !important;
+  --sidebar-border-color: var(--kde-border-color) !important;
+}
+
+#sidebar-main,
+sidebar-main {
+  background-color: var(--kde-window-bg) !important;
+  color: var(--kde-window-fg) !important;
+  border-inline-end: 1px solid var(--kde-border-color) !important;
+}
+
+#sidebar-box {
+  background-color: var(--kde-window-bg) !important;
+  border-inline-end: 1px solid var(--kde-border-color) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+#sidebar-box > #sidebar {
+  background-color: var(--kde-view-bg) !important;
+  color: var(--kde-view-fg) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+#sidebar-header {
+  background-color: var(--kde-window-bg) !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  padding: 6px 10px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--kde-window-fg) !important;
+}
+
+#sidebar-switcher-target {
+  appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  color: var(--kde-window-fg) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#sidebar-switcher-target:hover,
+#sidebar-switcher-target[active="true"] {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+#sidebar-close {
+  appearance: none !important;
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  padding: 4px !important;
+}
+
+#sidebar-close:hover {
+  background-color: var(--kde-negative) !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+#sidebar-splitter,
+#sidebar-launcher-splitter,
+.sidebar-splitter {
+  width: 2px !important;
+  min-width: 2px !important;
+  background: var(--kde-border-color-subtle) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+#sidebar-splitter:hover,
+#sidebar-launcher-splitter:hover,
+.sidebar-splitter:hover {
+  background: var(--kde-accent) !important;
+}
+
+/* ==========================================================================
+   6. Status Panel (Dolphin Status Badge)
+   ========================================================================== */
+
+#statuspanel {
+  bottom: 6px !important;
+  left: 8px !important;
+}
+
+#statuspanel-label {
+  background-color: var(--kde-button-bg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: 4px !important;
+  color: var(--kde-window-fg) !important;
+  padding: 3px 8px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Native XUL Tooltips (GSL Breeze Dark Tooltip) */
+tooltip {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: rgb(28, 31, 34) !important;
+  color: var(--kde-tooltip-fg) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ==========================================================================
+   7. Context Menus & Popups (Authentic Qt6 Breeze / Dolphin Styling)
+   ========================================================================== */
+
+/* Authentic Qt6 Breeze context menu container (single border, solid dark background) */
+menupopup {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  padding: 4px !important;
+  margin: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Nullify internal panel variables so Firefox doesn't calculate inner borders/margins */
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+}
+
+/* Eliminate duplicate inner frame, secondary borders, and nested padding inside menupopup */
+menupopup::part(content),
+menupopup::part(arrowscrollbox),
+menupopup::part(scrollbox),
+menupopup > arrowscrollbox,
+menupopup > .menupopup-arrowscrollbox,
+menupopup .menupopup-arrowscrollbox,
+.menupopup-arrowscrollbox {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Arrow panels and dropdown menus (Hamburger menu, Unified Extensions panel, etc.) */
+panel[type="arrow"],
+panel.cui-widget-panel,
+#appMenu-popup,
+#unified-extensions-panel {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Explicit Breeze Panel CSS Variables used by Firefox internally */
+  --panel-background: rgb(28, 31, 34) !important;
+  --panel-background-color: rgb(28, 31, 34) !important;
+  --panel-border-color: rgb(76, 78, 81) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-subview-body-padding: 0px !important;
+  --panel-subview-body-padding-block: 0px !important;
+  --panel-subview-body-padding-inline: 0px !important;
+  --arrowpanel-background: rgb(28, 31, 34) !important;
+  --arrowpanel-border-color: rgb(76, 78, 81) !important;
+  --arrowpanel-border-radius: var(--breeze-menu-radius) !important;
+  --arrowpanel-padding: 4px !important;
+}
+
+/* Ensure the content box is styled with solid Breeze background and crisp 1px border */
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: rgb(28, 31, 34) !important;
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  color: var(--kde-window-fg) !important;
+}
+
+/* Override panel-no-padding so that our 4px padding is applied cleanly */
+panel[type="arrow"].panel-no-padding::part(content),
+#appMenu-popup.panel-no-padding::part(content) {
+  padding: 4px !important;
+}
+
+/* Hide speech-bubble popover tail arrow to match Dolphin */
+.panel-arrow {
+  display: none !important;
+}
+
+/* Autocomplete panels (URL bar dropdown) */
+panel[type="autocomplete-richlistbox"] {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  --panel-background: rgb(28, 31, 34) !important;
+  --panel-background-color: rgb(28, 31, 34) !important;
+  --panel-border-color: rgb(76, 78, 81) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+}
+
+panel[type="autocomplete-richlistbox"]::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: rgb(28, 31, 34) !important;
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+}
+
+/* Intermediate containers in arrow panels reset */
+panelmultiview,
+panelview,
+.panel-viewcontainer,
+.panel-viewstack,
+.panel-subview-body {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Breeze Menu Items matching Dolphin */
+menu, menuitem, .subviewbutton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: 4px !important;
+  margin: 1px 2px !important;
+  min-height: 28px !important;
+  padding-block: 4px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 12px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.08s ease, border-color 0.08s ease !important;
+}
+
+/* Dolphin / Qt6 Breeze Item Hover & Active Selection:
+   Translucent accent background (#264a5e) with crisp accent border (#3daee9) */
+menu:is(:hover, [_moz-menuactive="true"]),
+menuitem:is(:hover, [_moz-menuactive="true"]),
+.subviewbutton:not(#appMenu-zoom-controls):is(:hover, [_moz-menuactive="true"]) {
+  background-color: rgba(61, 174, 233, 0.30) !important;
+  border: 1px solid rgba(61, 174, 233, 0.85) !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+}
+
+/* Disabled menu item styling */
+menu:where([disabled="true"]),
+menuitem:where([disabled="true"]),
+.subviewbutton:where([disabled="true"]) {
+  color: var(--kde-window-fg-inactive) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  opacity: 0.65 !important;
+}
+
+/* Dolphin Separators (single 1px line, inset 8px, no pseudo-elements) */
+menupopup menuseparator,
+#appMenu-fxa-separator,
+.panel-separator,
+toolbarseparator,
+menuseparator {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border: none !important;
+  background: none !important;
+  background-color: rgb(76, 78, 81) !important;
+  background-image: none !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  max-height: 1px !important;
+  margin: 4px 8px !important;
+  padding: 0 !important;
+}
+menuseparator::before,
+menupopup menuseparator::before,
+toolbarseparator::before,
+.panel-separator::before {
+  display: none !important;
+}
+
+/* Hide accesskey mnemonics underline unless Alt is held */
+menupopup menu [_moz-acceltext],
+menupopup menuitem [_moz-acceltext],
+.menu-text,
+.menu-iconic-text {
+  text-decoration: none !important;
+}
+
+/* Context Navigation Strip (Back, Forward, Reload, Bookmark/Star) */
+#context-navigation {
+  background-color: transparent !important;
+  padding: 2px 4px !important;
+}
+#context-navigation > .menuitem-iconic {
+  border-radius: 4px !important;
+  padding: 4px !important;
+  border: 1px solid transparent !important;
+}
+#context-navigation > .menuitem-iconic:is(:hover, [_moz-menuactive="true"]) {
+  background-color: rgba(61, 174, 233, 0.30) !important;
+  border: 1px solid rgba(61, 174, 233, 0.85) !important;
+}
+
+/* ==========================================================================
+   8. Clean Hamburger Menu (Removes promo box & rainbow gradient dividers)
+   ========================================================================== */
+
+#appMenu-fxa-status2,
+#appMenu-fxa-sign-in-promo,
+#PanelUI-fxa-menu-sign-in-promo,
+.fxa-menu-sign-in-promo,
+#PanelUI-fxa-menu-setup,
+.panel-banner-item,
+.addon-banner-item,
+#appMenu-menu-message,
+#PanelUI-fxa-menu-message,
+#appMenu-fxa-separator,
+#appMenu-addon-banners,
+#appMenu-update-banner {
+  display: none !important;
+}
+
+toolbarseparator.proton-zap::before,
+.panel-separator.proton-zap::before,
+.proton-zap::before {
+  display: none !important;
+}
+
+#appMenu-zoom-controls {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+#appMenu-zoom-controls:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton,
+#appMenu-zoom-controls > .subviewbutton {
+  background-color: #292c30 !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  margin: 1px 2px !important;
+  padding: 4px 10px !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton:hover,
+#appMenu-zoom-controls > .subviewbutton:hover {
+  background-color: rgba(61, 174, 233, 0.30) !important;
+  border-color: rgba(61, 174, 233, 0.85) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   9. Slim Breeze Scrollbars & Global GSL No-Dotted-Lines Enforcement
+   ========================================================================== */
+
+* {
+  scrollbar-color: #4e5459 transparent !important;
+  scrollbar-width: thin !important;
+}
+
+*:focus,
+*:focus-visible {
+  outline-style: none !important;
+}
+
+::-moz-focus-inner {
+  border: 0 !important;
+}
+
+treechildren::-moz-tree-row,
+treechildren::-moz-tree-row(current),
+treechildren::-moz-tree-row(focus),
+treechildren::-moz-tree-row(current, focus),
+treechildren::-moz-tree-row(selected, current, focus) {
+  outline: none !important;
+}
+
+treechildren::-moz-tree-line,
+treechildren::-moz-tree-line(selected, focus) {
+  border: none !important;
+}
+
+/* ==========================================================================
+   10. Findbar (Ctrl+F In-Page Search Bar - Matching Qt6 Breeze Reference)
+   ========================================================================== */
+
+findbar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: 1px solid var(--kde-border-color) !important;
+  min-height: 36px !important;
+  padding: 4px 8px !important;
+  color: var(--kde-window-fg) !important;
+  box-shadow: none !important;
+}
+
+.findbar-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Search input field */
+.findbar-textbox {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--kde-view-bg) !important;
+  color: var(--kde-view-fg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: var(--breeze-radius) !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  padding: 2px 8px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.findbar-textbox:focus {
+  border-color: var(--kde-accent) !important;
+  box-shadow: 0 0 0 1px var(--kde-accent) !important;
+}
+
+.findbar-textbox[status="notfound"] {
+  background-color: rgba(218, 68, 83, 0.25) !important;
+  border-color: #da4453 !important;
+  color: #ffffff !important;
+}
+
+/* Find Next / Previous / Highlight / Match Case buttons */
+findbar toolbarbutton,
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-highlight,
+.findbar-case-sensitive,
+.findbar-entire-word {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-radius) !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  padding: 2px 8px !important;
+  margin: 1px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+findbar toolbarbutton:not([disabled="true"]):hover,
+.findbar-find-previous:not([disabled="true"]):hover,
+.findbar-find-next:not([disabled="true"]):hover,
+.findbar-highlight:not([disabled="true"]):hover,
+.findbar-case-sensitive:not([disabled="true"]):hover,
+.findbar-entire-word:not([disabled="true"]):hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+}
+
+findbar toolbarbutton:not([disabled="true"]):is(:active, [checked="true"]),
+.findbar-highlight[checked="true"],
+.findbar-case-sensitive[checked="true"],
+.findbar-entire-word[checked="true"] {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+}
+
+/* Close button */
+.findbar-closebutton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: var(--breeze-radius) !important;
+  padding: 4px !important;
+  width: 22px !important;
+  height: 22px !important;
+  margin-inline-end: 4px !important;
+  border: 1px solid transparent !important;
+}
+
+.findbar-closebutton:hover {
+  background-color: #da4453 !important;
+  fill: #ffffff !important;
+}
+
+/* Match count labels */
+.findbar-find-status,
+.found-matches {
+  color: var(--kde-window-fg-inactive) !important;
+  font-size: 12px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  margin-inline-start: 6px !important;
+}
+
+/* ==========================================================================
+   11. Search Engine Selection Menu (Matches Dolphin Directions Menu)
+   ========================================================================== */
+
+.searchmode-switcher-panel,
+.searchmode-switcher-panel-list,
+panel-list,
+panel-item {
+  --panel-background: rgb(28, 31, 34) !important;
+  --panel-background-color: rgb(28, 31, 34) !important;
+  --panel-border-color: rgb(76, 78, 81) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+  --panel-subview-body-padding: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-list-background-color: rgb(28, 31, 34) !important;
+  --panel-list-border-color: rgb(76, 78, 81) !important;
+  --panel-list-border-radius: var(--breeze-menu-radius) !important;
+  --panel-list-box-shadow: none !important;
+  --panel-menuitem-border-radius: 4px !important;
+  --panel-item-button-border-radius: 4px !important;
+  --panel-menuitem-margin: 0px !important;
+  --panel-menuitem-margin-inline: 0px !important;
+  --panel-item-button-margin: 0px !important;
+  --panel-menuitem-padding: 3px 8px !important;
+  --panel-menuitem-padding-block: 3px !important;
+  --panel-menuitem-padding-inline: 6px !important;
+  --panel-item-button-padding: 3px 8px !important;
+  --panel-item-button-padding-inline-start: 22px !important;
+  --panel-item-button-padding-inline-start-offset: 6px !important;
+  --icon-size: 16px !important;
+  --button-background-color-menu-hover: rgba(61, 174, 233, 0.30) !important;
+  --button-text-color-menu-hover: #ffffff !important;
+  --button-background-color-menu-active: rgba(61, 174, 233, 0.40) !important;
+  --button-text-color-menu-active: #ffffff !important;
+  --panel-separator-color: rgb(76, 78, 81) !important;
+  --panel-separator-padding: 4px 6px !important;
+  --urlbar-searchmode-switcher-panel-list-min-width: auto !important;
+  --focus-outline: none !important;
+}
+
+.searchmode-switcher-panel {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.searchmode-switcher-panel::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: rgb(28, 31, 34) !important;
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  margin: 0 !important;
+}
+
+.searchmode-switcher-panel-list {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: auto !important;
+}
+
+/* Individual Search Engine Items */
+.searchmode-switcher-panel-list > panel-item,
+panel-list > panel-item {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  margin: 1px 2px !important;
+  padding: 0 !important;
+  min-height: 26px !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(button),
+panel-list > panel-item::part(button) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: 4px !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  margin: 0 !important;
+  padding-block: 3px !important;
+  padding-inline-start: 10px !important;
+  padding-inline-end: 12px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  align-items: center !important;
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  box-sizing: border-box !important;
+  transition: background-color 0.08s ease, border-color 0.08s ease !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(button),
+panel-list > panel-item[icon]::part(button),
+panel-list > panel-item[type="checkbox"]::part(button) {
+  padding-inline-start: 28px !important;
+  padding-inline-end: 10px !important;
+  background-position: 6px center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(label),
+panel-list > panel-item::part(label) {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 18px !important;
+}
+
+/* Hover, Focus & Active selection matching Dolphin menu items */
+.searchmode-switcher-panel-list > panel-item:hover::part(button),
+.searchmode-switcher-panel-list > panel-item:focus::part(button),
+.searchmode-switcher-panel-list > panel-item:focus-visible::part(button),
+.searchmode-switcher-panel-list > panel-item[active]::part(button),
+.searchmode-switcher-panel-list > panel-item::part(button):hover,
+.searchmode-switcher-panel-list > panel-item::part(button):focus,
+.searchmode-switcher-panel-list > panel-item::part(button):focus-visible,
+.searchmode-switcher-panel-list > panel-item::part(button):active,
+panel-list > panel-item:hover::part(button),
+panel-list > panel-item:focus::part(button),
+panel-list > panel-item:focus-visible::part(button),
+panel-list > panel-item[active]::part(button),
+panel-list > panel-item::part(button):hover,
+panel-list > panel-item::part(button):focus,
+panel-list > panel-item::part(button):focus-visible,
+panel-list > panel-item::part(button):active {
+  background-color: rgba(61, 174, 233, 0.30) !important;
+  border: 1px solid rgba(61, 174, 233, 0.85) !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+/* Hide "SUCHEN MIT:" header to match Dolphin's clean menu layout */
+.searchmode-switcher-panel-description {
+  display: none !important;
+}
+
+/* Separators */
+.searchmode-switcher-panel hr[hidden],
+.searchmode-switcher-panel-installed-engine-separator[hidden],
+.searchmode-switcher-panel-footer-separator[hidden] {
+  display: none !important;
+}
+
+.searchmode-switcher-panel hr:not([hidden]),
+.searchmode-switcher-panel-installed-engine-separator:not([hidden]),
+.searchmode-switcher-panel-footer-separator:not([hidden]) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border: none !important;
+  border-block-start: 1px solid rgb(76, 78, 81) !important;
+  background: transparent !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 4px 6px !important;
+  padding: 0 !important;
+}
+
+/* ==========================================================================
+   12. Context Menu & Dropdown Fade-In / Fade-Out Micro-Animations
+   ========================================================================== */
+
+@keyframes breeze-popup-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes breeze-panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+menupopup {
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="open"],
+menupopup:not([animate="false"])[open="true"] {
+  animation: breeze-popup-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="cancel"] {
+  opacity: 0 !important;
+  transition: opacity 0.11s ease-in !important;
+}
+
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content),
+.searchmode-switcher-panel::part(content),
+panel[type="autocomplete-richlistbox"]::part(content) {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="open"]::part(content),
+.searchmode-switcher-panel[animate="open"]::part(content),
+panel[open="true"]::part(content) {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="cancel"]::part(content),
+.searchmode-switcher-panel[animate="cancel"]::part(content) {
+  opacity: 0 !important;
+  transform: translateY(-4px) scale(0.985) !important;
+  transition: opacity 0.11s ease-in, transform 0.11s ease-in !important;
+}
+
+panel-list {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list[open] {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list:not([open]) {
+  opacity: 0 !important;
+  transform: translateY(-3px) scale(0.985) !important;
+}
+
+.urlbarView[isopen] {
+  animation: breeze-panel-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* ==========================================================================
+   13. Top-Level Chrome Windows & Modal Dialogs
+       (About Mozilla Firefox, CommonDialog, Sanitize, CertManager)
+   ========================================================================== */
+
+/* About Mozilla Firefox Window (051851.png) */
+#aboutDialog,
+#aboutDialogContainer {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+#aboutDialog #clientBox {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+}
+
+#aboutDialog #bottomBox {
+  background-color: #141618 !important;
+  border-top: 1px solid #31363b !important;
+  color: #a1a9b1 !important;
+}
+
+#aboutDialog .text-link,
+#aboutDialog a {
+  color: #3daee9 !important;
+}
+
+#aboutDialog .text-link:hover,
+#aboutDialog a:hover {
+  color: #62c1f2 !important;
+  text-decoration: underline !important;
+}
+
+#aboutDialog #trademark {
+  color: #a1a9b1 !important;
+}
+
+#aboutDialog button {
+  appearance: none !important;
+  background-color: #292c30 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  padding: 5px 14px !important;
+}
+
+#aboutDialog button:hover {
+  background-color: #31363b !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+/* CommonDialog ("Make Firefox your default browser?" - 045757.png) & Sanitize Dialog (051251.png) */
+#commonDialogWindow,
+#commonDialog,
+#SanitizeDialog {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  font-family: "Noto Sans", sans-serif !important;
+  --background-color-canvas: #202326 !important;
+  --background-color-box: #141618 !important;
+  --in-content-page-background: #202326 !important;
+  --in-content-page-color: #fcfcfc !important;
+  --in-content-box-background: #141618 !important;
+  --in-content-border-color: #31363b !important;
+  --button-border-radius: 4px !important;
+  --border-radius-medium: 4px !important;
+  --color-accent-primary: #3daee9 !important;
+}
+
+/* HTML <select> Popup Menu (#ContentSelectDropdown - fixes left gutter & double border) */
+#ContentSelectDropdown > menupopup {
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  padding: 4px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+  --panel-color: #fcfcfc !important;
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+}
+
+#ContentSelectDropdown > menupopup[customoptionstyling="true"]::part(arrowscrollbox) {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+#ContentSelectDropdown > menupopup > menuitem > .menu-icon,
+#ContentSelectDropdown > menupopup > menu > .menu-icon {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+#ContentSelectDropdown > menupopup > menuitem {
+  padding-block: 4px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 12px !important;
+  min-height: 26px !important;
+  border-radius: 4px !important;
+}
+
+/* ==========================================================================
+   13b. Add/Edit Bookmark Panel (#editBookmarkPanel - 070705.png) &
+        Downloads Panel (#downloadsPanel - 070719.png, 071049.png)
+   ========================================================================== */
+
+#editBookmarkPanel::part(content) {
+  background-color: #202326 !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65) !important;
+}
+
+#editBookmarkPanel .panel-header {
+  padding: 2px 4px 8px 4px !important;
+  border-bottom: 1px solid #31363b !important;
+}
+
+#editBookmarkHeaderSeparator {
+  display: none !important;
+}
+
+#editBookmarkPanelContent {
+  padding: 8px 2px 10px 2px !important;
+  gap: 4px !important;
+}
+
+#editBookmarkPanelContent label[control] {
+  color: #fcfcfc !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  padding: 0 !important;
+}
+
+#editBMPanel_namePicker,
+#editBMPanel_locationField,
+#editBMPanel_tagsField,
+#editBMPanel_keywordField {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #141618 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding: 4px 10px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#editBMPanel_namePicker:hover,
+#editBMPanel_locationField:hover,
+#editBMPanel_tagsField:hover,
+#editBMPanel_keywordField:hover {
+  border-color: rgba(61, 174, 233, 0.65) !important;
+}
+
+#editBMPanel_namePicker:focus,
+#editBMPanel_namePicker:focus-visible,
+#editBMPanel_locationField:focus,
+#editBMPanel_locationField:focus-visible,
+#editBMPanel_tagsField:focus,
+#editBMPanel_tagsField:focus-visible,
+#editBMPanel_keywordField:focus,
+#editBMPanel_keywordField:focus-visible {
+  border-color: #3daee9 !important;
+  box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35) !important;
+  outline: none !important;
+}
+
+#editBMPanel_folderMenuList {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #292c30 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBMPanel_folderMenuList:hover,
+#editBMPanel_folderMenuList[open="true"] {
+  background-color: #31363b !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+#editBookmarkPanel .expander-up,
+#editBookmarkPanel .expander-down,
+#editBMPanel_newFolderButton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #292c30 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  margin-inline-start: 6px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBookmarkPanel .expander-up:hover,
+#editBookmarkPanel .expander-down:hover,
+#editBMPanel_newFolderButton:hover {
+  background-color: #31363b !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+#editBookmarkPanel .expander-up:hover:active,
+#editBookmarkPanel .expander-down:hover:active,
+#editBMPanel_newFolderButton:hover:active {
+  background-color: rgb(41, 128, 185) !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+#editBMPanel_folderTree,
+#editBMPanel_tagsSelector {
+  background-color: #141618 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #31363b !important;
+  border-radius: 6px !important;
+  margin-top: 6px !important;
+  outline: none !important;
+}
+
+#editBookmarkPanelBottomContent {
+  padding: 6px 2px 4px 2px !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks > .checkbox-check {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 3px !important;
+  border: 1.5px solid #535659 !important;
+  background-color: #141618 !important;
+  margin-inline-end: 6px !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks[checked="true"] > .checkbox-check {
+  background-color: #3daee9 !important;
+  border-color: #3daee9 !important;
+  background-image: url("chrome://global/skin/icons/check.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 12px 12px !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+#editBookmarkPanelBottomButtons {
+  gap: 8px !important;
+  margin-top: 10px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid #31363b !important;
+}
+
+#editBookmarkPanelBottomButtons > button {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #292c30 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  padding: 5px 16px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBookmarkPanelBottomButtons > button:hover {
+  background-color: #31363b !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+#editBookmarkPanelBottomButtons > button[default="true"],
+#editBookmarkPanelDoneButton {
+  background-color: rgb(41, 128, 185) !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+#editBookmarkPanelBottomButtons > button[default="true"]:hover,
+#editBookmarkPanelDoneButton:hover {
+  background-color: #3daee9 !important;
+  border-color: #62c1f2 !important;
+  color: #ffffff !important;
+}
+
+/* Downloads Panel (#downloadsPanel - 070719.png, 071049.png) & Library Downloads (071103.png) */
+#downloadsPanel::part(content) {
+  background-color: rgb(28, 31, 34) !important;
+  border: 1px solid rgb(76, 78, 81) !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+#downloadsPanel-mainView,
+#downloadsPanel-blockedSubview {
+  padding: 4px !important;
+  min-width: 30em !important;
+}
+
+#emptyDownloads {
+  padding: 14px 12px !important;
+  margin: 0 !important;
+  color: #a1a9b1 !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+#downloadsListBox {
+  background: transparent !important;
+  border: none !important;
+  padding: 2px !important;
+  margin: 0 !important;
+}
+
+#downloadsListBox > richlistitem {
+  background-color: transparent !important;
+  color: #fcfcfc !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  padding: 6px 8px !important;
+  margin: 2px 0 !important;
+  min-height: 52px !important;
+  align-items: center !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#downloadsListBox > richlistitem:hover,
+#downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover,
+#downloadsListBox > richlistitem.openWhenFinished.hoveringMainArea:hover,
+#downloadsListBox > richlistitem[selected="true"] {
+  background-color: rgba(61, 174, 233, 0.22) !important;
+  border: 1px solid rgba(61, 174, 233, 0.75) !important;
+  border-radius: 6px !important;
+  color: #ffffff !important;
+}
+
+.downloadMainArea {
+  background: transparent !important;
+  border: none !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+  align-items: center !important;
+}
+
+.downloadButton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #292c30 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-width: 32px !important;
+  width: 32px !important;
+  max-width: 32px !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  max-height: 32px !important;
+  margin: auto 0 auto 8px !important;
+  padding: 0 !important;
+  align-self: center !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+.downloadButton:hover:not(:disabled) {
+  background-color: rgba(61, 174, 233, 0.30) !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+.downloadButton:hover:active {
+  background-color: rgb(41, 128, 185) !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+#downloadsFooter {
+  margin-top: 2px !important;
+}
+
+#downloadsFooterButtons > toolbarseparator {
+  appearance: none !important;
+  border: none !important;
+  border-top: 1px solid rgb(76, 78, 81) !important;
+  margin: 4px 4px !important;
+  height: 0 !important;
+}
+
+#downloadsHistory,
+.downloadsPanelFooterButton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  color: #fcfcfc !important;
+  border: 1px solid transparent !important;
+  border-radius: 5px !important;
+  padding: 6px 12px !important;
+  margin: 2px !important;
+  min-height: 30px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  justify-content: center !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#downloadsHistory:hover,
+.downloadsPanelFooterButton:hover {
+  background-color: rgba(61, 174, 233, 0.28) !important;
+  border-color: rgba(61, 174, 233, 0.85) !important;
+  color: #ffffff !important;
+}
+
+/* Print Preview Canvas & Floating Pagination Toolbar (055428.png) */
+.previewStack {
+  background-color: #141618 !important;
+  --preview-Container-background: #141618 !important;
+}
+
+.printPreviewNavigation,
+printpreview-pagination {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ==========================================================================
+   14. Library Window (places.xhtml - 070454.png, 071103.png), Top-Level
+       Subdialogs (063358.png, 063456.png, 063320.png) & Dolphin Trees/Tables
+   ========================================================================== */
+
+:root,
+:host {
+  --input-search-border-radius: 4px !important;
+  --input-border-radius: 4px !important;
+  --input-text-border-radius: 4px !important;
+  --border-radius-circle: 4px !important;
+  --border-radius-large: 8px !important;
+}
+
+/* Library Window Top Toolbar & Unboxed <moz-input-search id="searchFilter"> (063107.png) */
+#placesWindow,
+#places {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+#placesToolbar {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  border-bottom: 1px solid #31363b !important;
+  padding: 3px 8px !important;
+  min-height: 34px !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+#placesToolbar > toolbarbutton,
+#placesMenu > menu {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  color: #fcfcfc !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  margin: 0 1px !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#placesToolbar > #back-button,
+#placesToolbar > #forward-button {
+  padding: 3px 5px !important;
+  min-width: 26px !important;
+  width: 26px !important;
+}
+
+#placesToolbar > toolbarbutton:not([disabled="true"]):hover,
+#placesMenu > menu:not([disabled="true"]):hover {
+  background-color: rgba(61, 174, 233, 0.16) !important;
+  border-color: rgba(61, 174, 233, 0.5) !important;
+  color: #ffffff !important;
+}
+
+#placesToolbar > toolbarbutton:not([disabled="true"]):is(:active, [open="true"]),
+#placesMenu > menu:is([open="true"], [_moz-menuactive="true"]) {
+  background-color: rgba(61, 174, 233, 0.28) !important;
+  border-color: #3daee9 !important;
+  color: #ffffff !important;
+}
+
+/* Unbox <moz-input-search id="searchFilter"> host so only inner #input renders the 4px box (063107.png) */
+#searchFilter,
+moz-input-search#searchFilter,
+:host(moz-input-search) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 2px !important;
+  min-height: 28px !important;
+}
+
+/* Inner <input id="input" type="search"> inside <moz-input-search> Shadow DOM */
+#input[type="search"] {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #141618 !important;
+  color: #fcfcfc !important;
+  border: 1px solid #3a3f44 !important;
+  border-radius: 4px !important;
+  min-height: 28px !important;
+  height: 28px !important;
+  padding-block: 3px !important;
+  padding-inline-end: 8px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#input[type="search"].with-icon {
+  background-position: 10px center !important;
+  background-repeat: no-repeat !important;
+  background-size: 16px 16px !important;
+  padding-inline-start: 34px !important;
+}
+
+#input[type="search"]:hover:not(:disabled) {
+  border-color: rgba(61, 174, 233, 0.65) !important;
+}
+
+#input[type="search"]:focus {
+  border-color: #3daee9 !important;
+  box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35) !important;
+  outline: none !important;
+}
+
+/* Dolphin Details Table & Column Header Standard (064038.png, 070454.png, 071103.png)
+   CRITICAL: Never set display:none or visibility:collapse on treecol[hideheader="true"] or treecols,
+   because Gecko's nsTreeBodyFrame needs the treecol layout box width to render cell text! */
+treecol[hideheader="true"],
+treecols:not(:has(> treecol:not([hideheader="true"]))),
+#placesList > treecols,
+.sidebar-placesTree > treecols {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+listheader,
+treecols:has(> treecol:not([hideheader="true"])) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #181a1d !important;
+  border-bottom: 1px solid #2d3136 !important;
+  min-height: 26px !important;
+}
+
+treecol:not([hideheader="true"]),
+treecolpicker {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #181a1d !important;
+  color: #a1a9b1 !important;
+  border: none !important;
+  border-inline-end: 1px solid #2d3136 !important;
+  padding: 4px 10px !important;
+  min-height: 26px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  transition: background-color 0.12s ease, color 0.12s ease !important;
+}
+
+treecol:not([hideheader="true"]):hover,
+treecolpicker:hover {
+  background-color: #222529 !important;
+  color: #fcfcfc !important;
+}
+
+treechildren::-moz-tree-row {
+  background-color: #141618 !important;
+  border: 1px solid transparent !important;
+  border-radius: 5px !important;
+  min-height: 28px !important;
+  height: 28px !important;
+  outline: none !important;
+}
+
+treechildren::-moz-tree-row(multicol, odd),
+treechildren::-moz-tree-row(odd) {
+  background-color: #1a1d20 !important;
+}
+
+treechildren::-moz-tree-row(hover) {
+  background-color: rgba(61, 174, 233, 0.14) !important;
+  border-color: rgba(61, 174, 233, 0.40) !important;
+  border-radius: 5px !important;
+}
+
+treechildren::-moz-tree-row(selected),
+treechildren::-moz-tree-row(selected, focus),
+treechildren::-moz-tree-row(selected, current, focus) {
+  background-color: rgba(61, 174, 233, 0.24) !important;
+  border: 1px solid rgba(61, 174, 233, 0.85) !important;
+  border-radius: 5px !important;
+  outline: none !important;
+}
+
+treechildren::-moz-tree-cell {
+  padding-inline: 6px !important;
+}
+
+treechildren::-moz-tree-image {
+  margin-inline-end: 6px !important;
+}
+
+treechildren::-moz-tree-cell-text {
+  color: #fcfcfc !important;
+}
+
+treechildren::-moz-tree-cell-text(selected),
+treechildren::-moz-tree-cell-text(selected, focus) {
+  color: #ffffff !important;
+}
+
+/* Dolphin Places Sidebar Tree (#placesList & .sidebar-placesTree - 063833.png, 070454.png) */
+#placesList {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+  border: none !important;
+  border-inline-end: 1px solid #31363b !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 4px !important;
+}
+
+#placesList > treechildren::-moz-tree-row,
+.sidebar-placesTree > treechildren::-moz-tree-row {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 5px !important;
+  min-height: 28px !important;
+  height: 28px !important;
+  outline: none !important;
+}
+
+#placesList > treechildren::-moz-tree-row(hover),
+.sidebar-placesTree > treechildren::-moz-tree-row(hover) {
+  background-color: rgba(61, 174, 233, 0.14) !important;
+  border-color: rgba(61, 174, 233, 0.40) !important;
+  border-radius: 5px !important;
+}
+
+#placesList > treechildren::-moz-tree-row(selected),
+#placesList > treechildren::-moz-tree-row(selected, focus),
+.sidebar-placesTree > treechildren::-moz-tree-row(selected),
+.sidebar-placesTree > treechildren::-moz-tree-row(selected, focus) {
+  background-color: rgba(61, 174, 233, 0.26) !important;
+  border: 1px solid rgba(61, 174, 233, 0.55) !important;
+  border-radius: 5px !important;
+  outline: none !important;
+}
+
+
+
