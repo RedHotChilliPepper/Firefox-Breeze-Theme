@@ -138,6 +138,7 @@ echo "Configuring Firefox preferences in user.js..."
 add_pref_if_missing "toolkit.legacyUserProfileCustomizations.stylesheets" "true"
 add_pref_if_missing "layout.css.prefers-color-scheme.content-override" "2"
 add_pref_if_missing "widget.use-xdg-desktop-portal.file-picker" "1"
+add_pref_if_missing "browser.tabs.inTitlebar" "0"
 add_pref_if_missing "widget.use-xdg-desktop-portal.mime-handler" "1"
 add_pref_if_missing "widget.use-xdg-desktop-portal.open-uri" "1"
 
