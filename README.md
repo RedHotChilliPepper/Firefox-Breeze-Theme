@@ -9,8 +9,8 @@ Does not support wallpapers in new tab pages (I would recommend using an extensi
 
 Some pages like about:studies are not themed, most settings dialogs are though
 
-Animations are uneven and not present everywhere they will be in later version
+Animations are uneven and not present everywhere they will be in later versions
 
-This is a alpha release, though it works on Firefox 159 (lower version have not been tested)
+This is an alpha release, though it works on Firefox 159 (lower version have not been tested)
 
-The UX is not completely unified the main goal was to unify the design though not e.g. padding between different components (contribution would be helpful)
+The UX is not completely unified, the main goal was to unify the design though not e.g. padding between different components (contributions would be helpful)
