@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Print Preview & PDF.js Viewer
+   ========================================================================== */
+
+/* Print Preview Canvas & Floating Pagination Toolbar (055428.png) */
+.previewStack {
+  background-color: var(--palette-view-bg) !important;
+  --preview-Container-background: var(--palette-view-bg) !important;
+}
+
+.printPreviewNavigation,
+printpreview-pagination {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px var(--palette-alpha-black-50) !important;
+}
+
+
+@-moz-document url("chrome://global/content/print.html") {
+  /* ==========================================================================
+     Print Preview Sidebar & Toolbar (055428.png - chrome://global/content/print.html)
+     ========================================================================== */
+
+  #print,
+  body#print {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    --background-color-canvas: var(--palette-window-bg) !important;
+    --background-color-box: var(--palette-treeheader-bg) !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+    --button-background-color-primary: var(--palette-btn-primary) !important;
+    --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+    --button-text-color-primary: var(--palette-white) !important;
+    --focus-outline: 1px solid var(--palette-blue-accent) !important;
+    --focus-outline-color: var(--palette-blue-accent) !important;
+  }
+
+  .header-container {
+    background-color: var(--palette-tab-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    padding: 12px 16px !important;
+  }
+
+  .body-container {
+    background-color: var(--palette-window-bg) !important;
+    padding: 12px 16px !important;
+  }
+
+  .footer-container {
+    background-color: var(--palette-tab-bg) !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding: 12px 16px !important;
+  }
+
+  #print hr {
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  /* Destination select with printer/PDF icon (#printer-picker[iconic] in 055428.png) */
+  select[iconic],
+  #printer-picker {
+    padding-inline-start: 32px !important;
+    padding-inline-end: 28px !important;
+    background-position: right 10px center, left 8px center !important;
+    background-repeat: no-repeat, no-repeat !important;
+  }
+
+  /* Segmented Control (Portrait / Landscape in 055428.png) */
+  moz-segmented-control,
+  .segmented-button {
+    --segmented-control-background-color: var(--palette-view-bg) !important;
+    --segmented-control-border-radius: 6px !important;
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 6px !important;
+    padding: 2px !important;
+  }
+
+  moz-segmented-control-item {
+    --button-border-radius: 4px !important;
+    --button-background-color-primary: var(--palette-btn-primary) !important;
+    --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+    --button-text-color-primary: var(--palette-white) !important;
+    --button-background-color-ghost: transparent !important;
+    --button-background-color-ghost-hover: var(--palette-alpha-blue-16) !important;
+    --button-text-color-ghost: var(--palette-text-dim) !important;
+    --button-text-color-ghost-hover: var(--palette-white) !important;
+  }
+
+  #more-settings > summary {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 6px 8px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #more-settings > summary:hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-50) !important;
+  }
+
+
+}
+/* ==========================================================================
+   PDF.js Built-In PDF Viewer (resource://pdf.js/web/viewer.html)
+   ========================================================================== */
+
+@-moz-document url-prefix("resource://pdf.js/"),
+               url-prefix("chrome://pdfjs/"),
+               url-prefix("about:pdf") {
+  :root {
+    --main-color: var(--palette-text-main) !important;
+    --body-bg-color: var(--palette-view-bg) !important;
+    --toolbar-bg-color: var(--palette-window-bg) !important;
+    --sidebar-toolbar-bg-color: var(--palette-window-bg) !important;
+    --sidebar-bg-color: var(--palette-window-bg) !important;
+    --sidebar-narrow-bg-color: var(--palette-window-bg) !important;
+    --toolbar-border-color: var(--palette-groove-sep) !important;
+    --separator-color: var(--palette-groove-sep) !important;
+    --field-color: var(--palette-text-main) !important;
+    --field-bg-color: var(--palette-view-bg) !important;
+    --field-border-color: var(--palette-border-dark) !important;
+    --button-hover-color: var(--palette-alpha-blue-18) !important;
+    --toggled-btn-color: var(--palette-white) !important;
+    --toggled-btn-text-color: var(--palette-white) !important;
+    --toggled-btn-bg-color: var(--palette-alpha-blue-28) !important;
+    --toggled-hover-active-btn-color: var(--palette-alpha-blue-38) !important;
+    --dropdown-btn-bg-color: var(--palette-button-bg) !important;
+    --dropdown-btn-border: 1px solid var(--palette-border-dark) !important;
+    --doorhanger-bg-color: var(--palette-window-bg) !important;
+    --doorhanger-border-color: var(--palette-border-dark) !important;
+    --doorhanger-hover-bg-color: var(--palette-alpha-blue-25) !important;
+    --doorhanger-hover-color: var(--palette-white) !important;
+    --doorhanger-separator-color: var(--palette-groove-sep) !important;
+    --progressBar-color: var(--palette-blue-accent) !important;
+    --progressBar-bg-color: var(--palette-treeheader-bg) !important;
+  }
+
+  #toolbarContainer,
+  .findbar,
+  #secondaryToolbar {
+    background-color: var(--palette-window-bg) !important;
+    border-color: var(--palette-groove-sep) !important;
+  }
+
+  .toolbarButton,
+  .secondaryToolbarButton,
+  .dialogButton {
+    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .toolbarButton:hover,
+  .secondaryToolbarButton:hover {
+    background-color: var(--palette-alpha-blue-16) !important;
+    border-color: var(--palette-alpha-blue-50) !important;
+  }
+
+  .toolbarButton.toggled,
+  .splitToolbarButton.toggled > .toolbarButton {
+    background-color: var(--palette-alpha-blue-28) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .toolbarField {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .toolbarField:focus {
+    border-color: var(--palette-blue-accent) !important;
+  }
+}
+

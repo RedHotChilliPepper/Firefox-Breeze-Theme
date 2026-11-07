@@ -1,0 +1,18 @@
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze Theme for Mozilla Firefox
+   Replicates the exact UI and UX design language of Qt6 Breeze (Dolphin)
+   ========================================================================== */
+
+@import "components/base.css";
+@import "components/titlebar.css";
+@import "components/tabs.css";
+@import "components/toolbars.css";
+@import "components/urlbar.css";
+@import "components/popups.css";
+@import "components/sidebar.css";
+@import "components/findbar.css";
+@import "components/dialogs.css";
+@import "components/bookmarks-dialog.css";
+@import "components/downloads-dialog.css";
+@import "components/library.css";
+@import "components/pdf-print.css";

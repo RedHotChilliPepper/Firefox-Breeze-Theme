@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Mozilla Firefox - Qt6 Breeze Theme Entry Point
+   ========================================================================== */
+
+/* Central Color Palette & Icon Mappings */
+@import "palette.css";
+@import "breeze-icons.css";
+
+/* Base & Global Tokens */
+@import "components/base.css";
+
+/* Browser Chrome Components */
+@import "components/titlebar.css";
+@import "components/tabs.css";
+@import "components/toolbars.css";
+@import "components/urlbar.css";
+@import "components/popups.css";
+@import "components/sidebar.css";
+@import "components/findbar.css";
+@import "components/dialogs.css";
+@import "components/bookmarks-dialog.css";
+@import "components/downloads-dialog.css";
+@import "components/library.css";
+
+/* In-Content / Subdialog Fallback when loaded in Chrome window */
+@import "components/settings.css";
+@import "components/settings-nav.css";
+@import "components/settings-cards.css";
+@import "components/settings-controls.css";
+@import "components/settings-pages.css";
+@import "components/newtab.css";
+@import "components/devtools.css";
+@import "components/view-source.css";
+@import "components/pdf-print.css";

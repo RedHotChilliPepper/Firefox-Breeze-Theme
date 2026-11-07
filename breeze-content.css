@@ -1,0 +1,21 @@
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze In-Content, Subdialog, Sidebar, Print, PDF & DevTools
+   General Style Language (GSL): Authentic Qt6 Breeze Dark (Dolphin / System Settings)
+   ========================================================================== */
+
+@import "components/base.css";
+@import "components/popups.css";
+@import "components/dialogs.css";
+@import "components/bookmarks-dialog.css";
+@import "components/downloads-dialog.css";
+@import "components/library.css";
+@import "components/sidebar.css";
+@import "components/settings.css";
+@import "components/settings-nav.css";
+@import "components/settings-cards.css";
+@import "components/settings-controls.css";
+@import "components/settings-pages.css";
+@import "components/newtab.css";
+@import "components/devtools.css";
+@import "components/view-source.css";
+@import "components/pdf-print.css";

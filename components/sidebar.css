@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Sidebar & Vertical Strips
+   ========================================================================== */
+
+/* ==========================================================================
+   5. Sidebar (Dolphin Places Sidebar Style & Vertical Launcher Strip)
+   ========================================================================== */
+
+:root {
+  --sidebar-background-color: var(--kde-window-bg) !important;
+  --sidebar-text-color: var(--kde-window-fg) !important;
+  --sidebar-border-color: var(--kde-border-color) !important;
+}
+
+#sidebar-main,
+sidebar-main {
+  background-color: var(--kde-window-bg) !important;
+  color: var(--kde-window-fg) !important;
+  border-inline-end: 1px solid var(--kde-border-color) !important;
+}
+
+#sidebar-box {
+  background-color: var(--kde-window-bg) !important;
+  border-inline-end: 1px solid var(--kde-border-color) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+#sidebar-box > #sidebar {
+  background-color: var(--kde-view-bg) !important;
+  color: var(--kde-view-fg) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+#sidebar-header {
+  background-color: var(--kde-window-bg) !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  padding: 6px 10px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--kde-window-fg) !important;
+}
+
+#sidebar-switcher-target {
+  appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  color: var(--kde-window-fg) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#sidebar-switcher-target:hover,
+#sidebar-switcher-target[active="true"] {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+#sidebar-close {
+  appearance: none !important;
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+  padding: 4px !important;
+}
+
+#sidebar-close:hover {
+  background-color: var(--kde-negative) !important;
+  color: var(--palette-white) !important;
+  fill: var(--palette-white) !important;
+}
+
+#sidebar-splitter,
+#sidebar-launcher-splitter,
+.sidebar-splitter {
+  width: 2px !important;
+  min-width: 2px !important;
+  background: var(--kde-border-color-subtle) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+#sidebar-splitter:hover,
+#sidebar-launcher-splitter:hover,
+.sidebar-splitter:hover {
+  background: var(--kde-accent) !important;
+}
+
+
+@-moz-document url-prefix("chrome://browser/content/places/"), url-prefix("chrome://browser/content/webext-panels.xhtml"), url-prefix("about:") {
+  /* ==========================================================================
+     Browser Sidebar Documents (051818.png - Bookmarks, History, Launcher)
+     ========================================================================== */
+
+  .sidebar-panel {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #sidebar-search-container {
+    padding: 8px !important;
+    background-color: var(--palette-window-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  #sidebar-search-container #search-box {
+    min-height: 30px !important;
+    height: 30px !important;
+    border-radius: 4px !important;
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+  }
+
+  .sidebar-placesTree {
+    background-color: var(--palette-view-bg) !important;
+    border: none !important;
+  }
+
+
+}

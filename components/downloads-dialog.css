@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Downloads Panel (#downloadsPanel)
+   ========================================================================== */
+
+/* Downloads Panel (#downloadsPanel - 070719.png, 071049.png) & Library Downloads (071103.png) */
+#downloadsPanel::part(content) {
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+}
+
+#downloadsPanel-mainView,
+#downloadsPanel-blockedSubview {
+  padding: 4px !important;
+  min-width: 30em !important;
+}
+
+#emptyDownloads {
+  padding: 14px 12px !important;
+  margin: 0 !important;
+  color: var(--palette-text-dim) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+#downloadsListBox {
+  background: transparent !important;
+  border: none !important;
+  padding: 2px !important;
+  margin: 0 !important;
+}
+
+#downloadsListBox > richlistitem {
+  background-color: transparent !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  padding: 6px 8px !important;
+  margin: 2px 0 !important;
+  min-height: 52px !important;
+  align-items: center !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#downloadsListBox > richlistitem:hover,
+#downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover,
+#downloadsListBox > richlistitem.openWhenFinished.hoveringMainArea:hover,
+#downloadsListBox > richlistitem[selected="true"] {
+  background-color: var(--palette-alpha-blue-22) !important;
+  border: 1px solid var(--palette-alpha-blue-75) !important;
+  border-radius: 6px !important;
+  color: var(--palette-white) !important;
+}
+
+.downloadMainArea {
+  background: transparent !important;
+  border: none !important;
+  padding: 2px 4px !important;
+  border-radius: 4px !important;
+  align-items: center !important;
+}
+
+.downloadButton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-width: 32px !important;
+  width: 32px !important;
+  max-width: 32px !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  max-height: 32px !important;
+  margin: auto 0 auto 8px !important;
+  padding: 0 !important;
+  align-self: center !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+.downloadButton:hover:not(:disabled) {
+  background-color: var(--palette-alpha-blue-30) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+.downloadButton:hover:active {
+  background-color: var(--palette-btn-primary) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#downloadsFooter {
+  margin-top: 2px !important;
+}
+
+#downloadsFooterButtons > toolbarseparator {
+  appearance: none !important;
+  border: none !important;
+  border-top: 1px solid var(--palette-dialog-border) !important;
+  margin: 4px 4px !important;
+  height: 0 !important;
+}
+
+#downloadsHistory,
+.downloadsPanelFooterButton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid transparent !important;
+  border-radius: 5px !important;
+  padding: 6px 12px !important;
+  margin: 2px !important;
+  min-height: 30px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  justify-content: center !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#downloadsHistory:hover,
+.downloadsPanelFooterButton:hover {
+  background-color: var(--palette-alpha-blue-28) !important;
+  border-color: var(--palette-alpha-blue-85) !important;
+  color: var(--palette-white) !important;
+}
+
+

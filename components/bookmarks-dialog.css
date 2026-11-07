@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Bookmark Dialog & Panel (#editBookmarkPanel)
+   ========================================================================== */
+
+/* ==========================================================================
+   13b. Add/Edit Bookmark Panel (#editBookmarkPanel - 070705.png) &
+        Downloads Panel (#downloadsPanel - 070719.png, 071049.png)
+   ========================================================================== */
+
+#editBookmarkPanel,
+#editBookmarkPanel::part(content) {
+  min-width: 380px !important;
+  background-color: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 30px var(--palette-alpha-black-65) !important;
+}
+
+#editBookmarkPanel .panel-header {
+  padding: 12px 22px 10px 22px !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+}
+
+#editBookmarkHeaderSeparator {
+  display: none !important;
+}
+
+#editBookmarkPanel .panel-subview-body {
+  padding: 12px 22px 16px 22px !important;
+}
+
+#editBookmarkPanelContent {
+  padding: 0 !important;
+  gap: 6px !important;
+}
+
+#editBookmarkPanelContent label[control] {
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  padding: 0 !important;
+}
+
+#editBMPanel_namePicker,
+#editBMPanel_locationField,
+#editBMPanel_tagsField,
+#editBMPanel_keywordField {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--palette-view-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding: 4px 10px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#editBMPanel_namePicker:hover,
+#editBMPanel_locationField:hover,
+#editBMPanel_tagsField:hover,
+#editBMPanel_keywordField:hover {
+  border-color: var(--palette-alpha-blue-65) !important;
+}
+
+#editBMPanel_namePicker:focus,
+#editBMPanel_namePicker:focus-visible,
+#editBMPanel_locationField:focus,
+#editBMPanel_locationField:focus-visible,
+#editBMPanel_tagsField:focus,
+#editBMPanel_tagsField:focus-visible,
+#editBMPanel_keywordField:focus,
+#editBMPanel_keywordField:focus-visible {
+  border-color: var(--palette-blue-accent) !important;
+  box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+  outline: none !important;
+}
+
+#editBMPanel_folderMenuList {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBMPanel_folderMenuList:hover,
+#editBMPanel_folderMenuList[open="true"] {
+  background-color: var(--palette-groove-sep) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#editBookmarkPanel .expander-up,
+#editBookmarkPanel .expander-down,
+#editBMPanel_foldersExpander,
+#editBMPanel_tagsSelectorExpander,
+#editBMPanel_newFolderButton {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: var(--breeze-radius) !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  margin-inline-start: 6px !important;
+  padding: 4px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBookmarkPanel .expander-up:hover,
+#editBookmarkPanel .expander-down:hover,
+#editBMPanel_foldersExpander:hover,
+#editBMPanel_tagsSelectorExpander:hover,
+#editBMPanel_newFolderButton:hover {
+  background-color: var(--palette-groove-sep) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#editBookmarkPanel .expander-up:hover:active,
+#editBookmarkPanel .expander-down:hover:active,
+#editBMPanel_foldersExpander:hover:active,
+#editBMPanel_tagsSelectorExpander:hover:active,
+#editBMPanel_newFolderButton:hover:active {
+  background-color: var(--palette-btn-primary) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#editBMPanel_folderTree,
+#editBMPanel_tagsSelector {
+  background-color: var(--palette-view-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-groove-sep) !important;
+  border-radius: 6px !important;
+  margin-top: 6px !important;
+  outline: none !important;
+}
+
+#editBookmarkPanelBottomContent {
+  padding: 10px 0 0 0 !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks > .checkbox-check {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 3px !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  background-color: var(--palette-view-bg) !important;
+  margin-inline-end: 6px !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks:hover > .checkbox-check {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks[checked="true"] > .checkbox-check,
+#editBookmarkPanel_showForNewBookmarks:checked > .checkbox-check {
+  background-color: var(--palette-blue-accent) !important;
+  border-color: var(--palette-blue-accent) !important;
+  background-image: url("chrome://global/skin/icons/check.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 12px 12px !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: var(--palette-white) !important;
+  stroke: var(--palette-white) !important;
+}
+
+#editBookmarkPanel .panel-footer,
+#editBookmarkPanel moz-button-group,
+#editBookmarkPanelBottomButtons {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+}
+
+#editBookmarkPanel .panel-footer button,
+#editBookmarkPanel .footer-button,
+#editBookmarkPanelDoneButton,
+#editBookmarkPanelRemoveButton,
+#editBookmarkPanelBottomButtons > button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: var(--breeze-radius) !important;
+  min-height: 30px !important;
+  padding: 4px 16px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#editBookmarkPanel .panel-footer button:hover,
+#editBookmarkPanel .footer-button:hover,
+#editBookmarkPanelRemoveButton:hover,
+#editBookmarkPanelBottomButtons > button:hover {
+  background-color: var(--palette-groove-sep) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#editBookmarkPanelDoneButton,
+#editBookmarkPanel .panel-footer button[default="true"],
+#editBookmarkPanelBottomButtons > button[default="true"] {
+  background-color: var(--palette-btn-primary) !important;
+  border: 1px solid var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+  font-weight: 600 !important;
+}
+
+#editBookmarkPanelDoneButton:hover,
+#editBookmarkPanel .panel-footer button[default="true"]:hover,
+#editBookmarkPanelBottomButtons > button[default="true"]:hover {
+  background-color: var(--palette-blue-accent) !important;
+  border-color: var(--palette-blue-focus) !important;
+  color: var(--palette-white) !important;
+}
+

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Mozilla Firefox - Qt6 Breeze In-Content Theme Entry Point
+   ========================================================================== */
+
+/* Central Color Palette */
+@import "palette.css";
+
+/* Base & Global Tokens */
+@import "components/base.css";
+
+/* Dialogs & Popups */
+@import "components/popups.css";
+@import "components/dialogs.css";
+@import "components/bookmarks-dialog.css";
+@import "components/downloads-dialog.css";
+@import "components/library.css";
+@import "components/sidebar.css";
+
+/* In-Content Pages */
+@import "components/settings.css";
+@import "components/settings-nav.css";
+@import "components/settings-cards.css";
+@import "components/settings-controls.css";
+@import "components/settings-pages.css";
+@import "components/newtab.css";
+@import "components/devtools.css";
+@import "components/view-source.css";
+@import "components/pdf-print.css";

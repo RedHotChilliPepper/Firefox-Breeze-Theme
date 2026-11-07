@@ -1,0 +1,365 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Context Menus, Dropdowns & Micro-Animations
+   ========================================================================== */
+
+/* ==========================================================================
+   7. Context Menus & Popups (Authentic Qt6 Breeze / Dolphin Styling)
+   ========================================================================== */
+
+/* Authentic Qt6 Breeze context menu container (single border, solid dark background) */
+menupopup {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+  padding: 4px !important;
+  margin: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Nullify internal panel variables so Firefox doesn't calculate inner borders/margins */
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+}
+
+/* Eliminate duplicate inner frame, secondary borders, and nested padding inside menupopup */
+menupopup::part(content),
+menupopup::part(arrowscrollbox),
+menupopup::part(scrollbox),
+menupopup > arrowscrollbox,
+menupopup > .menupopup-arrowscrollbox,
+menupopup .menupopup-arrowscrollbox,
+.menupopup-arrowscrollbox {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Arrow panels and dropdown menus (Hamburger menu, Unified Extensions panel, etc.) */
+panel[type="arrow"],
+panel.cui-widget-panel,
+#appMenu-popup,
+#unified-extensions-panel {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Explicit Breeze Panel CSS Variables used by Firefox internally */
+  --panel-background: var(--palette-popup-bg) !important;
+  --panel-background-color: var(--palette-popup-bg) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-subview-body-padding: 0px !important;
+  --panel-subview-body-padding-block: 0px !important;
+  --panel-subview-body-padding-inline: 0px !important;
+  --arrowpanel-background: var(--palette-popup-bg) !important;
+  --arrowpanel-border-color: var(--palette-dialog-border) !important;
+  --arrowpanel-border-radius: var(--breeze-menu-radius) !important;
+  --arrowpanel-padding: 4px !important;
+}
+
+/* Ensure the content box is styled with solid Breeze background and crisp 1px border */
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  color: var(--kde-window-fg) !important;
+}
+
+/* Override panel-no-padding so that our 4px padding is applied cleanly */
+panel[type="arrow"].panel-no-padding::part(content),
+#appMenu-popup.panel-no-padding::part(content) {
+  padding: 4px !important;
+}
+
+/* Hide speech-bubble popover tail arrow to match Dolphin */
+.panel-arrow {
+  display: none !important;
+}
+
+/* Autocomplete panels (URL bar dropdown) */
+panel[type="autocomplete-richlistbox"] {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  --panel-background: var(--palette-popup-bg) !important;
+  --panel-background-color: var(--palette-popup-bg) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+}
+
+panel[type="autocomplete-richlistbox"]::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+}
+
+/* Intermediate containers in arrow panels reset */
+panelmultiview,
+panelview,
+.panel-viewcontainer,
+.panel-viewstack,
+.panel-subview-body {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Breeze Menu Items matching Dolphin */
+menu, menuitem, .subviewbutton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: 4px !important;
+  margin: 1px 2px !important;
+  min-height: 28px !important;
+  padding-block: 4px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 12px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.08s ease, border-color 0.08s ease !important;
+}
+
+/* Dolphin / Qt6 Breeze Item Hover & Active Selection:
+   Translucent accent background (var(--palette-deep-accent)) with crisp accent border (var(--palette-blue-accent)) */
+menu:is(:hover, [_moz-menuactive="true"]),
+menuitem:is(:hover, [_moz-menuactive="true"]),
+.subviewbutton:not(#appMenu-zoom-controls):is(:hover, [_moz-menuactive="true"]) {
+  background-color: var(--palette-alpha-blue-30) !important;
+  border: 1px solid var(--palette-alpha-blue-85) !important;
+  color: var(--palette-white) !important;
+  border-radius: 4px !important;
+}
+
+/* Disabled menu item styling */
+menu:where([disabled="true"]),
+menuitem:where([disabled="true"]),
+.subviewbutton:where([disabled="true"]) {
+  color: var(--kde-window-fg-inactive) !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  opacity: 0.65 !important;
+}
+
+/* Dolphin Separators (single 1px line, inset 8px, no pseudo-elements) */
+menupopup menuseparator,
+#appMenu-fxa-separator,
+.panel-separator,
+toolbarseparator,
+menuseparator {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border: none !important;
+  background: none !important;
+  background-color: var(--palette-dialog-border) !important;
+  background-image: none !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  max-height: 1px !important;
+  margin: 4px 8px !important;
+  padding: 0 !important;
+}
+menuseparator::before,
+menupopup menuseparator::before,
+toolbarseparator::before,
+.panel-separator::before {
+  display: none !important;
+}
+
+/* Hide accesskey mnemonics underline unless Alt is held */
+menupopup menu [_moz-acceltext],
+menupopup menuitem [_moz-acceltext],
+.menu-text,
+.menu-iconic-text {
+  text-decoration: none !important;
+}
+
+/* Context Navigation Strip (Back, Forward, Reload, Bookmark/Star) */
+#context-navigation {
+  background-color: transparent !important;
+  padding: 2px 4px !important;
+}
+#context-navigation > .menuitem-iconic {
+  border-radius: 4px !important;
+  padding: 4px !important;
+  border: 1px solid transparent !important;
+}
+#context-navigation > .menuitem-iconic:is(:hover, [_moz-menuactive="true"]) {
+  background-color: var(--palette-alpha-blue-30) !important;
+  border: 1px solid var(--palette-alpha-blue-85) !important;
+}
+
+/* ==========================================================================
+   8. Clean Hamburger Menu (Removes promo box & rainbow gradient dividers)
+   ========================================================================== */
+
+#appMenu-fxa-status2,
+#appMenu-fxa-sign-in-promo,
+#PanelUI-fxa-menu-sign-in-promo,
+.fxa-menu-sign-in-promo,
+#PanelUI-fxa-menu-setup,
+.panel-banner-item,
+.addon-banner-item,
+#appMenu-menu-message,
+#PanelUI-fxa-menu-message,
+#appMenu-fxa-separator,
+#appMenu-addon-banners,
+#appMenu-update-banner {
+  display: none !important;
+}
+
+toolbarseparator.proton-zap::before,
+.panel-separator.proton-zap::before,
+.proton-zap::before {
+  display: none !important;
+}
+
+#appMenu-zoom-controls {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+#appMenu-zoom-controls:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton,
+#appMenu-zoom-controls > .subviewbutton {
+  background-color: var(--palette-button-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  margin: 1px 2px !important;
+  padding: 4px 10px !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton:hover,
+#appMenu-zoom-controls > .subviewbutton:hover {
+  background-color: var(--palette-alpha-blue-30) !important;
+  border-color: var(--palette-alpha-blue-85) !important;
+  color: var(--palette-white) !important;
+}
+
+
+/* ==========================================================================
+   12. Context Menu & Dropdown Fade-In / Fade-Out Micro-Animations
+   ========================================================================== */
+
+@keyframes breeze-popup-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes breeze-panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+menupopup {
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="open"],
+menupopup:not([animate="false"])[open="true"] {
+  animation: breeze-popup-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="cancel"] {
+  opacity: 0 !important;
+  transition: opacity 0.11s ease-in !important;
+}
+
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content),
+.searchmode-switcher-panel::part(content),
+panel[type="autocomplete-richlistbox"]::part(content) {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="open"]::part(content),
+.searchmode-switcher-panel[animate="open"]::part(content),
+panel[open="true"]::part(content) {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="cancel"]::part(content),
+.searchmode-switcher-panel[animate="cancel"]::part(content) {
+  opacity: 0 !important;
+  transform: translateY(-4px) scale(0.985) !important;
+  transition: opacity 0.11s ease-in, transform 0.11s ease-in !important;
+}
+
+panel-list {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list[open] {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list:not([open]) {
+  opacity: 0 !important;
+  transform: translateY(-3px) scale(0.985) !important;
+}
+
+.urlbarView[isopen] {
+  animation: breeze-panel-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
