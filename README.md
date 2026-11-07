@@ -14,3 +14,24 @@ Animations are uneven and not present everywhere they will be in later versions
 This is an alpha release, though it works on Firefox 159 (lower version have not been tested)
 
 The UX is not completely unified, the main goal was to unify the design though not e.g. padding between different components (contributions would be helpful)
+
+[Main Preview](media/1.jpg)
+<details>
+<summary><b>Click to view more screenshots (2–8)</b></summary>
+<br>
+<p align="center">
+  <img src="media/2.jpg" width="48%">
+  <img src="media/3.jpg" width="48%">
+</p>
+<p align="center">
+  <img src="media/4.jpg" width="48%">
+  <img src="media/5.jpg" width="48%">
+</p>
+<p align="center">
+  <img src="media/6.jpg" width="48%">
+  <img src="media/7.jpg" width="48%">
+</p>
+<p align="center">
+  <img src="media/8.jpg" width="80%">
+</p>
+</details>
