@@ -6,7 +6,11 @@ Download this repo as a zip, either put the stuff into your firefox profile fold
 
 Limitations: 
 Does not support wallpapers in new tab pages (I would recommend using an extension if you want animated stuff, gladly contribute if you wanna fix it)
+
 Some pages like about:studies are not themed, most settings dialogs are though
+
 Animations are uneven and not present everywhere they will be in later version
+
 This is a alpha release, though it works on Firefox 159 (lower version have not been tested)
+
 The UX is not completely unified the main goal was to unify the design though not e.g. padding between different components (contribution would be helpful)
