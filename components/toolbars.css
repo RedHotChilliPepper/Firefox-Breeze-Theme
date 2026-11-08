@@ -21,6 +21,9 @@
 #nav-bar-customization-target {
   display: flex !important;
   align-items: center !important;
+  justify-content: flex-start !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
   height: 100% !important;
   width: 100% !important;
 }
@@ -37,7 +40,7 @@
   height: 28px !important;
   min-width: 28px !important;
   min-height: 28px !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   padding: 0 !important;
   margin: 1px 1px !important;
   border: 1px solid transparent !important;
@@ -55,7 +58,7 @@
   height: 28px !important;
   min-height: 28px !important;
   max-height: 28px !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   padding: 0 !important;
   margin: 1px 1px !important;
   border: 1px solid transparent !important;
@@ -63,6 +66,17 @@
   align-items: center !important;
   justify-content: center !important;
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#ipprotection-button:not([disabled="true"]):hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+#ipprotection-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]) {
+  background-color: var(--palette-blue-accent) !important;
+  border-color: var(--palette-blue-accent) !important;
+  box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
 }
 
 /* Stack and icon sizing for base icon and layered states */
@@ -81,8 +95,8 @@
   justify-self: center !important;
   list-style-image: url("icons/vpn.svg") !important;
   -moz-context-properties: fill, fill-opacity, stroke !important;
-  fill: var(--palette-text-main) !important;
-  color: var(--palette-text-main) !important;
+  fill: var(--palette-white) !important;
+  color: var(--palette-white) !important;
 }
 
 /* Hide text label to unify into a single icon button */
@@ -128,7 +142,6 @@
 #PanelUI-menu-button:not([disabled="true"]):hover,
 #unified-extensions-button:not([disabled="true"]):hover,
 .urlbar-page-action:not([disabled="true"]):hover,
-.urlbar-icon:not([disabled="true"]):hover,
 #page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):hover {
   background-color: var(--kde-hover-bg) !important;
   border-color: var(--palette-alpha-blue-50) !important;
@@ -143,7 +156,6 @@
 #PanelUI-menu-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
 #unified-extensions-button:is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
 .urlbar-page-action:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
-.urlbar-icon:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
 #star-button-box:is(:active, :hover:active, [open], [open="true"], [starred="true"]),
 #reader-mode-button:is(:active, :hover:active, [open], [open="true"], [readeractive]),
 #translations-button:is(:active, :hover:active, [open], [open="true"], [translationsactive]),
@@ -169,7 +181,7 @@
   margin: 1px 1px !important;
   padding: 0 !important;
   border: 1px solid transparent !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
   align-items: center !important;
   justify-content: center !important;
@@ -351,7 +363,7 @@ notificationbox button.notification-button,
   background-color: var(--palette-btn-primary) !important;
   color: var(--palette-white) !important;
   border: 1px solid var(--palette-blue-accent) !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   font-family: "Noto Sans", sans-serif !important;
   font-size: 12.5px !important;
   font-weight: 500 !important;
@@ -400,7 +412,7 @@ notificationbox button.close {
   min-height: 24px !important;
   padding: 2px !important;
   margin: 0 4px !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   border: 1px solid transparent !important;
   background-color: transparent !important;
   color: var(--palette-text-dim) !important;
@@ -416,3 +428,16 @@ notificationbox button.close:hover {
   color: var(--palette-white) !important;
 }
 
+
+/* Only the outer action paints a highlight; inner artwork keeps no second surface. */
+#navigator-toolbox :is(.toolbarbutton-icon, .toolbarbutton-badge-stack, .urlbar-icon, .urlbar-icon-wrapper),
+.urlbar-page-action :is(.urlbar-icon, .toolbarbutton-icon),
+:is(#identity-icon-box, #tracking-protection-icon-container, #trust-icon-container) > image {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#navigator-toolbox :is(.toolbarbutton-badge-stack, .urlbar-icon-wrapper) {
+  background-image: none !important;
+}

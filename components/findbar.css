@@ -28,7 +28,7 @@ findbar {
   background-color: var(--kde-view-bg) !important;
   color: var(--kde-view-fg) !important;
   border: 1px solid var(--kde-border-color) !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-height: 26px !important;
   height: 26px !important;
   padding: 2px 8px !important;
@@ -60,7 +60,7 @@ findbar toolbarbutton,
   -moz-default-appearance: none !important;
   background-color: transparent !important;
   border: 1px solid transparent !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-height: 26px !important;
   height: 26px !important;
   padding: 2px 8px !important;
@@ -93,7 +93,7 @@ findbar toolbarbutton:not([disabled="true"]):is(:active, [checked="true"]),
 .findbar-closebutton {
   appearance: none !important;
   -moz-default-appearance: none !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   padding: 4px !important;
   width: 22px !important;
   height: 22px !important;

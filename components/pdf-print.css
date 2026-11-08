@@ -63,7 +63,7 @@ printpreview-pagination {
   /* Destination select with printer/PDF icon (#printer-picker[iconic] in 055428.png) */
   select[iconic],
   #printer-picker {
-    padding-inline-start: 32px !important;
+    padding-inline-start: 34px !important;
     padding-inline-end: 28px !important;
     background-position: right 10px center, left 8px center !important;
     background-repeat: no-repeat, no-repeat !important;
@@ -179,5 +179,58 @@ printpreview-pagination {
   .toolbarField:focus {
     border-color: var(--palette-blue-accent) !important;
   }
+
+/* GSL outer surfaces, including PDF.js menus and modal dialogs. */
+  .doorHanger,
+  .doorHangerRight,
+  #secondaryToolbar,
+  .editorParamsToolbar,
+  dialog,
+  .dialog {
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 8px !important;
+    opacity: 1;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                overlay 0.15s allow-discrete !important;
+  }
+
+  :is(.doorHanger, .doorHangerRight, #secondaryToolbar, .editorParamsToolbar):is(.hidden, [hidden]),
+  dialog:not([open]),
+  .dialog[hidden] {
+    opacity: 0;
+  }
+
+  @starting-style {
+    :is(.doorHanger, .doorHangerRight, #secondaryToolbar, .editorParamsToolbar):not(.hidden):not([hidden]),
+    dialog[open] {
+      opacity: 0;
+    }
+  }
+
+  dialog,
+  .dialog {
+    padding: 16px 20px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .dialogSeparator {
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    margin-block: 12px !important;
+  }
+
+  .dialogButtonsGroup {
+    gap: 8px !important;
+  }
+
+  .doorHanger::before,
+  .doorHanger::after,
+  .doorHangerRight::before,
+  .doorHangerRight::after {
+    display: none !important;
+  }
+
 }
 

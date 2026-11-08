@@ -18,6 +18,7 @@
                url-prefix("chrome://mozapps/content/"),
                url-prefix("chrome://pippki/content/"),
                url-prefix("chrome://formautofill/content/") {
+  /* ==========================================================================
      Choose a Firefox Profile (051018.png, 063231.png - profiles.html)
      ========================================================================== */
 
@@ -26,7 +27,10 @@
     border: 1px solid var(--palette-border-dark) !important;
     border-radius: 8px !important;
     overflow: hidden !important;
-    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease !important;
+    opacity: 1 !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease !important;
   }
 
   .profile-card:hover {
@@ -36,7 +40,9 @@
   }
 
   .new-profile-card {
-    background-color: var(--palette-treeheader-bg) !important;
+    opacity: 1 !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1), display 0.15s allow-discrete !important;
+    background-color: var(--palette-window-bg) !important;
     border: 1.5px dashed var(--palette-icon-muted) !important;
     border-radius: 8px !important;
   }
@@ -44,6 +50,18 @@
   .new-profile-card:hover {
     background-color: var(--palette-alpha-blue-12) !important;
     border-color: var(--palette-blue-accent) !important;
+  }
+
+  .profile-card[hidden],
+  .new-profile-card[hidden] {
+    opacity: 0 !important;
+  }
+
+  @starting-style {
+    .profile-card,
+    .new-profile-card {
+      opacity: 0 !important;
+    }
   }
 
   .profile-details {
@@ -124,7 +142,7 @@
 }
 
 toolbarpaletteitem {
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
@@ -178,7 +196,7 @@ toolbarpaletteitem:hover {
   background-color: var(--palette-button-bg) !important;
   color: var(--palette-text-main) !important;
   border: 1px solid var(--palette-border-dark) !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-height: 30px !important;
   padding: 4px 14px !important;
   font-family: "Noto Sans", sans-serif !important;
@@ -205,7 +223,7 @@ toolbarpaletteitem:hover {
   font-family: "Noto Sans", sans-serif !important;
   font-size: 12.5px !important;
   font-weight: 600 !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-height: 30px !important;
   padding: 4px 18px !important;
   cursor: pointer !important;
@@ -230,5 +248,156 @@ toolbarpaletteitem:hover {
 .customization-lwtheme-link:hover {
   color: var(--palette-blue-accent) !important;
   text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   GLS Standard for Firefox Translations (about:translations - Crow Translate refB4.png, bugB7.png)
+   ========================================================================== */
+@-moz-document url-prefix("about:translations") {
+  :root,
+  html,
+  body,
+  body:has(#about-translations-main-user-interface) {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  html {
+    min-block-size: 100% !important;
+    --background-color-canvas: var(--palette-window-bg) !important;
+    --in-content-page-background: var(--palette-window-bg) !important;
+  }
+
+  body {
+    min-block-size: 100vh !important;
+    box-sizing: border-box !important;
+  }
+
+  #about-translations-h1 {
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-weight: 600 !important;
+  }
+
+  #about-translations-description-text {
+    color: var(--palette-text-dim) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  #about-translations-learn-more-link {
+    color: var(--palette-link) !important;
+    text-decoration: none !important;
+  }
+
+  #about-translations-learn-more-link:hover {
+    color: var(--palette-blue-accent) !important;
+    text-decoration: underline !important;
+  }
+
+  /* Translation Text Editing Surfaces (Crow Translate Panes refB4.png) */
+  #about-translations-source-section,
+  #about-translations-target-section {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  #about-translations-source-section:focus-within,
+  #about-translations-target-section:focus-within {
+    border-color: var(--palette-blue-accent) !important;
+    outline: 1px solid var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+  }
+
+  .about-translations-textarea {
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 14px !important;
+  }
+
+  /* Language Selectors (Qt6 QComboBox) */
+  #about-translations-source-select:not(moz-select):not(moz-button),
+  #about-translations-target-select:not(moz-select):not(moz-button),
+  select.about-translations-select {
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    min-height: 32px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  #about-translations-source-select:not(moz-select):not(moz-button):hover,
+  #about-translations-target-select:not(moz-select):not(moz-button):hover,
+  select.about-translations-select:hover {
+    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--palette-groove-sep) !important;
+  }
+
+  /* Swap Languages Button (Qt6 QToolButton refB4.png) */
+  #about-translations-switch-button:not(moz-select):not(moz-button),
+  #about-translations-main-user-interface > button {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    cursor: pointer !important;
+    align-self: center !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  #about-translations-switch-button:not(moz-select):not(moz-button):hover,
+  #about-translations-main-user-interface > button:hover {
+    background-color: var(--palette-groove-sep) !important;
+    border-color: var(--palette-blue-accent) !important;
+    color: var(--palette-white) !important;
+  }
+
+  /* Copy Button (Breeze Push Button) */
+  #about-translations-copy-button:not(moz-select):not(moz-button),
+  #about-translations-clear-button:not(moz-select):not(moz-button) {
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  #about-translations-copy-button:not(moz-select):not(moz-button):hover,
+  #about-translations-clear-button:not(moz-select):not(moz-button):hover {
+    background-color: var(--palette-alpha-blue-30) !important;
+    border-color: var(--palette-alpha-blue-85) !important;
+    color: var(--palette-white) !important;
+  }
+
+/* Custom-element hosts remain unboxed; their inner control owns the frame. */
+  moz-select:is(#about-translations-source-select, #about-translations-target-select, .about-translations-select) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    --select-border-radius: 4px !important;
+    --select-background-color: var(--palette-button-bg) !important;
+    --select-border-color: var(--palette-border-dark) !important;
+  }
+
+  moz-button:is(#about-translations-switch-button, #about-translations-copy-button, #about-translations-clear-button) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    --button-border-radius: 4px !important;
+    --button-background-color: var(--palette-button-bg) !important;
+    --button-border-color: var(--palette-border-dark) !important;
+  }
+
 }
 

@@ -36,40 +36,56 @@
   #sidebar,
   moz-page-nav {
     margin-inline-start: 0 !important;
-    padding-inline-start: 10px !important;
-    padding-inline-end: 10px !important;
-    padding-block-start: 16px !important;
-    width: 220px !important;
-    min-width: 220px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    width: 330px !important;
+    min-width: 330px !important;
+    overflow: visible !important;
+    scrollbar-gutter: auto !important;
     --page-nav-margin-inline-start: 0px !important;
     --page-nav-border-color: transparent !important;
+    --page-nav-focus-padding: 0px !important;
     background-color: var(--kde-window-bg) !important;
-    border-right: 1px solid var(--kde-border-color) !important;
-    border-inline-end: 1px solid var(--kde-border-color) !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-groove-sep) !important;
   }
 
-  /* Prevent double right-border & double padding in about:addons (#sidebar > categories-box > moz-page-nav)
-     and about:preferences (.navigation > moz-page-nav#categories) (063204.png) */
+  /* Only the outer sidebar owns padding and the divider, in both text directions. */
   #sidebar :is(#categories, categories-box, moz-page-nav),
   .navigation :is(#categories, categories-box, moz-page-nav),
-  categories-box,
-  :host(moz-page-nav) {
-    border-right: none !important;
-    border-inline-end: none !important;
-    padding-inline: 0 !important;
-    margin-inline: 0 !important;
+  categories-box {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
     background-color: transparent !important;
     --page-nav-border-color: transparent !important;
+    --page-nav-focus-padding: 0px !important;
   }
 
-  /* Standalone body > moz-page-nav (e.g. about:keyboard) keeps its own single right border & padding */
+  /* A standalone navigation host remains its own outer sidebar. */
   body > moz-page-nav {
-    background-color: var(--kde-window-bg) !important;
-    border-inline-end: 1px solid var(--kde-border-color) !important;
-    padding-inline: 10px !important;
-    padding-block-start: 16px !important;
-    width: 220px !important;
-    min-width: 220px !important;
+    padding: 8px !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  /* Sidebar navigation flows normally instead of creating its own scroll area. */
+  #sidebar,
+  #categories,
+  .navigation,
+  categories-box,
+  moz-page-nav,
+  :host(moz-page-nav),
+  :host(categories-box) {
+    overflow: visible !important;
+    scrollbar-gutter: auto !important;
+  }
+
+  :host(moz-page-nav) nav {
+    overflow: visible !important;
+    scrollbar-gutter: auto !important;
   }
 
   moz-page-nav-button {
@@ -153,4 +169,220 @@
     outline: none !important;
   }
 
+  /* ==========================================================================
+     Password Site Left Bar (about:logins - bugB5.png, refB2.png)
+     ========================================================================== */
+  login-list {
+    background-color: var(--kde-window-bg) !important;
+    border-inline-end: 1px solid var(--kde-border-color) !important;
+  }
+
+  login-list .listHeader {
+    background-color: var(--kde-window-bg) !important;
+    padding: 12px 14px !important;
+    gap: 8px !important;
+  }
+
+  login-filter .filter,
+  login-filter input[type="text"] {
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    padding: 4px 10px 4px 34px !important;
+    min-height: 30px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    outline: none !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  login-filter .filter:focus,
+  login-filter input[type="text"]:focus {
+    border-color: var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+  }
+
+  login-list .listHeader button,
+  login-list button.create-login-button {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  login-list .listHeader button:hover,
+  login-list button.create-login-button:hover {
+    background-color: var(--palette-groove-sep) !important;
+    border-color: var(--palette-blue-accent) !important;
+    color: var(--palette-white) !important;
+  }
+
+  login-list .meta {
+    background-color: var(--kde-window-bg) !important;
+    border-bottom: 1px solid var(--palette-dialog-border) !important;
+    padding: 4px 14px 10px !important;
+    color: var(--palette-text-dim) !important;
+    font-size: 12px !important;
+  }
+
+  login-list #login-sort {
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    padding: 2px 8px !important;
+    font-size: 12px !important;
+  }
+
+  login-list ol {
+    padding: 6px 8px !important;
+  }
+
+  login-list ol > li,
+  login-list-item,
+  login-list-lit-item {
+    border-radius: 4px !important;
+    margin: 1px 0 !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid transparent !important;
+    transition: background-color 0.1s ease, border-color 0.1s ease !important;
+  }
+
+  login-list ol > li:hover,
+  login-list-item:hover,
+  login-list-lit-item:hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-40) !important;
+  }
+
+  login-list ol > li[selected],
+  login-list-item[selected],
+  login-list-lit-item[selected],
+  login-list ol > li.selected {
+    background-color: var(--palette-alpha-blue-26) !important;
+    border-color: var(--palette-alpha-blue-55) !important;
+    color: var(--palette-white) !important;
+  }
+
+  login-list .intro,
+  login-list .empty-search-message {
+    color: var(--palette-text-dim) !important;
+    padding: 16px !important;
+  }
+
+}
+
+/* about:logins keeps the same sidebar density as the reference settings page. */
+@-moz-document url-prefix("about:logins"),
+               url-prefix("chrome://browser/content/aboutlogins/") {
+  body {
+    --sidebar-width: 330px !important;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr) !important;
+  }
+
+  login-list {
+    inline-size: var(--sidebar-width, 330px) !important;
+    min-inline-size: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  :host(login-list),
+  :host(login-list) ol {
+    overflow: visible !important;
+    scrollbar-gutter: auto !important;
+  }
+
+  .listHeader {
+    padding: 8px !important;
+    gap: 8px !important;
+    min-inline-size: 0 !important;
+  }
+
+  login-filter {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+
+  :host(login-list) .meta {
+    padding: 4px 8px 8px !important;
+    gap: 8px !important;
+  }
+
+  :host(login-list) .count {
+    margin-inline-start: 0 !important;
+  }
+
+  body > section,
+  login-intro,
+  login-item {
+    min-inline-size: 0 !important;
+    max-inline-size: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  login-intro {
+    padding: 24px 32px !important;
+    align-items: stretch !important;
+  }
+
+  :host(login-intro) section {
+    max-inline-size: 100% !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* Add-ons must reserve the same width that its sidebar actually paints. */
+@-moz-document url-prefix("about:addons"),
+               url-prefix("chrome://mozapps/content/extensions/aboutaddons.html") {
+  :root {
+    --sidebar-width: 330px !important;
+  }
+
+  #full {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr) !important;
+  }
+
+  #sidebar {
+    width: var(--sidebar-width) !important;
+    min-width: 0 !important;
+    max-width: var(--sidebar-width) !important;
+    box-sizing: border-box !important;
+  }
+
+  categories-box {
+    display: block !important;
+    inline-size: 100% !important;
+    min-inline-size: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* categories-box owns a shadow tree: ordinary #sidebar descendant rules
+     cannot reset the navigation host inside that tree. */
+  :host(categories-box) moz-page-nav {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+  }
+
+  #content {
+    min-width: 0 !important;
+  }
 }

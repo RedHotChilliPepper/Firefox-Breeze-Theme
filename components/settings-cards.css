@@ -22,19 +22,42 @@
      Promo & Info Callout Cards (Fixes brown/violet backgrounds in Settings)
      ========================================================================== */
 
-  moz-promo {
-    --promo-background-color: var(--palette-treeheader-bg) !important;
-    --promo-background-color-vibrant: var(--palette-treeheader-bg) !important;
-    --promo-border-color: var(--palette-groove-sep) !important;
-    --promo-border-color-vibrant: var(--palette-groove-sep) !important;
-    --promo-border-radius: 6px !important;
-    --promo-message-text-color: var(--palette-text-main) !important;
-    --promo-message-text-color-vibrant: var(--palette-text-main) !important;
+  moz-promo,
+  :host(moz-promo) {
+    --promo-background-color: var(--palette-popup-bg) !important;
+    --promo-background-color-vibrant: var(--palette-popup-bg) !important;
+    --promo-border: 1px solid var(--palette-border-dark) !important;
+    --promo-border-color: var(--palette-border-dark) !important;
+    --promo-border-color-vibrant: var(--palette-border-dark) !important;
+    --promo-border-radius: 4px !important;
+    --promo-padding: 12px !important;
+    --promo-message-text-color: var(--palette-text-dim) !important;
+    --promo-message-text-color-vibrant: var(--palette-text-dim) !important;
     --promo-heading-text-color: var(--palette-text-main) !important;
     --promo-heading-text-color-vibrant: var(--palette-text-main) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
   }
 
-  moz-promo::part(container),
+  /* moz-promo exposes no container part: style its actual shadow elements. */
+  :host(moz-promo) .container {
+    gap: 12px !important;
+  }
+
+  :host(moz-promo) .heading {
+    color: var(--palette-text-main) !important;
+    font: 600 14px/1.35 "Noto Sans", sans-serif !important;
+  }
+
+  :host(moz-promo) .message {
+    color: var(--palette-text-dim) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+
+  :host(moz-promo[imagedisplay="cover"]:not([dismissable])) .text-container,
+  :host(moz-promo[imagedisplay="padded"]:not([dismissable])) .container {
+    padding: 12px 16px !important;
+  }
+
   .info-box-container,
   .ai-controls-description,
   .qr-code-box,

@@ -163,6 +163,47 @@ menu, menuitem, .subviewbutton {
   transition: background-color 0.08s ease, border-color 0.08s ease !important;
 }
 
+menuitem:not([hidden]):not([collapsed="true"]) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+/* Non-overlapping dropdown menu iconic items (refB1.png, bugB1.png, bugB2.png) */
+menuitem > .menu-icon,
+menuitem > .menu-iconic-icon,
+menuitem > .menu-iconic-left {
+  display: inline-flex !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  margin: 0 !important;
+  margin-inline-end: 8px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+}
+
+menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-icon:not([src]):not([srcset]),
+menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-iconic-icon:not([src]):not([srcset]) {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+menuitem > .menu-text,
+menuitem > .menu-iconic-text,
+menuitem > .menu-highlightable-text {
+  flex: 1 !important;
+}
+
 /* Dolphin / Qt6 Breeze Item Hover & Active Selection:
    Translucent accent background (var(--palette-deep-accent)) with crisp accent border (var(--palette-blue-accent)) */
 menu:is(:hover, [_moz-menuactive="true"]),
@@ -226,6 +267,25 @@ menupopup menuitem [_moz-acceltext],
   border-radius: 4px !important;
   padding: 4px !important;
   border: 1px solid transparent !important;
+  justify-content: center !important;
+}
+
+/* Firefox normally puts 7px padding inside these icons. With a 16px
+   border-box image that leaves only 2px of artwork, producing tiny dots. */
+#context-navigation > .menuitem-iconic > :is(.menu-icon, .menu-iconic-icon, .menu-iconic-left),
+#context-navigation > .menuitem-iconic > .menu-iconic-left > .menu-iconic-icon {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  flex: 0 0 16px !important;
+  object-fit: contain !important;
 }
 #context-navigation > .menuitem-iconic:is(:hover, [_moz-menuactive="true"]) {
   background-color: var(--palette-alpha-blue-30) !important;
@@ -269,8 +329,8 @@ toolbarseparator.proton-zap::before,
 
 #appMenu-zoom-controls > toolbarbutton,
 #appMenu-zoom-controls > .subviewbutton {
-  background-color: var(--palette-button-bg) !important;
-  border: 1px solid var(--palette-border-dark) !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
   border-radius: 4px !important;
   margin: 1px 2px !important;
   padding: 4px 10px !important;
@@ -319,7 +379,7 @@ menupopup:not([animate="false"])[open="true"] {
 
 menupopup[animate="cancel"] {
   opacity: 0 !important;
-  transition: opacity 0.11s ease-in !important;
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 panel[type="arrow"]::part(content),
@@ -342,7 +402,7 @@ panel[animate="cancel"]::part(content),
 .searchmode-switcher-panel[animate="cancel"]::part(content) {
   opacity: 0 !important;
   transform: translateY(-4px) scale(0.985) !important;
-  transition: opacity 0.11s ease-in, transform 0.11s ease-in !important;
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1), transform 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 panel-list {
@@ -363,3 +423,637 @@ panel-list:not([open]) {
   animation: breeze-panel-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
+/* ==========================================================================
+   GSL site permissions, identity and tracking protection — bookmark reference
+   ========================================================================== */
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  --controlcenter-popup-content-width: min(380px, calc(100vw - 24px)) !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-background-color: var(--palette-window-bg) !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-border-radius: 8px !important;
+  --panel-padding: 0px !important;
+  --arrowpanel-background: var(--palette-window-bg) !important;
+  --arrowpanel-border-color: var(--palette-border-dark) !important;
+  --arrowpanel-padding: 0px !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup)::part(content) {
+  background: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  color: var(--palette-text-main) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .panel-header {
+  padding: 12px 16px 10px !important;
+  margin: 0 !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .panel-header > h1 {
+  margin: 0 !important;
+  font: 600 13px "Noto Sans", sans-serif !important;
+  text-align: center !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .panel-header + toolbarseparator {
+  display: none !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) toolbarseparator {
+  appearance: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 16px !important;
+  border: none !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+  background: transparent !important;
+}
+
+#permission-popup .permission-popup-section,
+:is(#identity-popup, #trustpanel-popup) .panel-subview-body {
+  padding: 12px 16px 16px !important;
+}
+
+#permission-popup .permission-popup-permission-item {
+  align-items: center !important;
+  min-height: 32px !important;
+  margin-block: 4px !important;
+}
+
+#permission-popup menulist,
+#identity-popup menulist {
+  appearance: none !important;
+  background: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  padding: 4px 10px !important;
+  margin-block: 0 !important;
+  font: 500 13px "Noto Sans", sans-serif !important;
+  box-shadow: none !important;
+}
+
+:is(#permission-popup, #identity-popup) menulist:is(:hover, [open="true"]):not([disabled="true"]) {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .subviewbutton {
+  min-height: 30px !important;
+  padding: 6px 12px !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  color: var(--palette-text-main) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .subviewbutton:hover {
+  background-color: var(--palette-alpha-blue-16) !important;
+  border-color: var(--palette-blue-accent) !important;
+}
+
+#trustpanel-popup {
+  --trustpanel-background: var(--palette-view-bg) !important;
+  --trustpanel-highlight-bg: var(--palette-view-bg) !important;
+  --trustpanel-warning-bg: var(--palette-view-bg) !important;
+  --trustpanel-graphic-bg: var(--palette-view-bg) !important;
+  --trustpanel-card-border-color: var(--palette-border-dark) !important;
+  --trustpanel-card-divider-color: var(--palette-groove-sep) !important;
+}
+
+#trustpanel-header-row {
+  padding: 12px 16px 10px !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+}
+
+#trustpanel-popup-host-wrapper {
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+#trustpanel-graphic-section,
+.protections-popup-footer,
+#protections-popup-footer {
+  background: var(--palette-view-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  margin: 12px 16px !important;
+  padding: 12px !important;
+}
+
+#trustpanel-toggle-section {
+  margin: 12px 16px 16px !important;
+  padding: 0 !important;
+}
+
+#trustpanel-toggle-checkbox-container {
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.trustpanel-header,
+#protections-popup .panel-header > h1 > span {
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+#trustpanel-graphic-section-text,
+#trustpanel-etp-description,
+.protections-popup-description > description,
+#protections-popup-content > description {
+  color: var(--palette-text-dim) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  line-height: 1.45 !important;
+}
+
+:is(#trustpanel-clear-cookies-button, #trustpanel-privacy-link, #identity-popup-clear-sitedata-button) {
+  margin: 6px 4px !important;
+}
+
+/* Delete-site-data subview: compact confirmation using the parent panel shell. */
+#trustpanel-clearcookiesView {
+  min-height: 0 !important;
+}
+
+/* Native view transitions retain the taller parent height on both stacks. */
+#trustpanel-popup :is(.panel-viewcontainer, .panel-viewstack):has(#trustpanel-clearcookiesView[visible]) {
+  min-height: 0 !important;
+}
+
+#trustpanel-clearcookiesView > toolbarseparator {
+  display: none !important;
+}
+
+#trustpanel-clearcookiesView > .trustpanel-section {
+  padding: 12px 16px 16px !important;
+  margin: 0 !important;
+}
+
+#trustpanel-clearcookiesView .trustpanel-section > label {
+  margin: 0 !important;
+  color: var(--palette-text-main) !important;
+  font: 13px/1.45 "Noto Sans", sans-serif !important;
+}
+
+#trustpanel-clearcookiesView moz-button-group {
+  justify-content: flex-end !important;
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+  --space-small: 8px !important;
+}
+
+#trustpanel-clearcookiesView moz-button {
+  --button-background-color-hover: var(--palette-groove-sep) !important;
+  --button-background-color-active: var(--palette-toggle-on-bg) !important;
+  --button-border-color-hover: var(--palette-blue-accent) !important;
+  --button-border-color-active: var(--palette-blue-accent) !important;
+  --button-text-color-hover: var(--palette-text-main) !important;
+  --button-text-color-active: var(--palette-white) !important;
+  --focus-outline: 1px solid var(--palette-blue-accent) !important;
+  --focus-outline-offset: 1px !important;
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+/* ==========================================================================
+   GLS Firefox VPN Panel (#PanelUI-ipprotection - bugB6.png)
+   ========================================================================== */
+#PanelUI-ipprotection,
+#PanelUI-ipprotection-locations {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-border-radius: 8px !important;
+}
+
+#PanelUI-ipprotection::part(content),
+#PanelUI-ipprotection-locations::part(content) {
+  background-color: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 10px 30px var(--palette-alpha-black-65) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+#ipprotection-content-wrapper,
+#unauthenticated-vpn-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-inline: 0 !important;
+  gap: 12px !important;
+}
+
+#unauthenticated-vpn-title,
+.vpn-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+#unauthenticated-vpn-img {
+  align-self: center !important;
+  margin-block: 16px !important;
+}
+
+.vpn-description {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+#unauthenticated-vpn-message > li,
+.vpn-description li {
+  gap: 8px !important;
+  padding-block: 4px !important;
+}
+
+#unauthenticated-vpn-message > li::before,
+.vpn-description li.with-icon::before {
+  width: 16px !important;
+  height: 16px !important;
+  flex: 0 0 16px !important;
+}
+
+#unauthenticated-footer {
+  margin-block: 12px 0 !important;
+  color: var(--palette-text-dim) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+}
+
+#ipprotection-header-content {
+  font-size: 14px !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+#ipprotection-experiment-badge {
+  border: 1px solid var(--palette-border-dark) !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-dim) !important;
+  border-radius: 4px !important;
+  padding: 1px 5px !important;
+  font-size: 12px !important;
+}
+
+#ipprotection-header-button {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  border: 1px solid transparent !important;
+}
+
+#ipprotection-header-button:hover {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+/* Hosts are layout only: the native button background owns the single frame. */
+.vpn-button,
+#vpn-settings-button,
+#upgrade-vpn-button,
+#unauthenticated-get-started,
+#unauthenticated-vpn-content moz-button[slot="action"],
+#PanelUI-ipprotection moz-button[slot="action"],
+#trustpanel-clearcookiesView moz-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  --button-border-radius: 4px !important;
+  --button-min-height: 32px !important;
+  --button-padding: 6px 14px !important;
+  --button-font-size: 13px !important;
+  --button-font-weight: 600 !important;
+  --button-border: 1px solid var(--palette-border-dark) !important;
+  --button-background-color: var(--palette-button-bg) !important;
+  --button-text-color: var(--palette-text-main) !important;
+  --button-background-color-primary: var(--palette-btn-primary) !important;
+  --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+  --button-background-color-primary-active: var(--palette-btn-primary) !important;
+  --button-border-color-primary: var(--palette-blue-accent) !important;
+  --button-border-color-primary-hover: var(--palette-blue-focus) !important;
+  --button-text-color-primary: var(--palette-white) !important;
+  --button-text-color-primary-hover: var(--palette-white) !important;
+  --button-text-color-primary-active: var(--palette-white) !important;
+}
+
+#vpn-settings-button {
+  --button-background-color-ghost: transparent !important;
+  --button-background-color-ghost-hover: var(--palette-alpha-blue-16) !important;
+  --button-border-color-ghost: transparent !important;
+}
+
+/* GSL refB5: slim 34x12px track with an overhanging dark 18px thumb. */
+moz-toggle,
+:host(moz-toggle) {
+  --toggle-width: 34px !important;
+  --toggle-height: 12px !important;
+  --input-width: 34px !important;
+  --toggle-border-radius: 999px !important;
+  --toggle-border-width: 1px !important;
+  --toggle-background-color: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+  --toggle-border-color: var(--palette-icon-muted) !important;
+  --toggle-border-color-hover: var(--palette-blue-accent) !important;
+  --toggle-border-color-active: var(--palette-blue-accent) !important;
+  --toggle-dot-background-color: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+  --toggle-dot-width: 18px !important;
+  --toggle-dot-height: 18px !important;
+  --toggle-dot-margin: 0px !important;
+  --toggle-dot-transform-x: 16px !important;
+}
+
+/* Do not override the track's margin: Firefox positions #input within its label. */
+moz-toggle::part(button),
+button.toggle-button {
+  appearance: none !important;
+  width: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  height: 12px !important;
+  min-height: 12px !important;
+  max-height: 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--palette-icon-muted) !important;
+  background-color: var(--toggle-background-color) !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+moz-toggle:hover::part(button),
+button.toggle-button:hover:not(:disabled) {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+moz-toggle[pressed]::part(button),
+button.toggle-button[aria-pressed="true"] {
+  background-color: var(--palette-toggle-on-bg) !important;
+  border-color: var(--palette-blue-accent) !important;
+}
+
+moz-toggle[pressed]:hover::part(button),
+button.toggle-button[aria-pressed="true"]:hover:not(:disabled) {
+  background-color: var(--palette-toggle-on-bg) !important;
+}
+
+button.toggle-button::before {
+  display: block !important;
+  content: "" !important;
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  margin: 0 !important;
+  margin-block-start: -4px !important;
+  margin-inline-start: -1px !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: 50% !important;
+  background-color: var(--palette-button-bg) !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+  translate: 0 !important;
+  transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease !important;
+}
+
+button.toggle-button:hover:not(:disabled)::before,
+button.toggle-button[aria-pressed="true"]::before {
+  background-color: var(--palette-button-bg) !important;
+}
+
+button.toggle-button[aria-pressed="true"]::before {
+  translate: 16px 0 !important;
+}
+
+button.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,
+button.toggle-button[aria-pressed="true"]:dir(rtl)::before {
+  translate: -16px 0 !important;
+}
+
+/* Context-dependent commands must keep Firefox's native visibility. */
+menuitem[hidden],
+menuitem[collapsed="true"],
+menu[hidden],
+menu[collapsed="true"],
+menuseparator[hidden],
+.subviewbutton[hidden] {
+  display: none !important;
+}
+
+button.toggle-button:hover:not(:disabled)::before,
+button.toggle-button:focus-visible::before,
+:host(moz-toggle:hover) button.toggle-button::before {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+/* Restore the native menu-icon slot, then style its checked state like ref5. */
+menuitem:is([type="checkbox"], [type="radio"], [checked]) > .menu-icon {
+  display: inline-block !important;
+  visibility: visible !important;
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  content: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  padding: 0 !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  background-color: var(--palette-view-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+menuitem:is([type="checkbox"], [type="radio"], [checked]):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+menuitem[checked]:not([checked="false"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+  background-image: radial-gradient(circle, var(--palette-blue-accent) 0%, var(--palette-blue-accent) 38%, transparent 42%) !important;
+}
+
+/* Flat popup icon actions have a single blue state marker. */
+#appMenu-zoom-controls .toolbarbutton-icon,
+.subviewbutton > .toolbarbutton-icon,
+menulist > :is(.menulist-dropmarker, dropmarker),
+.expander-up > .button-box,
+.expander-down > .button-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#appMenu-zoom-controls .toolbarbutton-icon {
+  padding: 0 !important;
+}
+
+:is(#appMenu-zoomReduce-button, #appMenu-zoomReduce-button2) .toolbarbutton-icon {
+  list-style-image: url("chrome://global/skin/icons/minus.svg") !important;
+}
+
+:is(#appMenu-zoomEnlarge-button, #appMenu-zoomEnlarge-button2) .toolbarbutton-icon {
+  list-style-image: url("chrome://global/skin/icons/plus.svg") !important;
+}
+
+/* Translation popup forms follow reference1's shell, dropdowns and footer. */
+:is(#full-page-translations-panel, #select-translations-panel) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-border-radius: 8px !important;
+  --button-border-radius: 4px !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel)::part(content) {
+  background: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  color: var(--palette-text-main) !important;
+}
+
+.translations-panel-view {
+  width: 380px !important;
+  max-width: calc(100vw - 24px) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+}
+
+.translations-panel-header,
+#select-translations-panel-header-row {
+  padding: 12px 16px 10px !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+  margin: 0 !important;
+}
+
+.translations-panel-header-wrapper {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.translations-panel-content,
+.select-translations-panel-content {
+  padding: 12px 16px 16px !important;
+  margin: 0 !important;
+}
+
+#full-page-translations-panel-intro {
+  line-height: 1.45 !important;
+  margin-block-end: 12px !important;
+}
+
+#full-page-translations-panel-lang-selection > label {
+  margin-block: 8px 6px !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel) menulist {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel) menulist:is(:hover, [open="true"]) {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+.translations-panel-button-group {
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+}
+
+.translations-panel-button-group > button {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 30px !important;
+  padding: 4px 16px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+.translations-panel-button-group > button:hover:not([disabled]) {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+.translations-panel-button-group > button:is([default], [primary="true"]) {
+  background-color: var(--palette-btn-primary) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+.translations-panel-button-group > button:is([default], [primary="true"]):hover:not([disabled]) {
+  background-color: var(--palette-blue-accent) !important;
+}
+
+.translations-panel-settings-gear-icon {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+}
+
+.translations-panel-settings-gear-icon:hover {
+  background-color: var(--palette-alpha-blue-16) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+.translations-panel-settings-gear-icon > image {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

@@ -153,9 +153,8 @@
     box-shadow: none !important;
   }
 
-  .personalize-button,
-  moz-button.open-customization-button,
-  .open-customization-button {
+  .personalize-button:not(moz-button),
+  .open-customization-button:not(moz-button) {
     background-color: var(--palette-window-bg) !important;
     border: 1px solid var(--palette-groove-sep) !important;
     border-radius: 4px !important;
@@ -169,9 +168,8 @@
     transition: background-color 0.15s ease, border-color 0.15s ease !important;
   }
 
-  .personalize-button:hover,
-  moz-button.open-customization-button:hover,
-  .open-customization-button:hover {
+  .personalize-button:not(moz-button):hover,
+  .open-customization-button:not(moz-button):hover {
     background-color: var(--palette-button-bg) !important;
     border-color: var(--palette-blue-accent) !important;
     color: var(--palette-white) !important;
@@ -179,16 +177,133 @@
     --button-border-color-primary: var(--palette-blue-accent) !important;
   }
 
-  .personalize-button[aria-expanded="true"],
-  moz-button.open-customization-button[aria-expanded="true"],
-  .open-customization-button[aria-expanded="true"],
-  .personalize-button:is(:active, [open]),
-  moz-button.open-customization-button:is(:active, [open]) {
+  .personalize-button:not(moz-button)[aria-expanded="true"],
+  .open-customization-button:not(moz-button)[aria-expanded="true"],
+  .personalize-button:not(moz-button):is(:active, [open]),
+  .open-customization-button:not(moz-button):is(:active, [open]) {
     background-color: var(--palette-btn-primary) !important;
     border-color: var(--palette-blue-accent) !important;
     color: var(--palette-white) !important;
     --button-background-color-primary: var(--palette-btn-primary) !important;
     --button-border-color-primary: var(--palette-blue-accent) !important;
   }
+
+  /* GSL refB5: slim 34x12px track with an overhanging dark 18px thumb. */
+  moz-toggle,
+  :host(moz-toggle) {
+    --toggle-width: 34px !important;
+    --toggle-height: 12px !important;
+    --input-width: 34px !important;
+    --toggle-border-radius: 999px !important;
+    --toggle-border-width: 1px !important;
+    --toggle-background-color: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+    --toggle-border-color: var(--palette-icon-muted) !important;
+    --toggle-border-color-hover: var(--palette-blue-accent) !important;
+    --toggle-border-color-active: var(--palette-blue-accent) !important;
+    --toggle-dot-background-color: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+    --toggle-dot-width: 18px !important;
+    --toggle-dot-height: 18px !important;
+    --toggle-dot-margin: 0px !important;
+    --toggle-dot-transform-x: 16px !important;
+  }
+
+  /* Do not override the track's margin: Firefox positions #input within its label. */
+  moz-toggle::part(button),
+  button.toggle-button {
+    appearance: none !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 12px !important;
+    min-height: 12px !important;
+    max-height: 12px !important;
+    border-radius: 999px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--toggle-background-color) !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  moz-toggle:hover::part(button),
+  button.toggle-button:hover:not(:disabled) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  moz-toggle[pressed]::part(button),
+  button.toggle-button[aria-pressed="true"] {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  moz-toggle[pressed]:hover::part(button),
+  button.toggle-button[aria-pressed="true"]:hover:not(:disabled) {
+    background-color: var(--palette-toggle-on-bg) !important;
+  }
+
+  button.toggle-button::before {
+    display: block !important;
+    content: "" !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    margin: 0 !important;
+    margin-block-start: -4px !important;
+    margin-inline-start: -1px !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background-color: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    translate: 0 !important;
+    transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease !important;
+  }
+
+  button.toggle-button:hover:not(:disabled)::before,
+  button.toggle-button[aria-pressed="true"]::before {
+    background-color: var(--palette-button-bg) !important;
+  }
+
+  button.toggle-button[aria-pressed="true"]::before {
+    translate: 16px 0 !important;
+  }
+
+  button.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,
+  button.toggle-button[aria-pressed="true"]:dir(rtl)::before {
+    translate: -16px 0 !important;
+  }
+
+
+moz-button:is(.personalize-button, .open-customization-button) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    --button-border-radius: 4px !important;
+    --button-background-color: var(--palette-window-bg) !important;
+    --button-background-color-primary: var(--palette-window-bg) !important;
+    --button-border-color: var(--palette-groove-sep) !important;
+    --button-border-color-primary: var(--palette-groove-sep) !important;
+  }
+
+
+button.toggle-button:hover:not(:disabled)::before,
+button.toggle-button:focus-visible::before,
+:host(moz-toggle:hover) button.toggle-button::before {
+  border-color: var(--palette-blue-accent) !important;
+}
+
 }
 

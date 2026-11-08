@@ -115,7 +115,7 @@
 #ipprotection-button .toolbarbutton-icon,
 #ipprotection-button .ipprotection-icon-layer {
   -moz-context-properties: fill, fill-opacity, stroke !important;
-  fill: var(--palette-text-main) !important;
-  color: var(--palette-text-main) !important;
+  fill: var(--palette-white) !important;
+  color: var(--palette-white) !important;
 }
 

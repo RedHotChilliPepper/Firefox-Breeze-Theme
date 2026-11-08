@@ -26,7 +26,7 @@
   --urlbar-border-radius: 4px !important;
   --urlbar-background-border-radius: 4px !important;
   --urlbar-inner-border-radius: 4px !important;
-  --urlbarview-border-radius: 4px !important;
+  --urlbarview-border-radius: 8px !important;
   min-height: 30px !important;
   height: 30px !important;
   border-radius: 4px !important;
@@ -172,7 +172,7 @@
 #identity-permission-box {
   background-color: transparent !important;
   border: 1px solid transparent !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   height: 24px !important;
   min-height: 24px !important;
   max-height: 24px !important;
@@ -331,13 +331,13 @@
 }
 
 .urlbarView-row:hover:not([selected]) {
-  background-color: var(--palette-alpha-blue-16) !important;
+  background-color: var(--palette-alpha-blue-25) !important;
   border-color: var(--palette-alpha-blue-45) !important;
   border-radius: 5px !important;
 }
 
 .urlbarView-row[selected] {
-  background-color: var(--palette-alpha-blue-28) !important;
+  background-color: var(--palette-alpha-blue-25) !important;
   border-color: var(--palette-alpha-blue-85) !important;
   border-radius: 5px !important;
   color: var(--palette-white) !important;
@@ -380,8 +380,8 @@ panel-item {
   --panel-menuitem-padding-block: 3px !important;
   --panel-menuitem-padding-inline: 6px !important;
   --panel-item-button-padding: 3px 8px !important;
-  --panel-item-button-padding-inline-start: 22px !important;
-  --panel-item-button-padding-inline-start-offset: 6px !important;
+  --panel-item-button-padding-inline-start: 34px !important;
+  --panel-item-button-padding-inline-start-offset: 0px !important;
   --icon-size: 16px !important;
   --button-background-color-menu-hover: var(--palette-alpha-blue-30) !important;
   --button-text-color-menu-hover: var(--palette-white) !important;
@@ -443,7 +443,7 @@ panel-list > panel-item::part(button) {
   height: 26px !important;
   margin: 0 !important;
   padding-block: 3px !important;
-  padding-inline-start: 10px !important;
+  padding-inline-start: 34px !important;
   padding-inline-end: 12px !important;
   color: var(--kde-window-fg) !important;
   font-family: "Noto Sans", sans-serif !important;
@@ -459,9 +459,9 @@ panel-list > panel-item::part(button) {
 .searchmode-switcher-panel-list > panel-item::part(button),
 panel-list > panel-item[icon]::part(button),
 panel-list > panel-item[type="checkbox"]::part(button) {
-  padding-inline-start: 28px !important;
+  padding-inline-start: 34px !important;
   padding-inline-end: 10px !important;
-  background-position: 6px center !important;
+  background-position: left 8px center !important;
   background-size: 16px 16px !important;
   background-repeat: no-repeat !important;
 }
@@ -523,3 +523,31 @@ panel-list > panel-item::part(button):active {
   padding: 0 !important;
 }
 
+
+/* One icon lane for the entire dropdown family, including CSS-only icons. */
+panel-list > panel-item::part(button) {
+  padding-inline-start: 34px !important;
+  background-position: left 8px center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+}
+
+panel-item:dir(rtl)::part(button),
+:host(panel-item:dir(rtl)) button[part="button"] {
+  background-position: right 8px center !important;
+}
+
+/* Older Firefox layouts can retain a fixed field width or an inline breakout offset. */
+:root:not([customizing]) #nav-bar-customization-target > #urlbar-container,
+:root:not([customizing]) #nav-bar > #urlbar-container {
+  flex: 1 1 0 !important;
+  width: 0 !important;
+  min-width: 160px !important;
+  max-width: none !important;
+}
+
+:root:not([customizing]) #urlbar-container > #urlbar {
+  width: 100% !important;
+  inset-inline-start: 0 !important;
+  margin-inline: 0 !important;
+}

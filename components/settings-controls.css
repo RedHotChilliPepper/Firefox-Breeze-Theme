@@ -4,6 +4,7 @@
 
 @-moz-document url-prefix("about:"),
                url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
                url-prefix("chrome://browser/content/search/"),
                url-prefix("chrome://browser/content/customkeys/"),
                url-prefix("chrome://browser/content/backup/"),
@@ -36,9 +37,9 @@
 
   /* 2. Style .button-background inside <moz-button> Shadow DOM as the single Breeze button box */
   .button-background {
-    border-radius: 4px !important;
-    background-color: var(--palette-button-bg) !important;
-    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: var(--button-border-radius, 4px) !important;
+    background-color: var(--button-background-color, var(--palette-button-bg)) !important;
+    border: 1px solid var(--button-border-color, var(--palette-border-dark)) !important;
     color: var(--palette-text-main) !important;
     font-family: "Noto Sans", sans-serif !important;
     font-size: 12.5px !important;
@@ -64,8 +65,8 @@
   /* Primary <moz-button type="primary"> */
   .button-background[type="primary"],
   :host([type="primary"]) .button-background {
-    background-color: var(--palette-btn-primary) !important;
-    border: 1px solid var(--palette-blue-accent) !important;
+    background-color: var(--button-background-color-primary, var(--palette-btn-primary)) !important;
+    border: 1px solid var(--button-border-color-primary, var(--palette-blue-accent)) !important;
     color: var(--palette-white) !important;
     font-weight: 500 !important;
   }
@@ -110,7 +111,7 @@
   }
 
   /* 3. Standalone light-DOM HTML/XUL <button> (excludes Shadow DOM internal buttons, DevTools menu items & special link buttons) */
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty) {
     appearance: none !important;
     -moz-appearance: none !important;
     background-color: var(--palette-button-bg) !important;
@@ -126,13 +127,13 @@
     transition: background-color 0.15s ease, border-color 0.15s ease !important;
   }
 
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
     background-color: var(--palette-groove-sep) !important;
     border-color: var(--palette-blue-accent) !important;
     color: var(--palette-white) !important;
   }
 
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
     background-color: var(--palette-alpha-blue-28) !important;
     border-color: var(--palette-blue-accent) !important;
     color: var(--palette-white) !important;
@@ -270,6 +271,9 @@
   #input.with-icon:not(.textbox-input),
   input[type="search"]:not(.textbox-input),
   #backup-filepicker-input,
+  #backup-location-filepicker-input-default,
+  #backup-location-filepicker-input-custom,
+  input.backup-location-filepicker-input:not(.textbox-input),
   #new-backup-location-input,
   input.filter[type="text"],
   #login-filter-input {
@@ -294,92 +298,101 @@
     box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
   }
 
-  /* ==========================================================================
-     Form Controls: Toggle Switches (<moz-toggle>, .toggle-button)
-     Fixes invisible toggle track & label overlap across the entire UI
-     (Firefox Home 055248.png, Search 055326.png, Add-ons 055648.png, New Tab 055707.png)
-     ========================================================================== */
-
+  /* GSL refB5: slim 34x12px track with an overhanging dark 18px thumb. */
   moz-toggle,
   :host(moz-toggle) {
     --toggle-width: 34px !important;
-    --toggle-height: 18px !important;
+    --toggle-height: 12px !important;
     --input-width: 34px !important;
     --toggle-border-radius: 999px !important;
-    --toggle-background-color: var(--palette-view-bg) !important;
-    --toggle-background-color-hover: var(--palette-card-border) !important;
-    --toggle-background-color-active: var(--palette-button-bg) !important;
-    --toggle-background-color-pressed: var(--palette-blue-accent) !important;
-    --toggle-background-color-pressed-hover: var(--palette-blue-light) !important;
-    --toggle-background-color-pressed-active: var(--palette-btn-primary) !important;
+    --toggle-border-width: 1px !important;
+    --toggle-background-color: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
     --toggle-border-color: var(--palette-icon-muted) !important;
     --toggle-border-color-hover: var(--palette-blue-accent) !important;
     --toggle-border-color-active: var(--palette-blue-accent) !important;
-    --toggle-dot-background-color: var(--palette-text-dim) !important;
-    --toggle-dot-background-color-hover: var(--palette-white) !important;
-    --toggle-dot-background-color-active: var(--palette-white) !important;
-    --toggle-dot-background-color-on-pressed: var(--palette-white) !important;
-    --toggle-dot-width: 12px !important;
-    --toggle-dot-height: 12px !important;
+    --toggle-dot-background-color: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+    --toggle-dot-width: 18px !important;
+    --toggle-dot-height: 18px !important;
+    --toggle-dot-margin: 0px !important;
+    --toggle-dot-transform-x: 16px !important;
   }
 
-  /* Note: NEVER override `margin` on `button.toggle-button` / `#input` inside `moz-toggle`,
-     because `moz-input-common.css` sets negative `margin-inline-start: -42px` on `#input`
-     to position the toggle inside the label's padding-inline-start! */
+  /* Do not override the track's margin: Firefox positions #input within its label. */
   moz-toggle::part(button),
-  button.toggle-button,
-  button#input.toggle-button[part="button"] {
+  button.toggle-button {
     appearance: none !important;
-    -moz-appearance: none !important;
     width: 34px !important;
-    height: 18px !important;
     min-width: 34px !important;
-    min-height: 18px !important;
     max-width: 34px !important;
-    max-height: 18px !important;
+    height: 12px !important;
+    min-height: 12px !important;
+    max-height: 12px !important;
     border-radius: 999px !important;
-    border: 1.5px solid var(--palette-icon-muted) !important;
-    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--toggle-background-color) !important;
     padding: 0 !important;
     box-sizing: border-box !important;
     cursor: pointer !important;
     flex-shrink: 0 !important;
+    overflow: visible !important;
     transition: background-color 0.15s ease, border-color 0.15s ease !important;
   }
 
   moz-toggle:hover::part(button),
-  button.toggle-button:hover:not(:disabled),
-  button#input.toggle-button[part="button"]:hover:not(:disabled) {
-    background-color: var(--palette-card-border) !important;
+  button.toggle-button:hover:not(:disabled) {
     border-color: var(--palette-blue-accent) !important;
   }
 
   moz-toggle[pressed]::part(button),
-  button.toggle-button[aria-pressed="true"],
-  button#input.toggle-button[part="button"][aria-pressed="true"] {
-    background-color: var(--palette-blue-accent) !important;
+  button.toggle-button[aria-pressed="true"] {
+    background-color: var(--palette-toggle-on-bg) !important;
     border-color: var(--palette-blue-accent) !important;
   }
 
   moz-toggle[pressed]:hover::part(button),
-  button.toggle-button[aria-pressed="true"]:hover:not(:disabled),
-  button#input.toggle-button[part="button"][aria-pressed="true"]:hover:not(:disabled) {
-    background-color: var(--palette-blue-light) !important;
-    border-color: var(--palette-blue-light) !important;
+  button.toggle-button[aria-pressed="true"]:hover:not(:disabled) {
+    background-color: var(--palette-toggle-on-bg) !important;
   }
 
-  button.toggle-button::before,
-  button#input.toggle-button[part="button"]::before {
-    background-color: var(--palette-text-dim) !important;
-    width: 12px !important;
-    height: 12px !important;
+  button.toggle-button::before {
+    display: block !important;
+    content: "" !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    margin: 0 !important;
+  margin-block-start: -4px !important;
+  margin-inline-start: -1px !important;
+    border: 1px solid var(--palette-dialog-border) !important;
     border-radius: 50% !important;
+    background-color: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    translate: 0 !important;
+    transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease !important;
   }
 
   button.toggle-button:hover:not(:disabled)::before,
-  button.toggle-button[aria-pressed="true"]::before,
-  button#input.toggle-button[part="button"][aria-pressed="true"]::before {
-    background-color: var(--palette-white) !important;
+  button.toggle-button[aria-pressed="true"]::before {
+    background-color: var(--palette-button-bg) !important;
+  }
+
+  button.toggle-button[aria-pressed="true"]::before {
+    translate: 16px 0 !important;
+  }
+
+  button.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,
+  button.toggle-button[aria-pressed="true"]:dir(rtl)::before {
+    translate: -16px 0 !important;
   }
 
   /* ==========================================================================
@@ -411,8 +424,9 @@
     min-height: 18px !important;
     max-height: 18px !important;
     border-radius: 3px !important;
-    border: 1.5px solid var(--palette-icon-muted) !important;
-    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-button-bg) !important;
+    background-image: none !important;
     vertical-align: middle !important;
     box-sizing: border-box !important;
     cursor: pointer !important;
@@ -426,17 +440,18 @@
     margin: 2px 6px 2px 2px !important;
   }
 
-  moz-checkbox:hover::part(input),
-  input[type="checkbox"]:not(.toggle-button):hover,
-  checkbox:hover .checkbox-check {
+  moz-checkbox:not([disabled]):hover::part(input),
+  input[type="checkbox"]:not(.toggle-button):hover:not(:disabled),
+  checkbox:not([disabled]):hover .checkbox-check,
+  checkbox:focus-visible .checkbox-check {
     border-color: var(--kde-accent) !important;
   }
 
   moz-checkbox[checked]::part(input),
   :host([checked]) #input[type="checkbox"],
   input[type="checkbox"]:not(.toggle-button):checked,
-  checkbox[checked="true"] .checkbox-check {
-    background-color: var(--kde-accent) !important;
+  checkbox[checked] .checkbox-check {
+    background-color: var(--palette-toggle-on-bg) !important;
     border-color: var(--kde-accent) !important;
     background-image: url("chrome://global/skin/icons/check.svg") !important;
     background-repeat: no-repeat !important;
@@ -448,6 +463,22 @@
     color: var(--palette-white) !important;
   }
 
+  moz-checkbox[disabled]::part(input),
+  input[type="checkbox"]:not(.toggle-button):disabled,
+  checkbox[disabled] .checkbox-check {
+    border-color: var(--palette-border-dark) !important;
+    cursor: default !important;
+  }
+
+  moz-checkbox[disabled][checked]::part(input),
+  input[type="checkbox"]:not(.toggle-button):disabled:checked,
+  checkbox[disabled][checked] .checkbox-check {
+    background-color: var(--palette-toggle-off-bg) !important;
+    fill: var(--palette-text-dim) !important;
+    stroke: var(--palette-text-dim) !important;
+  }
+
+  /* GSL reference 2: thin circular outline and a separate centered blue dot. */
   moz-radio {
     --input-width: 18px !important;
     --input-height: 18px !important;
@@ -462,37 +493,60 @@
     width: 18px !important;
     height: 18px !important;
     min-width: 18px !important;
+    max-width: 18px !important;
     min-height: 18px !important;
+    max-height: 18px !important;
+    flex-shrink: 0 !important;
     border-radius: 50% !important;
-    border: 1.5px solid var(--palette-icon-muted) !important;
+    border: 1px solid var(--palette-icon-muted) !important;
     background-color: var(--palette-view-bg) !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
     vertical-align: middle !important;
     box-sizing: border-box !important;
     cursor: pointer !important;
     outline: none !important;
+    box-shadow: none !important;
     transition: background-color 0.15s, border-color 0.15s !important;
   }
 
+  /* Preserve the custom element's native input/label positioning. */
   input[type="radio"]:not(#input),
   radio .radio-check {
     margin: 2px 6px 2px 2px !important;
   }
 
-  moz-radio:hover::part(input),
-  input[type="radio"]:hover,
-  radio:hover .radio-check {
-    border-color: var(--kde-accent) !important;
+  moz-radio:not([disabled]):hover::part(input),
+  input[type="radio"]:hover:not(:disabled),
+  radio:not([disabled="true"]):hover .radio-check,
+  moz-radio:focus-within::part(input),
+  input[type="radio"]:focus-visible,
+  radiogroup:focus-visible radio[focused] .radio-check {
+    border-color: var(--palette-blue-accent) !important;
   }
 
   moz-radio[checked]::part(input),
   input[type="radio"]:checked,
-  radio[selected="true"] .radio-check {
-    border-color: var(--kde-accent) !important;
+  radio[selected] .radio-check {
+    border-color: var(--palette-blue-accent) !important;
     background-color: var(--palette-view-bg) !important;
-    background-image: radial-gradient(circle, var(--palette-blue-accent) 0%, var(--palette-blue-accent) 42%, transparent 46%) !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 14px 14px !important;
+    background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+  }
+
+  moz-radio[disabled]::part(input),
+  input[type="radio"]:disabled,
+  radio[disabled] .radio-check {
+    border-color: var(--palette-border-dark) !important;
+    opacity: 1 !important;
+    cursor: default !important;
+  }
+
+  moz-radio[disabled][checked]::part(input),
+  input[type="radio"]:disabled:checked,
+  radio[disabled][selected] .radio-check {
+    background-image: radial-gradient(circle 4px at center, var(--palette-text-dim) 96%, transparent 100%) !important;
   }
 
   /* ==========================================================================
@@ -500,6 +554,10 @@
      ========================================================================== */
 
   moz-select {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     --select-border-radius: 4px !important;
     --button-border-radius: 4px !important;
     --select-background-color: var(--palette-button-bg) !important;
@@ -638,13 +696,54 @@
     margin: 0 !important;
   }
 
-  menuitem {
+  menuitem:not([hidden]):not([collapsed="true"]) {
     appearance: none !important;
     background-color: transparent !important;
     color: var(--palette-text-main) !important;
     border: 1px solid transparent !important;
     border-radius: 4px !important;
     padding: 5px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Non-overlapping dropdown menu iconic items (refB1.png, bugB1.png, bugB2.png) */
+  menuitem > .menu-icon,
+  menuitem > .menu-iconic-icon,
+  menuitem > .menu-iconic-left {
+    display: inline-flex !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+    margin: 0 !important;
+    margin-inline-end: 8px !important;
+    flex-shrink: 0 !important;
+    object-fit: contain !important;
+  }
+
+  menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-icon:not([src]):not([srcset]),
+  menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-iconic-icon:not([src]):not([srcset]) {
+    display: none !important;
+    width: 0 !important;
+    margin: 0 !important;
+  }
+
+  menuitem > .menu-text,
+  menuitem > .menu-iconic-text,
+  menuitem > .menu-highlightable-text {
+    flex: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   menuitem:hover,
@@ -677,6 +776,10 @@
   }
 
   panel-item {
+    --panel-item-button-padding-inline-start: 34px !important;
+    --panel-item-button-padding-inline-start-offset: 0px !important;
+    --panel-menuitem-padding-inline: 8px !important;
+    --icon-size: 16px !important;
     --panel-item-button-border-radius: 4px !important;
     --panel-item-button-margin: 1px 2px !important;
     --button-background-color-menu-hover: var(--palette-alpha-blue-30) !important;
@@ -692,8 +795,11 @@
     box-shadow: none !important;
     border-radius: 4px !important;
     color: var(--palette-text-main) !important;
+    background-position: left 8px center !important;
+    background-size: 16px 16px !important;
+    background-repeat: no-repeat !important;
     padding-block: 6px !important;
-    padding-inline-start: 10px !important;
+    padding-inline-start: 34px !important;
     padding-inline-end: 12px !important;
     margin: 1px 2px !important;
     font-size: 12.5px !important;
@@ -708,6 +814,11 @@
     background-repeat: no-repeat !important;
     background-size: 16px 16px !important;
     padding-inline-start: 34px !important;
+  }
+
+  panel-item:dir(rtl)::part(button),
+  :host(panel-item:dir(rtl)) button[part="button"] {
+    background-position: right 8px center !important;
   }
 
   panel-item:hover::part(button),
@@ -726,5 +837,12 @@
     color: var(--palette-white) !important;
   }
 
+
+
+button.toggle-button:hover:not(:disabled)::before,
+button.toggle-button:focus-visible::before,
+:host(moz-toggle:hover) button.toggle-button::before {
+  border-color: var(--palette-blue-accent) !important;
+}
 
 }

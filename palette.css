@@ -27,6 +27,8 @@
   --palette-tab-border: #282c30;
   --palette-button-bg: #292c30;
   --palette-btn-primary: #2980b9;
+  --palette-toggle-on-bg: #3e7797;
+  --palette-toggle-off-bg: #3e4144;
   --palette-cyan: #29b6f6;
   --palette-button-border: #2a2e32;
   --palette-col-divider: #2d3136;
@@ -61,6 +63,7 @@
   --palette-alpha-black-65: rgba(0, 0, 0, 0.65);
   --palette-alpha-red-25: rgba(218, 68, 83, 0.25);
   --palette-alpha-white-10: rgba(255, 255, 255, 0.1);
+  --palette-alpha-white-12: rgba(255, 255, 255, 0.12);
   --palette-alpha-green-55: rgba(46, 204, 113, 0.55);
   --palette-alpha-blue-12: rgba(61, 174, 233, 0.12);
   --palette-alpha-blue-14: rgba(61, 174, 233, 0.14);
@@ -111,7 +114,7 @@
   --kde-border-color: var(--palette-border-dark);
   --kde-border-color-subtle: var(--palette-groove-sep);
   --kde-hover-bg: var(--palette-alpha-blue-16);
-  --kde-active-bg: var(--palette-alpha-blue-25);
+  --kde-active-bg: var(--palette-blue-accent);
   --kde-btn-primary-bg: var(--palette-btn-primary);
   --kde-btn-primary-hover: var(--palette-blue-accent);
 }

@@ -116,7 +116,7 @@
   background-color: transparent !important;
   color: var(--palette-text-main) !important;
   border: 1px solid transparent !important;
-  border-radius: 5px !important;
+  border-radius: var(--breeze-action-radius) !important;
   padding: 6px 12px !important;
   margin: 2px !important;
   min-height: 30px !important;
@@ -137,3 +137,45 @@
 }
 
 
+
+/* Library and popup download actions share the same centered icon geometry. */
+.downloadButton {
+  box-sizing: border-box !important;
+}
+
+.downloadButton:not([hidden]):not([collapsed="true"]) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.downloadButton > .button-box {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.downloadButton > .button-box > .button-icon {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+  min-height: 16px !important;
+  max-height: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+}
+
+.downloadButton > .button-box > .button-text {
+  flex: 0 0 auto !important;
+}

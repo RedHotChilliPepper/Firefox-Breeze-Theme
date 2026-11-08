@@ -18,7 +18,7 @@
 }
 
 #editBookmarkPanel .panel-header {
-  padding: 12px 22px 10px 22px !important;
+  padding: 12px 11px 10px 11px !important;
   border-bottom: 1px solid var(--palette-groove-sep) !important;
 }
 
@@ -27,7 +27,7 @@
 }
 
 #editBookmarkPanel .panel-subview-body {
-  padding: 12px 22px 16px 22px !important;
+  padding: 12px 11px 16px 11px !important;
 }
 
 #editBookmarkPanelContent {
@@ -117,7 +117,7 @@
   background-color: var(--palette-button-bg) !important;
   color: var(--palette-text-main) !important;
   border: 1px solid var(--palette-border-dark) !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-width: 30px !important;
   min-height: 30px !important;
   height: 30px !important;
@@ -212,7 +212,7 @@
   background-color: var(--palette-button-bg) !important;
   color: var(--palette-text-main) !important;
   border: 1px solid var(--palette-border-dark) !important;
-  border-radius: var(--breeze-radius) !important;
+  border-radius: var(--breeze-action-radius) !important;
   min-height: 30px !important;
   padding: 4px 16px !important;
   font-family: "Noto Sans", sans-serif !important;
@@ -250,3 +250,21 @@
   color: var(--palette-white) !important;
 }
 
+
+/* Flat expander actions: one outer highlight, no opaque inner button box. */
+#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander) {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander):hover {
+  background-color: var(--palette-alpha-blue-16) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander) > .button-box,
+#editBookmarkPanel :is(.expander-up, .expander-down) .button-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

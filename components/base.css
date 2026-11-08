@@ -30,14 +30,16 @@
   --kde-border-color: var(--palette-border-dark);
   --kde-border-color-subtle: var(--palette-groove-sep);
   --kde-hover-bg: var(--palette-alpha-blue-16);
-  --kde-active-bg: var(--palette-alpha-blue-25);
+  --kde-active-bg: var(--palette-blue-accent);
   --kde-negative: var(--palette-negative);
   --kde-positive: var(--palette-positive);
   --kde-btn-primary-bg: var(--palette-btn-primary);
   --kde-btn-primary-hover: var(--palette-blue-accent);
 
   /* Geometry & Typography metrics matching Qt6 Breeze (GSL 8px Popup Standard) */
-  --breeze-radius: 5px;
+  --breeze-action-radius: 4px;
+  --breeze-selection-radius: 5px;
+  --breeze-radius: var(--breeze-action-radius); /* Compatibility for older imports. */
   --breeze-menu-radius: 8px;
   --navbar-height: 38px;
   --urlbar-height: 30px;
@@ -82,8 +84,8 @@
   --urlbar-background-color-focus: var(--kde-view-bg) !important;
   --toolbarbutton-hover-background: var(--kde-hover-bg) !important;
   --toolbarbutton-active-background: var(--kde-active-bg) !important;
-  --toolbarbutton-border-radius: var(--breeze-radius) !important;
-  --tab-border-radius: var(--breeze-radius) !important;
+  --toolbarbutton-border-radius: var(--breeze-action-radius) !important;
+  --tab-border-radius: var(--breeze-selection-radius) !important;
   --button-border-radius: 4px !important;
 
   /* URL bar metrics, border-radius & overhang reset tokens (prevents dropdown overlapping urlbar in 070732.png) */
