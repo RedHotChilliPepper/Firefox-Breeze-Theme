@@ -108,121 +108,271 @@ printpreview-pagination {
 
 }
 /* ==========================================================================
-   PDF.js Built-In PDF Viewer (resource://pdf.js/web/viewer.html)
+   PDF.js — Okular surfaces and GSL controls.
+   PDF documents retain their original file/HTTP URL. The native stylesheet
+   link identifies this viewer regardless of URL, without matching web pages.
    ========================================================================== */
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) {
+  --main-color: var(--palette-text-main) !important;
+  --text-color: var(--palette-text-main) !important;
+  --text-color-deemphasized: var(--palette-text-dim) !important;
+  --body-bg-color: var(--palette-view-bg) !important;
+  --background-color-canvas: var(--palette-window-bg) !important;
+  --background-color-box: var(--palette-window-bg) !important;
+  --background-color-box-info: var(--palette-button-bg) !important;
+  --color-accent-primary: var(--palette-blue-accent) !important;
+  --color-accent-primary-hover: var(--palette-blue-light) !important;
+  --color-accent-primary-active: var(--palette-btn-primary) !important;
+  --border-color: var(--palette-border-dark) !important;
+  --border-color-interactive: var(--palette-icon-muted) !important;
+  --border-color-interactive-hover: var(--palette-blue-accent) !important;
+  --border-color-deemphasized: var(--palette-groove-sep) !important;
+  --focus-outline-color: var(--palette-blue-accent) !important;
+  --focus-ring-color: var(--palette-blue-accent) !important;
+  --button-border-radius: 4px !important;
+  --border-radius-small: 4px !important;
+  --border-radius-medium: 4px !important;
+  --panel-border-radius: 8px !important;
+  --panel-menuitem-border-radius: 4px !important;
+  --toolbar-height: 34px !important;
+  --toolbar-vertical-padding: 2px !important;
+  --toolbar-horizontal-padding: 6px !important;
+  --toolbar-bg-color: var(--palette-window-bg) !important;
+  --sidebar-toolbar-bg-color: var(--palette-window-bg) !important;
+  --sidebar-narrow-bg-color: var(--palette-window-bg) !important;
+  --toolbar-border-color: var(--palette-groove-sep) !important;
+  --toolbar-box-shadow: none !important;
+  --toolbar-border-bottom: 1px solid var(--palette-groove-sep) !important;
+  --separator-color: var(--palette-groove-sep) !important;
+  --toolbar-icon-bg-color: var(--palette-text-main) !important;
+  --toolbar-icon-hover-bg-color: var(--palette-white) !important;
+  --toolbar-icon-opacity: 1 !important;
+  --doorhanger-icon-opacity: 1 !important;
+  --field-color: var(--palette-text-main) !important;
+  --field-bg-color: var(--palette-view-bg) !important;
+  --field-border-color: var(--palette-border-dark) !important;
+  --button-hover-color: var(--palette-alpha-blue-16) !important;
+  --button-background-color: var(--palette-button-bg) !important;
+  --button-background-color-hover: var(--palette-alpha-blue-16) !important;
+  --button-background-color-active: var(--breeze-action-active-bg) !important;
+  --button-border-color: var(--palette-border-dark) !important;
+  --button-border-color-hover: var(--palette-blue-accent) !important;
+  --button-text-color: var(--palette-text-main) !important;
+  --button-text-color-hover: var(--palette-white) !important;
+  --button-background-color-menu-hover: var(--palette-alpha-blue-16) !important;
+  --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+  --button-text-color-menu-hover: var(--palette-white) !important;
+  --button-text-color-menu-active: var(--palette-white) !important;
+  --toggled-btn-color: var(--palette-white) !important;
+  --toggled-btn-text-color: var(--palette-white) !important;
+  --toggled-btn-bg-color: var(--breeze-action-active-bg) !important;
+  --toggled-hover-active-btn-color: var(--breeze-action-active-bg) !important;
+  --dropdown-btn-bg-color: var(--palette-button-bg) !important;
+  --dropdown-btn-border: 1px solid var(--palette-border-dark) !important;
+  --doorhanger-bg-color: var(--palette-popup-bg) !important;
+  --doorhanger-border-color: var(--palette-dialog-border) !important;
+  --doorhanger-hover-bg-color: var(--palette-alpha-blue-16) !important;
+  --doorhanger-hover-color: var(--palette-white) !important;
+  --doorhanger-separator-color: var(--palette-groove-sep) !important;
+  --progressBar-color: var(--palette-blue-accent) !important;
+  --progressBar-bg-color: var(--palette-treeheader-bg) !important;
+  --scrollbar-color: var(--palette-scrollbar-thumb) !important;
+  --scrollbar-bg-color: transparent !important;
 
-@-moz-document url-prefix("resource://pdf.js/"),
-               url-prefix("chrome://pdfjs/"),
-               url-prefix("about:pdf") {
-  :root {
-    --main-color: var(--palette-text-main) !important;
-    --body-bg-color: var(--palette-view-bg) !important;
-    --toolbar-bg-color: var(--palette-window-bg) !important;
-    --sidebar-toolbar-bg-color: var(--palette-window-bg) !important;
-    --sidebar-bg-color: var(--palette-window-bg) !important;
-    --sidebar-narrow-bg-color: var(--palette-window-bg) !important;
-    --toolbar-border-color: var(--palette-groove-sep) !important;
-    --separator-color: var(--palette-groove-sep) !important;
-    --field-color: var(--palette-text-main) !important;
-    --field-bg-color: var(--palette-view-bg) !important;
-    --field-border-color: var(--palette-border-dark) !important;
-    --button-hover-color: var(--palette-alpha-blue-18) !important;
-    --toggled-btn-color: var(--palette-white) !important;
-    --toggled-btn-text-color: var(--palette-white) !important;
-    --toggled-btn-bg-color: var(--palette-alpha-blue-28) !important;
-    --toggled-hover-active-btn-color: var(--palette-alpha-blue-38) !important;
-    --dropdown-btn-bg-color: var(--palette-button-bg) !important;
-    --dropdown-btn-border: 1px solid var(--palette-border-dark) !important;
-    --doorhanger-bg-color: var(--palette-window-bg) !important;
-    --doorhanger-border-color: var(--palette-border-dark) !important;
-    --doorhanger-hover-bg-color: var(--palette-alpha-blue-25) !important;
-    --doorhanger-hover-color: var(--palette-white) !important;
-    --doorhanger-separator-color: var(--palette-groove-sep) !important;
-    --progressBar-color: var(--palette-blue-accent) !important;
-    --progressBar-bg-color: var(--palette-treeheader-bg) !important;
+  body,
+  #viewerContainer {
+    background-color: var(--palette-view-bg) !important;
   }
 
+  /* PDF paper, rendered pages, annotations and color-swatch values retain
+     their document colors. Only viewer UI receives these surface rules. */
   #toolbarContainer,
-  .findbar,
-  #secondaryToolbar {
-    background-color: var(--palette-window-bg) !important;
-    border-color: var(--palette-groove-sep) !important;
+  .sidebar,
+  .popupMenu,
+  .editorParamsToolbar,
+  #secondaryToolbar,
+  #findbar,
+  dialog {
+    font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #toolbarContainer {
+    box-sizing: border-box !important;
   }
 
   .toolbarButton,
-  .secondaryToolbarButton,
+  .viewsManagerButton,
   .dialogButton {
-    border-radius: 4px !important;
     border: 1px solid transparent !important;
-    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    font: inherit !important;
+    box-sizing: border-box !important;
   }
 
-  .toolbarButton:hover,
-  .secondaryToolbarButton:hover {
-    background-color: var(--palette-alpha-blue-16) !important;
-    border-color: var(--palette-alpha-blue-50) !important;
+  .toolbarButton:where(:enabled):is(:hover, :focus-visible),
+  .viewsManagerButton:where(:enabled):is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    outline: none !important;
   }
 
-  .toolbarButton.toggled,
-  .splitToolbarButton.toggled > .toolbarButton {
-    background-color: var(--palette-alpha-blue-28) !important;
-    border-color: var(--palette-blue-accent) !important;
+  :is(.toolbarButton, .viewsManagerButton):where(:enabled):is(:active, .toggled, [aria-pressed="true"], [aria-expanded="true"]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--palette-white) !important;
   }
 
-  .toolbarField {
+  .toolbarField,
+  .dropdownToolbarButton {
     background-color: var(--palette-view-bg) !important;
     border: 1px solid var(--palette-border-dark) !important;
     border-radius: 4px !important;
     color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    box-shadow: none !important;
   }
 
-  .toolbarField:focus {
+  .dropdownToolbarButton {
+    background-color: var(--palette-button-bg) !important;
+  }
+
+  .dropdownToolbarButton > select {
+    font: 13px "Noto Sans", sans-serif !important;
+    color: var(--palette-text-main) !important;
+    background-color: transparent !important;
+  }
+
+  .toolbarField:is(:hover, :focus),
+  .dropdownToolbarButton:is(:hover, :focus-within) {
     border-color: var(--palette-blue-accent) !important;
+    outline: none !important;
   }
 
-/* GSL outer surfaces, including PDF.js menus and modal dialogs. */
+  /* One menu shell and one 4px inset for both new and legacy menus. */
+  .popupMenu,
   .doorHanger,
   .doorHangerRight,
-  #secondaryToolbar,
   .editorParamsToolbar,
-  dialog,
-  .dialog {
-    background-color: var(--palette-window-bg) !important;
+  #secondaryToolbar,
+  dialog {
+    background: var(--palette-popup-bg) !important;
     border: 1px solid var(--palette-dialog-border) !important;
     border-radius: 8px !important;
-    opacity: 1;
-    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
-                display 0.15s allow-discrete,
-                overlay 0.15s allow-discrete !important;
+    padding: 4px !important;
+    box-shadow: 0 4px 12px var(--palette-alpha-black-35) !important;
+    backdrop-filter: none !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
   }
 
-  :is(.doorHanger, .doorHangerRight, #secondaryToolbar, .editorParamsToolbar):is(.hidden, [hidden]),
-  dialog:not([open]),
-  .dialog[hidden] {
-    opacity: 0;
+  .popupMenu {
+    margin: 0 !important;
+    --menu-bg: var(--palette-popup-bg) !important;
+    --menu-text-color: var(--palette-text-main) !important;
+    --menu-text-disabled-color: var(--palette-text-dim) !important;
+    --menuitem-gap: 8px !important;
+    --menuitem-border-radius: 4px !important;
   }
 
-  @starting-style {
-    :is(.doorHanger, .doorHangerRight, #secondaryToolbar, .editorParamsToolbar):not(.hidden):not([hidden]),
-    dialog[open] {
-      opacity: 0;
-    }
-  }
-
-  dialog,
-  .dialog {
-    padding: 16px 20px !important;
+  .popupMenu > button,
+  #secondaryToolbar .toolbarButton.labeled {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 28px !important;
+    margin: 0 !important;
+    padding: 4px 8px !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    background: transparent !important;
     color: var(--palette-text-main) !important;
+    font: 13px/18px "Noto Sans", sans-serif !important;
+    box-sizing: border-box !important;
+    outline: none !important;
   }
 
-  .dialogSeparator {
+  .popupMenu.withMark > button {
+    padding-inline-start: 32px !important;
+  }
+
+  .popupMenu > button > span {
+    padding-inline-start: 0 !important;
+    font: inherit !important;
+  }
+
+  .popupMenu > button.selected::after {
+    inset-inline-start: 8px !important;
+    background-color: var(--palette-white) !important;
+  }
+
+  .popupMenu > button:enabled:is(:hover, :focus-visible),
+  #secondaryToolbar .toolbarButton.labeled:is(:hover, :focus-visible):not(:disabled) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+  }
+
+  .popupMenu > button:is(.selected, [aria-selected="true"]) {
+    background-color: var(--palette-alpha-blue-26) !important;
+    border-color: var(--palette-alpha-blue-65) !important;
+  }
+
+  #secondaryToolbar .toolbarButton.labeled:not(:disabled):is(:active, .toggled),
+  .popupMenu > button:enabled:active,
+  .dropdownToolbarButton:has(select:open) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+
+  /* The page/outline/attachment selector is a one-of-many choice group. */
+  .popupMenu.withMark > button[role="option"]::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset-inline-start: 7px !important;
+    top: 50% !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    background: var(--palette-view-bg) !important;
+    mask-image: none !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .popupMenu.withMark > button[role="option"]:is(.selected, [aria-selected="true"])::after {
+    border-color: var(--palette-blue-accent) !important;
+    background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+  }
+
+  .popupMenu > button:disabled {
+    color: var(--palette-text-dim) !important;
+    opacity: 0.5 !important;
+  }
+
+  #secondaryToolbar {
+    width: max-content !important;
+    min-width: 232px !important;
+    max-width: min(360px, calc(100vw - 16px)) !important;
+  }
+
+  #secondaryToolbarButtonContainer {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .horizontalToolbarSeparator,
+  .dialogSeparator,
+  #editorHighlightVisibility .divider {
+    height: 0 !important;
     border: none !important;
     border-top: 1px solid var(--palette-groove-sep) !important;
-    margin-block: 12px !important;
-  }
-
-  .dialogButtonsGroup {
-    gap: 8px !important;
+    background: transparent !important;
+    margin: 4px 0 !important;
   }
 
   .doorHanger::before,
@@ -232,5 +382,230 @@ printpreview-pagination {
     display: none !important;
   }
 
-}
+  /* Dock the page sidebar flush to the left, like Okular. Native JavaScript
+     continues to manage its width, visibility, resizer and document inset. */
+  #viewsManager {
+    --sidebar-width: 248px !important;
+    --sidebar-min-width: 224px !important;
+    --sidebar-block-padding: 0px !important;
+    --sidebar-bg-color: var(--palette-window-bg) !important;
+    --views-text-color: var(--palette-text-main) !important;
+    --header-bg: var(--palette-window-bg) !important;
+    --header-shadow: none !important;
+    --button-fg: var(--palette-text-main) !important;
+    --button-hover-bg: var(--palette-alpha-blue-16) !important;
+    --button-hover-fg: var(--palette-white) !important;
+    --button-hover-border-color: var(--palette-blue-accent) !important;
+    --button-active-bg: var(--breeze-action-active-bg) !important;
+    --button-active-fg: var(--palette-white) !important;
+    --button-active-border-color: var(--palette-blue-accent) !important;
+    --button-focus-outline-color: var(--palette-blue-accent) !important;
+    --status-actions-bg: var(--palette-window-bg) !important;
+    --image-border-width: 1px !important;
+    --image-border-color: var(--palette-border-dark) !important;
+    --image-hover-border-color: var(--palette-blue-accent) !important;
+    --image-current-border-color: var(--palette-blue-accent) !important;
+    --image-current-focused-outline-color: var(--palette-blue-accent) !important;
+    --image-page-number-bg: var(--palette-button-bg) !important;
+    --image-page-number-fg: var(--palette-text-main) !important;
+    --image-current-page-number-bg: var(--palette-deep-accent) !important;
+    --image-current-page-number-fg: var(--palette-white) !important;
+    --image-shadow: 0 0 0 1px var(--palette-border-dark) !important;
+    --image-hover-shadow: 0 0 0 1px var(--palette-blue-accent) !important;
+    --image-current-shadow: 0 0 0 2px var(--palette-blue-accent) !important;
+    height: var(--viewer-container-height) !important;
+    padding: 0 !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: var(--palette-window-bg) !important;
+    backdrop-filter: none !important;
+  }
 
+  #outerContainer.viewsManagerOpen #viewsManager {
+    inset-inline-start: 0 !important;
+  }
+
+  #viewsManagerHeader {
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  #viewsManagerTitle {
+    padding: 4px 8px !important;
+  }
+
+  #viewsManagerStatus {
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  #viewsManagerTitle :is(#viewsManagerSelector, #viewsManagerAddFileButton, #viewsManagerCurrentOutlineButton) {
+    height: 28px !important;
+  }
+
+  #viewsManagerStatus > div {
+    min-height: 36px !important;
+    padding: 4px 8px !important;
+  }
+
+  #viewsManagerStatus > div.hidden {
+    display: none !important;
+  }
+
+  #viewsManagerStatusAction {
+    gap: 8px !important;
+  }
+
+  #viewsManagerStatusActionLabelContainer {
+    min-width: 0 !important;
+    gap: 4px !important;
+  }
+
+  #viewsManagerStatus .newBadge {
+    font-size: 10px !important;
+    padding: 1px 4px !important;
+  }
+
+  .viewsManagerLabel,
+  .viewsManagerStatusLabel {
+    font: 13px/18px "Noto Sans", sans-serif !important;
+  }
+
+  #thumbnailsView {
+    padding: 12px !important;
+    gap: 16px !important;
+    --gap-between-input-and-thumbnail: 8px !important;
+  }
+
+  .thumbnailImageContainer,
+  .thumbnailImageContainer img,
+  .thumbnailImageContainer::after {
+    border-radius: 4px !important;
+  }
+
+  .treeView {
+    --treeitem-color: var(--palette-text-main) !important;
+    --treeitem-bg-color: var(--palette-alpha-blue-14) !important;
+    --treeitem-hover-color: var(--palette-white) !important;
+    --treeitem-selected-color: var(--palette-white) !important;
+    --treeitem-selected-bg-color: var(--palette-alpha-blue-26) !important;
+  }
+
+  .treeItem > a {
+    border-radius: 5px !important;
+  }
+
+  .treeItem.selected > a {
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-55) !important;
+  }
+
+  /* Annotation colors remain real swatches; the selection outline is blue. */
+  .editorParamsToolbar {
+    padding: 0 !important;
+  }
+
+  .editorParamsToolbarContainer {
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  .colorPicker {
+    --selected-outline-color: var(--palette-blue-accent) !important;
+    --hover-outline-color: var(--palette-blue-light) !important;
+    --swatch-border-color: var(--palette-icon-muted) !important;
+  }
+
+  input.editorParamsSlider {
+    appearance: none !important;
+    height: 28px !important;
+    min-width: 80px !important;
+    flex: 1 1 110px !important;
+    margin-inline: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    accent-color: var(--palette-blue-accent) !important;
+    cursor: pointer !important;
+  }
+
+  input.editorParamsSlider::-moz-range-track {
+    height: 6px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 999px !important;
+    background: var(--palette-groove-sep) !important;
+    box-sizing: border-box !important;
+  }
+
+  input.editorParamsSlider::-moz-range-progress {
+    height: 6px !important;
+    border: none !important;
+    border-radius: 999px !important;
+    background: var(--palette-toggle-on-bg) !important;
+  }
+
+  input.editorParamsSlider::-moz-range-thumb {
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+  }
+
+  input.editorParamsSlider:enabled:is(:hover, :focus-visible)::-moz-range-thumb {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input.editorParamsSlider:disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+  }
+
+  .thicknessPicker {
+    --example-color: var(--palette-text-dim) !important;
+  }
+
+  /* UI checkboxes; PDF form widgets inside rendered pages are excluded. */
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"] {
+    appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 3px !important;
+    background: var(--palette-button-bg) !important;
+    box-sizing: border-box !important;
+  }
+
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"]:checked {
+    border-color: var(--palette-blue-accent) !important;
+    background: var(--palette-toggle-on-bg) url("chrome://global/skin/icons/check.svg") center / 11px 11px no-repeat !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-white) !important;
+  }
+
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"]:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .thumbnail:has(> input[type="checkbox"]) {
+    --input-dim: 18px !important;
+  }
+
+  dialog {
+    padding: 16px 20px !important;
+    color: var(--palette-text-main) !important;
+  }
+  .dialogButton:enabled:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+  }
+
+  .dialogButton:enabled:active {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+
+}

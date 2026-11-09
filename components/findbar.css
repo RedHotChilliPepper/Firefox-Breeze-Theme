@@ -77,16 +77,16 @@ findbar toolbarbutton:not([disabled="true"]):hover,
 .findbar-highlight:not([disabled="true"]):hover,
 .findbar-case-sensitive:not([disabled="true"]):hover,
 .findbar-entire-word:not([disabled="true"]):hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
-findbar toolbarbutton:not([disabled="true"]):is(:active, [checked="true"]),
-.findbar-highlight[checked="true"],
-.findbar-case-sensitive[checked="true"],
-.findbar-entire-word[checked="true"] {
-  background-color: var(--kde-active-bg) !important;
-  border-color: var(--kde-accent) !important;
+findbar toolbarbutton:not([disabled="true"]):is(:active, [checked]:not([checked="false"])),
+.findbar-highlight[checked]:not([checked="false"]),
+.findbar-case-sensitive[checked]:not([checked="false"]),
+.findbar-entire-word[checked]:not([checked="false"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
 }
 
 /* Close button */

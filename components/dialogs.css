@@ -56,8 +56,8 @@
 }
 
 #aboutDialog button:hover {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -109,6 +109,7 @@
 }
 
 #ContentSelectDropdown > menupopup > menuitem {
+  margin: 0 !important;
   padding-block: 4px !important;
   padding-inline-start: 8px !important;
   padding-inline-end: 12px !important;
@@ -780,4 +781,13 @@
 
   html|body { background: transparent !important; }
   html|img.transparent { background: var(--palette-popup-bg) !important; }
+}
+
+@-moz-document url-prefix("chrome://browser/content/aboutDialog") {
+
+#aboutDialog button:not([disabled="true"]):not(:disabled):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
 }

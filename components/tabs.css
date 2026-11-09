@@ -17,6 +17,7 @@
 
 #tabbrowser-tabs {
   --tab-min-height: 32px !important;
+  --tab-max-width: 240px !important;
   min-height: 32px !important;
   padding-inline-start: 0 !important;
   margin-inline-start: 0 !important;
@@ -27,11 +28,17 @@
   min-height: 32px !important;
   padding-inline: 0 !important;
   margin: 0 !important;
+}
+
+/* Firefox positions dragtarget tabs absolutely and supplies their left/top
+   offsets. Keeping them relative adds their normal layout position again. */
+.tabbrowser-tab:not([dragtarget]) {
   position: relative !important;
 }
 
+/* Use the native max-width token above so Firefox's inline width locks can
+   take effect during dragging, including on neighboring tabs. */
 .tabbrowser-tab[fadein]:not([pinned]) {
-  max-width: 240px !important;
   min-width: 100px !important;
 }
 
@@ -184,8 +191,8 @@
 
 #tabs-newtab-button:hover,
 #new-tab-button:hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 /* ==========================================================================
@@ -262,8 +269,15 @@
 
 #vertical-tabs-newtab-button:hover,
 #tabbrowser-arrowscrollbox[orient="vertical"] #tabs-newtab-button:hover {
-  background-color: var(--palette-button-bg) !important;
-  border-color: var(--palette-border-dark) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
+
+#tabbrowser-arrowscrollbox[orient="vertical"] #tabs-newtab-button:not([disabled="true"]):active,
+:is(#tabs-newtab-button, #new-tab-button, #vertical-tabs-newtab-button):not([disabled="true"]):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}

@@ -55,10 +55,9 @@ sidebar-main {
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#sidebar-switcher-target:hover,
-#sidebar-switcher-target[active="true"] {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+#sidebar-switcher-target:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 #sidebar-close {
@@ -121,4 +120,10 @@ sidebar-main {
   }
 
 
+}
+
+#sidebar-switcher-target:is(:active, [active="true"], [open="true"], [aria-expanded="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
 }

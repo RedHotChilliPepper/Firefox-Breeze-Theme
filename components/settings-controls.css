@@ -49,16 +49,16 @@
 
   #main-button:hover:not(:disabled) > .button-background,
   .button-background:hover:not([disabled]) {
-    background-color: var(--palette-groove-sep) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
   #main-button:active:not(:disabled) > .button-background,
   :host([attention]) #main-button > .button-background,
   :host([aria-expanded="true"]) #main-button > .button-background {
-    background-color: var(--palette-alpha-blue-28) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -80,8 +80,8 @@
 
   #main-button:active:not(:disabled) > .button-background[type="primary"],
   :host([type="primary"]) #main-button:active:not(:disabled) > .button-background {
-    background-color: var(--palette-alpha-blue-45) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -98,15 +98,15 @@
 
   #main-button:hover:not(:disabled) > .button-background:is([type="ghost"], [type="icon"], [type="icon ghost"]),
   :host(:is([type="ghost"], [type="icon"])) #main-button:hover:not(:disabled) > .button-background {
-    background-color: var(--palette-alpha-blue-16) !important;
-    border-color: var(--palette-alpha-blue-50) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
   #main-button:active:not(:disabled) > .button-background:is([type="ghost"], [type="icon"], [type="icon ghost"]),
   :host(:is([type="ghost"], [type="icon"])) #main-button:active:not(:disabled) > .button-background {
-    background-color: var(--palette-alpha-blue-28) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -128,14 +128,14 @@
   }
 
   button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
-    background-color: var(--palette-groove-sep) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
   button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
-    background-color: var(--palette-alpha-blue-28) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -298,102 +298,7 @@
     box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
   }
 
-  /* GSL refB5: slim 34x12px track with an overhanging dark 18px thumb. */
-  moz-toggle,
-  :host(moz-toggle) {
-    --toggle-width: 34px !important;
-    --toggle-height: 12px !important;
-    --input-width: 34px !important;
-    --toggle-border-radius: 999px !important;
-    --toggle-border-width: 1px !important;
-    --toggle-background-color: var(--palette-toggle-off-bg) !important;
-    --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
-    --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
-    --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
-    --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
-    --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
-    --toggle-border-color: var(--palette-icon-muted) !important;
-    --toggle-border-color-hover: var(--palette-blue-accent) !important;
-    --toggle-border-color-active: var(--palette-blue-accent) !important;
-    --toggle-dot-background-color: var(--palette-button-bg) !important;
-    --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
-    --toggle-dot-background-color-active: var(--palette-button-bg) !important;
-    --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
-    --toggle-dot-width: 18px !important;
-    --toggle-dot-height: 18px !important;
-    --toggle-dot-margin: 0px !important;
-    --toggle-dot-transform-x: 16px !important;
-  }
-
-  /* Do not override the track's margin: Firefox positions #input within its label. */
-  moz-toggle::part(button),
-  button.toggle-button {
-    appearance: none !important;
-    width: 34px !important;
-    min-width: 34px !important;
-    max-width: 34px !important;
-    height: 12px !important;
-    min-height: 12px !important;
-    max-height: 12px !important;
-    border-radius: 999px !important;
-    border: 1px solid var(--palette-icon-muted) !important;
-    background-color: var(--toggle-background-color) !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-    overflow: visible !important;
-    transition: background-color 0.15s ease, border-color 0.15s ease !important;
-  }
-
-  moz-toggle:hover::part(button),
-  button.toggle-button:hover:not(:disabled) {
-    border-color: var(--palette-blue-accent) !important;
-  }
-
-  moz-toggle[pressed]::part(button),
-  button.toggle-button[aria-pressed="true"] {
-    background-color: var(--palette-toggle-on-bg) !important;
-    border-color: var(--palette-blue-accent) !important;
-  }
-
-  moz-toggle[pressed]:hover::part(button),
-  button.toggle-button[aria-pressed="true"]:hover:not(:disabled) {
-    background-color: var(--palette-toggle-on-bg) !important;
-  }
-
-  button.toggle-button::before {
-    display: block !important;
-    content: "" !important;
-    width: 18px !important;
-    min-width: 18px !important;
-    height: 18px !important;
-    min-height: 18px !important;
-    margin: 0 !important;
-  margin-block-start: -4px !important;
-  margin-inline-start: -1px !important;
-    border: 1px solid var(--palette-dialog-border) !important;
-    border-radius: 50% !important;
-    background-color: var(--palette-button-bg) !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
-    translate: 0 !important;
-    transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease !important;
-  }
-
-  button.toggle-button:hover:not(:disabled)::before,
-  button.toggle-button[aria-pressed="true"]::before {
-    background-color: var(--palette-button-bg) !important;
-  }
-
-  button.toggle-button[aria-pressed="true"]::before {
-    translate: 16px 0 !important;
-  }
-
-  button.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,
-  button.toggle-button[aria-pressed="true"]:dir(rtl)::before {
-    translate: -16px 0 !important;
-  }
+  /* Switches share the reference definition in base.css. */
 
   /* ==========================================================================
      Form Controls: Checkboxes & Radio Buttons
@@ -561,9 +466,9 @@
     --select-border-radius: 4px !important;
     --button-border-radius: 4px !important;
     --select-background-color: var(--palette-button-bg) !important;
-    --select-background-color-hover: var(--palette-groove-sep) !important;
+    --select-background-color-hover: var(--breeze-action-hover-bg) !important;
     --select-border-color: var(--palette-border-dark) !important;
-    --select-border-color-hover: var(--palette-blue-accent) !important;
+    --select-border-color-hover: var(--breeze-action-hover-border) !important;
     --select-text-color: var(--palette-text-main) !important;
     --select-text-color-hover: var(--palette-white) !important;
     --select-min-height: 32px !important;
@@ -581,11 +486,9 @@
   }
 
   .select-wrapper:hover,
-  .select-wrapper:has(select:open),
-  .select-wrapper:has(+ [open]),
   .select-wrapper:focus-within {
-    border-color: var(--palette-blue-accent) !important;
-    background-color: var(--palette-groove-sep) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
     color: var(--palette-white) !important;
     outline: none !important;
   }
@@ -651,10 +554,9 @@
   }
 
   select:not(.select-wrapper > select):hover:not(:disabled),
-  menulist:hover:not([disabled="true"]),
-  menulist[open="true"] {
-    border-color: var(--palette-blue-accent) !important;
-    background-color: var(--palette-groove-sep) !important;
+  menulist:hover:not([disabled="true"]) {
+    border-color: var(--breeze-action-hover-border) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
     color: var(--palette-white) !important;
   }
 
@@ -750,7 +652,7 @@
   menuitem[_moz-menuactive="true"],
   select option:checked,
   select option:hover {
-    background-color: var(--palette-alpha-blue-30) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
     border-color: var(--palette-alpha-blue-85) !important;
     color: var(--palette-white) !important;
   }
@@ -823,8 +725,8 @@
 
   panel-item:hover::part(button),
   button[part="button"]:not(#main-button):not(.toggle-button):not(#input):enabled:hover {
-    background-color: var(--palette-alpha-blue-30) !important;
-    border-color: var(--palette-alpha-blue-85) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -832,17 +734,32 @@
   panel-item:active::part(button),
   :host([selected]) button[part="button"]:not(#main-button):not(.toggle-button):not(#input),
   button[part="button"]:not(#main-button):not(.toggle-button):not(#input):enabled:hover:active {
-    background-color: var(--palette-alpha-blue-38) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
+  .select-wrapper:has(select:open),
+  .select-wrapper:has(+ [open]),
+  select:not(.select-wrapper > select):is(:active, :open):enabled,
+  menulist:not([disabled="true"]):is(:active, [open="true"]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
 
+  #main-button:enabled:is([aria-expanded="true"], [aria-pressed="true"]) > .button-background,
+  :host([aria-expanded="true"]) #main-button > .button-background {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
 
-button.toggle-button:hover:not(:disabled)::before,
-button.toggle-button:focus-visible::before,
-:host(moz-toggle:hover) button.toggle-button::before {
-  border-color: var(--palette-blue-accent) !important;
-}
+  #main-button:enabled:is(:active, [aria-expanded="true"], [aria-pressed="true"]) > .button-background:is([type="ghost"], [type="icon"], [type="icon ghost"]),
+  :host(:is([type="ghost"], [type="icon"])) #main-button:enabled:is(:active, [aria-expanded="true"], [aria-pressed="true"]) > .button-background {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
 
 }

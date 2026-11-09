@@ -191,16 +191,16 @@
 #tracking-protection-icon-container:not([disabled="true"]):hover,
 #identity-icon-box:not([disabled="true"]):hover,
 #identity-permission-box:not([disabled="true"]):hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 #trust-icon-container:is(:active, :hover:active, [open], [open="true"]),
 #tracking-protection-icon-container:is(:active, :hover:active, [open], [open="true"]),
 #identity-icon-box:is(:active, :hover:active, [open], [open="true"]),
 #identity-permission-box:is(:active, :hover:active, [open], [open="true"]) {
-  background-color: var(--kde-active-bg) !important;
-  border-color: var(--kde-accent) !important;
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
 }
 
 /* Prevent breakout balloon expansion & popover overhang over toolbar buttons (070732.png) */
@@ -481,17 +481,15 @@ panel-list > panel-item::part(label) {
 .searchmode-switcher-panel-list > panel-item::part(button):hover,
 .searchmode-switcher-panel-list > panel-item::part(button):focus,
 .searchmode-switcher-panel-list > panel-item::part(button):focus-visible,
-.searchmode-switcher-panel-list > panel-item::part(button):active,
 panel-list > panel-item:hover::part(button),
 panel-list > panel-item:focus::part(button),
 panel-list > panel-item:focus-visible::part(button),
 panel-list > panel-item[active]::part(button),
 panel-list > panel-item::part(button):hover,
 panel-list > panel-item::part(button):focus,
-panel-list > panel-item::part(button):focus-visible,
-panel-list > panel-item::part(button):active {
-  background-color: var(--palette-alpha-blue-30) !important;
-  border: 1px solid var(--palette-alpha-blue-85) !important;
+panel-list > panel-item::part(button):focus-visible {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border: 1px solid var(--breeze-action-hover-border) !important;
   border-radius: 4px !important;
   color: var(--palette-white) !important;
   outline: none !important;
@@ -550,4 +548,12 @@ panel-item:dir(rtl)::part(button),
   width: 100% !important;
   inset-inline-start: 0 !important;
   margin-inline: 0 !important;
+}
+
+/* Menu triggers and pressed dropdown actions follow the reference state. */
+.searchmode-switcher-panel-list > panel-item:is(:active, [selected])::part(button),
+panel-list > panel-item:is(:active, [selected])::part(button) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
 }

@@ -209,8 +209,8 @@ menuitem > .menu-highlightable-text {
 menu:is(:hover, [_moz-menuactive="true"]),
 menuitem:is(:hover, [_moz-menuactive="true"]),
 .subviewbutton:not(#appMenu-zoom-controls):is(:hover, [_moz-menuactive="true"]) {
-  background-color: var(--palette-alpha-blue-30) !important;
-  border: 1px solid var(--palette-alpha-blue-85) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border: 1px solid var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
   border-radius: 4px !important;
 }
@@ -288,8 +288,8 @@ menupopup menuitem [_moz-acceltext],
   object-fit: contain !important;
 }
 #context-navigation > .menuitem-iconic:is(:hover, [_moz-menuactive="true"]) {
-  background-color: var(--palette-alpha-blue-30) !important;
-  border: 1px solid var(--palette-alpha-blue-85) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border: 1px solid var(--breeze-action-hover-border) !important;
 }
 
 /* ==========================================================================
@@ -338,8 +338,8 @@ toolbarseparator.proton-zap::before,
 
 #appMenu-zoom-controls > toolbarbutton:hover,
 #appMenu-zoom-controls > .subviewbutton:hover {
-  background-color: var(--palette-alpha-blue-30) !important;
-  border-color: var(--palette-alpha-blue-85) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -519,8 +519,8 @@ panel-list:not([open]) {
 }
 
 :is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .subviewbutton:hover {
-  background-color: var(--palette-alpha-blue-16) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 #trustpanel-popup {
@@ -768,102 +768,7 @@ panel-list:not([open]) {
   --button-border-color-ghost: transparent !important;
 }
 
-/* GSL refB5: slim 34x12px track with an overhanging dark 18px thumb. */
-moz-toggle,
-:host(moz-toggle) {
-  --toggle-width: 34px !important;
-  --toggle-height: 12px !important;
-  --input-width: 34px !important;
-  --toggle-border-radius: 999px !important;
-  --toggle-border-width: 1px !important;
-  --toggle-background-color: var(--palette-toggle-off-bg) !important;
-  --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
-  --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
-  --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
-  --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
-  --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
-  --toggle-border-color: var(--palette-icon-muted) !important;
-  --toggle-border-color-hover: var(--palette-blue-accent) !important;
-  --toggle-border-color-active: var(--palette-blue-accent) !important;
-  --toggle-dot-background-color: var(--palette-button-bg) !important;
-  --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
-  --toggle-dot-background-color-active: var(--palette-button-bg) !important;
-  --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
-  --toggle-dot-width: 18px !important;
-  --toggle-dot-height: 18px !important;
-  --toggle-dot-margin: 0px !important;
-  --toggle-dot-transform-x: 16px !important;
-}
-
-/* Do not override the track's margin: Firefox positions #input within its label. */
-moz-toggle::part(button),
-button.toggle-button {
-  appearance: none !important;
-  width: 34px !important;
-  min-width: 34px !important;
-  max-width: 34px !important;
-  height: 12px !important;
-  min-height: 12px !important;
-  max-height: 12px !important;
-  border-radius: 999px !important;
-  border: 1px solid var(--palette-icon-muted) !important;
-  background-color: var(--toggle-background-color) !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-  cursor: pointer !important;
-  flex-shrink: 0 !important;
-  overflow: visible !important;
-  transition: background-color 0.15s ease, border-color 0.15s ease !important;
-}
-
-moz-toggle:hover::part(button),
-button.toggle-button:hover:not(:disabled) {
-  border-color: var(--palette-blue-accent) !important;
-}
-
-moz-toggle[pressed]::part(button),
-button.toggle-button[aria-pressed="true"] {
-  background-color: var(--palette-toggle-on-bg) !important;
-  border-color: var(--palette-blue-accent) !important;
-}
-
-moz-toggle[pressed]:hover::part(button),
-button.toggle-button[aria-pressed="true"]:hover:not(:disabled) {
-  background-color: var(--palette-toggle-on-bg) !important;
-}
-
-button.toggle-button::before {
-  display: block !important;
-  content: "" !important;
-  width: 18px !important;
-  min-width: 18px !important;
-  height: 18px !important;
-  min-height: 18px !important;
-  margin: 0 !important;
-  margin-block-start: -4px !important;
-  margin-inline-start: -1px !important;
-  border: 1px solid var(--palette-dialog-border) !important;
-  border-radius: 50% !important;
-  background-color: var(--palette-button-bg) !important;
-  box-shadow: none !important;
-  box-sizing: border-box !important;
-  translate: 0 !important;
-  transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease !important;
-}
-
-button.toggle-button:hover:not(:disabled)::before,
-button.toggle-button[aria-pressed="true"]::before {
-  background-color: var(--palette-button-bg) !important;
-}
-
-button.toggle-button[aria-pressed="true"]::before {
-  translate: 16px 0 !important;
-}
-
-button.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,
-button.toggle-button[aria-pressed="true"]:dir(rtl)::before {
-  translate: -16px 0 !important;
-}
+/* Switches share the reference definition in base.css. */
 
 /* Context-dependent commands must keep Firefox's native visibility. */
 menuitem[hidden],
@@ -875,39 +780,59 @@ menuseparator[hidden],
   display: none !important;
 }
 
-button.toggle-button:hover:not(:disabled)::before,
-button.toggle-button:focus-visible::before,
-:host(moz-toggle:hover) button.toggle-button::before {
-  border-color: var(--palette-blue-accent) !important;
-}
 
-/* Restore the native menu-icon slot, then style its checked state like ref5. */
-menuitem:is([type="checkbox"], [type="radio"], [checked]) > .menu-icon {
+/* GSL semantic menu markers: 18px reference checkbox for independent
+   toggles; circular radio markers for mutually exclusive choices. Center the
+   marker in the existing 16px artwork slot to preserve text alignment. */
+menuitem:is([type="checkbox"], [type="radio"], [checked]) > .menu-icon,
+:is(#context-video-fullscreen, #context-leave-dom-fullscreen, #context-media-showcontrols, #context-media-hidecontrols) > .menu-icon {
   display: inline-block !important;
   visibility: visible !important;
   appearance: none !important;
   -moz-default-appearance: none !important;
   content: none !important;
-  width: 16px !important;
-  height: 16px !important;
-  min-width: 16px !important;
-  min-height: 16px !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  margin-inline-start: -1px !important;
+  margin-inline-end: 7px !important;
   padding: 0 !important;
-  border: 1px solid var(--palette-dialog-border) !important;
-  border-radius: 50% !important;
+  border: 1px solid var(--palette-icon-muted) !important;
+  border-radius: 3px !important;
   box-sizing: border-box !important;
-  background-color: var(--palette-view-bg) !important;
-  background-image: none !important;
+  background: var(--palette-button-bg) !important;
   box-shadow: none !important;
 }
 
-menuitem:is([type="checkbox"], [type="radio"], [checked]):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
-  border-color: var(--palette-blue-accent) !important;
+menuitem:is([type="checkbox"], [type="radio"], [checked]):not([disabled]:not([disabled="false"])):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
-menuitem[checked]:not([checked="false"]) > .menu-icon {
+menuitem:not([type="radio"])[checked]:not([checked="false"]) > .menu-icon,
+:is(#context-leave-dom-fullscreen, #context-media-hidecontrols) > .menu-icon {
   border-color: var(--palette-blue-accent) !important;
-  background-image: radial-gradient(circle, var(--palette-blue-accent) 0%, var(--palette-blue-accent) 38%, transparent 42%) !important;
+  background: var(--palette-toggle-on-bg) url("chrome://global/skin/icons/check.svg") center / 11px 11px no-repeat !important;
+  -moz-context-properties: fill !important;
+  fill: var(--palette-white) !important;
+}
+
+:is(menuitem[type="radio"], menuitem[id^="sidebar-history-sort-by-"], menuitem[id^="sidebar-opentabs-sort-by-"]) > .menu-icon {
+  border-radius: 50% !important;
+  background: var(--palette-view-bg) !important;
+}
+
+:is(menuitem[type="radio"], menuitem[id^="sidebar-history-sort-by-"], menuitem[id^="sidebar-opentabs-sort-by-"])[checked]:not([checked="false"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+  background: var(--palette-view-bg) !important;
+  background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+}
+
+menuitem[disabled]:not([disabled="false"]) > .menu-icon {
+  border-color: var(--palette-icon-muted) !important;
+  opacity: 0.5 !important;
 }
 
 /* Flat popup icon actions have a single blue state marker. */
@@ -1027,7 +952,7 @@ menulist > :is(.menulist-dropmarker, dropmarker),
 }
 
 .translations-panel-button-group > button:hover:not([disabled]) {
-  border-color: var(--palette-blue-accent) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 .translations-panel-button-group > button:is([default], [primary="true"]) {
@@ -1037,7 +962,7 @@ menulist > :is(.menulist-dropmarker, dropmarker),
 }
 
 .translations-panel-button-group > button:is([default], [primary="true"]):hover:not([disabled]) {
-  background-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
 }
 
 .translations-panel-settings-gear-icon {
@@ -1056,4 +981,79 @@ menulist > :is(.menulist-dropmarker, dropmarker),
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* DevTools HTML tooltip/menu hosts are transparent positioning wrappers.
+   The nested .tooltip-panel owns the sole GSL shell. */
+panel.tooltip-xul-wrapper,
+panel.tooltip-xul-wrapper::part(content) {
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+}
+
+/* Open/pressed menu actions stay solid blue while the pointer hovers them. */
+menupopup > menu:not([disabled="true"]):is(:active, [open="true"]),
+menupopup > menuitem:not([disabled="true"]):active,
+.subviewbutton:not(#appMenu-zoom-controls):not([disabled="true"]):is(:active, [open="true"], [aria-expanded="true"], [aria-pressed="true"], [checked="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+/* Site-permission status/removal actions follow the same neutral button frame. */
+#permission-popup .permission-popup-permission-remove-button {
+  appearance: none !important;
+  background: var(--palette-button-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  color: var(--palette-text-main) !important;
+  min-height: 30px !important;
+  padding: 4px 8px !important;
+  font: 13px "Noto Sans", sans-serif !important;
+  box-shadow: none !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button > .button-box {
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button:not([disabled="true"]):not(:disabled):is(:hover, :focus-visible) {
+  background: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button:not([disabled="true"]):not(:disabled):active,
+:is(#permission-popup, #identity-popup, #full-page-translations-panel, #select-translations-panel) menulist:not([disabled="true"]):is(:active, [open="true"]),
+.translations-panel-button-group > button:not([disabled="true"]):not(:disabled):active {
+  background: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .subviewbutton:not([disabled="true"]):is(:active, [open="true"], [aria-expanded="true"], [aria-pressed="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+/* These paired video commands expose their off/on state through visibility. */
+:is(#context-video-fullscreen, #context-leave-dom-fullscreen, #context-media-showcontrols, #context-media-hidecontrols):not([disabled="true"]):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
 }

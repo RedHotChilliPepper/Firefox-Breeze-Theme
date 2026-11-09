@@ -134,8 +134,8 @@
 #editBMPanel_foldersExpander:hover,
 #editBMPanel_tagsSelectorExpander:hover,
 #editBMPanel_newFolderButton:hover {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -144,8 +144,8 @@
 #editBMPanel_foldersExpander:hover:active,
 #editBMPanel_tagsSelectorExpander:hover:active,
 #editBMPanel_newFolderButton:hover:active {
-  background-color: var(--palette-btn-primary) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -258,8 +258,8 @@
 }
 
 #editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander):hover {
-  background-color: var(--palette-alpha-blue-16) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 #editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander) > .button-box,
@@ -267,4 +267,10 @@
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+#editBookmarkPanel .expander-up:not([disabled="true"]), #editBMPanel_folderMenuList[open="true"]:not([disabled="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
 }

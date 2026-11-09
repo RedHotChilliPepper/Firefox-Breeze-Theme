@@ -86,14 +86,14 @@
 }
 
 .downloadButton:hover:not(:disabled) {
-  background-color: var(--palette-alpha-blue-30) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
-.downloadButton:hover:active {
-  background-color: var(--palette-btn-primary) !important;
-  border-color: var(--palette-blue-accent) !important;
+.downloadButton:active:not([disabled="true"]):not(:disabled) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
   color: var(--palette-white) !important;
 }
 

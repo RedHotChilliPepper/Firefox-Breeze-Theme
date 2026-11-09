@@ -128,13 +128,13 @@
 
   #controls .control-button:hover:enabled,
   #controls .control-button:focus-visible {
-    background-color: var(--palette-groove-sep) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-hover-solid) !important;
+    border-color: var(--breeze-action-hover-border) !important;
   }
 
   #controls .control-button:is(:active, [aria-expanded="true"]):enabled {
-    background-color: var(--palette-blue-accent) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     fill: var(--palette-white) !important;
   }
 

@@ -69,8 +69,8 @@
 }
 
 #ipprotection-button:not([disabled="true"]):hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 #ipprotection-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]) {
@@ -143,8 +143,8 @@
 #unified-extensions-button:not([disabled="true"]):hover,
 .urlbar-page-action:not([disabled="true"]):hover,
 #page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 
 .toolbarbutton-1:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
@@ -302,8 +302,8 @@
 #PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):hover,
 #PersonalToolbar #OtherBookmarks:not([disabled="true"]):hover,
 #PersonalToolbar #import-button:not([disabled="true"]):hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-blue-50) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -376,16 +376,16 @@ notificationbox button.notification-button,
 notification-message button.notification-button:hover,
 notificationbox button.notification-button:hover,
 .notificationbox-stack button:hover {
-  background-color: var(--palette-blue-accent) !important;
-  border-color: var(--palette-blue-focus) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
 notification-message button.notification-button:active,
 notificationbox button.notification-button:active,
 .notificationbox-stack button:active {
-  background-color: var(--palette-alpha-blue-28) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
 }
 
 /* Secondary Button */
@@ -396,8 +396,8 @@ notification-message button.notification-button[type="secondary"] {
 }
 
 notification-message button.notification-button[type="secondary"]:hover {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -440,4 +440,43 @@ notificationbox button.close:hover {
 
 #navigator-toolbox :is(.toolbarbutton-badge-stack, .urlbar-icon-wrapper) {
   background-image: none !important;
+}
+
+/* Extension counters share the GSL status-badge surface (including uBlock).
+   Keep Firefox's corner placement and visibility, and the extension's text. */
+.webextension-browser-action .toolbarbutton-badge {
+  background: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 14px !important;
+  min-height: 16px !important;
+  min-width: 16px !important;
+  max-width: 38px !important;
+  padding: 0 3px !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep selected glyphs readable on the solid action surface. */
+:is(.toolbarbutton-1, .urlbar-page-action):not([disabled="true"]):is(:active, [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]) {
+  color: var(--breeze-action-active-fg) !important;
+  fill: var(--breeze-action-active-fg) !important;
+  --toolbarbutton-icon-fill: var(--breeze-action-active-fg) !important;
+}
+
+#star-button-box[starred="true"] #star-button,
+#reader-mode-button[readeractive] > .urlbar-icon {
+  fill: var(--breeze-action-active-fg) !important;
+}
+
+:is(notification-message, notificationbox, .notificationbox-stack) button.notification-button[type]:not([disabled="true"]):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
 }

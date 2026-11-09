@@ -48,8 +48,8 @@
   list-style-image: url("icons/titlebutton-minimize.svg") !important;
 }
 :root[tabsintitlebar] .titlebar-min:hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-white-10) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 :root[tabsintitlebar] .titlebar-min:hover .toolbarbutton-icon {
   list-style-image: url("icons/titlebutton-minimize-hover.svg") !important;
@@ -62,8 +62,8 @@
   list-style-image: url("icons/titlebutton-maximize.svg") !important;
 }
 :root[tabsintitlebar] .titlebar-max:hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-white-10) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 :root[tabsintitlebar] .titlebar-max:hover .toolbarbutton-icon {
   list-style-image: url("icons/titlebutton-maximize-hover.svg") !important;
@@ -76,8 +76,8 @@
   list-style-image: url("icons/titlebutton-restore.svg") !important;
 }
 :root[tabsintitlebar] .titlebar-restore:hover {
-  background-color: var(--kde-hover-bg) !important;
-  border-color: var(--palette-alpha-white-10) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
 }
 :root[tabsintitlebar] .titlebar-restore:hover .toolbarbutton-icon {
   list-style-image: url("icons/titlebutton-restore-hover.svg") !important;
@@ -100,3 +100,8 @@
   list-style-image: url("icons/titlebutton-close-active.svg") !important;
 }
 
+
+:root[tabsintitlebar] :is(.titlebar-min, .titlebar-max, .titlebar-restore):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}

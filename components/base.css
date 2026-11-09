@@ -38,6 +38,12 @@
 
   /* Geometry & Typography metrics matching Qt6 Breeze (GSL 8px Popup Standard) */
   --breeze-action-radius: 4px;
+  --breeze-action-hover-bg: var(--palette-alpha-blue-16);
+  --breeze-action-hover-border: var(--palette-alpha-blue-50);
+  --breeze-action-active-bg: var(--palette-blue-accent);
+  --breeze-action-active-border: var(--palette-blue-accent);
+  --breeze-action-active-fg: var(--palette-white);
+  --breeze-action-hover-solid: color-mix(in srgb, var(--palette-blue-accent) 16%, var(--palette-window-bg));
   --breeze-selection-radius: 5px;
   --breeze-radius: var(--breeze-action-radius); /* Compatibility for older imports. */
   --breeze-menu-radius: 8px;
@@ -188,3 +194,198 @@ treechildren::-moz-tree-line(selected, focus) {
   border: none !important;
 }
 
+
+/* ========================================================================== 
+   GSL switches — switches reference 1.png
+   Only real switches receive a track/thumb. Debugger pane actions also use
+   .toggle-button and aria-pressed. Require the native switch button part so
+   pane actions never receive a switch track or thumb.
+   ========================================================================== */
+@-moz-document url-prefix("about:"), url-prefix("chrome://"),
+               url-prefix("resource://devtools/") {
+  moz-toggle,
+  :host(moz-toggle) {
+    --toggle-width: 34px !important;
+    --toggle-height: 12px !important;
+    --input-width: 34px !important;
+    --toggle-border-radius: 999px !important;
+    --toggle-border-width: 1px !important;
+    --toggle-background-color: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+    --toggle-border-color: var(--palette-icon-muted) !important;
+    --toggle-border-color-hover: var(--palette-blue-accent) !important;
+    --toggle-border-color-active: var(--palette-blue-accent) !important;
+    --toggle-dot-background-color: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+    --toggle-dot-width: 18px !important;
+    --toggle-dot-height: 18px !important;
+    --toggle-dot-margin: 0px !important;
+    --toggle-dot-transform-x: 16px !important;
+  }
+
+  /* Direct user-sheet selectors also reach native shadow buttons. Preserve
+     Firefox's input/label margins and disabled state. */
+  button.toggle-button[part~="button"][aria-pressed],
+  input.devtools-checkbox-toggle {
+    appearance: none !important;
+    position: relative !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 12px !important;
+    min-height: 12px !important;
+    max-height: 12px !important;
+    padding: 0 !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 999px !important;
+    background: var(--palette-toggle-off-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"],
+  input.devtools-checkbox-toggle:checked {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed]:enabled:is(:hover, :focus-visible),
+  input.devtools-checkbox-toggle:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  /* Shared reference thumb geometry and colors. */
+  button.toggle-button[part~="button"][aria-pressed]::before,
+  input.devtools-checkbox-toggle::before {
+    content: "" !important;
+    display: block !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    translate: 0 0 !important;
+    transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.15s ease !important;
+  }
+
+  /* Match the reference's native button-content positioning. Absolute
+     positioning can leave the track exposed past the Add-ons thumb. */
+  button.toggle-button[part~="button"][aria-pressed]::before {
+    position: static !important;
+    inset: auto !important;
+    margin-block-start: -4px !important;
+    margin-inline-start: -1px !important;
+    transform: none !important;
+  }
+
+  /* DevTools' input-based switches have no native button-content wrapper. */
+  input.devtools-checkbox-toggle::before {
+    position: absolute !important;
+    inset-block-start: 50% !important;
+    inset-inline-start: -1px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"]::before,
+  input.devtools-checkbox-toggle:checked::before {
+    translate: 16px 0 !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"]:dir(rtl)::before,
+  button.toggle-button[part~="button"][aria-pressed="true"]:-moz-locale-dir(rtl)::before,
+  input.devtools-checkbox-toggle:checked:dir(rtl)::before,
+  input.devtools-checkbox-toggle:checked:-moz-locale-dir(rtl)::before {
+    translate: -16px 0 !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed]:enabled:is(:hover, :focus-visible)::before,
+  input.devtools-checkbox-toggle:enabled:is(:hover, :focus-visible)::before {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button.toggle-button[part~="button"][aria-pressed],
+    button.toggle-button[part~="button"][aria-pressed]::before,
+    input.devtools-checkbox-toggle,
+    input.devtools-checkbox-toggle::before {
+      transition: none !important;
+    }
+  }
+}
+
+/* PDF.js has a native light-DOM switch and keeps the PDF's original URL.
+   Adapt its tokens here so all switch geometry remains in the shared base. */
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) #editorHighlightShowAll {
+  --toggle-width: 34px !important;
+  --toggle-height: 12px !important;
+  --toggle-border-width: 1px !important;
+  --toggle-border-radius: 999px !important;
+  --toggle-background-color: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+  --toggle-border-color: var(--palette-icon-muted) !important;
+  --toggle-dot-background-color: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+  --toggle-dot-width: 18px !important;
+  --toggle-dot-height: 18px !important;
+  --toggle-dot-margin: 0px !important;
+  --toggle-dot-transform-x: 16px !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important;
+
+  &::before {
+    border: 1px solid var(--palette-dialog-border) !important;
+    box-sizing: border-box !important;
+    margin-block-start: -4px !important;
+    margin-inline-start: -1px !important;
+    box-shadow: none !important;
+  }
+
+  &[aria-pressed="true"],
+  &:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  &:enabled:is(:hover, :focus-visible)::before {
+    border-color: var(--palette-blue-accent) !important;
+  }
+}
+
+/* Native moz-button actions in browser chrome also consume these tokens. */
+@-moz-document url-prefix("about:"), url-prefix("chrome://"), url-prefix("resource://devtools/") {
+  moz-button,
+  :host(moz-button) {
+    --button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --button-border-color-hover: var(--breeze-action-hover-border) !important;
+    --button-background-color-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-selected: var(--breeze-action-active-bg) !important;
+    --button-background-color-primary-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-ghost-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+    --button-border-color-active: var(--breeze-action-active-border) !important;
+    --button-border-color-selected: var(--breeze-action-active-border) !important;
+    --button-text-color-active: var(--breeze-action-active-fg) !important;
+    --button-text-color-selected: var(--breeze-action-active-fg) !important;
+  }
+}

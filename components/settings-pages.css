@@ -209,8 +209,8 @@ toolbarpaletteitem:hover {
 #customization-reset-button:hover,
 #customization-toolbar-visibility-button:hover,
 #customization-uidensity-button:hover {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -357,8 +357,8 @@ toolbarpaletteitem:hover {
 
   #about-translations-switch-button:not(moz-select):not(moz-button):hover,
   #about-translations-main-user-interface > button:hover {
-    background-color: var(--palette-groove-sep) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -374,8 +374,8 @@ toolbarpaletteitem:hover {
 
   #about-translations-copy-button:not(moz-select):not(moz-button):hover,
   #about-translations-clear-button:not(moz-select):not(moz-button):hover {
-    background-color: var(--palette-alpha-blue-30) !important;
-    border-color: var(--palette-alpha-blue-85) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -401,3 +401,18 @@ toolbarpaletteitem:hover {
 
 }
 
+
+:is(#customization-reset-button, #customization-toolbar-visibility-button, #customization-uidensity-button, #customization-done-button):not([disabled="true"]):is(:active, [open="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+@-moz-document url("about:translations") {
+  :is(#about-translations-switch-button, #about-translations-copy-button, #about-translations-clear-button):not(moz-button):not(:disabled):active,
+  select.about-translations-select:open {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+}

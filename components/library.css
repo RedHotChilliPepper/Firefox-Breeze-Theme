@@ -67,15 +67,15 @@
 
   #placesToolbar > toolbarbutton:not([disabled="true"]):hover,
   #placesMenu > menu:not([disabled="true"]):hover {
-    background-color: var(--palette-alpha-blue-16) !important;
-    border-color: var(--palette-alpha-blue-50) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
   #placesToolbar > toolbarbutton:not([disabled="true"]):is(:active, [open="true"]),
   #placesMenu > menu:is([open="true"], [_moz-menuactive="true"]) {
-    background-color: var(--palette-blue-accent) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 

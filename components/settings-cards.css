@@ -139,15 +139,15 @@
 
   moz-card::part(summary):hover,
   details > summary:hover {
-    background-color: var(--palette-alpha-blue-14) !important;
-    border-color: var(--palette-alpha-blue-50) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
   moz-card::part(summary):active,
   details > summary:active {
-    background-color: var(--palette-alpha-blue-25) !important;
-    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -208,6 +208,13 @@
     --visual-picker-item-border-color: var(--palette-border-dark) !important;
     --visual-picker-item-border-width: 1px !important;
     --visual-picker-item-border-width-checked: 2px !important;
+  }
+
+  details[open] > summary,
+  moz-card[open]::part(summary) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
   }
 
 }
