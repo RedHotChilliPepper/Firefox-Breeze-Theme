@@ -1,0 +1,121 @@
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze - Central Color Palette
+   Defines all color values across the theme. Every color is defined once.
+   ========================================================================== */
+
+:root,
+:host {
+  color-scheme: dark !important;
+
+  /* Solid Surface & View Backgrounds */
+  --palette-view-bg: #141618;
+  --palette-tabstrip-bg: #16181b;
+  --palette-treeheader-bg: #181a1d;
+  --palette-sidebar-dark: #181b1e;
+  --palette-zebra-odd: #1a1d20;
+  --palette-tab-bg: #1b1d20;
+  --palette-popup-bg: #1c1f22;
+  --palette-alt-view-bg: #1d1f22;
+  --palette-card-border: #1e2226;
+  --palette-window-bg: #202326;
+  --palette-header-hover: #222529;
+  --palette-accent-fg: #232627;
+  --palette-editor-bg: #232629;
+  --palette-input-hover: #262a2e;
+  --palette-deep-accent: #264a5e;
+  --palette-tab-hover: #272a2e;
+  --palette-positive: #27ae60;
+  --palette-tab-border: #282c30;
+  --palette-button-bg: #292c30;
+  --palette-btn-primary: #2980b9;
+  --palette-toggle-on-bg: #3e7797;
+  --palette-toggle-off-bg: #3e4144;
+  --palette-cyan: #29b6f6;
+  --palette-button-border: #2a2e32;
+  --palette-col-divider: #2d3136;
+  --palette-green: #2ecc71;
+  --palette-groove-sep: #31363b;
+  --palette-border-dark: #3a3f44;
+  --palette-blue-accent: #3daee9;
+  --palette-dialog-border: #4c4e51;
+  --palette-scrollbar-thumb: #4e5459;
+  --palette-blue-light: #52bcf0;
+  --palette-icon-muted: #535659;
+  --palette-green-light: #58d68d;
+  --palette-blue-focus: #62c1f2;
+  --palette-comment: #7f8c8d;
+  --palette-text-dim: #a1a9b1;
+  --palette-purple: #af7ac5;
+  --palette-negative: #da4453;
+  --palette-orange: #f39c12;
+  --palette-text-main: #fcfcfc;
+  --palette-yellow: #fdbc4b;
+  --palette-white: #ffffff;
+  --palette-link: #1d99f3;
+  --palette-link-visited: #9b59b6;
+  --palette-neutral: #f67400;
+
+  /* Translucent & Alpha Colors */
+  --palette-alpha-black-25: rgba(0, 0, 0, 0.25);
+  --palette-alpha-black-35: rgba(0, 0, 0, 0.35);
+  --palette-alpha-black-45: rgba(0, 0, 0, 0.45);
+  --palette-alpha-black-50: rgba(0, 0, 0, 0.5);
+  --palette-alpha-black-55: rgba(0, 0, 0, 0.55);
+  --palette-alpha-black-65: rgba(0, 0, 0, 0.65);
+  --palette-alpha-red-25: rgba(218, 68, 83, 0.25);
+  --palette-alpha-white-10: rgba(255, 255, 255, 0.1);
+  --palette-alpha-white-12: rgba(255, 255, 255, 0.12);
+  --palette-alpha-green-55: rgba(46, 204, 113, 0.55);
+  --palette-alpha-blue-12: rgba(61, 174, 233, 0.12);
+  --palette-alpha-blue-14: rgba(61, 174, 233, 0.14);
+  --palette-alpha-blue-16: rgba(61, 174, 233, 0.16);
+  --palette-alpha-blue-18: rgba(61, 174, 233, 0.18);
+  --palette-alpha-blue-20: rgba(61, 174, 233, 0.2);
+  --palette-alpha-blue-22: rgba(61, 174, 233, 0.22);
+  --palette-alpha-blue-24: rgba(61, 174, 233, 0.24);
+  --palette-alpha-blue-25: rgba(61, 174, 233, 0.25);
+  --palette-alpha-blue-26: rgba(61, 174, 233, 0.26);
+  --palette-alpha-blue-28: rgba(61, 174, 233, 0.28);
+  --palette-alpha-blue-30: rgba(61, 174, 233, 0.3);
+  --palette-alpha-blue-35: rgba(61, 174, 233, 0.35);
+  --palette-alpha-blue-38: rgba(61, 174, 233, 0.38);
+  --palette-alpha-blue-40: rgba(61, 174, 233, 0.4);
+  --palette-alpha-blue-45: rgba(61, 174, 233, 0.45);
+  --palette-alpha-blue-50: rgba(61, 174, 233, 0.5);
+  --palette-alpha-blue-55: rgba(61, 174, 233, 0.55);
+  --palette-alpha-blue-65: rgba(61, 174, 233, 0.65);
+  --palette-alpha-blue-75: rgba(61, 174, 233, 0.75);
+  --palette-alpha-blue-85: rgba(61, 174, 233, 0.85);
+
+  /* Semantic KDE Theme Mapping (All reference palette variables above) */
+  --kde-window-bg: var(--palette-window-bg);
+  --kde-window-bg-alt: var(--palette-button-bg);
+  --kde-window-fg: var(--palette-text-main);
+  --kde-window-fg-inactive: var(--palette-text-dim);
+  --kde-view-bg: var(--palette-view-bg);
+  --kde-view-bg-alt: var(--palette-alt-view-bg);
+  --kde-view-fg: var(--palette-text-main);
+  --kde-view-fg-inactive: var(--palette-text-dim);
+  --kde-button-bg: var(--palette-button-bg);
+  --kde-button-fg: var(--palette-text-main);
+  --kde-selection-bg: var(--palette-blue-accent);
+  --kde-selection-fg: var(--palette-text-main);
+  --kde-selection-hover: var(--palette-alpha-blue-25);
+  --kde-selection-card: var(--palette-alpha-blue-22);
+  --kde-tooltip-bg: var(--palette-button-bg);
+  --kde-tooltip-fg: var(--palette-text-main);
+  --kde-accent: var(--palette-blue-accent);
+  --kde-accent-fg: var(--palette-accent-fg);
+  --kde-deco-hover: var(--palette-blue-accent);
+  --kde-link: var(--palette-link);
+  --kde-link-visited: var(--palette-link-visited);
+  --kde-negative: var(--palette-negative);
+  --kde-neutral: var(--palette-neutral);
+  --kde-positive: var(--palette-positive);
+  --kde-border-color: var(--palette-border-dark);
+  --kde-border-color-subtle: var(--palette-groove-sep);
+  --kde-hover-bg: var(--palette-alpha-blue-16);
+  --kde-active-bg: var(--palette-blue-accent);
+  --kde-btn-primary-bg: var(--palette-btn-primary);
+  --kde-btn-primary-hover: var(--palette-blue-accent);
+}

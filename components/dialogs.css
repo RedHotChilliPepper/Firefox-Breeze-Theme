@@ -1,0 +1,793 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Dialogs, Top-Level Windows & Modal Subdialogs
+   ========================================================================== */
+
+@import "bookmarks-dialog.css";
+@import "downloads-dialog.css";
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* ==========================================================================
+   13. Top-Level Chrome Windows & Modal Dialogs
+       (About Mozilla Firefox, CommonDialog, Sanitize, CertManager)
+   ========================================================================== */
+
+/* About Mozilla Firefox Window (051851.png) */
+#aboutDialog,
+#aboutDialogContainer {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+#aboutDialog #clientBox {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+}
+
+#aboutDialog #bottomBox {
+  background-color: var(--palette-view-bg) !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+  color: var(--palette-text-dim) !important;
+}
+
+#aboutDialog .text-link,
+#aboutDialog a {
+  color: var(--palette-blue-accent) !important;
+}
+
+#aboutDialog .text-link:hover,
+#aboutDialog a:hover {
+  color: var(--palette-blue-focus) !important;
+  text-decoration: underline !important;
+}
+
+#aboutDialog #trademark {
+  color: var(--palette-text-dim) !important;
+}
+
+#aboutDialog button {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  padding: 5px 14px !important;
+}
+
+#aboutDialog button:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+/* CommonDialog ("Make Firefox your default browser?" - 045757.png) & Sanitize Dialog (051251.png) */
+#commonDialogWindow,
+#commonDialog,
+#SanitizeDialog {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  --background-color-canvas: var(--palette-window-bg) !important;
+  --background-color-box: var(--palette-view-bg) !important;
+  --in-content-page-background: var(--palette-window-bg) !important;
+  --in-content-page-color: var(--palette-text-main) !important;
+  --in-content-box-background: var(--palette-view-bg) !important;
+  --in-content-border-color: var(--palette-groove-sep) !important;
+  --button-border-radius: 4px !important;
+  --border-radius-medium: 4px !important;
+  --color-accent-primary: var(--palette-blue-accent) !important;
+}
+
+/* HTML <select> Popup Menu (#ContentSelectDropdown - fixes left gutter & double border) */
+#ContentSelectDropdown > menupopup {
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  padding: 4px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+  --panel-color: var(--palette-text-main) !important;
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+}
+
+#ContentSelectDropdown > menupopup[customoptionstyling="true"]::part(arrowscrollbox) {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+#ContentSelectDropdown > menupopup > menuitem > .menu-icon,
+#ContentSelectDropdown > menupopup > menu > .menu-icon {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+#ContentSelectDropdown > menupopup > menuitem {
+  margin: 0 !important;
+  padding-block: 4px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 12px !important;
+  min-height: 26px !important;
+  border-radius: 4px !important;
+}
+
+
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+  /* ==========================================================================
+     Unified GSL Subdialogs & Modal Popups (8px Corners & Popup Padding Standard)
+     (Primary Password 063358, Fonts 063456, Device Manager 063320, ETP 051237,
+      Clear Data 051251/051314, Manage Cookies 051258, Connection Settings 051353,
+      Cert Manager 051410, Saved Passwords Exceptions 051434, Autofill 051450/051459)
+     ========================================================================== */
+
+  dialog,
+  .dialogBox {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px var(--palette-alpha-black-65) !important;
+  }
+
+  /* The outer shell alone owns the frame; its embedded browser meets the edge. */
+  .dialogBox {
+    padding: 0 !important;
+    background-clip: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .dialogFrame {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  .dialogTitleBar {
+    background-color: var(--palette-tab-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+  }
+
+  window[type="child"],
+  dialog,
+  #SanitizeDialog,
+  #ConnectionsDialog,
+  #certmanager,
+  #devicemanager,
+  #PermissionsDialog,
+  #SiteDataSettingsDialog,
+  #FontsDialog,
+  #changemp,
+  #commonDialog,
+  #commonDialogWindow {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* GSL Popup Padding Standard: unified outer dialog padding & clean vertical rhythm */
+  window[type="child"] > dialog,
+  dialog {
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  dialog::part(dialog-button-box),
+  .dialog-button-box {
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  separator.groove,
+  separator:not([orient="vertical"]) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    background: transparent !important;
+    height: 0 !important;
+    margin-block: 12px !important;
+  }
+
+  /* Fonts and Primary Password: unboxed inner form groups; Fonts row alignment (063456.png - fonts.xhtml) */
+  :is(#FontsDialog, #changemp) groupbox {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 2px 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #FontsDialog hbox {
+    align-items: center !important;
+    gap: 8px !important;
+    margin-block: 5px !important;
+  }
+
+  #FontsDialog menulist {
+    min-width: 72px !important;
+    margin-inline: 2px !important;
+  }
+
+  #FontsDialog checkbox {
+    margin-block: 4px !important;
+  }
+
+  /* Change Primary Password Subdialog & Progress Meter (063358.png - changemp.xhtml) */
+  #changemp description {
+    color: var(--palette-text-dim) !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+  }
+
+  #changemp label {
+    color: var(--palette-text-main) !important;
+    font-weight: 500 !important;
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  progress,
+  #pwmeter {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    height: 10px !important;
+    width: 100% !important;
+    margin-block: 10px 4px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  progress::-moz-progress-bar,
+  #pwmeter::-moz-progress-bar {
+    background-color: var(--palette-blue-accent) !important;
+    border-radius: 3px !important;
+  }
+
+  /* Fix squished Remove Website / Remove All Websites buttons (051237, 051327, 051434) */
+  .actionButtons,
+  hbox.actionButtons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-block: 10px 4px !important;
+    min-height: 34px !important;
+  }
+
+  #removePermission,
+  #removeAllPermissions,
+  #btnRemove,
+  #btnRemoveAll,
+  .actionButtons > button {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 5px 14px !important;
+    font-size: 12.5px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Clear Browsing Data & Cookies (sanitize_v2.xhtml - 051251.png, 051314.png) */
+  #sanitizeDurationChoice {
+    min-height: 32px !important;
+    border-radius: 4px !important;
+  }
+
+  .sanitize-Option {
+    padding-block: 4px !important;
+  }
+
+  /* Connection Settings (connection.xhtml - 051353.png) */
+  #ConnectionsDialog groupbox {
+    background-color: var(--palette-treeheader-bg) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 6px !important;
+    padding: 12px 14px !important;
+    margin-block: 6px !important;
+  }
+
+  .proxy-grid-row {
+    margin-block: 6px !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  input[type="number"].proxy-port-input,
+  input[hidespinbuttons="true"] {
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+    min-width: 74px !important;
+    width: 74px !important;
+    padding: 5px 8px !important;
+    text-align: center !important;
+  }
+
+  /* Certificate Manager & Device Manager Tabs & Trees (051410.png, 063320.png) */
+  tabs {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-tabstrip-bg) !important;
+    border-bottom: 1px solid var(--palette-border-dark) !important;
+    padding: 4px 6px 0 6px !important;
+  }
+
+  tab {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-tab-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border: 1px solid var(--palette-tab-border) !important;
+    border-bottom: none !important;
+    border-radius: 5px 5px 0 0 !important;
+    padding: 6px 14px !important;
+    margin-inline: 1px !important;
+    font-size: 12.5px !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  tab:hover:not([selected="true"]) {
+    background-color: var(--palette-tab-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  tab[selected="true"] {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-white) !important;
+    border-top: 3px solid var(--palette-blue-accent) !important;
+    border-left: 1px solid var(--palette-border-dark) !important;
+    border-right: 1px solid var(--palette-border-dark) !important;
+    margin-bottom: -1px !important;
+    font-weight: 600 !important;
+  }
+
+  tabpanels {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+    padding: 12px !important;
+  }
+
+  /* ==========================================================================
+     GSL Tables, Columns & Trees Standard (Dolphin Details 064038 & Places 063833)
+     Eliminates all dotted lines (063107, 063137, 063320) and styles headers/rows
+     ========================================================================== */
+
+  *:focus,
+  *:focus-visible,
+  *:-moz-focusring {
+    outline-style: none !important;
+  }
+
+  *::-moz-focus-inner {
+    border: 0 !important;
+  }
+
+  richlistbox,
+  tree {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 6px !important;
+    outline: none !important;
+  }
+
+  /* Collapse hidden column headers vertically WITHOUT display:none or visibility:collapse,
+     so Gecko's nsTreeBodyFrame preserves column width and renders cell text (070454.png, 071103.png)! */
+  treecol[hideheader="true"],
+  treecols:not(:has(> treecol:not([hideheader="true"]))),
+  #placesList > treecols,
+  .sidebar-placesTree > treecols {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Dolphin Details Table Column Header Bar (064038.png, 063107.png, 063320.png) */
+  listheader,
+  treecols:has(> treecol:not([hideheader="true"])) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    border-bottom: 1px solid var(--palette-col-divider) !important;
+    min-height: 26px !important;
+  }
+
+  treecol:not([hideheader="true"]),
+  treecolpicker {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-col-divider) !important;
+    padding: 4px 10px !important;
+    min-height: 26px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.12s ease, color 0.12s ease !important;
+  }
+
+  treecol:not([hideheader="true"]):hover,
+  treecolpicker:hover {
+    background-color: var(--palette-header-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  /* Remove dotted tree hierarchy connector lines (Device Manager 063320.png) & dotted focus rings (063107/063137) */
+  treechildren::-moz-tree-line {
+    visibility: hidden !important;
+    border: none !important;
+  }
+
+  treechildren::-moz-tree-row,
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(current),
+  treechildren::-moz-tree-row(focus),
+  treechildren::-moz-tree-row(current, focus),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    outline: none !important;
+    outline-width: 0 !important;
+  }
+
+  /* Dolphin Details Table Alternating Zebra Rows & 5px Rounded Selection (064038.png) */
+  treechildren::-moz-tree-row {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    min-height: 28px !important;
+    height: 28px !important;
+  }
+
+  treechildren::-moz-tree-row(multicol, odd),
+  treechildren::-moz-tree-row(odd) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  treechildren::-moz-tree-row(hover) {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-40) !important;
+    border-radius: 5px !important;
+  }
+
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    background-color: var(--palette-alpha-blue-24) !important;
+    border: 1px solid var(--palette-alpha-blue-85) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  treechildren::-moz-tree-cell {
+    padding-inline: 6px !important;
+  }
+
+  treechildren::-moz-tree-image {
+    margin-inline-end: 6px !important;
+  }
+
+  treechildren::-moz-tree-cell-text {
+    color: var(--palette-text-main) !important;
+  }
+
+  treechildren::-moz-tree-cell-text(selected),
+  treechildren::-moz-tree-cell-text(selected, focus) {
+    color: var(--palette-white) !important;
+  }
+
+  richlistitem {
+    background-color: transparent !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    padding: 4px 8px !important;
+    min-height: 32px !important;
+    outline: none !important;
+  }
+
+  richlistitem:hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-40) !important;
+  }
+
+  richlistitem[selected="true"] {
+    background-color: var(--palette-alpha-blue-24) !important;
+    border-color: var(--palette-alpha-blue-85) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+
+  /* ==========================================================================
+     Add Card & Add Address Subdialogs (055400.png - editCreditCard.xhtml & editAddress.xhtml)
+     ========================================================================== */
+
+  .editCreditCardForm,
+  .editAddressForm,
+  #form {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    padding: 0 !important;
+    gap: 6px !important;
+  }
+
+  .editCreditCardForm > label,
+  .editCreditCardForm > div,
+  .editAddressForm > label {
+    color: var(--palette-text-main) !important;
+    font-size: 13px !important;
+  }
+
+  .editCreditCardForm .label-text,
+  .editAddressForm .label-text {
+    display: inline-block !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #controls-container {
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+
+
+
+/* GSL dialog shells: discrete display/overlay transitions retain closing frames. */
+  dialog,
+  .dialogBox {
+    opacity: 1 !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                overlay 0.15s allow-discrete !important;
+  }
+
+  html|dialog:not([open]),
+  .dialogBox[hidden] {
+    opacity: 0 !important;
+  }
+
+  @starting-style {
+    dialog[open],
+    .dialogBox {
+      opacity: 0 !important;
+    }
+  }
+
+  /* Embedded documents are not another rounded card. Keep content overflow
+     measurable so SubDialog can size Fonts, Permissions, Containers, etc. */
+  :root[dialogroot] {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+  }
+
+  :root[dialogroot] body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  :root[dialogroot] dialog {
+    background: var(--palette-window-bg) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    overflow: visible !important;
+  }
+
+  :root[dialogroot] dialog::part(content-box),
+  :root[dialogroot] .contentPane {
+    padding: 0 !important;
+  }
+
+  /* HTML-only forms put the single body inset here instead of on a dialog. */
+  :root[dialogroot] > html|body:not(:has(> dialog)) {
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+}
+
+/* Page Information uses the same GSL controls and details views as subdialogs. */
+@-moz-document url-prefix("chrome://browser/content/pageinfo/") {
+  :root {
+    background: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    font: 13px "Noto Sans", sans-serif !important;
+    color-scheme: dark !important;
+    --background-color-canvas: var(--palette-window-bg) !important;
+    --background-color-box: var(--palette-view-bg) !important;
+    --in-content-page-background: var(--palette-window-bg) !important;
+    --in-content-page-color: var(--palette-text-main) !important;
+    --in-content-box-background: var(--palette-view-bg) !important;
+    --in-content-border-color: var(--palette-border-dark) !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+  }
+
+  #topBar {
+    padding: 4px 12px 0 !important;
+    background: var(--palette-window-bg) !important;
+    border-bottom: none !important;
+  }
+
+  #viewGroup { margin: 0 !important; gap: 0 !important; }
+
+  #viewGroup > radio {
+    appearance: none !important;
+    min-width: 82px !important;
+    min-height: 34px !important;
+    padding: 6px 12px !important;
+    margin: 0 0 -1px !important;
+    border: 1px solid transparent !important;
+    border-top: 2px solid transparent !important;
+    border-bottom: none !important;
+    border-radius: 4px 4px 0 0 !important;
+    background: var(--palette-tab-bg) !important;
+    color: var(--palette-text-dim) !important;
+  }
+
+  #viewGroup > radio > .radio-label-box {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+  }
+
+  /* Keep native artwork; scale the whole five-icon sprite with its offsets. */
+  #viewGroup .radio-icon {
+    width: 16px !important;
+    height: 16px !important;
+    background-size: 80px 16px !important;
+    background-position-y: 0 !important;
+  }
+  #generalTab .radio-icon { background-position-x: 0 !important; }
+  #mediaTab .radio-icon { background-position-x: -16px !important; }
+  #permTab .radio-icon { background-position-x: -48px !important; }
+  #securityTab .radio-icon { background-position-x: -64px !important; }
+
+  #viewGroup > radio:hover {
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #viewGroup > radio[selected] {
+    position: relative !important;
+    z-index: 1 !important;
+    background: var(--palette-popup-bg) !important;
+    border-color: var(--palette-border-dark) !important;
+    border-top-color: var(--palette-blue-accent) !important;
+    color: var(--palette-text-main) !important;
+    font-weight: 600 !important;
+  }
+
+  #viewGroup:focus-visible > radio[focused] {
+    border-inline-color: var(--palette-blue-accent) !important;
+  }
+
+  #mainDeck {
+    padding: 16px 20px !important;
+    margin: 0 12px 12px !important;
+    background: var(--palette-popup-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 0 4px 4px 4px !important;
+  }
+  #permHostBox { align-items: center !important; gap: 8px !important; margin-bottom: 12px !important; }
+
+  #permList {
+    appearance: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: auto !important;
+    background: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    outline: none !important;
+  }
+
+  .permission {
+    padding: 10px 12px !important;
+    border: none !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    background: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+  .permission:last-child { border-bottom: none !important; }
+  .permission:hover { background-color: var(--palette-window-bg) !important; }
+  .permissionLabel { font-weight: 600 !important; margin: 0 0 6px !important; }
+  .permission > hbox { align-items: center !important; gap: 12px !important; flex-wrap: wrap !important; }
+  .permission radiogroup { margin: 0 !important; gap: 8px !important; flex-wrap: wrap !important; }
+  .permission radio[disabled] { color: var(--palette-text-dim) !important; }
+
+  #mainDeck groupbox {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 0 12px !important;
+    box-shadow: none !important;
+  }
+
+  html|input[readonly] {
+    appearance: none !important;
+    background: transparent !important;
+    color: var(--palette-text-main) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 2px 0 !important;
+    min-height: 0 !important;
+    font: inherit !important;
+    box-shadow: none !important;
+  }
+
+  #imagecontainerbox {
+    background: var(--palette-popup-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+  }
+
+  #mainDeck > vbox > hbox[pack="end"] {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+  }
+}
+
+/* Native image documents also back Page Information's remote media preview.
+   Remove Firefox's noise texture without touching image pixels or sizing. */
+@-moz-document media-document(image) {
+  :root {
+    background: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  html|body { background: transparent !important; }
+  html|img.transparent { background: var(--palette-popup-bg) !important; }
+}
+
+@-moz-document url-prefix("chrome://browser/content/aboutDialog") {
+
+#aboutDialog button:not([disabled="true"]):not(:disabled):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+}

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Findbar (Ctrl+F In-Page Search Bar)
+   ========================================================================== */
+
+/* ==========================================================================
+   10. Findbar (Ctrl+F In-Page Search Bar - Matching Qt6 Breeze Reference)
+   ========================================================================== */
+
+findbar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: 1px solid var(--kde-border-color) !important;
+  min-height: 36px !important;
+  padding: 4px 8px !important;
+  color: var(--kde-window-fg) !important;
+  box-shadow: none !important;
+}
+
+.findbar-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Search input field */
+.findbar-textbox {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--kde-view-bg) !important;
+  color: var(--kde-view-fg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: var(--breeze-action-radius) !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  padding: 2px 8px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.findbar-textbox:focus {
+  border-color: var(--kde-accent) !important;
+  box-shadow: 0 0 0 1px var(--kde-accent) !important;
+}
+
+.findbar-textbox[status="notfound"] {
+  background-color: var(--palette-alpha-red-25) !important;
+  border-color: var(--palette-negative) !important;
+  color: var(--palette-white) !important;
+}
+
+/* Find Next / Previous / Highlight / Match Case buttons */
+findbar toolbarbutton,
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-highlight,
+.findbar-case-sensitive,
+.findbar-entire-word {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-action-radius) !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  padding: 2px 8px !important;
+  margin: 1px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+findbar toolbarbutton:not([disabled="true"]):hover,
+.findbar-find-previous:not([disabled="true"]):hover,
+.findbar-find-next:not([disabled="true"]):hover,
+.findbar-highlight:not([disabled="true"]):hover,
+.findbar-case-sensitive:not([disabled="true"]):hover,
+.findbar-entire-word:not([disabled="true"]):hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+findbar toolbarbutton:not([disabled="true"]):is(:active, [checked]:not([checked="false"])),
+.findbar-highlight[checked]:not([checked="false"]),
+.findbar-case-sensitive[checked]:not([checked="false"]),
+.findbar-entire-word[checked]:not([checked="false"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+
+/* Close button */
+.findbar-closebutton {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: var(--breeze-action-radius) !important;
+  padding: 4px !important;
+  width: 22px !important;
+  height: 22px !important;
+  margin-inline-end: 4px !important;
+  border: 1px solid transparent !important;
+}
+
+.findbar-closebutton:hover {
+  background-color: var(--palette-negative) !important;
+  fill: var(--palette-white) !important;
+}
+
+/* Match count labels */
+.findbar-find-status,
+.found-matches {
+  color: var(--kde-window-fg-inactive) !important;
+  font-size: 12px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  margin-inline-start: 6px !important;
+}
+

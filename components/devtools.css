@@ -1,0 +1,810 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Web Developer Tools & Browser Console
+   ========================================================================== */
+
+/* ==========================================================================
+   Web Developer Tools (051659.png) & Parent Process Browser Console (051720.png)
+   ========================================================================== */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+  :root {
+    --theme-body-background: var(--palette-editor-bg) !important;
+    --theme-body-emphasized-background: var(--palette-window-bg) !important;
+    --theme-body-alternate-emphasized-background: var(--palette-tab-bg) !important;
+    --theme-sidebar-background: var(--palette-window-bg) !important;
+    --theme-tab-toolbar-background: var(--palette-tabstrip-bg) !important;
+    --theme-toolbar-background: var(--palette-window-bg) !important;
+    --theme-toolbar-alternate-background: var(--palette-tab-bg) !important;
+    --theme-toolbar-color: var(--palette-text-main) !important;
+    --theme-toolbar-selected-color: var(--palette-white) !important;
+    --theme-toolbar-background-hover: var(--palette-alpha-blue-14) !important;
+    --theme-toolbar-background-alt: var(--palette-treeheader-bg) !important;
+    --theme-toolbar-hover: var(--palette-alpha-blue-16) !important;
+    --theme-toolbar-hover-active: var(--palette-alpha-blue-25) !important;
+    --theme-toolbar-separator: var(--palette-groove-sep) !important;
+    --toolbarbutton-background: var(--palette-button-bg) !important;
+    --toolbarbutton-hover-background: var(--palette-alpha-blue-18) !important;
+    --toolbarbutton-checked-background: var(--breeze-action-active-bg) !important;
+    --toolbarbutton-checked-color: var(--palette-white) !important;
+    --theme-accordion-header-background: var(--palette-window-bg) !important;
+    --theme-accordion-header-hover-background: var(--palette-button-bg) !important;
+    --theme-selection-background: var(--palette-alpha-blue-28) !important;
+    --theme-selection-background-hover: var(--palette-alpha-blue-16) !important;
+    --theme-selection-color: var(--palette-white) !important;
+    --theme-splitter-color: var(--palette-groove-sep) !important;
+    --theme-emphasized-splitter-color: var(--palette-border-dark) !important;
+    --theme-popup-background: var(--palette-window-bg) !important;
+    --theme-popup-color: var(--palette-text-main) !important;
+    --theme-popup-border-color: var(--palette-border-dark) !important;
+    --theme-popup-dimmed: var(--palette-alpha-blue-18) !important;
+    --theme-focus-outline-color: var(--palette-blue-accent) !important;
+    --blue-50: var(--palette-blue-accent) !important;
+    --blue-55: var(--palette-blue-accent) !important;
+    --blue-60: var(--palette-btn-primary) !important;
+    /* Kate reference: readable UI, neutral editor, and white toolbar glyphs. */
+    --theme-body-font-size: 13px !important;
+    --theme-code-font-size: 13px !important;
+    --theme-code-line-height: calc(18 / 13) !important;
+    --theme-toolbar-height: 30px !important;
+    --theme-toolbar-tall-height: 32px !important;
+    --editor-header-height: 33px !important;
+    --editor-footer-height: 29px !important;
+    --editor-searchbar-height: 31px !important;
+    --theme-body-color: var(--palette-text-main) !important;
+    --theme-text-color-alt: var(--palette-text-dim) !important;
+    --theme-text-color-strong: var(--palette-white) !important;
+    --theme-text-color-inactive: var(--palette-text-dim) !important;
+    --theme-comment: var(--palette-comment) !important;
+    --theme-icon-color: var(--palette-text-main) !important;
+    --theme-icon-hover-color: var(--palette-white) !important;
+    --theme-icon-dimmed-color: var(--palette-text-dim) !important;
+    --theme-icon-disabled-color: var(--palette-icon-muted) !important;
+    --theme-icon-checked-color: var(--palette-white) !important;
+    --theme-icon-error-color: var(--palette-negative) !important;
+    --theme-icon-warning-color: var(--palette-yellow) !important;
+    --theme-button-background: var(--palette-button-bg) !important;
+    --theme-button-active-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbar-hover-color: var(--palette-white) !important;
+    --theme-toolbar-selected-background: var(--palette-window-bg) !important;
+    --theme-toolbar-selected-hover: var(--palette-button-bg) !important;
+    --theme-toolbar-selected-hover-color: var(--palette-white) !important;
+    --theme-toolbarbutton-background: transparent !important;
+    --theme-toolbarbutton-color: var(--palette-text-main) !important;
+    --theme-toolbarbutton-hover-background: var(--palette-alpha-blue-16) !important;
+    --theme-toolbarbutton-hover-color: var(--palette-white) !important;
+    --theme-toolbarbutton-active-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-active-color: var(--palette-white) !important;
+    --theme-toolbarbutton-checked-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-checked-color: var(--palette-white) !important;
+    --theme-toolbarbutton-checked-hover-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-checked-hover-color: var(--palette-white) !important;
+    --toolbarbutton-hover-color: var(--palette-white) !important;
+    --theme-popup-hover-background: var(--palette-alpha-blue-30) !important;
+    --theme-popup-hover-color: var(--palette-white) !important;
+    --theme-highlight-blue: var(--palette-blue-accent) !important;
+    --theme-highlight-green: var(--palette-positive) !important;
+    --theme-highlight-purple: var(--palette-purple) !important;
+    --theme-highlight-red: var(--palette-negative) !important;
+    --theme-highlight-yellow: var(--palette-yellow) !important;
+    --theme-highlight-orange: var(--palette-orange) !important;
+    --theme-highlight-lightorange: var(--palette-orange) !important;
+    --theme-highlight-gray: var(--palette-text-main) !important;
+    --table-splitter-color: var(--palette-col-divider) !important;
+    --table-zebra-background: var(--palette-zebra-odd) !important;
+    --cell-border-color: var(--palette-col-divider) !important;
+    --row-alt-background-color: var(--palette-zebra-odd) !important;
+    --row-hover-background-color: var(--palette-alpha-blue-14) !important;
+    font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+    font-size: var(--theme-body-font-size) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  /* DevTools Top Tab Bar & Inspector Sub-Tabs */
+  .devtools-tabbar,
+  .tabs-menu {
+    background-color: var(--palette-tabstrip-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  .devtools-tab,
+  .tabs-menu-item {
+    background-color: transparent !important;
+    color: var(--palette-text-dim) !important;
+    border-radius: 4px 4px 0 0 !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  .devtools-tab:hover:not(.selected),
+  .tabs-menu-item:hover:not(.is-active) {
+    background-color: var(--palette-tab-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .devtools-tab.selected,
+  .devtools-tab[aria-selected="true"],
+  .tabs-menu-item.is-active {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-white) !important;
+  }
+
+  .devtools-tab-line {
+    background-color: var(--palette-blue-accent) !important;
+    height: 2px !important;
+  }
+
+  /* A search input owns its one rounded frame and focus border. The wrapper
+     also holds clear/help buttons and must never add a rectangular outline. */
+  .devtools-searchbox,
+  .devtools-searchbox:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .devtools-filterinput,
+  .devtools-searchinput {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .devtools-filterinput:is(:hover, :focus),
+  .devtools-searchinput:is(:hover, :focus) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .devtools-searchbox-no-match > :is(.devtools-searchinput, .devtools-filterinput) {
+    background-color: var(--palette-alpha-red-25) !important;
+    border-color: var(--palette-negative) !important;
+  }
+
+  /* One action surface; native SVG masks and icon hit targets stay intact. */
+  .devtools-button,
+  .devtools-togglebutton,
+  .devtools-tabbar-button,
+  .command-bar-button {
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+  }
+
+  .devtools-toolbar > .devtools-button,
+  .devtools-tabbar-button,
+  .command-bar-button {
+    min-height: 28px !important;
+  }
+
+  .devtools-button.devtools-button-standalone,
+  .devtools-button:where(:not(:empty):not(.checked):not([aria-pressed="true"])) {
+    min-height: 28px !important;
+    padding: 4px 10px !important;
+    border-color: var(--palette-border-dark) !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    line-height: 18px !important;
+  }
+
+  :is(.devtools-button, .devtools-togglebutton, .devtools-tabbar-button,
+      .command-bar-button):where(:not(:disabled):not(.disabled)):is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  :is(.devtools-button, .devtools-togglebutton, .devtools-tabbar-button,
+      .command-bar-button):where(:not(:disabled):not(.disabled)):is(:active, .checked, [aria-pressed="true"], [aria-expanded="true"]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  :is(.devtools-button, .devtools-togglebutton, .devtools-tabbar-button,
+      .command-bar-button):is(:disabled, .disabled) {
+    color: var(--palette-text-dim) !important;
+    cursor: default !important;
+  }
+
+  :is(.devtools-button, .devtools-togglebutton, .devtools-tabbar-button, .command-bar-button):where(:not(:disabled):not(.disabled)):is(:active, .checked, [aria-pressed="true"], [aria-expanded="true"])::before {
+    color: var(--breeze-action-active-fg) !important;
+    fill: var(--breeze-action-active-fg) !important;
+  }
+
+  /* Parent Process Browser Console Header Bar (051720.png) */
+  .chrome-debug-toolbar {
+    background-color: var(--palette-window-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    color: var(--palette-text-main) !important;
+    padding: 4px 8px !important;
+  }
+
+  .chrome-debug-toolbar input[type="radio"] {
+    accent-color: var(--palette-blue-accent) !important;
+  }
+
+  .webconsole-output,
+  .jsterm-input-container {
+    background-color: var(--palette-view-bg) !important;
+  }
+
+  /* DevTools Doorhanger Settings & Meatball Menus
+     (Fixes Browser Console gear menu 055741.png, Debugger gear menu 055910.png,
+      and DevTools meatball '...' menu 055928.png) */
+  *:focus,
+  *:focus-visible,
+  *:-moz-focusring {
+    outline-style: none !important;
+  }
+
+  *::-moz-focus-inner {
+    border: 0 !important;
+  }
+
+  .tooltip-container[type="doorhanger"] {
+    filter: none !important;
+  }
+
+  .tooltip-container[type="doorhanger"] > .tooltip-panel,
+  .tooltip-panel {
+    background-color: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+  }
+
+  /* Hide speech-bubble tail arrow on DevTools doorhanger menus */
+  .tooltip-arrow {
+    display: none !important;
+  }
+
+  .tooltip-container .menu,
+  .tooltip-panel ul,
+  .tooltip-panel .checkbox-container,
+  .menu-standard-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .tooltip-panel li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .tooltip-container[type="doorhanger"] .checkbox-container .menuitem > .command > .label {
+    padding-inline-start: 0 !important;
+  }
+
+  .tooltip-container hr,
+  .tooltip-panel hr,
+  .tooltip-panel [role="separator"] {
+    border: none !important;
+    border-top: 1px solid var(--palette-dialog-border) !important;
+    background: transparent !important;
+    height: 0 !important;
+    margin: 4px 8px !important;
+  }
+
+  .tooltip-container .menuitem > .command,
+  .tooltip-panel .menuitem > .command,
+  .tooltip-panel button.command,
+  .tooltip-panel [role^="menuitem"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    color: var(--palette-text-main) !important;
+    padding-block: 4px !important;
+    padding-inline-start: 28px !important;
+    padding-inline-end: 12px !important;
+    margin: 0 !important;
+    min-height: 28px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: background-color 0.08s ease, border-color 0.08s ease !important;
+  }
+
+  .tooltip-container .menuitem > .command:hover:not(:disabled):not([aria-disabled="true"]),
+  .tooltip-container .menuitem > .command:focus-visible,
+  .tooltip-panel .menuitem > .command:hover:not(:disabled):not([aria-disabled="true"]),
+  .tooltip-panel .menuitem > .command:focus-visible,
+  .tooltip-panel button.command:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border: 1px solid var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+  .tooltip-container .menuitem > .command:disabled,
+  .tooltip-container .menuitem > .command[aria-disabled="true"],
+  .tooltip-panel .menuitem > .command:disabled,
+  .tooltip-panel .menuitem > .command[aria-disabled="true"] {
+    color: var(--palette-text-dim) !important;
+    opacity: 0.6 !important;
+  }
+
+  /* Semantic markers in HTML DevTools menus. Dock positions form a
+     choice group even though Firefox reports them as menuitemcheckbox. */
+  .tooltip-panel button.command:is([role="menuitemcheckbox"], [role="menuitemradio"], [id^="toolbox-meatball-menu-dock-"]) {
+    position: relative !important;
+    padding-inline-start: 34px !important;
+    background-image: none !important;
+  }
+
+  .tooltip-panel button.command:is([role="menuitemcheckbox"], [role="menuitemradio"], [id^="toolbox-meatball-menu-dock-"])::after {
+    content: "" !important;
+    position: absolute !important;
+    inset-inline-start: 7px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 3px !important;
+    box-sizing: border-box !important;
+    background: var(--palette-button-bg) !important;
+  }
+
+  .tooltip-panel button.command[role="menuitemcheckbox"][aria-checked="true"]::after {
+    border-color: var(--palette-blue-accent) !important;
+    background: var(--palette-toggle-on-bg) url("chrome://global/skin/icons/check.svg") center / 11px 11px no-repeat !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-white) !important;
+  }
+
+  .tooltip-panel button.command:is([role="menuitemradio"], [id^="toolbox-meatball-menu-dock-"])::after {
+    border-radius: 50% !important;
+    background: var(--palette-view-bg) !important;
+  }
+
+  .tooltip-panel button.command:is([role="menuitemradio"], [id^="toolbox-meatball-menu-dock-"])[aria-checked="true"]::after {
+    border-color: var(--palette-blue-accent) !important;
+    background: var(--palette-view-bg) !important;
+    background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+  }
+
+  /* DevTools <select> & Toolbar Dropdowns (Fixes Memory View: Tree Map in 055946.png & Settings F1) */
+  select,
+  .devtools-toolbar-select {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    padding: 3px 24px 3px 8px !important;
+    min-height: 28px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    background-image: url("chrome://global/skin/icons/arrow-down-12.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 6px center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-text-main) !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  select:hover:not(:disabled),
+  .devtools-toolbar-select:hover:not(:disabled),
+  select:focus,
+  .devtools-toolbar-select:focus {
+    background-color: var(--palette-groove-sep) !important;
+    border-color: var(--palette-blue-accent) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+  /* DevTools Checkboxes & Radios (Settings F1 panel, Memory tool 055946.png, Browser Console 055741.png) */
+  input[type="checkbox"]:not(.devtools-checkbox-toggle) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-button-bg) !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):hover:not(:disabled) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):checked {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 11px 11px !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    fill: var(--palette-white) !important;
+    stroke: var(--palette-white) !important;
+  }
+
+  input[type="radio"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 50% !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-view-bg) !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+  }
+
+  input[type="radio"]:hover:not(:disabled) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input[type="radio"]:checked {
+    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--palette-view-bg) !important;
+    background-image: radial-gradient(circle, var(--palette-blue-accent) 0 4px, transparent 4px) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+  }
+
+  input:is([type="checkbox"], [type="radio"]):not(.devtools-checkbox-toggle):enabled:focus-visible {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input:is([type="checkbox"], [type="radio"]):not(.devtools-checkbox-toggle):disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+  }
+
+  /* DevTools Settings Panel (F1 - chrome://devtools/content/framework/toolbox-options.html) */
+  #options-panel,
+  .options-groupbox {
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  #options-panel label,
+  #options-panel legend {
+    color: var(--palette-text-main) !important;
+  }
+
+  #options-panel .options-groupdescription,
+  #options-panel .preference-description {
+    color: var(--palette-text-dim) !important;
+  }
+
+/* The native tooltip-visible/tooltip-hidden classes drive both fade directions. */
+  .tooltip-container {
+    opacity: 0;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                visibility 0.15s allow-discrete !important;
+  }
+
+  .tooltip-container.tooltip-visible {
+    opacity: 1;
+  }
+
+  .tooltip-container.tooltip-hidden {
+    opacity: 0;
+  }
+
+  @starting-style {
+    .tooltip-container.tooltip-visible {
+      opacity: 0;
+    }
+  }
+
+  /* Attached Kate-style tool tabs; the native line element supplies the accent. */
+  .devtools-tabbar,
+  .devtools-tab {
+    min-height: 32px !important;
+  }
+
+  .devtools-tab-label,
+  .tabs-menu-item > a {
+    font-size: 13px !important;
+    color: inherit !important;
+  }
+
+  .devtools-tab.selected,
+  .tabs-menu-item.is-active {
+    box-shadow: inset 0 2px var(--palette-blue-accent) !important;
+  }
+
+  .devtools-toolbar,
+  .devtools-tabbar {
+    color: var(--palette-text-main) !important;
+  }
+
+  .devtools-toolbar label {
+    font-size: 13px !important;
+  }
+
+  .devtools-filterinput,
+  .devtools-searchinput {
+    box-sizing: border-box !important;
+    min-height: 26px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+  }
+
+  /* The Storage table is not virtualized. Keep every column's row height equal,
+     including readonly columns, instead of tinting whole columns gray. */
+  .table-widget-body,
+  .table-widget-column,
+  .table-widget-column[readonly] {
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-column-header {
+    height: 26px !important;
+    min-height: 26px !important;
+    padding: 4px 18px 4px 8px !important;
+    box-sizing: border-box !important;
+    font-size: 12px !important;
+    line-height: 17px !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border-bottom: 1px solid var(--palette-col-divider) !important;
+    border-image: none !important;
+    box-shadow: none !important;
+  }
+
+  .table-widget-column-header:not([sorted]) {
+    background-image: none !important;
+  }
+
+  .table-widget-column-header:is(:hover, [sorted]) {
+    background-color: var(--palette-header-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-cell {
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 5px 8px !important;
+    box-sizing: border-box !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-cell.even:not(.theme-selected) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  .table-widget-cell.theme-selected {
+    background-color: var(--palette-alpha-blue-24) !important;
+    color: var(--palette-white) !important;
+    box-shadow: inset 0 1px var(--palette-alpha-blue-85), inset 0 -1px var(--palette-alpha-blue-85) !important;
+  }
+
+  .table-widget-column:first-child .table-widget-cell.theme-selected {
+    border-start-start-radius: 5px !important;
+    border-end-start-radius: 5px !important;
+  }
+
+  .table-widget-column:last-child .table-widget-cell.theme-selected {
+    border-start-end-radius: 5px !important;
+    border-end-end-radius: 5px !important;
+  }
+
+  #storage-tree {
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  .tree-widget-container .tree-widget-item {
+    min-height: 28px !important;
+    padding-block: 5px !important;
+    box-sizing: border-box !important;
+    line-height: 18px !important;
+    border-radius: 5px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .tree-widget-item:not(.theme-selected):hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+  }
+
+  .tree-widget-item.theme-selected {
+    background-color: var(--palette-alpha-blue-26) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-55) !important;
+    color: var(--palette-white) !important;
+  }
+
+  /* Heap/tree virtualization owns its row metrics; only change its colors. */
+  #heap-view {
+    font-size: 13px !important;
+  }
+
+  /* Application navigation, Style Editor sheets, and Debugger source trees. */
+  .sidebar,
+  .sidebar__list,
+  .splitview-nav,
+  .sources-panel,
+  .sources-list .tree {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .sidebar__list,
+  .splitview-nav {
+    margin: 0 !important;
+    padding: 4px !important;
+  }
+
+  .sidebar-item,
+  .splitview-nav > li {
+    margin: 2px 0 !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: var(--palette-text-main) !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+  }
+
+  .sidebar-item {
+    min-height: 28px !important;
+    padding: 4px 8px !important;
+    column-gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .sidebar-item:not(.sidebar-item--selected):is(:hover, :focus-visible),
+  .splitview-nav > li:not(.splitview-active):is(:hover, :focus-within) {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-50) !important;
+  }
+
+  .sidebar-item.sidebar-item--selected,
+  .splitview-nav > li.splitview-active {
+    background: var(--palette-alpha-blue-26) !important;
+    border-color: var(--palette-alpha-blue-55) !important;
+    color: var(--palette-white) !important;
+  }
+
+  .splitview-nav .stylesheet-info,
+  .splitview-nav .stylesheet-more {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .splitview-nav .stylesheet-rule-count,
+  .splitview-nav .stylesheet-linked-file {
+    color: var(--palette-text-dim) !important;
+  }
+
+  /* Inset strokes preserve the source tree's native row/virtualization metrics. */
+  .sources-list .tree .tree-node {
+    border-radius: 5px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  .sources-list .tree .tree-node:not(.focused):hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-50) !important;
+  }
+
+  .sources-list .tree .tree-node.focused {
+    background-color: var(--palette-alpha-blue-26) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-55) !important;
+    color: var(--palette-white) !important;
+  }
+
+  .sources-list .tree .tree-node > .node,
+  .sources-list .tree .tree-node .theme-twisty {
+    background: transparent !important;
+  }
+
+  .sources-list .tree .tree-indent {
+    border-inline-start-color: transparent !important;
+  }
+
+  /* Debugger disclosure selectors: highlight the header once, leaving its
+     label/twisty transparent and its expanded state visible. */
+  .accordion ._header,
+  .accordion-header {
+    border-radius: 4px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+    font-size: 13px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .accordion ._header:has(.header-label[aria-expanded="true"]),
+  .accordion-header:has(.accordion-toggle[aria-expanded="true"]) {
+    background-color: var(--palette-alpha-blue-12) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-50) !important;
+  }
+
+  .accordion ._header:is(:hover, :focus-within),
+  .accordion-header:is(:hover, :focus-within) {
+    background-color: var(--palette-alpha-blue-26) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-65) !important;
+  }
+
+  .accordion ._header .header-label,
+  .accordion-header .accordion-toggle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: inherit !important;
+  }
+
+  .accordion-header-label {
+    color: inherit !important;
+    font-size: 13px !important;
+  }
+
+  .breakpoints-options > label {
+    border-radius: 4px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  .breakpoints-options > label:has(input:checked) {
+    background-color: var(--palette-alpha-blue-12) !important;
+  }
+
+  .breakpoints-options > label:is(:hover, :focus-within) {
+    background-color: var(--palette-alpha-blue-14) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-50) !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):enabled:is(:hover, :focus-visible),
+  .breakpoints-options > label:hover > input[type="checkbox"]:enabled {
+    border-color: var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+  }
+
+}
+
+
+/* Pane expand/collapse actions are icon buttons, never switches. Keep this
+   exception limited to the Debugger's two pane controls. */
+@-moz-document url-prefix("chrome://devtools/content/debugger/") {
+  button.command-bar-button.toggle-button::before {
+    content: none !important;
+    display: none !important;
+  }
+}

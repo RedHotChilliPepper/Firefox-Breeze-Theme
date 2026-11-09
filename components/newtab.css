@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - New Tab & Private Browsing New Tab
+   ========================================================================== */
+
+@-moz-document url("about:newtab"), url("about:home"), url-prefix("about:privatebrowsing"), url-prefix("chrome://browser/content/aboutPrivateBrowsing.html") {
+  /* In-page Search Handoff UI (<content-search-handoff-ui> in about:newtab & about:privatebrowsing 070816.png) */
+  content-search-handoff-ui,
+  :host(content-search-handoff-ui) {
+    --content-search-handoff-ui-background-color: var(--palette-window-bg) !important;
+    --content-search-handoff-ui-color: var(--palette-text-main) !important;
+    --content-search-handoff-ui-fill: var(--palette-text-main) !important;
+    --content-search-handoff-ui-caret-color: var(--palette-blue-accent) !important;
+    --content-search-handoff-ui-border-width: 1px !important;
+    --content-search-handoff-ui-border-radius: 4px !important;
+    --content-search-handoff-ui-unfocused-border-color: var(--palette-border-dark) !important;
+    --content-search-handoff-ui-fakefocus-border-color: var(--palette-blue-accent) !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-inner: var(--palette-alpha-blue-35) !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-outer: transparent !important;
+  }
+
+  button.search-handoff-button,
+  .search-handoff-button {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px var(--palette-alpha-black-35) !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  button.search-handoff-button:hover,
+  .search-handoff-button:hover {
+    background-color: var(--palette-input-hover) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  :host([fakefocus]:not([disabled])) .search-handoff-button,
+  button.search-handoff-button:focus {
+    background-color: var(--palette-view-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-blue-accent), 0 0 6px var(--palette-alpha-blue-45) !important;
+  }
+
+}
+/* ==========================================================================
+   New Tab & Private Browsing New Tab (about:newtab, about:home, about:privatebrowsing)
+   Fixes Private Mode New Tab (070816.png), gear icon (051056.png) & customize drawer
+   ========================================================================== */
+
+@-moz-document url("about:newtab"),
+               url("about:home"),
+               url-prefix("about:privatebrowsing"),
+               url-prefix("chrome://browser/content/aboutPrivateBrowsing.html") {
+  :root,
+  html,
+  html.private,
+  body {
+    --background-color-canvas: var(--palette-view-bg) !important;
+    --newtab-background-color: var(--palette-view-bg) !important;
+    --newtab-background-color-secondary: var(--palette-window-bg) !important;
+    --link-color: var(--palette-blue-accent) !important;
+    --link-color-hover: var(--palette-blue-focus) !important;
+    --link-color-active: var(--palette-btn-primary) !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* Unbox .search-inner-wrapper so it never double-borders .search-handoff-button */
+  .search-inner-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .search-wrapper .search-handoff-button {
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px var(--palette-alpha-black-35) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .search-wrapper .search-handoff-button:hover {
+    background-color: var(--palette-input-hover) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .search-wrapper .search-handoff-button:focus {
+    background-color: var(--palette-view-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-blue-accent), 0 0 6px var(--palette-alpha-blue-45) !important;
+  }
+
+  #private-browsing-myths:link,
+  #private-window-basics:link,
+  #nova-promo-link:link {
+    color: var(--palette-blue-accent) !important;
+  }
+
+  #private-browsing-myths:link:hover,
+  #private-window-basics:link:hover,
+  #nova-promo-link:link:hover {
+    color: var(--palette-blue-focus) !important;
+  }
+
+  /* Customize Slide-Out Drawer (051056.png) */
+  .customize-menu {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border-inline-start: 1px solid var(--palette-border-dark) !important;
+    border-radius: 8px 0 0 8px !important;
+    box-shadow: -6px 0 24px var(--palette-alpha-black-55) !important;
+    --customize-menu-bg: var(--palette-window-bg) !important;
+    --newtab-background-color-secondary: var(--palette-window-bg) !important;
+  }
+
+  /* Fix gear icon overlapping "Manage more settings" in bottom footer (051056.png) */
+  .external-link {
+    appearance: none !important;
+    background-color: transparent !important;
+    background-position: 8px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px 16px !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 6px 12px 6px 32px !important;
+    color: var(--palette-blue-accent) !important;
+    fill: var(--palette-blue-accent) !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  .external-link:hover {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+    fill: var(--palette-white) !important;
+    text-decoration: none !important;
+  }
+
+  /* Edit / Customize Page Button (Bottom Right) */
+  .personalizeButtonWrapper,
+  menu.personalizeButtonWrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .personalize-button:not(moz-button),
+  .open-customization-button:not(moz-button) {
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px var(--palette-alpha-black-35) !important;
+    color: var(--palette-text-main) !important;
+    --button-background-color-primary: var(--palette-window-bg) !important;
+    --button-border-color-primary: var(--palette-groove-sep) !important;
+    --button-background-color: var(--palette-window-bg) !important;
+    --button-border-color: var(--palette-groove-sep) !important;
+    --button-border-radius: 4px !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .personalize-button:not(moz-button):hover,
+  .open-customization-button:not(moz-button):hover {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+    --button-background-color-primary: var(--palette-button-bg) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+  }
+
+  .personalize-button:not(moz-button)[aria-expanded="true"],
+  .open-customization-button:not(moz-button)[aria-expanded="true"],
+  .personalize-button:not(moz-button):is(:active, [open]),
+  .open-customization-button:not(moz-button):is(:active, [open]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--palette-white) !important;
+    --button-background-color-primary: var(--breeze-action-active-bg) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+  }
+
+  /* Switches share the reference definition in base.css. */
+
+  moz-button:is(.personalize-button, .open-customization-button) {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    --button-border-radius: 4px !important;
+    --button-background-color: var(--palette-window-bg) !important;
+    --button-background-color-primary: var(--palette-window-bg) !important;
+    --button-border-color: var(--palette-groove-sep) !important;
+    --button-border-color-primary: var(--palette-groove-sep) !important;
+  }
+
+.external-link:active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+}
+

@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - View Page Source
+   ========================================================================== */
+
+/* ==========================================================================
+   View Page Source (060028.png - view-source:)
+   KDE Kate / KSyntaxHighlighting Breeze Dark Color Scheme
+   ========================================================================== */
+
+@-moz-document url-prefix("view-source:") {
+  :root,
+  html,
+  body,
+  body#viewsource {
+    color-scheme: dark !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+
+  pre {
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+  }
+
+  /* Line number gutter matching KDE Kate Breeze Dark */
+  body#viewsource {
+    padding-inline-start: 52px !important;
+  }
+
+  span[id]::before {
+    color: var(--palette-comment) !important;
+    background-color: var(--palette-tab-bg) !important;
+    border-inline-end: 1px solid var(--palette-groove-sep) !important;
+    padding-inline-end: 8px !important;
+    margin-inline-start: -52px !important;
+    width: 40px !important;
+    font-family: "Hack", "JetBrains Mono", "Noto Sans Mono", monospace !important;
+    user-select: none !important;
+  }
+
+  /* HTML/XML Tags (<div, </div>) - Breeze Blue (var(--palette-blue-accent)) */
+  .start-tag,
+  .end-tag {
+    color: var(--palette-blue-accent) !important;
+    font-weight: 600 !important;
+  }
+
+  /* Attribute Names (class=, href=, src=) - Breeze Warm Amber (var(--palette-yellow)) */
+  .attribute-name {
+    color: var(--palette-yellow) !important;
+    font-weight: 500 !important;
+  }
+
+  /* Attribute Values ("...") - Breeze Emerald Green (var(--palette-positive)) */
+  .attribute-value {
+    color: var(--palette-positive) !important;
+    font-weight: 400 !important;
+  }
+
+  a.attribute-value {
+    color: var(--palette-green) !important;
+    text-decoration: underline !important;
+    text-decoration-color: var(--palette-alpha-green-55) !important;
+  }
+
+  a.attribute-value:hover {
+    color: var(--palette-green-light) !important;
+    text-decoration-color: var(--palette-green-light) !important;
+  }
+
+  /* Comments (<!-- ... -->) - Breeze Muted Slate (var(--palette-comment)) */
+  .comment {
+    color: var(--palette-comment) !important;
+    font-style: italic !important;
+  }
+
+  /* Doctype & Markup Declarations (<!DOCTYPE html>) - Breeze Purple (var(--palette-purple)) */
+  .doctype,
+  .markupdeclaration {
+    color: var(--palette-purple) !important;
+    font-style: italic !important;
+  }
+
+  /* Processing Instructions & Entities (&amp;, &#160;) - Breeze Cyan (var(--palette-cyan)) */
+  .pi,
+  .entity {
+    color: var(--palette-cyan) !important;
+    font-weight: 400 !important;
+  }
+
+  /* CDATA Sections */
+  .cdata {
+    color: var(--palette-orange) !important;
+  }
+
+  /* Parse Errors - Breeze Negative Red (var(--palette-negative)) */
+  .error,
+  .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype, .pi, .entity, .attribute-name, .attribute-value) {
+    color: var(--palette-negative) !important;
+    font-weight: 600 !important;
+    text-decoration: underline wavy var(--palette-negative) !important;
+  }
+
+  ::selection {
+    background-color: var(--palette-alpha-blue-35) !important;
+    color: var(--palette-white) !important;
+  }
+
+  * {
+    scrollbar-color: var(--palette-scrollbar-thumb) transparent !important;
+    scrollbar-width: thin !important;
+  }
+}

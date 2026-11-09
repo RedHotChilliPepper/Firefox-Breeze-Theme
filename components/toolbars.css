@@ -1,0 +1,482 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Navigation Toolbar & Bookmarks Bar
+   ========================================================================== */
+
+/* ==========================================================================
+   3. Navigation Toolbar (Dolphin Toolbar UX & UI)
+   ========================================================================== */
+
+#nav-bar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding-inline: 6px !important;
+  padding-block: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#nav-bar-customization-target {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Hide flexible spring spacers in navbar to prevent strange gaps */
+#nav-bar toolbarspring,
+#nav-bar [id^="customizableui-special-spring"] {
+  display: none !important;
+}
+
+/* Standardized 28x28px Flat Breeze toolbar buttons */
+.toolbarbutton-1:not(:where(#urlbar-search-button)) {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  padding: 0 !important;
+  margin: 1px 1px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* Firefox VPN toolbar widget: Unified 28x28px Breeze Flat Button */
+#ipprotection-button {
+  width: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  padding: 0 !important;
+  margin: 1px 1px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#ipprotection-button:not([disabled="true"]):hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+#ipprotection-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]) {
+  background-color: var(--palette-blue-accent) !important;
+  border-color: var(--palette-blue-accent) !important;
+  box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+}
+
+/* Stack and icon sizing for base icon and layered states */
+#ipprotection-button .ipprotection-icon-stack,
+#ipprotection-button .toolbarbutton-icon,
+#ipprotection-button .ipprotection-icon-layer {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-self: center !important;
+  justify-self: center !important;
+  list-style-image: url("icons/vpn.svg") !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: var(--palette-white) !important;
+  color: var(--palette-white) !important;
+}
+
+/* Hide text label to unify into a single icon button */
+#ipprotection-button .toolbarbutton-text {
+  display: none !important;
+}
+
+/* Ensure hidden / collapsed buttons are NEVER forced visible (fixes reload+stop coexistence) */
+.toolbarbutton-1[hidden="true"],
+.toolbarbutton-1[collapsed="true"],
+#stop-button[hidden="true"],
+#reload-button[hidden="true"] {
+  display: none !important;
+}
+
+.toolbarbutton-1:not(:where(#urlbar-search-button)) .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: currentColor !important;
+}
+
+/* Ensure inner badges and text never paint opaque backgrounds or extra padding over the button */
+.toolbarbutton-1 > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack),
+#unified-extensions-button .toolbarbutton-badge-stack,
+#downloads-button .toolbarbutton-badge-stack,
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* All toolbar buttons and URL bar page action buttons (Translate, Star/Favorites, Reader mode, Downloads, Menu, etc.) */
+.toolbarbutton-1:not([disabled="true"]):hover,
+#downloads-button:not([disabled="true"]):hover,
+#PanelUI-menu-button:not([disabled="true"]):hover,
+#unified-extensions-button:not([disabled="true"]):hover,
+.urlbar-page-action:not([disabled="true"]):hover,
+#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+.toolbarbutton-1:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
+#back-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
+#forward-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]),
+#reload-button:not([disabled="true"]):is(:active, :hover:active),
+#stop-button:not([disabled="true"]):is(:active, :hover:active),
+#downloads-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [attention]),
+#PanelUI-menu-button:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
+#unified-extensions-button:is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"]),
+.urlbar-page-action:not([disabled="true"]):is(:active, :hover:active, [open], [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]),
+#star-button-box:is(:active, :hover:active, [open], [open="true"], [starred="true"]),
+#reader-mode-button:is(:active, :hover:active, [open], [open="true"], [readeractive]),
+#translations-button:is(:active, :hover:active, [open], [open="true"], [translationsactive]),
+#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):is(:active, :hover:active, [open], [open="true"]) {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+}
+
+/* Starred bookmark & reader active icon fill */
+#star-button-box[starred="true"] #star-button {
+  fill: var(--kde-accent) !important;
+}
+
+#reader-mode-button[readeractive] > .urlbar-icon {
+  fill: var(--kde-accent) !important;
+}
+
+.urlbar-page-action {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  margin: 1px 1px !important;
+  padding: 0 !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-action-radius) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Preserve Firefox's native conditional visibility for URL bar page actions */
+.urlbar-page-action[hidden="true"],
+.urlbar-page-action[hidden],
+.urlbar-page-action[collapsed="true"],
+.urlbar-icon[hidden="true"],
+.urlbar-icon[hidden],
+.urlbar-input-container[pageproxystate="invalid"] > #page-action-buttons > .urlbar-page-action:not(#share-button),
+#identity-box.chromeUI ~ #page-action-buttons > .urlbar-page-action:not(#star-button-box, #split-view-button, #share-button),
+#urlbar[usertyping] > .urlbar-input-container > #page-action-buttons,
+.urlbar:not([usertyping]) > .urlbar-input-container > .urlbar-go-button,
+#urlbar-revert-button-container {
+  display: none !important;
+}
+
+/* Navigation Chevrons Group: < and > adjacent cluster matching Dolphin */
+#back-button {
+  margin-inline-end: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+#forward-button {
+  margin-inline-start: -1px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+#back-button:not([disabled="true"]):hover,
+#forward-button:not([disabled="true"]):hover {
+  z-index: 2 !important;
+}
+
+/* Micro-animations for Back, Forward, and Reload toolbar buttons */
+#back-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon,
+#reload-button .toolbarbutton-icon {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  transform-origin: center center !important;
+}
+
+#back-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: translateX(-2px) !important;
+}
+
+#back-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: translateX(-4px) scale(0.92) !important;
+}
+
+#forward-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: translateX(2px) !important;
+}
+
+#forward-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: translateX(4px) scale(0.92) !important;
+}
+
+#reload-button:not([disabled="true"]):hover .toolbarbutton-icon {
+  transform: rotate(45deg) !important;
+}
+
+#reload-button:not([disabled="true"]):active .toolbarbutton-icon {
+  transform: rotate(180deg) scale(0.92) !important;
+}
+
+#stop-reload-button {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+}
+
+#stop-reload-button > .toolbarbutton-1 {
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   3b. Bookmarks Toolbar (#PersonalToolbar - Qt6 Breeze Flat Toolbar Style)
+   ========================================================================== */
+
+#PersonalToolbar {
+  background-color: var(--kde-window-bg) !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--kde-border-color) !important;
+  min-height: 28px !important;
+  padding: 2px 6px !important;
+  color: var(--kde-window-fg) !important;
+}
+
+#PlacesToolbarItems {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton),
+#PersonalToolbar #OtherBookmarks,
+#PersonalToolbar #import-button {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  margin: 1px 1px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):hover,
+#PersonalToolbar #OtherBookmarks:not([disabled="true"]):hover,
+#PersonalToolbar #import-button:not([disabled="true"]):hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):is(:active, :hover:active, [open="true"], [open]),
+#PersonalToolbar #OtherBookmarks:not([disabled="true"]):is(:active, :hover:active, [open="true"], [open]),
+#PersonalToolbar #import-button:not([disabled="true"]):is(:active, :hover:active) {
+  background-color: var(--kde-active-bg) !important;
+  border-color: var(--kde-accent) !important;
+  color: var(--palette-white) !important;
+}
+
+#PersonalToolbar toolbarbutton.bookmark-item > .toolbarbutton-icon,
+#PersonalToolbar #OtherBookmarks > .toolbarbutton-icon,
+#PersonalToolbar #import-button > .toolbarbutton-icon {
+  width: 16px !important;
+  height: 16px !important;
+  margin-inline-end: 5px !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: currentColor !important;
+}
+
+/* ==========================================================================
+   GLS Standard for Notification Infobars (Qt6 KMessageWidget Derivation)
+   ========================================================================== */
+
+notification-message,
+.notificationbox-stack,
+notificationbox,
+.container.infobar {
+  --info-bar-background-color: var(--palette-window-bg) !important;
+  --info-bar-text-color: var(--palette-text-main) !important;
+  --message-bar-border-color: var(--palette-groove-sep) !important;
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+}
+
+notification-message::part(content) {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+}
+
+.notification-button-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Primary Action Button (e.g. "Wie es funktioniert") */
+notification-message button.notification-button,
+notificationbox button.notification-button,
+.notificationbox-stack button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--palette-btn-primary) !important;
+  color: var(--palette-white) !important;
+  border: 1px solid var(--palette-blue-accent) !important;
+  border-radius: var(--breeze-action-radius) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  padding: 4px 14px !important;
+  min-height: 28px !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+notification-message button.notification-button:hover,
+notificationbox button.notification-button:hover,
+.notificationbox-stack button:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+notification-message button.notification-button:active,
+notificationbox button.notification-button:active,
+.notificationbox-stack button:active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+
+/* Secondary Button */
+notification-message button.notification-button[type="secondary"] {
+  background-color: var(--palette-button-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  color: var(--palette-text-main) !important;
+}
+
+notification-message button.notification-button[type="secondary"]:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+/* Close Button (x) in Notification Bar */
+notification-message button.close,
+notification-message .close,
+notificationbox button.close {
+  appearance: none !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  padding: 2px !important;
+  margin: 0 4px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  color: var(--palette-text-dim) !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+notification-message button.close:hover,
+notification-message .close:hover,
+notificationbox button.close:hover {
+  background-color: var(--palette-button-bg) !important;
+  border-color: var(--palette-border-dark) !important;
+  color: var(--palette-white) !important;
+}
+
+
+/* Only the outer action paints a highlight; inner artwork keeps no second surface. */
+#navigator-toolbox :is(.toolbarbutton-icon, .toolbarbutton-badge-stack, .urlbar-icon, .urlbar-icon-wrapper),
+.urlbar-page-action :is(.urlbar-icon, .toolbarbutton-icon),
+:is(#identity-icon-box, #tracking-protection-icon-container, #trust-icon-container) > image {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#navigator-toolbox :is(.toolbarbutton-badge-stack, .urlbar-icon-wrapper) {
+  background-image: none !important;
+}
+
+/* Extension counters share the GSL status-badge surface (including uBlock).
+   Keep Firefox's corner placement and visibility, and the extension's text. */
+.webextension-browser-action .toolbarbutton-badge {
+  background: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  font-variant-numeric: tabular-nums !important;
+  line-height: 14px !important;
+  min-height: 16px !important;
+  min-width: 16px !important;
+  max-width: 38px !important;
+  padding: 0 3px !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep selected glyphs readable on the solid action surface. */
+:is(.toolbarbutton-1, .urlbar-page-action):not([disabled="true"]):is(:active, [open="true"], [panelopen="true"], [aria-expanded="true"], [checked="true"]) {
+  color: var(--breeze-action-active-fg) !important;
+  fill: var(--breeze-action-active-fg) !important;
+  --toolbarbutton-icon-fill: var(--breeze-action-active-fg) !important;
+}
+
+#star-button-box[starred="true"] #star-button,
+#reader-mode-button[readeractive] > .urlbar-icon {
+  fill: var(--breeze-action-active-fg) !important;
+}
+
+:is(notification-message, notificationbox, .notificationbox-stack) button.notification-button[type]:not([disabled="true"]):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}

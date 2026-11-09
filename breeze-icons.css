@@ -6,29 +6,29 @@
 /* Navigation buttons */
 #back-button,
 #back-button .toolbarbutton-icon {
-  list-style-image: url("icons/back.svg") !important;
+  list-style-image: url("components/icons/back.svg") !important;
 }
 
 #forward-button,
 #forward-button .toolbarbutton-icon {
-  list-style-image: url("icons/forward.svg") !important;
+  list-style-image: url("components/icons/forward.svg") !important;
 }
 
 #reload-button,
 #reload-button .toolbarbutton-icon,
 #reload-button .toolbarbutton-animatable-image {
-  list-style-image: url("icons/reload.svg") !important;
+  list-style-image: url("components/icons/reload.svg") !important;
 }
 
 #stop-button,
 #stop-button .toolbarbutton-icon,
 #stop-button .toolbarbutton-animatable-image {
-  list-style-image: url("icons/stop.svg") !important;
+  list-style-image: url("components/icons/stop.svg") !important;
 }
 
 #home-button,
 #home-button .toolbarbutton-icon {
-  list-style-image: url("icons/home.svg") !important;
+  list-style-image: url("components/icons/home.svg") !important;
 }
 
 /* Tabs */
@@ -36,69 +36,86 @@
 #tabs-newtab-button .toolbarbutton-icon,
 #new-tab-button,
 #new-tab-button .toolbarbutton-icon {
-  list-style-image: url("icons/newtab.svg") !important;
+  list-style-image: url("components/icons/newtab.svg") !important;
 }
 
 .tab-close-button {
-  list-style-image: url("icons/close.svg") !important;
+  list-style-image: url("components/icons/close.svg") !important;
 }
 
 /* Application menu & toolbar actions */
 #PanelUI-menu-button,
 #PanelUI-menu-button .toolbarbutton-icon {
-  list-style-image: url("icons/menu.svg") !important;
+  list-style-image: url("components/icons/menu.svg") !important;
 }
 
 #unified-extensions-button,
 #unified-extensions-button .toolbarbutton-icon {
-  list-style-image: url("icons/plugins.svg") !important;
+  list-style-image: url("components/icons/plugins.svg") !important;
 }
 
 #downloads-button,
 #downloads-button .toolbarbutton-icon,
 #downloads-indicator-icon {
-  list-style-image: url("icons/download.svg") !important;
+  list-style-image: url("components/icons/download.svg") !important;
 }
 
 #sidebar-button,
 #sidebar-button .toolbarbutton-icon {
-  list-style-image: url("icons/sidebar.svg") !important;
+  list-style-image: url("components/icons/sidebar.svg") !important;
 }
 
 /* URL bar bookmark star */
 #star-button,
 #pageAction-panel-bookmark {
-  list-style-image: url("icons/star.svg") !important;
+  list-style-image: url("components/icons/star.svg") !important;
 }
 
 #star-button[starred],
 #pageAction-panel-bookmark[starred] {
-  list-style-image: url("icons/star-filled.svg") !important;
+  list-style-image: url("components/icons/star-filled.svg") !important;
   fill: var(--kde-accent) !important;
 }
 
 /* URL bar security padlock */
 #identity-icon {
-  list-style-image: url("icons/lock.svg") !important;
+  list-style-image: url("components/icons/lock.svg") !important;
 }
 
 /* Bookmarks folder icons */
 #PlacesToolbarItems .bookmark-item[container="true"] {
-  list-style-image: url("icons/folder.svg") !important;
+  list-style-image: url("components/icons/folder.svg") !important;
 }
 
 /* Findbar navigation */
 .findbar-find-previous,
 .findbar-find-previous .toolbarbutton-icon {
-  list-style-image: url("icons/back.svg") !important;
+  list-style-image: url("components/icons/back.svg") !important;
 }
 
 .findbar-find-next,
 .findbar-find-next .toolbarbutton-icon {
-  list-style-image: url("icons/forward.svg") !important;
+  list-style-image: url("components/icons/forward.svg") !important;
 }
 
 .findbar-closebutton,
 .findbar-closebutton .toolbarbutton-icon {
-  list-style-image: url("icons/close.svg") !important;
+  list-style-image: url("components/icons/close.svg") !important;
 }
+
+/* Firefox VPN toolbar widget */
+#ipprotection-button,
+#ipprotection-button .toolbarbutton-icon,
+#ipprotection-button .ipprotection-icon-stack,
+#ipprotection-button .ipprotection-icon-stack > .toolbarbutton-icon,
+#ipprotection-button .ipprotection-icon-layer {
+  list-style-image: url("components/icons/vpn.svg") !important;
+}
+
+#ipprotection-button .toolbarbutton-icon,
+#ipprotection-button .ipprotection-icon-layer {
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: var(--palette-white) !important;
+  color: var(--palette-white) !important;
+}
+
