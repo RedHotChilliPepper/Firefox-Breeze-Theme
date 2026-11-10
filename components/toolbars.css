@@ -28,6 +28,11 @@
   width: 100% !important;
 }
 
+/* Bookmarks in the navigation bar use only their content width; overflow can still shrink them. */
+:root:not([customizing]) #nav-bar-customization-target > #personal-bookmarks {
+  flex: 0 1 auto !important;
+}
+
 /* Hide flexible spring spacers in navbar to prevent strange gaps */
 #nav-bar toolbarspring,
 #nav-bar [id^="customizableui-special-spring"] {

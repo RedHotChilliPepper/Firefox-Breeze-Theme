@@ -28,6 +28,10 @@ EOF
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --profile)
+      if [[ $# -lt 2 || -z "$2" || "$2" == --* ]]; then
+        echo "Error: --profile requires a Firefox profile directory." >&2
+        exit 1
+      fi
       TARGET_PROFILE="$2"
       shift 2
       ;;
@@ -65,49 +69,115 @@ if [[ -n "$TARGET_PROFILE" ]]; then
   fi
   TARGET_PROFILES+=("$TARGET_PROFILE")
 else
-  # Default target profiles for this workstation
-  for p in "$HOME/.config/mozilla/firefox/87rk8jsb.default-release" \
-           "$HOME/.config/mozilla/firefox/bvaocszu.default-release"; do
-    if [[ -d "$p" ]]; then
-      TARGET_PROFILES+=("$p")
+  POSSIBLE_DIRS=(
+    "$HOME/.config/mozilla/firefox"
+    "$HOME/.mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
+    "$HOME/.var/app/org.mozilla.firefox/config/mozilla/firefox"
+    "$HOME/snap/firefox/common/.mozilla/firefox"
+  )
+
+  # Firefox records the selected profile under [Install...] in profiles.ini.
+  # Read that before looking for legacy *.default-release directories, which
+  # can be stale after the user creates or switches to a custom profile.
+  for base_dir in "${POSSIBLE_DIRS[@]}"; do
+    [[ -f "$base_dir/profiles.ini" ]] || continue
+    while IFS= read -r profile_path; do
+      [[ -n "$profile_path" ]] || continue
+      if [[ "$profile_path" = /* ]]; then
+        candidate="$profile_path"
+      else
+        candidate="$base_dir/$profile_path"
+      fi
+      if [[ -d "$candidate" ]]; then
+        already_added=false
+        for existing in "${TARGET_PROFILES[@]}"; do
+          if [[ "$existing" == "$candidate" ]]; then
+            already_added=true
+            break
+          fi
+        done
+        if ! $already_added; then
+          TARGET_PROFILES+=("$candidate")
+        fi
+      fi
+    done < <(awk '
+      function emit() {
+        if (section ~ /^Install/ && default_path != "") print default_path
+      }
+      /^\[/ {
+        emit()
+        section = $0
+        sub(/^\[/, "", section)
+        sub(/\].*$/, "", section)
+        default_path = ""
+        next
+      }
+      section ~ /^Install/ && /^Default=/ {
+        default_path = substr($0, 9)
+        sub(/\r$/, "", default_path)
+      }
+      END { emit() }
+    ' "$base_dir/profiles.ini")
+    if [[ ${#TARGET_PROFILES[@]} -gt 0 ]]; then
+      break
     fi
   done
 
-  # Fallback to scanning possible directories if none found
+  # Older profile registries may only mark a [Profile...] section as default.
   if [[ ${#TARGET_PROFILES[@]} -eq 0 ]]; then
-    POSSIBLE_DIRS=(
-      "$HOME/.config/mozilla/firefox"
-      "$HOME/.mozilla/firefox"
-      "$HOME/.var/app/org.mozilla.firefox/.mozilla/firefox"
-      "$HOME/.var/app/org.mozilla.firefox/config/mozilla/firefox"
-      "$HOME/snap/firefox/common/.mozilla/firefox"
-    )
-
     for base_dir in "${POSSIBLE_DIRS[@]}"; do
-      if [[ -d "$base_dir" ]]; then
-        for prof in "$base_dir"/*.default-release; do
-          if [[ -d "$prof" ]]; then
-            TARGET_PROFILES+=("$prof")
-          fi
-        done
-        if [[ ${#TARGET_PROFILES[@]} -gt 0 ]]; then
-          break
+      [[ -f "$base_dir/profiles.ini" ]] || continue
+      while IFS= read -r profile_path; do
+        [[ -n "$profile_path" ]] || continue
+        if [[ "$profile_path" = /* ]]; then
+          candidate="$profile_path"
+        else
+          candidate="$base_dir/$profile_path"
         fi
+        if [[ -d "$candidate" ]]; then
+          TARGET_PROFILES+=("$candidate")
+        fi
+      done < <(awk '
+        function emit() {
+          if (section ~ /^Profile/ && is_default == "1" && path != "") print path
+        }
+        /^\[/ {
+          emit()
+          section = $0
+          sub(/^\[/, "", section)
+          sub(/\].*$/, "", section)
+          path = ""
+          is_default = ""
+          next
+        }
+        section ~ /^Profile/ && /^Path=/ {
+          path = substr($0, 6)
+          sub(/\r$/, "", path)
+        }
+        section ~ /^Profile/ && /^Default=/ {
+          is_default = substr($0, 9)
+          sub(/\r$/, "", is_default)
+        }
+        END { emit() }
+      ' "$base_dir/profiles.ini")
+      if [[ ${#TARGET_PROFILES[@]} -gt 0 ]]; then
+        break
       fi
-      if [[ -f "$base_dir/profiles.ini" ]]; then
-        # Find default release profile
-        if grep -q "Default=" "$base_dir/profiles.ini"; then
-          # Check for [Install...] default first
-          def_path=$(sed -n '/^\[Install/{n;p;}' "$base_dir/profiles.ini" | sed -n 's/^Default=//p' | head -n 1)
-          if [[ -z "$def_path" ]]; then
-            def_path=$(grep -E '^Path=' "$base_dir/profiles.ini" | head -n 1 | cut -d= -f2)
-          fi
+    done
+  fi
 
-          if [[ -n "$def_path" && -d "$base_dir/$def_path" ]]; then
-            TARGET_PROFILES+=("$base_dir/$def_path")
-            break
-          fi
+  # Keep legacy discovery for profiles without a usable registry.
+  if [[ ${#TARGET_PROFILES[@]} -eq 0 ]]; then
+    for base_dir in "${POSSIBLE_DIRS[@]}"; do
+      [[ -d "$base_dir" ]] || continue
+      for prof in "$base_dir"/*.default-release; do
+        if [[ -d "$prof" ]]; then
+          TARGET_PROFILES+=("$prof")
         fi
+      done
+      if [[ ${#TARGET_PROFILES[@]} -gt 0 ]]; then
+        break
       fi
     done
   fi

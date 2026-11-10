@@ -119,6 +119,24 @@ sidebar-main {
     border: none !important;
   }
 
+  .sidebar-placesTree > treechildren::-moz-tree-row(hover) {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border: 1px solid var(--breeze-sidebar-hover-border) !important;
+    border-radius: var(--breeze-selection-radius) !important;
+  }
+
+  .sidebar-placesTree > treechildren::-moz-tree-row(selected),
+  .sidebar-placesTree > treechildren::-moz-tree-row(selected, focus) {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border: 1px solid var(--breeze-sidebar-selected-border) !important;
+    border-radius: var(--breeze-selection-radius) !important;
+  }
+
+  .sidebar-placesTree > treechildren::-moz-tree-cell-text(selected) {
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
+
 
 }
 
@@ -126,4 +144,26 @@ sidebar-main {
   background-color: var(--breeze-action-active-bg) !important;
   border-color: var(--breeze-action-active-border) !important;
   color: var(--breeze-action-active-fg) !important;
+}
+
+/* Navigation rows in Firefox's newer bookmark, history and open-tab panels. */
+@-moz-document url-prefix("chrome://browser/content/sidebar/") {
+  :where(sidebar-tab-row, sidebar-bookmark-row, .bookmark-folder-label, details[data-folder-kind] > summary) {
+    border-radius: var(--breeze-selection-radius) !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  :is(sidebar-tab-row, sidebar-bookmark-row):not([selected]):not([current]):not(:active):is(:hover, :focus-visible),
+  :is(.bookmark-folder-label, details[data-folder-kind] > summary):is(:hover, :focus-visible) {
+    background: var(--breeze-sidebar-hover-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  :is(sidebar-tab-row, sidebar-bookmark-row):is([selected], [current], :active),
+  :is(.bookmark-folder-label, details[data-folder-kind] > summary):active {
+    background: var(--breeze-sidebar-selected-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
 }

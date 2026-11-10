@@ -111,7 +111,7 @@
   }
 
   /* 3. Standalone light-DOM HTML/XUL <button> (excludes Shadow DOM internal buttons, DevTools menu items & special link buttons) */
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.wallpaper-input):not(.weather-text-link):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty) {
     appearance: none !important;
     -moz-appearance: none !important;
     background-color: var(--palette-button-bg) !important;
@@ -127,13 +127,13 @@
     transition: background-color 0.15s ease, border-color 0.15s ease !important;
   }
 
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.wallpaper-input):not(.weather-text-link):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):hover:not([disabled]):not(:disabled) {
     background-color: var(--breeze-action-hover-bg) !important;
     border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
   }
 
-  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
+  button:not(#main-button):not([part="button"]):not(.panel-trigger):not(.button):not(.downloadButton):not(.control-button):not(.playback-rate-preset):not(.picker-item):not(.wallpaper-input):not(.weather-text-link):not(.ghost-button):not(.category):not([role="tab"]):not(.tab-button):not(.toggle-button):not(.close):not(.close-button):not(.dialogClose):not(.personalize-button):not(.search-handoff-button):not(.external-link):not(.devtools-button):not(.devtools-tab):not(.tabs-menu-item):not(.command):not([role="menuitem"]):not([role="menuitemcheckbox"]):not([role="menuitemradio"]):not(.theme-twisty):not(.open-inspector):not(.twisty):active:not([disabled]):not(:disabled) {
     background-color: var(--breeze-action-active-bg) !important;
     border-color: var(--breeze-action-active-border) !important;
     color: var(--palette-white) !important;
@@ -391,7 +391,7 @@
   }
 
   moz-radio::part(input),
-  input[type="radio"],
+  input[type="radio"]:not(.wallpaper-input),
   radio .radio-check {
     appearance: none !important;
     -moz-appearance: none !important;
@@ -418,22 +418,22 @@
   }
 
   /* Preserve the custom element's native input/label positioning. */
-  input[type="radio"]:not(#input),
+  input[type="radio"]:not(.wallpaper-input):not(#input),
   radio .radio-check {
     margin: 2px 6px 2px 2px !important;
   }
 
   moz-radio:not([disabled]):hover::part(input),
-  input[type="radio"]:hover:not(:disabled),
+  input[type="radio"]:not(.wallpaper-input):hover:not(:disabled),
   radio:not([disabled="true"]):hover .radio-check,
   moz-radio:focus-within::part(input),
-  input[type="radio"]:focus-visible,
+  input[type="radio"]:not(.wallpaper-input):focus-visible,
   radiogroup:focus-visible radio[focused] .radio-check {
     border-color: var(--palette-blue-accent) !important;
   }
 
   moz-radio[checked]::part(input),
-  input[type="radio"]:checked,
+  input[type="radio"]:not(.wallpaper-input):checked,
   radio[selected] .radio-check {
     border-color: var(--palette-blue-accent) !important;
     background-color: var(--palette-view-bg) !important;
@@ -441,7 +441,7 @@
   }
 
   moz-radio[disabled]::part(input),
-  input[type="radio"]:disabled,
+  input[type="radio"]:not(.wallpaper-input):disabled,
   radio[disabled] .radio-check {
     border-color: var(--palette-border-dark) !important;
     opacity: 1 !important;
@@ -449,7 +449,7 @@
   }
 
   moz-radio[disabled][checked]::part(input),
-  input[type="radio"]:disabled:checked,
+  input[type="radio"]:not(.wallpaper-input):disabled:checked,
   radio[disabled][selected] .radio-check {
     background-image: radial-gradient(circle 4px at center, var(--palette-text-dim) 96%, transparent 100%) !important;
   }

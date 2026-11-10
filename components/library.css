@@ -149,8 +149,8 @@
 
   #placesList > treechildren::-moz-tree-row(hover),
   .sidebar-placesTree > treechildren::-moz-tree-row(hover) {
-    background-color: var(--palette-alpha-blue-14) !important;
-    border-color: var(--palette-alpha-blue-40) !important;
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border-color: var(--breeze-sidebar-hover-border) !important;
     border-radius: 5px !important;
   }
 
@@ -158,8 +158,8 @@
   #placesList > treechildren::-moz-tree-row(selected, focus),
   .sidebar-placesTree > treechildren::-moz-tree-row(selected),
   .sidebar-placesTree > treechildren::-moz-tree-row(selected, focus) {
-    background-color: var(--palette-alpha-blue-26) !important;
-    border: 1px solid var(--palette-alpha-blue-55) !important;
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border: 1px solid var(--breeze-sidebar-selected-border) !important;
     border-radius: 5px !important;
     outline: none !important;
   }

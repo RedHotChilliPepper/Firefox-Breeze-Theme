@@ -250,11 +250,16 @@ toolbarseparator::before,
   display: none !important;
 }
 
-/* Hide accesskey mnemonics underline unless Alt is held */
-menupopup menu [_moz-acceltext],
-menupopup menuitem [_moz-acceltext],
-.menu-text,
-.menu-iconic-text {
+/* XUL labels normally draw access-key underlines inside their native
+   -moz-label-content pseudo-element, beyond text-decoration's control.
+   Render the same localized value as plain text; the menu item's accesskey
+   remains intact for keyboard navigation. */
+menupopup :is(menu, menuitem) > .menu-text::before {
+  content: attr(value) !important;
+}
+
+/* Highlightable menu labels use a real access-key span instead. */
+menupopup :is(menu, menuitem) :is(.menu-highlightable-text, .menu-iconic-text) .accesskey {
   text-decoration: none !important;
 }
 

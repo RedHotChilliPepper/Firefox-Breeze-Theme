@@ -101,21 +101,32 @@
     --page-nav-button-text-color: var(--palette-text-dim) !important;
     --page-nav-button-text-color-hover: var(--palette-white) !important;
     --page-nav-button-text-color-selected: var(--palette-white) !important;
+    --page-nav-button-text-color-active: var(--palette-white) !important;
     --page-nav-button-background-color: transparent !important;
-    --page-nav-button-background-color-hover: var(--palette-alpha-blue-14) !important;
-    --page-nav-button-background-color-active: var(--palette-alpha-blue-26) !important;
-    --page-nav-button-background-color-selected: var(--palette-alpha-blue-26) !important;
+    --page-nav-button-background-color-hover: var(--breeze-sidebar-hover-bg) !important;
+    --page-nav-button-background-color-active: var(--breeze-sidebar-selected-bg) !important;
+    --page-nav-button-background-color-selected: var(--breeze-sidebar-selected-bg) !important;
     --page-nav-button-border-color: 1px solid transparent !important;
-    --page-nav-button-border-color-hover: var(--palette-alpha-blue-40) !important;
-    --page-nav-button-border-color-active: var(--palette-alpha-blue-55) !important;
-    --page-nav-button-border-color-selected: var(--palette-alpha-blue-55) !important;
+    --page-nav-button-border-color-hover: var(--breeze-sidebar-hover-border) !important;
+    --page-nav-button-border-color-active: var(--breeze-sidebar-selected-border) !important;
+    --page-nav-button-border-color-selected: var(--breeze-sidebar-selected-border) !important;
   }
 
   moz-page-nav-button[selected],
   moz-page-nav-button:state(selected) {
-    --page-nav-button-border-color: 1px solid var(--palette-alpha-blue-55) !important;
-    --page-nav-button-background-color: var(--palette-alpha-blue-26) !important;
+    --page-nav-button-border-color: 1px solid var(--breeze-sidebar-selected-border) !important;
+    --page-nav-button-background-color: var(--breeze-sidebar-selected-bg) !important;
     --page-nav-button-text-color: var(--palette-white) !important;
+  }
+
+  moz-page-nav-button:focus-within {
+    --page-nav-button-background-color: var(--breeze-sidebar-hover-bg) !important;
+    --page-nav-button-border-color: 1px solid var(--breeze-sidebar-hover-border) !important;
+  }
+
+  /* The selected shadow button itself owns the blue border. */
+  button[role="tab"][selected][aria-selected="true"]:has(> .page-nav-icon) {
+    border-color: var(--breeze-sidebar-selected-border) !important;
   }
 
   /* Ensure moz-page-nav-button host NEVER renders an outer box to prevent double-hover offset (bugA3.png) */
@@ -139,7 +150,7 @@
   }
 
   /* Inactive sidebar category button (standalone / legacy views) */
-  .category:not([selected="true"]) {
+  .category:not(.wallpaper-list):not([selected]):not(.selected):not([aria-selected="true"]):not(:active) {
     background-color: transparent !important;
     border: 1px solid transparent !important;
     box-shadow: none !important;
@@ -149,20 +160,26 @@
   }
 
   /* Hover state for sidebar category (standalone / legacy views) */
-  .category:not([selected="true"]):hover {
-    background-color: var(--palette-alpha-blue-14) !important;
-    border: 1px solid var(--palette-alpha-blue-40) !important;
+  .category:not(.wallpaper-list):not(.selected):not([selected]):not([aria-selected="true"]):not(:active):is(:hover, :focus-visible) {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border: 1px solid var(--breeze-sidebar-hover-border) !important;
     color: var(--palette-white) !important;
     border-radius: 5px !important;
     outline: none !important;
   }
 
+  .category:not(.wallpaper-list):active {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border-color: var(--breeze-sidebar-selected-border) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
   /* Selected category card (standalone / legacy views) */
-  .category[selected="true"],
+  .category:not(.wallpaper-list)[selected]:not([selected="false"]),
   button.category[aria-selected="true"],
-  .category.selected {
-    background-color: var(--palette-alpha-blue-26) !important;
-    border: 1px solid var(--palette-alpha-blue-55) !important;
+  .category:not(.wallpaper-list).selected {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border: 1px solid var(--breeze-sidebar-selected-border) !important;
     color: var(--palette-white) !important;
     font-weight: 600 !important;
     border-radius: 5px !important;
@@ -250,7 +267,7 @@
   login-list ol > li,
   login-list-item,
   login-list-lit-item {
-    border-radius: 4px !important;
+    border-radius: 5px !important;
     margin: 1px 0 !important;
     color: var(--palette-text-main) !important;
     border: 1px solid transparent !important;
@@ -260,16 +277,16 @@
   login-list ol > li:hover,
   login-list-item:hover,
   login-list-lit-item:hover {
-    background-color: var(--palette-alpha-blue-14) !important;
-    border-color: var(--palette-alpha-blue-40) !important;
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border-color: var(--breeze-sidebar-hover-border) !important;
   }
 
   login-list ol > li[selected],
   login-list-item[selected],
   login-list-lit-item[selected],
   login-list ol > li.selected {
-    background-color: var(--palette-alpha-blue-26) !important;
-    border-color: var(--palette-alpha-blue-55) !important;
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border-color: var(--breeze-sidebar-selected-border) !important;
     color: var(--palette-white) !important;
   }
 
@@ -322,6 +339,79 @@
 
   :host(login-list) .count {
     margin-inline-start: 0 !important;
+  }
+
+  ol[role="listbox"][data-l10n-id="login-list"] {
+    padding: 4px 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* List rows are painted inside nested list-item shadow roots. */
+  login-list-item.list-item,
+  new-list-item.list-item {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  li.list-item[role="option"] {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--breeze-selection-radius) !important;
+    box-shadow: none !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  li.list-item[role="option"]:not(.selected):not(:active):is(:hover, :focus-visible, .keyboard-selected) {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border-color: var(--breeze-sidebar-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  li.list-item[role="option"]:is(.selected, :active) {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border-color: var(--breeze-sidebar-selected-border) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
+  /* The password menu has its own shadow tree and draws one GSL menu shell. */
+  ul.menu:has(> .menuitem-button) {
+    background-color: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: var(--breeze-menu-radius) !important;
+    padding: 4px !important;
+    box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+  }
+
+  button.menuitem-button {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--breeze-action-radius) !important;
+    min-height: 28px !important;
+    padding: 4px 8px !important;
+    padding-inline-start: 34px !important;
+    color: var(--palette-text-main) !important;
+    text-align: start !important;
+    box-shadow: none !important;
+  }
+
+  button.menuitem-button:not(:disabled):is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  button.menuitem-button:not(:disabled):active {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  hr.menuitem-separator {
+    border: 0 !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    margin: 4px 0 !important;
   }
 
   body > section,

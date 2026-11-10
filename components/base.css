@@ -44,6 +44,11 @@
   --breeze-action-active-border: var(--palette-blue-accent);
   --breeze-action-active-fg: var(--palette-white);
   --breeze-action-hover-solid: color-mix(in srgb, var(--palette-blue-accent) 16%, var(--palette-window-bg));
+  --breeze-sidebar-hover-bg: #204357;
+  --breeze-sidebar-hover-border: #2e7499;
+  --breeze-sidebar-selected-bg: var(--palette-blue-accent);
+  --breeze-sidebar-selected-border: var(--palette-blue-accent);
+  --breeze-sidebar-selected-fg: var(--palette-white);
   --breeze-selection-radius: 5px;
   --breeze-radius: var(--breeze-action-radius); /* Compatibility for older imports. */
   --breeze-menu-radius: 8px;

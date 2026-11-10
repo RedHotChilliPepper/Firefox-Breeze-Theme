@@ -26,7 +26,7 @@
 }
 
 #aboutDialog #bottomBox {
-  background-color: var(--palette-view-bg) !important;
+  background-color: var(--palette-window-bg) !important;
   border-top: 1px solid var(--palette-groove-sep) !important;
   color: var(--palette-text-dim) !important;
 }

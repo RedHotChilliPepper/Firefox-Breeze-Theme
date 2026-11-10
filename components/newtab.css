@@ -118,6 +118,27 @@
     --newtab-background-color-secondary: var(--palette-window-bg) !important;
   }
 
+  /* The wallpaper category is an opaque sliding panel, not a sidebar selection. */
+  .wallpaper-list.category,
+  .wallpaper-list.category:hover {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Selection is shown on the thumbnail frame, without dimming its artwork. */
+  .wallpaper-list.category .wallpaper-input:hover,
+  .wallpaper-list.category .your-images-item:hover .your-images-preview {
+    filter: none !important;
+  }
+
+  .wallpaper-list.category .wallpaper-input:checked {
+    box-shadow: inset 0 0 0 3px var(--palette-blue-accent) !important;
+  }
+
   /* Fix gear icon overlapping "Manage more settings" in bottom footer (051056.png) */
   .external-link {
     appearance: none !important;
@@ -185,6 +206,25 @@
     color: var(--palette-white) !important;
     --button-background-color-primary: var(--breeze-action-active-bg) !important;
     --button-border-color-primary: var(--palette-blue-accent) !important;
+  }
+
+  /* The compact weather setup must grow when localized labels wrap. */
+  .nova-enabled .widgets-container:has(.weather-widget.weather-opt-in) {
+    grid-auto-rows: minmax(var(--row-height), auto) !important;
+  }
+
+  .nova-enabled .weather-widget.weather-opt-in {
+    height: auto !important;
+    min-height: var(--newtab-card-height-small) !important;
+  }
+
+  .nova-enabled .weather-widget.weather-opt-in.large-widget {
+    min-height: var(--newtab-card-height) !important;
+  }
+
+  .nova-enabled .weather-widget.weather-opt-in .weather-opt-in-container {
+    height: auto !important;
+    min-height: 100% !important;
   }
 
   /* Switches share the reference definition in base.css. */
