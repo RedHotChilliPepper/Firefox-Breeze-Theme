@@ -1,3 +1,4 @@
+@import "palette.css";
 /* ==========================================================================
    KDE Plasma 6 / Qt6 Breeze In-Content, Subdialog, Sidebar, Print, PDF & DevTools
    General Style Language (GSL): Authentic Qt6 Breeze Dark (Dolphin / System Settings)
@@ -20,3 +21,6 @@
 @import "components/view-source.css";
 @import "components/pdf-print.css";
 @import "components/picture-in-picture.css";
+
+/* Optional KDE colors; the default palette remains unchanged while disabled. */
+@import "palette-sync.css";

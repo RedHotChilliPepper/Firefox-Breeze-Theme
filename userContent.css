@@ -27,3 +27,6 @@
 @import "components/view-source.css";
 @import "components/pdf-print.css";
 @import "components/picture-in-picture.css";
+
+/* Optional KDE colors; the default palette remains unchanged while disabled. */
+@import "palette-sync.css";

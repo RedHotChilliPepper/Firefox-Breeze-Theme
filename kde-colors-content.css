@@ -4,3 +4,6 @@
    ========================================================================== */
 
 @import "palette.css";
+
+/* Optional KDE colors; the default palette remains unchanged while disabled. */
+@import "palette-sync.css";
