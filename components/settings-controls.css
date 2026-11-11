@@ -1,0 +1,10 @@
+/* Compatibility entry: functional modules for settings-controls. */
+@import "controls/buttons.css";
+@import "controls/fields.css";
+@import "controls/checkboxes.css";
+@import "controls/radios.css";
+@import "controls/selects.css";
+@import "controls/native-menus.css";
+@import "controls/panel-menus.css";
+@import "controls/segmented.css";
+@import "controls/sliders.css";

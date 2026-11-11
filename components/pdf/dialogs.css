@@ -1,0 +1,18 @@
+/* pdf — dialogs */
+
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) {
+  dialog {
+    padding: 16px 20px !important;
+    color: var(--palette-text-main) !important;
+  }
+  .dialogButton:enabled:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+  }
+
+  .dialogButton:enabled:active {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+}

@@ -1,0 +1,14 @@
+/* Compatibility entry: functional modules for popups. */
+@import "popups/menu-shell.css";
+@import "popups/panels.css";
+@import "popups/menu-rows.css";
+@import "popups/app-menu.css";
+@import "popups/animations.css";
+@import "popups/site-info.css";
+@import "popups/vpn.css";
+@import "popups/markers.css";
+@import "popups/action-artwork.css";
+@import "popups/translations.css";
+@import "popups/devtools-host.css";
+@import "popups/form-actions.css";
+@import "popups/tab-preview.css";

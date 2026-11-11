@@ -1,0 +1,22 @@
+/* devtools — options */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* DevTools Settings Panel (F1 - chrome://devtools/content/framework/toolbox-options.html) */
+  #options-panel,
+  .options-groupbox {
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  #options-panel label,
+  #options-panel legend {
+    color: var(--palette-text-main) !important;
+  }
+
+  #options-panel .options-groupdescription,
+  #options-panel .preference-description {
+    color: var(--palette-text-dim) !important;
+  }
+}

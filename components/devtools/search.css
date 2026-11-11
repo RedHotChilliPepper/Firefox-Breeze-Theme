@@ -1,0 +1,37 @@
+/* devtools — search */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* A search input owns its one rounded frame and focus border. The wrapper
+     also holds clear/help buttons and must never add a rectangular outline. */
+  .devtools-searchbox,
+  .devtools-searchbox:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .devtools-filterinput,
+  .devtools-searchinput {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .devtools-filterinput:is(:hover, :focus),
+  .devtools-searchinput:is(:hover, :focus) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .devtools-searchbox-no-match > :is(.devtools-searchinput, .devtools-filterinput) {
+    background-color: var(--palette-alpha-red-25) !important;
+    border-color: var(--palette-negative) !important;
+  }
+
+  
+}

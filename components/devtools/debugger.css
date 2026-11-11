@@ -1,0 +1,71 @@
+/* devtools — debugger */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* Debugger disclosure selectors: highlight the header once, leaving its
+     label/twisty transparent and its expanded state visible. */
+  .accordion ._header,
+  .accordion-header {
+    border-radius: 4px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+    font-size: 13px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .accordion ._header:has(.header-label[aria-expanded="true"]),
+  .accordion-header:has(.accordion-toggle[aria-expanded="true"]) {
+    background-color: var(--palette-alpha-blue-12) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-50) !important;
+  }
+
+  .accordion ._header:is(:hover, :focus-within),
+  .accordion-header:is(:hover, :focus-within) {
+    background-color: var(--palette-alpha-blue-26) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-65) !important;
+  }
+
+  .accordion ._header .header-label,
+  .accordion-header .accordion-toggle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: inherit !important;
+  }
+
+  .accordion-header-label {
+    color: inherit !important;
+    font-size: 13px !important;
+  }
+
+  .breakpoints-options > label {
+    border-radius: 4px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  .breakpoints-options > label:has(input:checked) {
+    background-color: var(--palette-alpha-blue-12) !important;
+  }
+
+  .breakpoints-options > label:is(:hover, :focus-within) {
+    background-color: var(--palette-alpha-blue-14) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-50) !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):enabled:is(:hover, :focus-visible),
+  .breakpoints-options > label:hover > input[type="checkbox"]:enabled {
+    border-color: var(--palette-blue-accent) !important;
+    box-shadow: 0 0 0 1px var(--palette-alpha-blue-35) !important;
+  }
+}
+
+
+/* Pane expand/collapse actions are icon buttons, never switches. Keep this
+   exception limited to the Debugger's two pane controls. */
+@-moz-document url-prefix("chrome://devtools/content/debugger/") {
+  button.command-bar-button.toggle-button::before {
+    content: none !important;
+    display: none !important;
+  }
+}

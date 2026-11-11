@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Window Titlebar & Window Controls
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Window Titlebar & Non-CSD Clean Up
+   ========================================================================== */
+
+/* Non-CSD mode (browser.tabs.inTitlebar = 0):
+   KWin draws native window decorations. Hide Firefox's internal titlebar
+   spacers, buttonboxes, and inactive menubar slivers above tabs */
+:root:not([tabsintitlebar]) #toolbar-menubar[inactive] {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+}
+
+:root:not([tabsintitlebar]) .titlebar-buttonbox-container,
+:root:not([tabsintitlebar]) .titlebar-buttonbox,
+:root:not([tabsintitlebar]) .titlebar-spacer {
+  display: none !important;
+}
+
+/* CSD Mode (when tabs are in titlebar) */
+:root[tabsintitlebar] .titlebar-buttonbox {
+  margin-inline-end: 4px !important;
+  align-items: center !important;
+}
+
+:root[tabsintitlebar] .titlebar-button {
+  padding: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  margin: 2px 1px !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+:root[tabsintitlebar] .titlebar-button .toolbarbutton-icon {
+  width: 18px !important;
+  height: 18px !important;
+  background: none !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: currentColor !important;
+  color: inherit !important;
+}
+
+:root[tabsintitlebar] .titlebar-min .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-min:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+:root[tabsintitlebar] .titlebar-min:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-min:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-minimize-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-max .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-max:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+:root[tabsintitlebar] .titlebar-max:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-max:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-maximize-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-restore .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-restore:hover {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+:root[tabsintitlebar] .titlebar-restore:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-restore:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-restore-active.svg") !important;
+}
+
+:root[tabsintitlebar] .titlebar-close .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-close:hover {
+  background-color: var(--kde-negative) !important;
+  border-color: var(--kde-negative) !important;
+}
+:root[tabsintitlebar] .titlebar-close:hover .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close-hover.svg") !important;
+}
+:root[tabsintitlebar] .titlebar-close:active .toolbarbutton-icon {
+  list-style-image: url("icons/titlebutton-close-active.svg") !important;
+}
+
+
+:root[tabsintitlebar] :is(.titlebar-min, .titlebar-max, .titlebar-restore):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+
+/* GSL 29: CSD glyphs follow normal, selected and destructive surfaces. */
+:root[tabsintitlebar] .titlebar-button { color: var(--kde-window-fg) !important; }
+:root[tabsintitlebar] .titlebar-button:active,
+:root[tabsintitlebar] .titlebar-close:hover { color: var(--breeze-action-active-fg) !important; }

@@ -1,0 +1,56 @@
+/* dialogs — tabs */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+/* Certificate Manager & Device Manager Tabs & Trees (051410.png, 063320.png) */
+  tabs {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-tabstrip-bg) !important;
+    border-bottom: 1px solid var(--palette-border-dark) !important;
+    padding: 4px 6px 0 6px !important;
+  }
+
+  tab {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-tab-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border: 1px solid var(--palette-tab-border) !important;
+    border-bottom: none !important;
+    border-radius: 5px 5px 0 0 !important;
+    padding: 6px 14px !important;
+    margin-inline: 1px !important;
+    font-size: 12.5px !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  tab:is(:hover, :focus-visible):not([selected]:not([selected="false"])) {
+    background-color: var(--palette-tab-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  tab[selected]:not([selected="false"]) {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-white) !important;
+    border-top: 3px solid var(--palette-blue-accent) !important;
+    border-left: 1px solid var(--palette-border-dark) !important;
+    border-right: 1px solid var(--palette-border-dark) !important;
+    margin-bottom: -1px !important;
+    font-weight: 600 !important;
+  }
+
+  tabpanels {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+    padding: 12px !important;
+  }
+
+  
+}

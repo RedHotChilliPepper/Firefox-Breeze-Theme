@@ -1,0 +1,40 @@
+/* popups — form-actions */
+
+/* Site-permission status/removal actions follow the same neutral button frame. */
+#permission-popup .permission-popup-permission-remove-button {
+  appearance: none !important;
+  background: var(--palette-button-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  color: var(--palette-text-main) !important;
+  min-height: 30px !important;
+  padding: 4px 8px !important;
+  font: 13px "Noto Sans", sans-serif !important;
+  box-shadow: none !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button > .button-box {
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button:not([disabled="true"]):not(:disabled):is(:hover, :focus-visible) {
+  background: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+#permission-popup .permission-popup-permission-remove-button:not([disabled="true"]):not(:disabled):active,
+:is(#permission-popup, #identity-popup, #full-page-translations-panel, #select-translations-panel) menulist:not([disabled="true"]):is(:active, [open="true"]),
+.translations-panel-button-group > button:not([disabled="true"]):not(:disabled):active {
+  background: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+:is(#permission-popup, #identity-popup, #trustpanel-popup, #protections-popup) .subviewbutton:not([disabled="true"]):is(:active, [open="true"], [aria-expanded="true"], [aria-pressed="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}

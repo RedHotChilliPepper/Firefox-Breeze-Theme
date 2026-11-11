@@ -1,0 +1,16 @@
+/* Compatibility entry: functional modules for settings-pages. */
+@import "pages/profiles.css";
+@import "pages/keyboard.css";
+@import "pages/customize.css";
+@import "pages/translations.css";
+@import "pages/data-tables.css";
+@import "pages/policies.css";
+@import "pages/checkerboard.css";
+@import "pages/certificates.css";
+@import "pages/firefox-view.css";
+@import "pages/backup.css";
+@import "pages/processes.css";
+@import "pages/compat.css";
+@import "pages/protections.css";
+@import "pages/documents.css";
+@import "pages/telemetry.css";

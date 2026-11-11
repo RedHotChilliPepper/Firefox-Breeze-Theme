@@ -1,0 +1,14 @@
+/* Compatibility entry: functional modules for devtools. */
+@import "devtools/tokens.css";
+@import "devtools/toolbox.css";
+@import "devtools/search.css";
+@import "devtools/actions.css";
+@import "devtools/console.css";
+@import "devtools/menus.css";
+@import "devtools/selects.css";
+@import "devtools/markers.css";
+@import "devtools/options.css";
+@import "devtools/animations.css";
+@import "devtools/data-views.css";
+@import "devtools/sidebars.css";
+@import "devtools/debugger.css";

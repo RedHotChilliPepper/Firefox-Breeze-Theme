@@ -1,0 +1,171 @@
+/* shared — tables */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+/* ==========================================================================
+     GSL Tables, Columns & Trees Standard (Dolphin Details 064038 & Places 063833)
+     Eliminates all dotted lines (063107, 063137, 063320) and styles headers/rows
+     ========================================================================== */
+
+  *:focus,
+  *:focus-visible,
+  *:-moz-focusring {
+    outline-style: none !important;
+  }
+
+  *::-moz-focus-inner {
+    border: 0 !important;
+  }
+
+  richlistbox,
+  tree {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 6px !important;
+    outline: none !important;
+  }
+
+  /* Collapse hidden column headers vertically WITHOUT display:none or visibility:collapse,
+     so Gecko's nsTreeBodyFrame preserves column width and renders cell text (070454.png, 071103.png)! */
+  treecol[hideheader="true"],
+  treecols:not(:has(> treecol:not([hideheader="true"]))),
+  #placesList > treecols,
+  .sidebar-placesTree > treecols {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Dolphin Details Table Column Header Bar (064038.png, 063107.png, 063320.png) */
+  listheader,
+  treecols:has(> treecol:not([hideheader="true"])) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    border-bottom: 1px solid var(--palette-col-divider) !important;
+    min-height: 26px !important;
+  }
+
+  treecol:not([hideheader="true"]),
+  treecolpicker {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-col-divider) !important;
+    padding: 4px 10px !important;
+    min-height: 26px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.12s ease, color 0.12s ease !important;
+  }
+
+  treecol:not([hideheader="true"]):hover,
+  treecolpicker:hover {
+    background-color: var(--palette-header-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  /* Remove dotted tree hierarchy connector lines (Device Manager 063320.png) & dotted focus rings (063107/063137) */
+  treechildren::-moz-tree-line {
+    visibility: hidden !important;
+    border: none !important;
+  }
+
+  treechildren::-moz-tree-row,
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(current),
+  treechildren::-moz-tree-row(focus),
+  treechildren::-moz-tree-row(current, focus),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    outline: none !important;
+    outline-width: 0 !important;
+  }
+
+  /* Dolphin Details Table Alternating Zebra Rows & 5px Rounded Selection (064038.png) */
+  treechildren::-moz-tree-row {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    min-height: 28px !important;
+    height: 28px !important;
+  }
+
+  treechildren::-moz-tree-row(multicol, odd),
+  treechildren::-moz-tree-row(odd) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  treechildren::-moz-tree-row(hover) {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-40) !important;
+    border-radius: 5px !important;
+  }
+
+  treechildren::-moz-tree-row(selected),
+  treechildren::-moz-tree-row(selected, focus),
+  treechildren::-moz-tree-row(selected, current, focus) {
+    background-color: var(--palette-alpha-blue-24) !important;
+    border: 1px solid var(--palette-alpha-blue-85) !important;
+    border-radius: 5px !important;
+    outline: none !important;
+  }
+
+  treechildren::-moz-tree-cell {
+    padding-inline: 6px !important;
+  }
+
+  treechildren::-moz-tree-image {
+    margin-inline-end: 6px !important;
+  }
+
+  treechildren::-moz-tree-cell-text {
+    color: var(--palette-text-main) !important;
+  }
+
+  treechildren::-moz-tree-cell-text(selected),
+  treechildren::-moz-tree-cell-text(selected, focus) {
+    color: var(--palette-white) !important;
+  }
+
+  richlistitem {
+    background-color: transparent !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    padding: 4px 8px !important;
+    min-height: 32px !important;
+    outline: none !important;
+  }
+
+  richlistitem:hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-alpha-blue-40) !important;
+  }
+
+  richlistitem[selected]:not([selected="false"]) {
+    background-color: var(--palette-alpha-blue-24) !important;
+    border-color: var(--palette-alpha-blue-85) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+
+  
+  treecol:not([hideheader="true"]):first-child { border-start-start-radius: 5px !important; }
+  treecol:not([hideheader="true"]):last-child { border-start-end-radius: 5px !important; }
+
+}

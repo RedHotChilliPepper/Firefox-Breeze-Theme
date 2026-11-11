@@ -1,0 +1,105 @@
+/* devtools — sidebars */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* Application navigation, Style Editor sheets, and Debugger source trees. */
+  .sidebar,
+  .sidebar__list,
+  .splitview-nav,
+  .sources-panel,
+  .sources-list .tree {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .sidebar__list,
+  .splitview-nav {
+    margin: 0 !important;
+    padding: 4px !important;
+  }
+
+  .sidebar-item,
+  .splitview-nav > li {
+    margin: 2px 0 !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: var(--palette-text-main) !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+  }
+
+  .sidebar-item {
+    min-height: 28px !important;
+    padding: 4px 8px !important;
+    column-gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .sidebar-item:not(.sidebar-item--selected):not(:active):is(:hover, :focus-visible),
+  .splitview-nav > li:not(.splitview-active):not(:active):is(:hover, :focus-within) {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    border-color: var(--breeze-sidebar-hover-border) !important;
+  }
+
+  .sidebar-item.sidebar-item--selected,
+  .splitview-nav > li.splitview-active {
+    background: var(--breeze-sidebar-selected-bg) !important;
+    border-color: var(--breeze-sidebar-selected-border) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  .sidebar-item:active,
+  .splitview-nav > li:active,
+  .sources-list .tree .tree-node:active {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    border-color: var(--breeze-sidebar-selected-border) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
+  .splitview-nav .stylesheet-info,
+  .splitview-nav .stylesheet-more {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .splitview-nav .stylesheet-rule-count,
+  .splitview-nav .stylesheet-linked-file {
+    color: var(--palette-text-dim) !important;
+  }
+
+  .splitview-nav > li.splitview-active :is(.stylesheet-rule-count, .stylesheet-linked-file) {
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
+  /* Inset strokes preserve the source tree's native row/virtualization metrics. */
+  .sources-list .tree .tree-node {
+    border-radius: 5px !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  .sources-list .tree .tree-node:not(.focused):not(:active):hover {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-hover-border) !important;
+  }
+
+  .sources-list .tree .tree-node.focused {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  .sources-list .tree .tree-node > .node,
+  .sources-list .tree .tree-node .theme-twisty {
+    background: transparent !important;
+  }
+
+  .sources-list .tree .tree-indent {
+    border-inline-start-color: transparent !important;
+  }
+
+  
+}

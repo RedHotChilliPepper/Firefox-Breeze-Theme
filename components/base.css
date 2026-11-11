@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Base & Global Tokens
+   ========================================================================== */
+
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze Theme for Mozilla Firefox
+   Replicates the exact UI and UX design language of Qt6 Breeze (Dolphin)
+   ========================================================================== */
+
+:root {
+  /* Design Tokens from KDE Breeze Dark */
+  --kde-window-bg: var(--palette-window-bg);
+  --kde-window-bg-alt: var(--palette-button-bg);
+  --kde-window-fg: var(--palette-text-main);
+  --kde-window-fg-inactive: var(--palette-text-dim);
+  --kde-view-bg: var(--palette-view-bg);
+  --kde-view-bg-alt: var(--palette-alt-view-bg);
+  --kde-view-fg: var(--palette-text-main);
+  --kde-view-fg-inactive: var(--palette-text-dim);
+  --kde-button-bg: var(--palette-button-bg);
+  --kde-button-fg: var(--palette-text-main);
+  --kde-selection-bg: var(--palette-blue-accent);
+  --kde-selection-fg: var(--palette-text-main);
+  --kde-selection-hover: var(--palette-alpha-blue-25);
+  --kde-selection-card: var(--palette-alpha-blue-22);
+  --kde-tooltip-bg: var(--palette-button-bg);
+  --kde-tooltip-fg: var(--palette-text-main);
+  --kde-accent: var(--palette-blue-accent);
+  --kde-accent-fg: var(--palette-accent-fg);
+  --kde-border-color: var(--palette-border-dark);
+  --kde-border-color-subtle: var(--palette-groove-sep);
+  --kde-hover-bg: var(--palette-alpha-blue-16);
+  --kde-active-bg: var(--palette-blue-accent);
+  --kde-negative: var(--palette-negative);
+  --kde-positive: var(--palette-positive);
+  --kde-btn-primary-bg: var(--palette-btn-primary);
+  --kde-btn-primary-hover: var(--palette-blue-accent);
+
+  /* Geometry & Typography metrics matching Qt6 Breeze (GSL 8px Popup Standard) */
+  --breeze-action-radius: 4px;
+  --breeze-action-hover-bg: var(--palette-alpha-blue-16);
+  --breeze-action-hover-border: var(--palette-alpha-blue-50);
+  --breeze-action-active-bg: var(--palette-blue-accent);
+  --breeze-action-active-border: var(--palette-blue-accent);
+  --breeze-action-active-fg: var(--palette-white);
+  --breeze-action-hover-solid: color-mix(in srgb, var(--palette-blue-accent) 16%, var(--palette-window-bg));
+  --breeze-sidebar-hover-bg: #204357;
+  --breeze-sidebar-hover-border: #2e7499;
+  --breeze-sidebar-selected-bg: var(--palette-blue-accent);
+  --breeze-sidebar-selected-border: var(--palette-blue-accent);
+  --breeze-sidebar-selected-fg: var(--palette-white);
+  --breeze-selection-radius: 5px;
+  --breeze-radius: var(--breeze-action-radius); /* Compatibility for older imports. */
+  --breeze-menu-radius: 8px;
+  --navbar-height: 38px;
+  --urlbar-height: 30px;
+  --tab-min-height: 32px;
+
+  /* Remove all Firefox dotted focus rings globally (GSL No-Dotted-Lines Standard) */
+  --default-focusring: none !important;
+  --default-focusring-width: 0px !important;
+  --focus-outline: none !important;
+}
+
+:root,
+:root[privatebrowsingmode],
+:root[privatebrowsingmode="temporary"],
+:root[lwtheme] {
+  /* Overriding Firefox internal & Private Window (firefox-privatewindow@mozilla.org) theme variables */
+  --lwt-accent-color: var(--palette-tabstrip-bg) !important;
+  --lwt-accent-color-inactive: var(--palette-tabstrip-bg) !important;
+  --lwt-text-color: var(--kde-window-fg) !important;
+  --toolbar-bgcolor: var(--kde-window-bg) !important;
+  --toolbar-color: var(--kde-window-fg) !important;
+  --toolbarbutton-icon-fill: var(--kde-window-fg) !important;
+  --lwt-icons-fill: var(--kde-window-fg) !important;
+  --urlbar-icon-fill: var(--kde-view-fg) !important;
+  --tab-selected-bgcolor: var(--kde-window-bg) !important;
+  --tab-selected-textcolor: var(--kde-window-fg) !important;
+  --tab-line-color: var(--kde-accent) !important;
+  --tab-border-color-selected-trailing: var(--palette-border-dark) !important;
+  --chrome-content-separator-color: var(--kde-border-color) !important;
+  --lwt-toolbar-field-background-color: var(--kde-view-bg) !important;
+  --lwt-toolbar-field-color: var(--kde-view-fg) !important;
+  --lwt-toolbar-field-focus-background-color: var(--kde-view-bg) !important;
+  --lwt-toolbar-field-focus-color: var(--kde-view-fg) !important;
+  --lwt-toolbar-field-border-color: var(--kde-border-color) !important;
+  --toolbar-field-background-color: var(--kde-view-bg) !important;
+  --toolbar-field-focus-background-color: var(--kde-view-bg) !important;
+  --toolbar-field-color: var(--kde-view-fg) !important;
+  --toolbar-field-focus-color: var(--kde-view-fg) !important;
+  --toolbar-field-text-color: var(--kde-view-fg) !important;
+  --toolbar-field-text-color-focus: var(--kde-view-fg) !important;
+  --toolbar-field-border-color: var(--kde-border-color) !important;
+  --toolbar-field-focus-border-color: var(--kde-accent) !important;
+  --toolbar-field-border-color-focus: var(--kde-accent) !important;
+  --urlbar-background-color: var(--kde-view-bg) !important;
+  --urlbar-background-color-focus: var(--kde-view-bg) !important;
+  --toolbarbutton-hover-background: var(--kde-hover-bg) !important;
+  --toolbarbutton-active-background: var(--kde-active-bg) !important;
+  --toolbarbutton-border-radius: var(--breeze-action-radius) !important;
+  --tab-border-radius: var(--breeze-selection-radius) !important;
+  --button-border-radius: 4px !important;
+
+  /* URL bar metrics, border-radius & overhang reset tokens (prevents dropdown overlapping urlbar in 070732.png) */
+  --urlbar-border-radius: 4px !important;
+  --urlbar-background-border-radius: 4px !important;
+  --urlbar-inner-border-radius: 4px !important;
+  --urlbarview-border-radius: 8px !important;
+  --urlbar-background-overhang-open: 0px !important;
+  --urlbar-joint-background-overlap: 0px !important;
+  --urlbar-joint-background-shadow-margin: 0px !important;
+  --urlbarview-joint-background-outset-inline: 0px !important;
+  --urlbarview-joint-background-outset-block: 0px !important;
+  --urlbar-input-growth-open-inline: 0px !important;
+  --urlbar-input-growth-open-block: 0px !important;
+  --urlbarview-margin-inline: 0px !important;
+  --urlbarview-margin-block: 4px !important;
+
+  /* Tab strip variables */
+  --tab-margin-block: 0px !important;
+  --tab-background-color: var(--palette-tab-bg) !important;
+  --tab-background-color-hover: var(--palette-tab-hover) !important;
+  --tab-background-color-selected: var(--palette-window-bg) !important;
+  --tab-text-color-selected: var(--palette-white) !important;
+  --tab-border-color-selected: var(--palette-border-dark) !important;
+  --tab-border: 1px solid var(--palette-tab-border) !important;
+  --tab-border-color: var(--palette-tab-border) !important;
+  --tab-border-color-hover: var(--palette-border-dark) !important;
+  --lwt-selected-tab-background-color: var(--palette-window-bg) !important;
+
+  /* Neutralize hamburger menu rainbow divider variable */
+  --panel-separator-zap-gradient: none !important;
+
+  font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+}
+
+
+/* ==========================================================================
+   6. Status Panel (Dolphin Status Badge)
+   ========================================================================== */
+
+#statuspanel {
+  bottom: 6px !important;
+  left: 8px !important;
+}
+
+#statuspanel-label {
+  background-color: var(--kde-button-bg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: 4px !important;
+  color: var(--kde-window-fg) !important;
+  padding: 3px 8px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  box-shadow: 0 2px 6px var(--palette-alpha-black-35) !important;
+}
+
+/* Compact native text tooltips; do not change their popup behavior. */
+tooltip {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+  color: var(--sync-tooltip-fg, var(--palette-white)) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: 4px !important;
+  padding: 4px 6px !important;
+  font: 13px/1.4 "Noto Sans", sans-serif !important;
+  box-shadow: 0 2px 6px var(--palette-alpha-black-35) !important;
+}
+
+
+/* ==========================================================================
+   9. Slim Breeze Scrollbars & Global GSL No-Dotted-Lines Enforcement
+   ========================================================================== */
+
+* {
+  scrollbar-color: var(--palette-scrollbar-thumb) transparent !important;
+  scrollbar-width: thin !important;
+}
+
+*:focus,
+*:focus-visible {
+  outline-style: none !important;
+}
+
+::-moz-focus-inner {
+  border: 0 !important;
+}
+
+treechildren::-moz-tree-row,
+treechildren::-moz-tree-row(current),
+treechildren::-moz-tree-row(focus),
+treechildren::-moz-tree-row(current, focus),
+treechildren::-moz-tree-row(selected, current, focus) {
+  outline: none !important;
+}
+
+treechildren::-moz-tree-line,
+treechildren::-moz-tree-line(selected, focus) {
+  border: none !important;
+}
+
+
+/* ========================================================================== 
+   GSL switches — switches reference 1.png
+   Only real switches receive a track/thumb. Debugger pane actions also use
+   .toggle-button and aria-pressed. Require the native switch button part so
+   pane actions never receive a switch track or thumb.
+   ========================================================================== */
+@-moz-document url-prefix("about:"), url-prefix("chrome://"),
+               url-prefix("resource://devtools/") {
+  moz-toggle,
+  :host(moz-toggle) {
+    --toggle-width: 34px !important;
+    --toggle-height: 12px !important;
+    --input-width: 34px !important;
+    --toggle-border-radius: 999px !important;
+    --toggle-border-width: 1px !important;
+    --toggle-background-color: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+    --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+    --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+    --toggle-border-color: var(--palette-icon-muted) !important;
+    --toggle-border-color-hover: var(--palette-blue-accent) !important;
+    --toggle-border-color-active: var(--palette-blue-accent) !important;
+    --toggle-dot-background-color: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+    --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+    --toggle-dot-width: 18px !important;
+    --toggle-dot-height: 18px !important;
+    --toggle-dot-margin: 0px !important;
+    --toggle-dot-transform-x: 16px !important;
+  }
+
+  /* Direct user-sheet selectors also reach native shadow buttons. Preserve
+     Firefox's input/label margins and disabled state. */
+  button.toggle-button[part~="button"][aria-pressed],
+  input.devtools-checkbox-toggle {
+    appearance: none !important;
+    position: relative !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 12px !important;
+    min-height: 12px !important;
+    max-height: 12px !important;
+    padding: 0 !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 999px !important;
+    background: var(--palette-toggle-off-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"],
+  input.devtools-checkbox-toggle:checked {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed]:enabled:is(:hover, :focus-visible),
+  input.devtools-checkbox-toggle:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  /* Shared reference thumb geometry and colors. */
+  button.toggle-button[part~="button"][aria-pressed]::before,
+  input.devtools-checkbox-toggle::before {
+    content: "" !important;
+    display: block !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    min-height: 18px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    translate: 0 0 !important;
+    transition: translate 0.15s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.15s ease !important;
+  }
+
+  /* Match the reference's native button-content positioning. Absolute
+     positioning can leave the track exposed past the Add-ons thumb. */
+  button.toggle-button[part~="button"][aria-pressed]::before {
+    position: static !important;
+    inset: auto !important;
+    margin-block-start: -4px !important;
+    margin-inline-start: -1px !important;
+    transform: none !important;
+  }
+
+  /* DevTools' input-based switches have no native button-content wrapper. */
+  input.devtools-checkbox-toggle::before {
+    position: absolute !important;
+    inset-block-start: 50% !important;
+    inset-inline-start: -1px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"]::before,
+  input.devtools-checkbox-toggle:checked::before {
+    translate: 16px 0 !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed="true"]:dir(rtl)::before,
+  button.toggle-button[part~="button"][aria-pressed="true"]:-moz-locale-dir(rtl)::before,
+  input.devtools-checkbox-toggle:checked:dir(rtl)::before,
+  input.devtools-checkbox-toggle:checked:-moz-locale-dir(rtl)::before {
+    translate: -16px 0 !important;
+  }
+
+  button.toggle-button[part~="button"][aria-pressed]:enabled:is(:hover, :focus-visible)::before,
+  input.devtools-checkbox-toggle:enabled:is(:hover, :focus-visible)::before {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button.toggle-button[part~="button"][aria-pressed],
+    button.toggle-button[part~="button"][aria-pressed]::before,
+    input.devtools-checkbox-toggle,
+    input.devtools-checkbox-toggle::before {
+      transition: none !important;
+    }
+  }
+}
+
+/* PDF.js has a native light-DOM switch and keeps the PDF's original URL.
+   Adapt its tokens here so all switch geometry remains in the shared base. */
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) #editorHighlightShowAll {
+  --toggle-width: 34px !important;
+  --toggle-height: 12px !important;
+  --toggle-border-width: 1px !important;
+  --toggle-border-radius: 999px !important;
+  --toggle-background-color: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-hover: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-active: var(--palette-toggle-off-bg) !important;
+  --toggle-background-color-pressed: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-hover: var(--palette-toggle-on-bg) !important;
+  --toggle-background-color-pressed-active: var(--palette-toggle-on-bg) !important;
+  --toggle-border-color: var(--palette-icon-muted) !important;
+  --toggle-dot-background-color: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-hover: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-active: var(--palette-button-bg) !important;
+  --toggle-dot-background-color-on-pressed: var(--palette-button-bg) !important;
+  --toggle-dot-width: 18px !important;
+  --toggle-dot-height: 18px !important;
+  --toggle-dot-margin: 0px !important;
+  --toggle-dot-transform-x: 16px !important;
+  overflow: visible !important;
+  flex-shrink: 0 !important;
+
+  &::before {
+    border: 1px solid var(--palette-dialog-border) !important;
+    box-sizing: border-box !important;
+    margin-block-start: -4px !important;
+    margin-inline-start: -1px !important;
+    box-shadow: none !important;
+  }
+
+  &[aria-pressed="true"],
+  &:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  &:enabled:is(:hover, :focus-visible)::before {
+    border-color: var(--palette-blue-accent) !important;
+  }
+}
+
+/* Native moz-button actions in browser chrome also consume these tokens. */
+@-moz-document url-prefix("about:"), url-prefix("chrome://"), url-prefix("resource://devtools/") {
+  moz-button,
+  :host(moz-button) {
+    --button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --button-border-color-hover: var(--breeze-action-hover-border) !important;
+    --button-background-color-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-selected: var(--breeze-action-active-bg) !important;
+    --button-background-color-primary-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-ghost-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+    --button-border-color-active: var(--breeze-action-active-border) !important;
+    --button-border-color-selected: var(--breeze-action-active-border) !important;
+    --button-text-color-active: var(--breeze-action-active-fg) !important;
+    --button-text-color-selected: var(--breeze-action-active-fg) !important;
+  }
+}

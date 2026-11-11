@@ -1,0 +1,16 @@
+/* pages — backup */
+
+/* The password-rules hint is a rich tooltip; retain its list and positioning. */
+@-moz-document url-prefix("chrome://browser/content/backup/"), url-prefix("about:preferences") {
+  #password-rules-wrapper[popover] {
+    background-color: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+    border-color: var(--palette-dialog-border) !important;
+    border-radius: 4px !important;
+    color: var(--sync-tooltip-fg, var(--palette-white)) !important;
+  }
+
+  #password-rules-wrapper[popover]::before {
+    background-color: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+    border-color: var(--palette-dialog-border) !important;
+  }
+}

@@ -1,0 +1,98 @@
+/* devtools — data-views */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* The Storage table is not virtualized. Keep every column's row height equal,
+     including readonly columns, instead of tinting whole columns gray. */
+  .table-widget-body,
+  .table-widget-column,
+  .table-widget-column[readonly] {
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-column-header {
+    height: 26px !important;
+    min-height: 26px !important;
+    padding: 4px 18px 4px 8px !important;
+    box-sizing: border-box !important;
+    font-size: 12px !important;
+    line-height: 17px !important;
+    background-color: var(--palette-treeheader-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border-bottom: 1px solid var(--palette-col-divider) !important;
+    border-image: none !important;
+    box-shadow: none !important;
+  }
+
+  .table-widget-column-header:not([sorted]) {
+    background-image: none !important;
+  }
+
+  .table-widget-column-header:is(:hover, [sorted]) {
+    background-color: var(--palette-header-hover) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-cell {
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 5px 8px !important;
+    box-sizing: border-box !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .table-widget-cell.even:not(.theme-selected) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  .table-widget-cell.theme-selected {
+    background-color: var(--palette-alpha-blue-24) !important;
+    color: var(--palette-white) !important;
+    box-shadow: inset 0 1px var(--palette-alpha-blue-85), inset 0 -1px var(--palette-alpha-blue-85) !important;
+  }
+
+  .table-widget-column:first-child .table-widget-cell.theme-selected {
+    border-start-start-radius: 5px !important;
+    border-end-start-radius: 5px !important;
+  }
+
+  .table-widget-column:last-child .table-widget-cell.theme-selected {
+    border-start-end-radius: 5px !important;
+    border-end-end-radius: 5px !important;
+  }
+
+  #storage-tree {
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  .tree-widget-container .tree-widget-item {
+    min-height: 28px !important;
+    padding-block: 5px !important;
+    box-sizing: border-box !important;
+    line-height: 18px !important;
+    border-radius: 5px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .tree-widget-item:not(.theme-selected):hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+  }
+
+  .tree-widget-item.theme-selected {
+    background-color: var(--palette-alpha-blue-26) !important;
+    box-shadow: inset 0 0 0 1px var(--palette-alpha-blue-55) !important;
+    color: var(--palette-white) !important;
+  }
+
+  /* Heap/tree virtualization owns its row metrics; only change its colors. */
+  #heap-view {
+    font-size: 13px !important;
+  }
+
+  
+}

@@ -1,0 +1,9 @@
+/* Compatibility entry: functional modules for settings-nav. */
+@import "navigation/shared.css";
+@import "navigation/passwords.css";
+@import "navigation/addons.css";
+@import "navigation/diagnostics.css";
+@import "navigation/telemetry.css";
+@import "navigation/debugging.css";
+@import "navigation/keyboard.css";
+@import "navigation/webauthn.css";

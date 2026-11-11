@@ -1,0 +1,77 @@
+/* navigation — telemetry */
+
+@-moz-document url-prefix("about:telemetry"), url-prefix("chrome://global/content/aboutTelemetry") {
+  #categories > .heading {
+    padding: 0 10px 12px !important;
+    font: 600 14px/20px "Noto Sans", sans-serif !important;
+  }
+  #categories > .category {
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  #categories .category-name,
+  #categories .category-subsection {
+    min-height: 32px !important;
+    padding: 5px 10px !important;
+    box-sizing: border-box !important;
+    line-height: 20px !important;
+  }
+  #categories .category-name { display: flex !important; align-items: center !important; }
+  /* Continuous child hit regions keep gaps from targeting the parent heading. */
+  #categories .category-subsection {
+    padding: 5px 10px 5px 26px !important;
+    margin-block: 0 !important;
+    min-height: 36px !important;
+  }
+  #category-raw { position: static !important; margin-block-start: 16px !important; }
+  #home-section { font-size: 15px !important; }
+}
+
+
+/* Telemetry categories contain their child rows: never select that entire wrapper. */
+@-moz-document url-prefix("about:telemetry"), url-prefix("chrome://global/content/aboutTelemetry") {
+  #categories > .category {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--palette-text-dim) !important;
+  }
+
+  .category > :is(.category-name, .category-subsection) {
+    border-radius: var(--breeze-selection-radius) !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
+  }
+
+  .category:hover:not(:has(> .category-subsection:hover)) > .category-name,
+  .category > .category-subsection:is(:hover, :focus-visible) {
+    background-color: var(--breeze-sidebar-hover-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  .category.selected:not(:has(> .category-subsection.selected)) > .category-name,
+  .category > .category-subsection.selected {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+  }
+
+  .histogram,
+  #ping-picker {
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+  }
+}
+
+/* GSL 31: transparent border remains a hit target, without touching paint. */
+@-moz-document url-prefix("about:telemetry"), url-prefix("chrome://global/content/aboutTelemetry") {
+  #categories :is(.category-name, .category-subsection) {
+    border-block: 2px solid transparent !important;
+    border-inline: 0 !important;
+    border-radius: 7px !important;
+    background-clip: padding-box !important;
+    min-height: 36px !important;
+  }
+}

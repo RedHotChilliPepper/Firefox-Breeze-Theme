@@ -1,0 +1,17 @@
+/* dialogs — sanitize */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+/* Clear Browsing Data & Cookies (sanitize_v2.xhtml - 051251.png, 051314.png) */
+  #sanitizeDurationChoice {
+    min-height: 32px !important;
+    border-radius: 4px !important;
+  }
+
+  .sanitize-Option {
+    padding-block: 4px !important;
+  }
+
+  
+}

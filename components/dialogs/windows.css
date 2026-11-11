@@ -1,0 +1,97 @@
+/* dialogs — windows */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* ==========================================================================
+   13. Top-Level Chrome Windows & Modal Dialogs
+       (About Mozilla Firefox, CommonDialog, Sanitize, CertManager)
+   ========================================================================== */
+
+/* About Mozilla Firefox Window (051851.png) */
+#aboutDialog,
+#aboutDialogContainer {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+}
+
+
+#aboutDialog #clientBox {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+}
+
+
+#aboutDialog #bottomBox {
+  background-color: var(--palette-window-bg) !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+  color: var(--palette-text-dim) !important;
+}
+
+
+#aboutDialog .text-link,
+#aboutDialog a {
+  color: var(--palette-blue-accent) !important;
+}
+
+
+#aboutDialog .text-link:hover,
+#aboutDialog a:hover {
+  color: var(--palette-blue-focus) !important;
+  text-decoration: underline !important;
+}
+
+
+#aboutDialog #trademark {
+  color: var(--palette-text-dim) !important;
+}
+
+
+#aboutDialog button {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  padding: 5px 14px !important;
+}
+
+
+#aboutDialog button:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+
+/* CommonDialog ("Make Firefox your default browser?" - 045757.png) & Sanitize Dialog (051251.png) */
+#commonDialogWindow,
+#commonDialog,
+#SanitizeDialog {
+  background-color: var(--palette-window-bg) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  --background-color-canvas: var(--palette-window-bg) !important;
+  --background-color-box: var(--palette-view-bg) !important;
+  --in-content-page-background: var(--palette-window-bg) !important;
+  --in-content-page-color: var(--palette-text-main) !important;
+  --in-content-box-background: var(--palette-view-bg) !important;
+  --in-content-border-color: var(--palette-groove-sep) !important;
+  --button-border-radius: 4px !important;
+  --border-radius-medium: 4px !important;
+  --color-accent-primary: var(--palette-blue-accent) !important;
+}
+
+
+
+
+
+
+@-moz-document url-prefix("chrome://browser/content/aboutDialog") {
+
+#aboutDialog button:not([disabled="true"]):not(:disabled):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+}

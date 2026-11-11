@@ -1,0 +1,126 @@
+/* popups — translations */
+
+/* Translation popup forms follow reference1's shell, dropdowns and footer. */
+:is(#full-page-translations-panel, #select-translations-panel) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-border-radius: 8px !important;
+  --button-border-radius: 4px !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel)::part(content) {
+  background: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  color: var(--palette-text-main) !important;
+}
+
+.translations-panel-view {
+  width: 380px !important;
+  max-width: calc(100vw - 24px) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+}
+
+.translations-panel-header,
+#select-translations-panel-header-row {
+  padding: 12px 16px 10px !important;
+  border-bottom: 1px solid var(--palette-groove-sep) !important;
+  margin: 0 !important;
+}
+
+.translations-panel-header-wrapper {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.translations-panel-content,
+.select-translations-panel-content {
+  padding: 12px 16px 16px !important;
+  margin: 0 !important;
+}
+
+#full-page-translations-panel-intro {
+  line-height: 1.45 !important;
+  margin-block-end: 12px !important;
+}
+
+#full-page-translations-panel-lang-selection > label {
+  margin-block: 8px 6px !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel) menulist {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  padding: 4px 10px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+:is(#full-page-translations-panel, #select-translations-panel) menulist:is(:hover, [open="true"]) {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+.translations-panel-button-group {
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+}
+
+.translations-panel-button-group > button {
+  appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  min-height: 30px !important;
+  padding: 4px 16px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+.translations-panel-button-group > button:hover:not([disabled]) {
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+.translations-panel-button-group > button:is([default], [primary="true"]) {
+  background-color: var(--palette-btn-primary) !important;
+  border-color: var(--palette-blue-accent) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
+}
+
+.translations-panel-button-group > button:is([default], [primary="true"]):is(:hover, :focus-visible):not([disabled]) {
+  background-color: var(--breeze-action-hover-bg) !important;
+}
+
+.translations-panel-settings-gear-icon {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+}
+
+.translations-panel-settings-gear-icon:is(:hover, :focus-visible) {
+  background-color: var(--palette-alpha-blue-16) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+.translations-panel-settings-gear-icon > image {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

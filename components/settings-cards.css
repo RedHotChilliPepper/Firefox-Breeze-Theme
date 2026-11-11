@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Settings Cards, Promos & Groupboxes
+   ========================================================================== */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+  /* ==========================================================================
+     Promo & Info Callout Cards (Fixes brown/violet backgrounds in Settings)
+     ========================================================================== */
+
+  moz-promo,
+  :host(moz-promo) {
+    --promo-background-color: var(--palette-popup-bg) !important;
+    --promo-background-color-vibrant: var(--palette-popup-bg) !important;
+    --promo-border: 1px solid var(--palette-border-dark) !important;
+    --promo-border-color: var(--palette-border-dark) !important;
+    --promo-border-color-vibrant: var(--palette-border-dark) !important;
+    --promo-border-radius: 4px !important;
+    --promo-padding: 12px !important;
+    --promo-message-text-color: var(--palette-text-dim) !important;
+    --promo-message-text-color-vibrant: var(--palette-text-dim) !important;
+    --promo-heading-text-color: var(--palette-text-main) !important;
+    --promo-heading-text-color-vibrant: var(--palette-text-main) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+
+  /* moz-promo exposes no container part: style its actual shadow elements. */
+  :host(moz-promo) .container {
+    gap: 12px !important;
+  }
+
+  :host(moz-promo) .heading {
+    color: var(--palette-text-main) !important;
+    font: 600 14px/1.35 "Noto Sans", sans-serif !important;
+  }
+
+  :host(moz-promo) .message {
+    color: var(--palette-text-dim) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+
+  :host(moz-promo[imagedisplay="cover"]:not([dismissable])) .text-container,
+  :host(moz-promo[imagedisplay="padded"]:not([dismissable])) .container {
+    padding: 12px 16px !important;
+  }
+
+  .info-box-container,
+  .ai-controls-description,
+  .qr-code-box,
+  .privacy-detailedoption,
+  #blockAiGroup {
+    background-color: var(--palette-treeheader-bg) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 6px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  .privacy-detailedoption.selected {
+    background-color: var(--palette-alpha-blue-14) !important;
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  moz-message-bar,
+  message-bar,
+  .addon-card-message,
+  .disco-description-container {
+    --breeze-message-accent: var(--palette-blue-accent);
+    --message-bar-background-color: var(--palette-popup-bg) !important;
+    --message-bar-background-color-warning: var(--palette-popup-bg) !important;
+    --message-bar-background-color-critical: var(--palette-popup-bg) !important;
+    --message-bar-background-color-success: var(--palette-popup-bg) !important;
+    --message-bar-border-color: var(--palette-border-dark) !important;
+    --message-bar-border-radius: 4px !important;
+    --message-bar-text-color: var(--palette-text-main) !important;
+    --message-bar-icon-background-color: transparent !important;
+    --message-bar-icon-background-color-warning: transparent !important;
+    --message-bar-icon-background-color-critical: transparent !important;
+    --message-bar-icon-background-color-success: transparent !important;
+    --message-bar-icon-color: var(--breeze-message-accent) !important;
+    --message-bar-icon-size: 16px !important;
+    --message-bar-icon-container-border: none !important;
+    --message-bar-icon-container-padding: 0px !important;
+    --message-bar-icon-container-padding-offset: 0px !important;
+    --message-bar-icon-container-padding-block-start: 2px !important;
+    --message-bar-icon-container-margin-block-start: 0px !important;
+    --message-bar-icon-container-margin-block-start-offset: 0px !important;
+    --message-bar-icon-container-align-items: flex-start !important;
+    --message-bar-container-padding-inline: 16px !important;
+    --message-bar-container-padding-block: 12px !important;
+    --message-bar-content-padding-inline: 0px !important;
+    --message-bar-content-padding-block: 0px !important;
+    --message-bar-text-container-padding-block: 0px !important;
+    --message-bar-text-container-gap: 8px !important;
+    --message-bar-close-margin-block-start: 0px !important;
+    --message-bar-close-margin-inline-end: 0px !important;
+    background-color: var(--palette-popup-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-inline-start: 3px solid var(--breeze-message-accent) !important;
+    border-radius: 4px !important;
+    color: var(--palette-text-main) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+
+  :is(moz-message-bar, message-bar)[type="warning"] {
+    --breeze-message-accent: var(--palette-yellow);
+  }
+
+  :is(moz-message-bar, message-bar):is([type="error"], [type="critical"]) {
+    --breeze-message-accent: var(--palette-negative);
+  }
+
+  :is(moz-message-bar, message-bar)[type="success"] {
+    --breeze-message-accent: var(--palette-positive);
+  }
+
+  /* ==========================================================================
+     Settings Cards (<moz-card>, .card, groupbox) & Accordions
+     Fixes nested fieldset borders in Turn on backup (050953) & Restore (051008)
+     and fixes accordion overlap in Keyboard Shortcuts (051525)
+     ========================================================================== */
+
+  moz-card,
+  .card,
+  groupbox {
+    --card-border: 1px solid var(--palette-groove-sep) !important;
+    --card-border-radius: 6px !important;
+    --card-border-radius-compact: 6px !important;
+    --card-background-color: var(--palette-window-bg) !important;
+    --card-box-shadow: none !important;
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+  }
+
+  /* Never draw extra card borders around internal <fieldset> layout wrappers! */
+  fieldset {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  /* Accordion headers (e.g. Keybinds categories in about:keyboard - 051525.png) */
+  moz-card::part(summary),
+  details > summary {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 5px !important;
+    color: var(--palette-text-main) !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  moz-card[expanded]::part(summary),
+  details[open] > summary {
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 5px 5px 0 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  moz-card::part(summary):is(:hover, :focus-visible),
+  details > summary:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  moz-card::part(summary):active,
+  details > summary:active {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  moz-card[expanded] > moz-box-group,
+  details[open] > #content {
+    margin-top: 4px !important;
+  }
+
+  /* ==========================================================================
+     Box Rows (<moz-box-group>, <moz-box-item>, <moz-box-button>, <moz-box-link>)
+     Fixes small/squished Permissions rows and double-nested borders
+     ========================================================================== */
+
+  moz-box-group {
+    --box-border: 1px solid var(--palette-groove-sep) !important;
+    --box-border-color: var(--palette-groove-sep) !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  moz-box-button,
+  moz-box-item,
+  moz-box-link {
+    --box-border-color: var(--palette-groove-sep) !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    --box-padding: 12px 16px !important;
+    --box-icon-size: 20px !important;
+    --box-button-background-color: var(--palette-window-bg) !important;
+    --box-button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --box-button-background-color-active: var(--breeze-action-active-bg) !important;
+    --box-button-text-color: var(--palette-text-main) !important;
+    --box-button-text-color-hover: var(--palette-white) !important;
+    --box-button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
+    background-color: var(--palette-window-bg) !important;
+    font-size: 13.5px !important;
+  }
+
+  moz-box-button::part(button),
+  moz-box-link::part(button) {
+    padding: 12px 16px !important;
+    min-height: 46px !important;
+    font-size: 13.5px !important;
+  }
+
+  /* ==========================================================================
+     Visual Picker Items (Browser Layout cards - fixes double border)
+     ========================================================================== */
+
+  moz-visual-picker-item {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    --visual-picker-item-border-radius: 6px !important;
+    --visual-picker-item-border-radius-inner: 5px !important;
+    --visual-picker-item-border-color: var(--palette-border-dark) !important;
+    --visual-picker-item-border-width: 1px !important;
+    --visual-picker-item-border-width-checked: 2px !important;
+  }
+
+  details[open] > summary,
+  moz-card[open]::part(summary) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+
+}

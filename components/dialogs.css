@@ -1,0 +1,13 @@
+/* Compatibility entry: functional modules for dialogs. */
+@import "dialogs/windows.css";
+@import "dialogs/select-popup.css";
+@import "dialogs/shell.css";
+@import "dialogs/password-fonts.css";
+@import "dialogs/permissions.css";
+@import "dialogs/sanitize.css";
+@import "dialogs/connection.css";
+@import "dialogs/tabs.css";
+@import "shared/tables.css";
+@import "dialogs/autofill.css";
+@import "dialogs/page-info.css";
+@import "dialogs/media.css";

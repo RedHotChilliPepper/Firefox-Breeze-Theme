@@ -1,0 +1,118 @@
+/* controls — native-menus */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+  select option,
+  menupopup {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    margin: 0 !important;
+
+    /* Nullify internal panel variables so menupopup::part(content) does NOT draw a second border/padding (070600.png) */
+    --panel-border-color: transparent !important;
+    --panel-border-width: 0px !important;
+    --panel-box-shadow: none !important;
+    --panel-box-shadow-margin: 0px !important;
+    --panel-padding: 0px !important;
+    --panel-padding-block: 0px !important;
+    --panel-background: transparent !important;
+    --panel-background-color: transparent !important;
+  }
+
+  menupopup::part(content),
+  menupopup::part(arrowscrollbox),
+  menupopup::part(scrollbox),
+  menupopup > arrowscrollbox,
+  menupopup > .menupopup-arrowscrollbox,
+  menupopup .menupopup-arrowscrollbox,
+  .menupopup-arrowscrollbox {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  menuitem:not([hidden]):not([collapsed="true"]) {
+    appearance: none !important;
+    background-color: transparent !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 5px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Non-overlapping dropdown menu iconic items (refB1.png, bugB1.png, bugB2.png) */
+  menuitem > .menu-icon,
+  menuitem > .menu-iconic-icon,
+  menuitem > .menu-iconic-left {
+    display: inline-flex !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+    margin: 0 !important;
+    margin-inline-end: 8px !important;
+    flex-shrink: 0 !important;
+    object-fit: contain !important;
+  }
+
+  menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-icon:not([src]):not([srcset]),
+  menuitem:not(.menuitem-iconic):not([image]):not([icon]):not([appHandlerIcon]):not([type="checkbox"]):not([type="radio"]):not([checked]) > .menu-iconic-icon:not([src]):not([srcset]) {
+    display: none !important;
+    width: 0 !important;
+    margin: 0 !important;
+  }
+
+  menuitem > .menu-text,
+  menuitem > .menu-iconic-text,
+  menuitem > .menu-highlightable-text {
+    flex: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  menuitem:is(:hover, :focus-visible),
+  menuitem[_moz-menuactive="true"],
+  select option:checked,
+  select option:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--palette-alpha-blue-85) !important;
+    color: var(--palette-white) !important;
+  }
+
+  
+}

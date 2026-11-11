@@ -1,0 +1,80 @@
+/* popups — animations */
+
+/* ==========================================================================
+   12. Context Menu & Dropdown Fade-In / Fade-Out Micro-Animations
+   ========================================================================== */
+
+@keyframes breeze-popup-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes breeze-panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+menupopup {
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="open"],
+menupopup:not([animate="false"])[open="true"] {
+  animation: breeze-popup-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+menupopup[animate="cancel"] {
+  opacity: 0 !important;
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content),
+.searchmode-switcher-panel::part(content),
+panel[type="autocomplete-richlistbox"]::part(content) {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="open"]::part(content),
+.searchmode-switcher-panel[animate="open"]::part(content),
+panel[open="true"]::part(content) {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel[animate="cancel"]::part(content),
+.searchmode-switcher-panel[animate="cancel"]::part(content) {
+  opacity: 0 !important;
+  transform: translateY(-4px) scale(0.985) !important;
+  transition: opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1), transform 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list {
+  transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list[open] {
+  animation: breeze-panel-fade-in 0.15s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+panel-list:not([open]) {
+  opacity: 0 !important;
+  transform: translateY(-3px) scale(0.985) !important;
+}
+
+.urlbarView[isopen] {
+  animation: breeze-panel-fade-in 0.14s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}

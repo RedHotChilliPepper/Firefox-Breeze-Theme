@@ -1,0 +1,92 @@
+/* controls — radios */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+/* GSL reference 2: thin circular outline and a separate centered blue dot. */
+  moz-radio {
+    --input-width: 18px !important;
+    --input-height: 18px !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+  }
+
+  moz-radio::part(input),
+  input[type="radio"]:not(.wallpaper-input),
+  radio .radio-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    flex-shrink: 0 !important;
+    border-radius: 50% !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-view-bg) !important;
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+  }
+
+  /* Preserve the custom element's native input/label positioning. */
+  input[type="radio"]:not(.wallpaper-input):not(#input),
+  radio .radio-check {
+    margin: 2px 6px 2px 2px !important;
+  }
+
+  moz-radio:not([disabled]):hover::part(input),
+  input[type="radio"]:not(.wallpaper-input):hover:not(:disabled),
+  radio:not([disabled="true"]):hover .radio-check,
+  moz-radio:focus-within::part(input),
+  input[type="radio"]:not(.wallpaper-input):focus-visible,
+  radiogroup:focus-visible radio[focused] .radio-check {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  moz-radio[checked]::part(input),
+  input[type="radio"]:not(.wallpaper-input):checked,
+  radio[selected] .radio-check {
+    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--palette-view-bg) !important;
+    background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+  }
+
+  moz-radio[disabled]::part(input),
+  input[type="radio"]:not(.wallpaper-input):disabled,
+  radio[disabled] .radio-check {
+    border-color: var(--palette-border-dark) !important;
+    opacity: 1 !important;
+    cursor: default !important;
+  }
+
+  moz-radio[disabled][checked]::part(input),
+  input[type="radio"]:not(.wallpaper-input):disabled:checked,
+  radio[disabled][selected] .radio-check {
+    background-image: radial-gradient(circle 4px at center, var(--palette-text-dim) 96%, transparent 100%) !important;
+  }
+
+  
+}

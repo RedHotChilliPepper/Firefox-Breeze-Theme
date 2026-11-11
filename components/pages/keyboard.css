@@ -1,0 +1,83 @@
+/* pages — keyboard */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+/* ==========================================================================
+     Keybinds Page (about:keyboard / customkeys)
+     ========================================================================== */
+
+  .key-actions {
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+  }
+
+  .key-actions .currentShortcut {
+    max-width: none !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  .moz-badge {
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    outline: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    padding: 4px 10px !important;
+    white-space: nowrap !important;
+  }
+
+
+}
+
+
+/* GSL 26 — compact summary, separately padded body, roomier shortcut rows. */
+@-moz-document url-prefix("about:keyboard"), url-prefix("chrome://browser/content/customkeys/") {
+  moz-card {
+    --card-padding-block-start: 8px !important;
+    --card-padding-block-end: 8px !important;
+    --card-heading-padding-inline: 0px !important;
+    --card-font-size: 14px !important;
+    margin-block: 32px !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+  #moz-card-details, .moz-card-wrapper { background: transparent !important; }
+  #moz-card-details > summary[part="summary"] {
+    min-height: 40px !important;
+    padding: 8px 16px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font: 600 14px/20px "Noto Sans", sans-serif !important;
+  }
+  #heading-wrapper { padding: 0 !important; gap: 8px !important; }
+  #heading { margin: 0 !important; font: 600 14px/20px "Noto Sans", sans-serif !important; }
+  #content {
+    padding: 32px !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  moz-box-group { margin: 0 !important; }
+  moz-box-item.key { --box-padding: 24px 16px !important; }
+  .key-content { gap: 24px !important; }
+  .key-label { color: var(--palette-text-main) !important; }
+  .key-actions { gap: 16px !important; }
+  @media (max-width: 950px) {
+    .key-label-container { flex-basis: 100% !important; }
+    .key-actions { flex-wrap: wrap !important; max-width: 100% !important; }
+    .currentShortcut { max-width: 100% !important; }
+    #content { padding: 32px 16px !important; }
+  }
+}

@@ -1,0 +1,78 @@
+/* pdf — toolbar */
+
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) {
+  body,
+  #viewerContainer {
+    background-color: var(--palette-view-bg) !important;
+  }
+
+  /* PDF paper, rendered pages, annotations and color-swatch values retain
+     their document colors. Only viewer UI receives these surface rules. */
+  #toolbarContainer,
+  .sidebar,
+  .popupMenu,
+  .editorParamsToolbar,
+  #secondaryToolbar,
+  #findbar,
+  dialog {
+    font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+    font-size: 13px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #toolbarContainer {
+    box-sizing: border-box !important;
+  }
+
+  .toolbarButton,
+  .viewsManagerButton,
+  .dialogButton {
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    font: inherit !important;
+    box-sizing: border-box !important;
+  }
+
+  .toolbarButton:where(:enabled):is(:hover, :focus-visible),
+  .viewsManagerButton:where(:enabled):is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    outline: none !important;
+  }
+
+  :is(.toolbarButton, .viewsManagerButton):where(:enabled):is(:active, .toggled, [aria-pressed="true"], [aria-expanded="true"]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  .toolbarField,
+  .dropdownToolbarButton {
+    background-color: var(--palette-view-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    box-shadow: none !important;
+  }
+
+  .dropdownToolbarButton {
+    background-color: var(--palette-button-bg) !important;
+  }
+
+  .dropdownToolbarButton > select {
+    font: 13px "Noto Sans", sans-serif !important;
+    color: var(--palette-text-main) !important;
+    background-color: transparent !important;
+  }
+
+  .toolbarField:is(:hover, :focus),
+  .dropdownToolbarButton:is(:hover, :focus-within) {
+    border-color: var(--palette-blue-accent) !important;
+    outline: none !important;
+  }
+
+  
+}

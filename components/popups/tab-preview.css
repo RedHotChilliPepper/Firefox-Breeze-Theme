@@ -1,0 +1,24 @@
+/* popups — tab-preview */
+
+/* Tab-hover previews share the normal popup shell through scoped tokens. */
+#tab-preview-panel,
+#tabgroup-preview-panel {
+  --panel-background: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+  --panel-background-color: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: 4px !important;
+  --panel-padding: 0px !important;
+  --arrowpanel-background: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+  --arrowpanel-border-radius: 4px !important;
+  --arrowpanel-padding: 0px !important;
+}
+
+:is(#tab-preview-panel, #tabgroup-preview-panel) .tab-preview-content-main {
+  padding: 4px 6px !important;
+  font: 13px/1.4 "Noto Sans", sans-serif !important;
+  color: var(--sync-tooltip-fg, var(--palette-white)) !important;
+}
+
+:is(#tab-preview-panel, #tabgroup-preview-panel) .tab-preview-text-container {
+  margin: 0 !important;
+}

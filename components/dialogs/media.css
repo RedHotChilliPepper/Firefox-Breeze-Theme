@@ -1,0 +1,15 @@
+/* dialogs — media */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* Native image documents also back Page Information's remote media preview.
+   Remove Firefox's noise texture without touching image pixels or sizing. */
+@-moz-document media-document(image) {
+  :root {
+    background: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  html|body { background: transparent !important; }
+  html|img.transparent { background: var(--palette-popup-bg) !important; }
+}

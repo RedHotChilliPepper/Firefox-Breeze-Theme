@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Settings, Addons, Keybinds & Profiles (Entry Point)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   KDE Plasma 6 / Qt6 Breeze In-Content, Subdialog, Sidebar, Print, PDF & DevTools
+   General Style Language (GSL): Authentic Qt6 Breeze Dark (Dolphin / System Settings)
+   ========================================================================== */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+  :root,
+  :host {
+    color-scheme: dark !important;
+    --kde-window-bg: var(--palette-window-bg);
+    --kde-window-bg-alt: var(--palette-button-bg);
+    --kde-window-fg: var(--palette-text-main);
+    --kde-window-fg-inactive: var(--palette-text-dim);
+    --kde-view-bg: var(--palette-view-bg);
+    --kde-view-fg: var(--palette-text-main);
+    --kde-button-bg: var(--palette-button-bg);
+    --kde-button-fg: var(--palette-text-main);
+    --kde-accent: var(--palette-blue-accent);
+    --kde-border-color: var(--palette-border-dark);
+    --kde-border-color-subtle: var(--palette-groove-sep);
+
+    /* Firefox legacy in-content variables */
+    --in-content-page-background: var(--palette-view-bg) !important;
+    --in-content-page-color: var(--palette-text-main) !important;
+    --in-content-box-background: var(--palette-window-bg) !important;
+    --in-content-box-background-odd: var(--palette-sidebar-dark) !important;
+    --in-content-box-info-background: var(--palette-treeheader-bg) !important;
+    --in-content-box-border-color: var(--palette-border-dark) !important;
+    --in-content-border-color: var(--palette-groove-sep) !important;
+    --in-content-button-background: var(--palette-button-bg) !important;
+    --in-content-button-background-hover: var(--breeze-action-hover-bg) !important;
+    --in-content-button-background-active: var(--breeze-action-active-bg) !important;
+    --in-content-button-border-radius: 4px !important;
+    --in-content-button-text-color: var(--palette-text-main) !important;
+    --in-content-button-text-color-hover: var(--palette-white) !important;
+    --in-content-primary-button-background: var(--palette-btn-primary) !important;
+    --in-content-primary-button-text-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --in-content-primary-button-hover-background: var(--palette-blue-accent) !important;
+    --in-content-primary-button-active-background: var(--breeze-action-active-bg) !important;
+    --in-content-focus-outline-color: var(--palette-blue-accent) !important;
+    --in-content-item-hover: var(--palette-alpha-blue-18) !important;
+    --in-content-item-hover-text: var(--palette-white) !important;
+    --in-content-item-selected: var(--palette-alpha-blue-28) !important;
+    --in-content-item-selected-text: var(--palette-white) !important;
+    --in-content-link-color: var(--palette-blue-accent) !important;
+    --in-content-link-color-hover: var(--palette-blue-focus) !important;
+    --in-content-link-color-active: var(--palette-blue-accent) !important;
+    --link-color: var(--palette-blue-accent) !important;
+    --link-color-hover: var(--palette-blue-focus) !important;
+    --link-color-active: var(--palette-blue-accent) !important;
+
+    /* Flush sidebar to edge matching KDE System Settings */
+    --page-nav-margin-inline-start: 0px !important;
+    --page-space-inline-start: 0px !important;
+    --page-nav-border-color: transparent !important;
+
+    /* Remove all Firefox dotted focus rings globally (GSL No-Dotted-Lines Standard) */
+    --default-focusring: none !important;
+    --default-focusring-width: 0px !important;
+
+    /* Firefox 159 / Nova Design System Tokens (GSL 8px Popup Corner Standard) */
+    --border-radius-xsmall: 3px !important;
+    --border-radius-small: 4px !important;
+    --border-radius-medium: 4px !important;
+    --border-radius-large: 8px !important;
+
+    --background-color-canvas: var(--palette-view-bg) !important;
+    --background-color-box: var(--palette-window-bg) !important;
+    --background-color-box-info: var(--palette-treeheader-bg) !important;
+    --text-color: var(--palette-text-main) !important;
+    --text-color-deemphasized: var(--palette-text-dim) !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+    --color-accent-primary-hover: var(--palette-blue-light) !important;
+    --color-accent-primary-active: var(--palette-btn-primary) !important;
+    --color-accent-primary-selected: var(--palette-blue-accent) !important;
+
+    --border-color: var(--palette-groove-sep) !important;
+    --border-color-card: var(--palette-groove-sep) !important;
+    --border-color-deemphasized: var(--palette-button-border) !important;
+    --border-color-interactive: var(--palette-border-dark) !important;
+    --border-color-interactive-hover: var(--palette-blue-accent) !important;
+    --border-color-interactive-active: var(--palette-blue-accent) !important;
+    --border-color-selected: var(--palette-blue-accent) !important;
+
+    --focus-outline: 1px solid var(--palette-blue-accent) !important;
+    --focus-outline-color: var(--palette-blue-accent) !important;
+    --focus-outline-offset: 0px !important;
+    --focus-outline-inset: -1px !important;
+
+    /* Promo & Callout Cards (fixes brown/violet cards across Settings) */
+    --promo-background-color: var(--palette-treeheader-bg) !important;
+    --promo-background-color-vibrant: var(--palette-treeheader-bg) !important;
+    --promo-border-color: var(--palette-groove-sep) !important;
+    --promo-border-color-vibrant: var(--palette-groove-sep) !important;
+    --promo-border-radius: 6px !important;
+    --promo-message-text-color: var(--palette-text-main) !important;
+    --promo-message-text-color-vibrant: var(--palette-text-main) !important;
+    --promo-heading-text-color: var(--palette-text-main) !important;
+    --promo-heading-text-color-vibrant: var(--palette-text-main) !important;
+
+    /* Cards & Accordion Headers (fixes purple hover/active in keybinds & settings) */
+    --card-border-radius: 6px !important;
+    --card-border-radius-compact: 6px !important;
+    --card-background-color: var(--palette-window-bg) !important;
+    --card-border-color: var(--palette-groove-sep) !important;
+    --card-box-shadow: none !important;
+    --card-header-background-color: transparent !important;
+    --card-header-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --card-header-background-color-active: var(--breeze-action-active-bg) !important;
+    --card-header-border-color: transparent !important;
+    --card-header-border-color-hover: var(--breeze-action-hover-border) !important;
+    --card-header-border-color-active: var(--breeze-action-active-border) !important;
+    --card-header-text-color: var(--palette-text-main) !important;
+    --card-header-text-color-hover: var(--palette-white) !important;
+    --card-header-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    /* Box Groups & Box Items (Permissions rows, Search Engines list, Autofill lists) */
+    --box-border-color: var(--palette-groove-sep) !important;
+    --box-border-radius: 6px !important;
+    --box-border-radius-inner: 5px !important;
+    --box-padding: 12px 16px !important;
+    --box-icon-size: 20px !important;
+    --box-button-background-color: var(--palette-window-bg) !important;
+    --box-button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --box-button-background-color-active: var(--breeze-action-active-bg) !important;
+    --box-button-text-color: var(--palette-text-main) !important;
+    --box-button-text-color-hover: var(--palette-white) !important;
+    --box-button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    /* Buttons (fixes unselected blue border & triple-nested button boxes) */
+    --button-border-radius: 4px !important;
+    --button-border: 1px solid var(--button-border-color) !important;
+    --button-background-color: var(--palette-button-bg) !important;
+    --button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --button-background-color-active: var(--breeze-action-active-bg) !important;
+    --button-background-color-selected: var(--breeze-action-active-bg) !important;
+    --button-border-color: var(--palette-border-dark) !important;
+    --button-border-color-hover: var(--breeze-action-hover-border) !important;
+    --button-border-color-active: var(--palette-blue-accent) !important;
+    --button-border-color-selected: var(--palette-blue-accent) !important;
+    --button-text-color: var(--palette-text-main) !important;
+    --button-text-color-hover: var(--palette-white) !important;
+    --button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-selected: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    --button-background-color-primary: var(--palette-btn-primary) !important;
+    --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+    --button-background-color-primary-active: var(--breeze-action-active-bg) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+    --button-border-color-primary-hover: var(--palette-blue-accent) !important;
+    --button-border-color-primary-active: var(--palette-blue-accent) !important;
+    --button-text-color-primary: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-primary-hover: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-primary-active: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    --button-background-color-ghost: transparent !important;
+    --button-background-color-ghost-hover: var(--breeze-action-hover-bg) !important;
+    --button-background-color-ghost-active: var(--breeze-action-active-bg) !important;
+    --button-border-color-ghost: transparent !important;
+    --button-border-color-ghost-hover: var(--palette-alpha-blue-50) !important;
+    --button-border-color-ghost-active: var(--palette-blue-accent) !important;
+    --button-text-color-ghost: var(--palette-text-main) !important;
+    --button-text-color-ghost-hover: var(--palette-white) !important;
+    --button-text-color-ghost-active: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    --button-background-color-menu: transparent !important;
+    --button-background-color-menu-hover: var(--breeze-action-hover-bg) !important;
+    --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+    --button-text-color-menu: var(--palette-text-main) !important;
+    --button-text-color-menu-hover: var(--palette-white) !important;
+    --button-text-color-menu-active: var(--sync-selection-fg, var(--palette-white)) !important;
+
+    /* Switch tokens and geometry are shared in base.css. */
+
+    /* Select & Panel-List Tokens */
+    --select-border-radius: 4px !important;
+    --select-background-color: var(--palette-button-bg) !important;
+    --select-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --select-border-color: var(--palette-border-dark) !important;
+    --select-border-color-hover: var(--breeze-action-hover-border) !important;
+    --select-text-color: var(--palette-text-main) !important;
+    --select-text-color-hover: var(--palette-white) !important;
+    --select-min-height: 32px !important;
+    --select-space-inline: 10px !important;
+
+    --panel-list-background-color: var(--palette-popup-bg) !important;
+    --panel-list-border-color: var(--palette-dialog-border) !important;
+    --panel-list-border-radius: 8px !important;
+    --panel-list-box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+    --panel-item-button-border-radius: 4px !important;
+
+    /* Text Inputs & Search Inputs */
+    --input-text-background-color: var(--palette-view-bg) !important;
+    --input-text-border-color: var(--palette-border-dark) !important;
+    --input-text-border-color-hover: var(--palette-blue-accent) !important;
+    --input-text-border-radius: 4px !important;
+    --input-text-min-height: 32px !important;
+
+    /* Visual Picker Item (Browser Layout cards & Profile Theme cards) */
+    --visual-picker-item-border-radius: 6px !important;
+    --visual-picker-item-border-radius-inner: 5px !important;
+    --visual-picker-item-border-color: var(--palette-border-dark) !important;
+    --visual-picker-item-border-width: 1px !important;
+    --visual-picker-item-border-width-checked: 2px !important;
+
+    /* Badges (Keybind shortcuts) */
+    --badge-border-radius: 4px !important;
+    --badge-border-color: var(--palette-border-dark) !important;
+    --badge-text-color: var(--palette-text-main) !important;
+
+    /* Note: Do NOT set --input-width with !important on :host here because
+       moz-toggle uses --input-width: var(--toggle-width) for its 34px track! */
+    --checkbox-size: 18px !important;
+
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  body,
+  window:not([type="child"]):not(#aboutDialog):not(#commonDialogWindow):not(#SanitizeDialog):not(#placesWindow) {
+    background-color: var(--kde-view-bg) !important;
+    color: var(--kde-view-fg) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* Dialog roots (e.g. Add Card / editCreditCard.xhtml 055400.png & editAddress.xhtml)
+     must keep var(--palette-window-bg) on both html[dialogroot] and body so there is no inner dark seam! */
+  :root[dialogroot],
+  :root[dialogroot] body,
+  html[dialogroot],
+  html[dialogroot] body {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+
+}

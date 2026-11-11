@@ -1,0 +1,83 @@
+/* devtools — markers */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* DevTools Checkboxes & Radios (Settings F1 panel, Memory tool 055946.png, Browser Console 055741.png) */
+  input[type="checkbox"]:not(.devtools-checkbox-toggle) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-button-bg) !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):hover:not(:disabled) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input[type="checkbox"]:not(.devtools-checkbox-toggle):checked {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--palette-blue-accent) !important;
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 11px 11px !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    fill: var(--palette-white) !important;
+    stroke: var(--palette-white) !important;
+  }
+
+  input[type="radio"] {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    border-radius: 50% !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-view-bg) !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    vertical-align: middle !important;
+    margin: 0 5px 0 2px !important;
+    cursor: pointer !important;
+    outline: none !important;
+  }
+
+  input[type="radio"]:hover:not(:disabled) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input[type="radio"]:checked {
+    border-color: var(--palette-blue-accent) !important;
+    background-color: var(--palette-view-bg) !important;
+    background-image: radial-gradient(circle, var(--palette-blue-accent) 0 4px, transparent 4px) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+  }
+
+  input:is([type="checkbox"], [type="radio"]):not(.devtools-checkbox-toggle):enabled:focus-visible {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input:is([type="checkbox"], [type="radio"]):not(.devtools-checkbox-toggle):disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+  }
+
+  
+}

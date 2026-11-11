@@ -1,0 +1,151 @@
+/* dialogs — shell */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+  /* ==========================================================================
+     Unified GSL Subdialogs & Modal Popups (8px Corners & Popup Padding Standard)
+     (Primary Password 063358, Fonts 063456, Device Manager 063320, ETP 051237,
+      Clear Data 051251/051314, Manage Cookies 051258, Connection Settings 051353,
+      Cert Manager 051410, Saved Passwords Exceptions 051434, Autofill 051450/051459)
+     ========================================================================== */
+
+  dialog,
+  .dialogBox {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px var(--palette-alpha-black-65) !important;
+  }
+
+  /* The outer shell alone owns the frame; its embedded browser meets the edge. */
+  .dialogBox {
+    padding: 0 !important;
+    background-clip: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .dialogFrame {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  .dialogTitleBar {
+    background-color: var(--palette-tab-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+  }
+
+  window[type="child"],
+  dialog,
+  #SanitizeDialog,
+  #ConnectionsDialog,
+  #certmanager,
+  #devicemanager,
+  #PermissionsDialog,
+  #SiteDataSettingsDialog,
+  #FontsDialog,
+  #changemp,
+  #commonDialog,
+  #commonDialogWindow {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+  }
+
+  /* GSL Popup Padding Standard: unified outer dialog padding & clean vertical rhythm */
+  window[type="child"] > dialog,
+  dialog {
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  dialog::part(dialog-button-box),
+  .dialog-button-box {
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  separator.groove,
+  separator:not([orient="vertical"]) {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    background: transparent !important;
+    height: 0 !important;
+    margin-block: 12px !important;
+  }
+
+  
+}
+
+
+
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+/* GSL dialog shells: discrete display/overlay transitions retain closing frames. */
+  dialog,
+  .dialogBox {
+    opacity: 1 !important;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                overlay 0.15s allow-discrete !important;
+  }
+
+  html|dialog:not([open]),
+  .dialogBox[hidden] {
+    opacity: 0 !important;
+  }
+
+  @starting-style {
+    dialog[open],
+    .dialogBox {
+      opacity: 0 !important;
+    }
+  }
+
+  /* Embedded documents are not another rounded card. Keep content overflow
+     measurable so SubDialog can size Fonts, Permissions, Containers, etc. */
+  :root[dialogroot] {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+  }
+
+  :root[dialogroot] body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  :root[dialogroot] dialog {
+    background: var(--palette-window-bg) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    overflow: visible !important;
+  }
+
+  :root[dialogroot] dialog::part(content-box),
+  :root[dialogroot] .contentPane {
+    padding: 0 !important;
+  }
+
+  /* HTML-only forms put the single body inset here instead of on a dialog. */
+  :root[dialogroot] > html|body:not(:has(> dialog)) {
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+  }
+}

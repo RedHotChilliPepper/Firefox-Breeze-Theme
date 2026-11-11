@@ -1,0 +1,366 @@
+/* ==========================================================================
+   GSL Picture-in-Picture — opaque Dragon Player-style controls
+   ========================================================================== */
+
+@-moz-document url("chrome://global/content/pictureinpicture/player.xhtml") {
+  :root {
+    --pip-control-size: 28px;
+    --pip-slider-track-size: 6px;
+    --pip-slider-thumb-size: 16px;
+    --pip-time-font-size: 14px;
+    --player-bg-color: var(--palette-view-bg) !important;
+    --player-control-icon-fill: var(--palette-text-main) !important;
+    --close-btn-fill-color: var(--palette-text-main) !important;
+    --player-control-item-height: var(--pip-control-size) !important;
+    --player-control-item-half-width: calc(var(--pip-control-size) / 2) !important;
+    --scrubber-thumb-background-color: var(--palette-button-bg) !important;
+    --button-opacity-disabled: 1 !important;
+    --toggle-opacity-disabled: 1 !important;
+    --input-opacity-disabled: 1 !important;
+    color-scheme: dark !important;
+  }
+
+  /* The media layer stays unchanged when the pointer enters the player. */
+  .seethrough-mode .player-holder,
+  body:hover .player-holder {
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  #controls-bottom-gradient {
+    display: none !important;
+  }
+
+  /* Native events still control visibility, but never fade individual controls. */
+  #controls .control-item {
+    opacity: 1 !important;
+    fill-opacity: 1 !important;
+    transition: none !important;
+  }
+
+  #controls-bottom,
+  #unpip,
+  #close {
+    visibility: hidden !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  #controls:is(:hover, :focus-within, [showing], [keying], [donthide]) :is(#controls-bottom, #unpip, #close) {
+    visibility: visible !important;
+  }
+
+  /* Flatten only layout wrappers; all native buttons, listeners and hidden flags remain. */
+  #controls-bottom {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: min(720px, calc(100% - 24px)) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    bottom: 10px !important;
+    box-sizing: border-box !important;
+    padding: 6px 8px !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 8px !important;
+    background: var(--palette-view-bg) !important;
+    box-shadow: none !important;
+    color: var(--palette-text-main) !important;
+    -moz-window-dragging: no-drag !important;
+  }
+
+  .controls-bottom-upper,
+  .controls-bottom-lower,
+  .start-controls,
+  .center-controls,
+  .end-controls {
+    display: contents !important;
+  }
+
+  #audio { order: 0; }
+  #seekBackward { order: 1; }
+  #playpause { order: 2; }
+  #seekForward { order: 3; }
+  #timestamp { order: 4; }
+  .scrubber-no-drag { order: 5; }
+  #audio-scrubber { order: 6; }
+  #playbackRate { order: 7; }
+  #closed-caption { order: 8; }
+  #fullscreen { order: 9; }
+
+  .scrubber-no-drag {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 64px !important;
+    min-width: 48px !important;
+    width: auto !important;
+    height: var(--pip-control-size) !important;
+    margin: 0 !important;
+    background: var(--palette-view-bg) !important;
+  }
+
+  #controls .control-button {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-clip: padding-box !important;
+    width: var(--pip-control-size) !important;
+    min-width: var(--pip-control-size) !important;
+    max-width: var(--pip-control-size) !important;
+    height: var(--pip-control-size) !important;
+    min-height: var(--pip-control-size) !important;
+    max-height: var(--pip-control-size) !important;
+    flex: 0 0 var(--pip-control-size) !important;
+    box-sizing: border-box !important;
+    padding: 4px !important;
+    border: 1px solid var(--palette-view-bg) !important;
+    border-radius: 4px !important;
+    background-color: var(--palette-view-bg) !important;
+    background-size: 18px 18px !important;
+    color: var(--palette-text-main) !important;
+    fill: var(--palette-text-main) !important;
+    fill-opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  /* Native seek glyphs occupy only 15px of their 28px SVG viewport. */
+  #controls :is(#seekBackward, #seekForward) {
+    background-size: 32px 32px !important;
+  }
+
+  #controls .control-button:hover:enabled,
+  #controls .control-button:focus-visible,
+  #controls :is(#unpip, #close):enabled:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-solid) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+  }
+
+  #controls .control-button:is(:active, [aria-expanded="true"]):enabled,
+  #controls :is(#unpip, #close).control-button:is(:active, [aria-expanded="true"]):enabled {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    fill: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  #controls button:disabled {
+    opacity: 1 !important;
+    fill-opacity: 1 !important;
+    fill: var(--palette-icon-muted) !important;
+    color: var(--palette-text-dim) !important;
+    cursor: default !important;
+  }
+
+  #controls :is(#unpip, #close) {
+    background-color: var(--palette-button-bg) !important;
+    border-color: var(--palette-border-dark) !important;
+  }
+
+  #controls #close:enabled:hover {
+    background-color: var(--palette-negative) !important;
+    border-color: var(--palette-negative) !important;
+  }
+
+  #controls button:focus-visible,
+  #controls input:focus-visible {
+    outline: 1px solid var(--palette-blue-accent) !important;
+    outline-offset: 1px !important;
+    box-shadow: none !important;
+  }
+
+  #timestamp {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin-inline: 4px !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: var(--pip-time-font-size) !important;
+    line-height: var(--pip-control-size) !important;
+    font-variant-numeric: tabular-nums !important;
+    white-space: nowrap !important;
+    background: var(--palette-view-bg) !important;
+  }
+
+  #scrubber,
+  #audio-scrubber,
+  #playback-rate-slider {
+    appearance: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    height: var(--pip-control-size) !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    background-color: var(--palette-view-bg) !important;
+    accent-color: var(--palette-blue-accent) !important;
+    box-shadow: none !important;
+  }
+
+  #scrubber { width: 100% !important; }
+  #audio-scrubber { width: 56px !important; flex: 0 0 56px !important; }
+
+  :is(#scrubber, #audio-scrubber, #playback-rate-slider)::-moz-range-track {
+    height: var(--pip-slider-track-size) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    background: var(--palette-groove-sep) !important;
+  }
+
+  :is(#scrubber, #audio-scrubber, #playback-rate-slider)::-moz-range-progress {
+    height: var(--pip-slider-track-size) !important;
+    border-radius: 4px !important;
+    background: var(--palette-blue-accent) !important;
+  }
+
+  :is(#scrubber, #audio-scrubber, #playback-rate-slider)::-moz-range-thumb {
+    width: var(--pip-slider-thumb-size) !important;
+    height: var(--pip-slider-thumb-size) !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--palette-scrollbar-thumb) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+  }
+
+  :is(#scrubber, #audio-scrubber, #playback-rate-slider):is(:hover, :focus-visible)::-moz-range-thumb {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .control-item:is(:hover, :focus-visible)::after {
+    background: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  #controls .panel {
+    --settings-panel-background-color: var(--palette-window-bg) !important;
+    --settings-panel-text-color: var(--palette-text-main) !important;
+    bottom: calc(100% + 8px) !important;
+    right: 0 !important;
+    max-width: calc(100vw - 32px) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 8px !important;
+    background: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  #controls .panel-controls-box {
+    padding: 12px 16px !important;
+    min-width: 0 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    background: var(--palette-window-bg) !important;
+  }
+
+  #controls .panel .arrow { display: none !important; }
+  #controls .grey-line { background: var(--palette-groove-sep) !important; margin-block: 12px !important; }
+  #playback-rate-value { color: var(--palette-blue-accent) !important; }
+  .font-size-overlay { opacity: 1 !important; color: var(--palette-text-dim) !important; }
+
+  #controls .playback-rate-preset {
+    padding: 5px 8px !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    background: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    opacity: 1 !important;
+  }
+
+  #controls .playback-rate-preset:is(:hover, :focus-visible) {
+    border-color: var(--breeze-action-hover-border) !important;
+    background: var(--breeze-action-hover-solid) !important;
+  }
+
+  #controls .playback-rate-preset:is(:active, [aria-pressed="true"]) {
+    border-color: var(--palette-blue-accent) !important;
+    background: var(--palette-blue-accent) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  /* Keep every native unavailable feature and closed settings panel hidden. */
+  [hidden],
+  #controls .hide { display: none !important; }
+
+  @media (max-width: 480px) {
+    :root {
+      --pip-control-size: 24px;
+      --pip-slider-track-size: 5px;
+      --pip-slider-thumb-size: 14px;
+      --pip-time-font-size: 12px;
+    }
+    #controls-bottom { width: calc(100% - 12px) !important; padding: 4px 6px !important; gap: 2px !important; }
+    #timestamp { margin-inline: 2px !important; }
+    .scrubber-no-drag { flex-basis: 40px !important; min-width: 32px !important; }
+  }
+
+  @media (max-width: 300px), (max-height: 180px) {
+    .scrubber-no-drag { display: none !important; }
+  }
+}
+
+/* Native PiP captions are painted in a separate about:blank video document.
+   Scope to the actor's unique video ID, never ordinary website captions. */
+@-moz-document url("about:blank") {
+  :root:has(body > video#playervideo) #texttracks {
+    background: var(--palette-popup-bg) !important;
+    color: var(--palette-text-main) !important;
+    opacity: 1 !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+  }
+}
+
+/* GSL 37: Firefox's video-control UA shadow tree, not website buttons. */
+.videocontrols #pictureInPictureToggle {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background: none !important;
+  border: 0 !important;
+  color: var(--kde-button-fg) !important;
+  fill: currentColor !important;
+  --pip-icon-size: 18px !important;
+  --pip-toggle-margin: 5px !important;
+  --pip-icon-width-with-margins: 28px !important;
+  --pip-border-radius-toggle: 4px !important;
+  --pip-box-shadow-default: none !important;
+  --pip-box-shadow-hover: none !important;
+  --pip-highlight-width: 1px !important;
+  --pip-highlight-style: solid var(--palette-border-dark) !important;
+}
+.videocontrols #pictureInPictureToggle > :is(.pip-small, .pip-expanded),
+.videocontrols #pictureInPictureToggle .pip-explainer {
+  background-color: var(--palette-button-bg) !important;
+  color: inherit !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+.videocontrols #pictureInPictureToggle > .pip-small { width: 28px !important; height: 28px !important; }
+.videocontrols #pictureInPictureToggle > .pip-icon { top: 5px !important; left: 5px !important; }
+.videocontrols #pictureInPictureToggle:is(:hover, .hovering, :focus-visible) > :is(.pip-small, .pip-expanded) {
+  background-color: var(--breeze-action-hover-solid) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+.videocontrols #pictureInPictureToggle:active { color: var(--breeze-action-active-fg) !important; }
+.videocontrols #pictureInPictureToggle:active > :is(.pip-small, .pip-expanded) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+.videocontrols .controlsOverlay:not([hidetoggle="true"]).hovering > #pictureInPictureToggle,
+.videocontrols #pictureInPictureToggle:is(.hovering, :focus-visible) { opacity: 1 !important; }
+.videocontrols #pictureInPictureToggle:not(.experiment):not([small-video], [has-used]).hovering > .pip-expanded {
+  border-bottom: 0 !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+.videocontrols #pictureInPictureToggle .pip-explainer { border-top: 0 !important; border-radius: 0 0 4px 4px !important; }

@@ -1,0 +1,41 @@
+/* dialogs — autofill */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@-moz-document url-prefix("chrome://browser/content/sanitize"), url-prefix("chrome://browser/content/pageinfo/"), url-prefix("chrome://mozapps/content/preferences/"), url-prefix("chrome://browser/content/preferences/"), url-prefix("chrome://global/content/"), url-prefix("chrome://pippki/content/"), url-prefix("chrome://browser/content/places/"), url-prefix("chrome://formautofill/content/"), url-prefix("about:") {
+/* ==========================================================================
+     Add Card & Add Address Subdialogs (055400.png - editCreditCard.xhtml & editAddress.xhtml)
+     ========================================================================== */
+
+  .editCreditCardForm,
+  .editAddressForm,
+  #form {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    padding: 0 !important;
+    gap: 6px !important;
+  }
+
+  .editCreditCardForm > label,
+  .editCreditCardForm > div,
+  .editAddressForm > label {
+    color: var(--palette-text-main) !important;
+    font-size: 13px !important;
+  }
+
+  .editCreditCardForm .label-text,
+  .editAddressForm .label-text {
+    display: inline-block !important;
+    margin-bottom: 4px !important;
+    font-weight: 500 !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #controls-container {
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding-top: 12px !important;
+    margin-top: 12px !important;
+    gap: 8px !important;
+    background-color: var(--palette-window-bg) !important;
+  }
+}

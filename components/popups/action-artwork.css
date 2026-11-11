@@ -1,0 +1,24 @@
+/* popups — action-artwork */
+
+/* Flat popup icon actions have a single blue state marker. */
+#appMenu-zoom-controls .toolbarbutton-icon,
+.subviewbutton > .toolbarbutton-icon,
+menulist > :is(.menulist-dropmarker, dropmarker),
+.expander-up > .button-box,
+.expander-down > .button-box {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#appMenu-zoom-controls .toolbarbutton-icon {
+  padding: 0 !important;
+}
+
+:is(#appMenu-zoomReduce-button, #appMenu-zoomReduce-button2) .toolbarbutton-icon {
+  list-style-image: url("chrome://global/skin/icons/minus.svg") !important;
+}
+
+:is(#appMenu-zoomEnlarge-button, #appMenu-zoomEnlarge-button2) .toolbarbutton-icon {
+  list-style-image: url("chrome://global/skin/icons/plus.svg") !important;
+}

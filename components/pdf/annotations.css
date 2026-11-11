@@ -1,0 +1,95 @@
+/* pdf — annotations */
+
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) {
+  .editorParamsToolbar {
+    padding: 0 !important;
+  }
+
+  .editorParamsToolbarContainer {
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  .colorPicker {
+    --selected-outline-color: var(--palette-blue-accent) !important;
+    --hover-outline-color: var(--palette-blue-light) !important;
+    --swatch-border-color: var(--palette-icon-muted) !important;
+  }
+
+  input.editorParamsSlider {
+    appearance: none !important;
+    height: 28px !important;
+    min-width: 80px !important;
+    flex: 1 1 110px !important;
+    margin-inline: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    accent-color: var(--palette-blue-accent) !important;
+    cursor: pointer !important;
+  }
+
+  input.editorParamsSlider::-moz-range-track {
+    height: 6px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 999px !important;
+    background: var(--palette-groove-sep) !important;
+    box-sizing: border-box !important;
+  }
+
+  input.editorParamsSlider::-moz-range-progress {
+    height: 6px !important;
+    border: none !important;
+    border-radius: 999px !important;
+    background: var(--palette-toggle-on-bg) !important;
+  }
+
+  input.editorParamsSlider::-moz-range-thumb {
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+  }
+
+  input.editorParamsSlider:enabled:is(:hover, :focus-visible)::-moz-range-thumb {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  input.editorParamsSlider:disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+  }
+
+  .thicknessPicker {
+    --example-color: var(--palette-text-dim) !important;
+  }
+
+  /* UI checkboxes; PDF form widgets inside rendered pages are excluded. */
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"] {
+    appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 3px !important;
+    background: var(--palette-button-bg) !important;
+    box-sizing: border-box !important;
+  }
+
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"]:checked {
+    border-color: var(--palette-blue-accent) !important;
+    background: var(--palette-toggle-on-bg) url("chrome://global/skin/icons/check.svg") center / 11px 11px no-repeat !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-white) !important;
+  }
+
+  :is(#viewsManager, #findbar, .editorParamsToolbar) input[type="checkbox"]:enabled:is(:hover, :focus-visible) {
+    border-color: var(--palette-blue-accent) !important;
+  }
+
+  .thumbnail:has(> input[type="checkbox"]) {
+    --input-dim: 18px !important;
+  }
+}

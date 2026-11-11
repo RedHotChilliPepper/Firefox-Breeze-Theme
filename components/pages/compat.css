@@ -1,0 +1,30 @@
+/* pages — compat */
+
+/* Web Compatibility uses article rows and attached tabs rather than a table. */
+@-moz-document url("about:compat"), url-prefix("resource://webcompat/about-compat/"),
+               url-prefix("chrome://webcompat/content/about-compat/") {
+  :root {
+    --background-color: var(--palette-view-bg) !important;
+    --text-color: var(--palette-text-main) !important;
+    --border-color: var(--palette-groove-sep) !important;
+    --selected-tab-text-color: var(--palette-white) !important;
+  }
+  .tab {
+    min-height: 32px !important;
+    border-top: 2px solid transparent !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 4px 4px 0 0 !important;
+    background-color: var(--palette-tab-bg) !important;
+    color: var(--palette-text-dim) !important;
+    padding: 8px 12px !important;
+    box-sizing: border-box !important;
+    font: 13px/20px "Noto Sans", sans-serif !important;
+  }
+  .tab:is(:hover, :focus-visible) { background-color: var(--palette-tab-hover) !important; color: var(--palette-white) !important; }
+  .tab.active { border-top-color: var(--palette-blue-accent) !important; background-color: var(--palette-window-bg) !important; color: var(--palette-white) !important; }
+  html, body { background-color: var(--palette-view-bg) !important; }
+  article { background-color: var(--palette-view-bg) !important; font-size: 13px !important; }
+  article:nth-child(even) { background-color: var(--palette-zebra-odd) !important; }
+  article:hover { background-color: var(--palette-alpha-blue-14) !important; }
+  article a { color: var(--palette-blue-accent) !important; }
+}

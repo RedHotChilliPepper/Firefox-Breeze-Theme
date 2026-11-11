@@ -1,0 +1,66 @@
+/* pages — certificates */
+
+/* Certificate rows are custom elements, rather than an HTML table. */
+@-moz-document url-prefix("about:certificate"), url-prefix("chrome://global/content/certviewer/") {
+  .certificate-tabs,
+  .info-groups {
+    background-color: var(--palette-window-bg) !important;
+    border-color: var(--palette-groove-sep) !important;
+    box-shadow: none !important;
+  }
+
+  .certificate-tabs > .tab {
+    background-color: var(--palette-tab-bg) !important;
+    color: var(--palette-text-dim) !important;
+    border: 0 !important;
+    border-top: 2px solid transparent !important;
+    padding: 8px 12px !important;
+  }
+
+  .certificate-tabs > .tab.selected {
+    background-color: var(--palette-window-bg) !important;
+    border-top-color: var(--palette-blue-accent) !important;
+    color: var(--palette-white) !important;
+  }
+
+  list-item {
+    background-color: var(--palette-view-bg) !important;
+    border-color: var(--palette-groove-sep) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+    padding: 6px 10px !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+
+  list-item:nth-child(even) { background-color: var(--palette-zebra-odd) !important; }
+  list-item:hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    color: var(--palette-white) !important;
+  }
+}
+
+@-moz-document url-prefix("about:certificate"), url-prefix("chrome://global/content/certviewer/") {
+  .cert-url {
+    position: static !important; height: auto !important; min-width: 0 !important;
+    align-self: stretch !important; overflow-wrap: anywhere !important;
+  }
+  .cert-url > .item-name { padding-inline-start: 0 !important; }
+  /* The native button contains a download link: one button frame, no inner frame. */
+  .export {
+    position: static !important; inset: auto !important; margin: 0 !important; padding: 0 !important;
+    min-height: 30px !important; box-sizing: border-box !important;
+    border: 1px solid var(--palette-border-dark) !important; border-radius: 4px !important;
+    background-color: var(--palette-button-bg) !important; color: var(--palette-text-main) !important;
+  }
+  .export a {
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    min-height: 28px !important; box-sizing: border-box !important; padding: 4px 10px !important;
+    border: 0 !important; border-radius: inherit !important; background: transparent !important;
+    color: inherit !important; box-shadow: none !important;
+  }
+  .export:is(:hover, :focus-within) { background-color: var(--breeze-action-hover-bg) !important; border-color: var(--breeze-action-hover-border) !important; }
+  .export:active { background-color: var(--breeze-action-active-bg) !important; border-color: var(--breeze-action-active-border) !important; color: var(--breeze-action-active-fg) !important; }
+}

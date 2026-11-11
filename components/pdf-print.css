@@ -1,0 +1,9 @@
+/* Compatibility entry: functional modules for pdf-print. */
+@import "print/pagination.css";
+@import "print/preview.css";
+@import "pdf/tokens.css";
+@import "pdf/toolbar.css";
+@import "pdf/menus.css";
+@import "pdf/sidebar.css";
+@import "pdf/annotations.css";
+@import "pdf/dialogs.css";

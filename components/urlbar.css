@@ -1,0 +1,559 @@
+/* ==========================================================================
+   Qt6 Breeze Theme - Address Bar, Search & Dropdown Results
+   ========================================================================== */
+
+/* ==========================================================================
+   4. Address Bar (Location / Breadcrumb Bar - Matches Qt6 Reference Image)
+   ========================================================================== */
+
+#urlbar-container {
+  --urlbar-container-height: 30px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  padding-block: 0 !important;
+  margin-block: auto !important;
+  margin-inline-start: 4px !important;
+  margin-inline-end: 6px !important;
+  flex: 1 1 auto !important;
+  max-width: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#urlbar {
+  --urlbar-height: 30px !important;
+  --urlbar-toolbar-height: 30px !important;
+  --urlbar-border-radius: 4px !important;
+  --urlbar-background-border-radius: 4px !important;
+  --urlbar-inner-border-radius: 4px !important;
+  --urlbarview-border-radius: 8px !important;
+  min-height: 30px !important;
+  height: 30px !important;
+  border-radius: 4px !important;
+  top: 0 !important;
+  margin-block: auto !important;
+}
+
+.urlbar-background,
+#urlbar-background,
+.urlbar[popover-open] > .urlbar-background {
+  background-color: var(--kde-view-bg) !important;
+  border: 1px solid var(--kde-border-color) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 2px var(--palette-alpha-black-25) !important;
+  inset: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  clip-path: none !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+#urlbar:not([focused="true"]):not([focused]):hover > .urlbar-background,
+#urlbar:not([focused="true"]):not([focused]):hover > #urlbar-background {
+  border-color: var(--palette-icon-muted) !important;
+}
+
+/* Breeze Focus: crisp 1px var(--palette-blue-accent) border + subtle blue outer glow matching KDE reference */
+#urlbar[focused="true"] > .urlbar-background,
+#urlbar[focused] > .urlbar-background,
+#urlbar:focus-within > .urlbar-background,
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar:focus-within > #urlbar-background {
+  border-color: var(--kde-accent) !important;
+  box-shadow: 0 0 0 1px var(--kde-accent), 0 0 4px var(--palette-alpha-blue-45) !important;
+  border-radius: 4px !important;
+  outline: none !important;
+}
+
+/* Remove pill shape on URL bar search button and input adornments */
+#urlbar-search-button,
+#urlbar-search-mode-indicator,
+.searchmode-switcher {
+  border-radius: 4px !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  margin-block: auto !important;
+  height: 24px !important;
+  min-height: 24px !important;
+
+  /* Override moz-button Shadow DOM tokens so the switcher button matches Breeze */
+  --button-border-radius: 4px !important;
+  --button-border: 1px solid transparent !important;
+  --button-padding: 0 6px !important;
+  --button-min-height: 24px !important;
+  --button-background-color: transparent !important;
+  --button-background-color-hover: var(--kde-hover-bg) !important;
+  --button-border-color-hover: var(--palette-alpha-blue-50) !important;
+  --button-background-color-active: var(--kde-active-bg) !important;
+  --button-border-color-active: var(--kde-accent) !important;
+  --button-background-color-selected: var(--kde-active-bg) !important;
+  --button-border-color-selected: var(--kde-accent) !important;
+  --button-background-color-muted: transparent !important;
+  --button-border-color-muted: transparent !important;
+  --button-background-color-muted-hover: var(--kde-hover-bg) !important;
+  --button-border-color-muted-hover: var(--palette-alpha-blue-50) !important;
+  --button-background-color-muted-active: var(--kde-active-bg) !important;
+  --button-border-color-muted-active: var(--kde-accent) !important;
+  --button-background-color-muted-selected: var(--kde-active-bg) !important;
+  --button-border-color-muted-selected: var(--kde-accent) !important;
+  --button-background-color-ghost: transparent !important;
+  --button-border-color-ghost: transparent !important;
+  --button-background-color-ghost-hover: var(--kde-hover-bg) !important;
+  --button-border-color-ghost-hover: var(--palette-alpha-blue-50) !important;
+  --button-background-color-ghost-active: var(--kde-active-bg) !important;
+  --button-border-color-ghost-active: var(--kde-accent) !important;
+  --button-background-color-ghost-selected: var(--kde-active-bg) !important;
+  --button-border-color-ghost-selected: var(--kde-accent) !important;
+  --focus-outline: none !important;
+  --focus-outline-offset: 0px !important;
+}
+
+#urlbar-search-button:is(:hover, :focus-visible),
+#urlbar-search-mode-indicator:is(:hover, :focus-visible) {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+.searchmode-switcher:is([open], [open="true"], [aria-expanded="true"]) {
+  --button-background-color: var(--kde-active-bg) !important;
+  --button-background-color-muted: var(--kde-active-bg) !important;
+  --button-background-color-ghost: var(--kde-active-bg) !important;
+  --button-border: 1px solid var(--kde-accent) !important;
+  --button-border-color-muted: var(--kde-accent) !important;
+  --button-border-color-ghost: var(--kde-accent) !important;
+}
+
+/* Tight compact centered URL input container matching KDE search field */
+.urlbar-input-container {
+  height: 30px !important;
+  min-height: 30px !important;
+  padding-block: 0 !important;
+  padding-inline: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 4px !important;
+}
+
+#page-action-buttons {
+  margin-inline-end: 4px !important;
+}
+
+/* Remove dark oval pill shape on security identity box wrapper and style individual left URL bar icons */
+#identity-box {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-inline: 0 !important;
+  height: 24px !important;
+  align-items: center !important;
+}
+
+/* Preserve Firefox's native conditional visibility for identity and tracking icons */
+#identity-box[hidden="true"],
+#identity-box[hidden],
+#trust-icon-container[hidden="true"],
+#trust-icon-container[hidden],
+#tracking-protection-icon-container[hidden="true"],
+#tracking-protection-icon-container[hidden],
+#identity-permission-box[hidden="true"],
+#identity-permission-box[hidden],
+#urlbar[pageproxystate="invalid"] #trust-icon-container,
+#urlbar[pageproxystate="invalid"] #tracking-protection-icon-container,
+#urlbar[pageproxystate="invalid"]:not([persistsearchterms]) #identity-box {
+  display: none !important;
+}
+
+#trust-icon-container,
+#tracking-protection-icon-container,
+#identity-icon-box,
+#identity-permission-box {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--breeze-action-radius) !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  max-height: 24px !important;
+  padding-inline: 5px !important;
+  padding-block: 0 !important;
+  margin-block: auto !important;
+  margin-inline: 1px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+#trust-icon-container:not([disabled="true"]):is(:hover, :focus-visible),
+#tracking-protection-icon-container:not([disabled="true"]):is(:hover, :focus-visible),
+#identity-icon-box:not([disabled="true"]):is(:hover, :focus-visible),
+#identity-permission-box:not([disabled="true"]):is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+#trust-icon-container:is(:active, :hover:active, [open], [open="true"]),
+#tracking-protection-icon-container:is(:active, :hover:active, [open], [open="true"]),
+#identity-icon-box:is(:active, :hover:active, [open], [open="true"]),
+#identity-permission-box:is(:active, :hover:active, [open], [open="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+
+/* Prevent breakout balloon expansion & popover overhang over toolbar buttons (070732.png) */
+#urlbar[breakout][breakout-extend],
+.urlbar[popover-open] {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+}
+
+#urlbar[breakout][breakout-extend] > .urlbar-input-container,
+.urlbar[popover-open] > .urlbar-input-container,
+.urlbar[popover-open][focused] > .urlbar-input-container {
+  height: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  padding-block: 0 !important;
+  padding-inline: 4px !important;
+  margin: 0 !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.urlbar-input-box {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+#urlbar-input {
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--kde-view-fg) !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  padding-block: 2px 0 !important;
+  padding-inline: 4px 6px !important;
+  margin-block: auto !important;
+  margin-inline: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Autocomplete Dropdown - Detached GSL 8px KDE Breeze Popup (Fixes 070732.png overlap & group labels) */
+.urlbarView-background {
+  display: none !important;
+}
+
+.urlbarView {
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+  margin-block-start: 4px !important;
+  margin-inline: 0 !important;
+  width: 100% !important;
+  padding: 6px !important;
+  overflow-clip-margin: 0px !important;
+}
+
+.urlbarView-body-outer,
+.urlbarView-body-inner {
+  border-top: none !important;
+  background: transparent !important;
+}
+
+.urlbarView-results {
+  padding-block: 2px !important;
+  margin-inline: 0 !important;
+  width: 100% !important;
+  border-top: none !important;
+}
+
+.urlbarView-row {
+  border-radius: 5px !important;
+  margin-block: 1px !important;
+  margin-inline: 2px !important;
+  padding: 0 !important;
+  border: 1px solid transparent !important;
+  background-clip: border-box !important;
+  min-height: 30px !important;
+  transition: background-color 0.12s ease, border-color 0.12s ease !important;
+}
+
+/* Preserve top spacing for labeled section header rows ("Trending on Google" in 070732.png) */
+.urlbarView-row[label] {
+  margin-block-start: 28px !important;
+  margin-block-end: 1px !important;
+  margin-inline: 2px !important;
+  position: relative !important;
+}
+
+.urlbarView-row[label]::before {
+  top: -21px !important;
+  left: 8px !important;
+  margin: 0 !important;
+  color: var(--palette-text-dim) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+.urlbarView-row-inner {
+  padding-block: 4px !important;
+  padding-inline: 8px !important;
+  min-height: 28px !important;
+  border-radius: 5px !important;
+  align-items: center !important;
+}
+
+.urlbarView-title {
+  color: var(--palette-text-main) !important;
+  font-size: 13px !important;
+}
+
+.urlbarView-url,
+.urlbarView-action {
+  color: var(--palette-blue-accent) !important;
+  font-size: 12.5px !important;
+}
+
+.urlbarView-row:hover:not([selected]) {
+  background-color: var(--palette-alpha-blue-25) !important;
+  border-color: var(--palette-alpha-blue-45) !important;
+  border-radius: 5px !important;
+}
+
+.urlbarView-row[selected] {
+  background-color: var(--palette-alpha-blue-25) !important;
+  border-color: var(--palette-alpha-blue-85) !important;
+  border-radius: 5px !important;
+  color: var(--palette-white) !important;
+}
+
+.urlbarView-row[selected] .urlbarView-title,
+.urlbarView-row[selected] .urlbarView-url,
+.urlbarView-row[selected] .urlbarView-action {
+  color: var(--palette-white) !important;
+}
+
+
+/* ==========================================================================
+   11. Search Engine Selection Menu (Matches Dolphin Directions Menu)
+   ========================================================================== */
+
+.searchmode-switcher-panel,
+.searchmode-switcher-panel-list,
+panel-list,
+panel-item {
+  --panel-background: var(--palette-popup-bg) !important;
+  --panel-background-color: var(--palette-popup-bg) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+  --panel-subview-body-padding: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-list-background-color: var(--palette-popup-bg) !important;
+  --panel-list-border-color: var(--palette-dialog-border) !important;
+  --panel-list-border-radius: var(--breeze-menu-radius) !important;
+  --panel-list-box-shadow: none !important;
+  --panel-menuitem-border-radius: 4px !important;
+  --panel-item-button-border-radius: 4px !important;
+  --panel-menuitem-margin: 0px !important;
+  --panel-menuitem-margin-inline: 0px !important;
+  --panel-item-button-margin: 0px !important;
+  --panel-menuitem-padding: 3px 8px !important;
+  --panel-menuitem-padding-block: 3px !important;
+  --panel-menuitem-padding-inline: 6px !important;
+  --panel-item-button-padding: 3px 8px !important;
+  --panel-item-button-padding-inline-start: 34px !important;
+  --panel-item-button-padding-inline-start-offset: 0px !important;
+  --icon-size: 16px !important;
+  --button-background-color-menu-hover: var(--breeze-action-hover-bg) !important;
+  --button-text-color-menu-hover: var(--palette-white) !important;
+  --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+  --button-text-color-menu-active: var(--sync-selection-fg, var(--palette-white)) !important;
+  --panel-separator-color: var(--palette-dialog-border) !important;
+  --panel-separator-padding: 4px 6px !important;
+  --urlbar-searchmode-switcher-panel-list-min-width: auto !important;
+  --focus-outline: none !important;
+}
+
+.searchmode-switcher-panel {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.searchmode-switcher-panel::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  margin: 0 !important;
+}
+
+.searchmode-switcher-panel-list {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: auto !important;
+}
+
+/* Individual Search Engine Items */
+.searchmode-switcher-panel-list > panel-item,
+panel-list > panel-item {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  margin: 1px 2px !important;
+  padding: 0 !important;
+  min-height: 26px !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(button),
+panel-list > panel-item::part(button) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border-radius: 4px !important;
+  min-height: 26px !important;
+  height: 26px !important;
+  margin: 0 !important;
+  padding-block: 3px !important;
+  padding-inline-start: 34px !important;
+  padding-inline-end: 12px !important;
+  color: var(--kde-window-fg) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  align-items: center !important;
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  box-sizing: border-box !important;
+  transition: background-color 0.08s ease, border-color 0.08s ease !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(button),
+panel-list > panel-item[icon]::part(button),
+panel-list > panel-item[type="checkbox"]::part(button) {
+  padding-inline-start: 34px !important;
+  padding-inline-end: 10px !important;
+  background-position: left 8px center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+}
+
+.searchmode-switcher-panel-list > panel-item::part(label),
+panel-list > panel-item::part(label) {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 18px !important;
+}
+
+/* Hover, Focus & Active selection matching Dolphin menu items */
+.searchmode-switcher-panel-list > panel-item:hover::part(button),
+.searchmode-switcher-panel-list > panel-item:focus::part(button),
+.searchmode-switcher-panel-list > panel-item:focus-visible::part(button),
+.searchmode-switcher-panel-list > panel-item[active]::part(button),
+.searchmode-switcher-panel-list > panel-item::part(button):hover,
+.searchmode-switcher-panel-list > panel-item::part(button):focus,
+.searchmode-switcher-panel-list > panel-item::part(button):focus-visible,
+panel-list > panel-item:hover::part(button),
+panel-list > panel-item:focus::part(button),
+panel-list > panel-item:focus-visible::part(button),
+panel-list > panel-item[active]::part(button),
+panel-list > panel-item::part(button):hover,
+panel-list > panel-item::part(button):focus,
+panel-list > panel-item::part(button):focus-visible {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border: 1px solid var(--breeze-action-hover-border) !important;
+  border-radius: 4px !important;
+  color: var(--palette-white) !important;
+  outline: none !important;
+}
+
+/* Hide "SUCHEN MIT:" header to match Dolphin's clean menu layout */
+.searchmode-switcher-panel-description {
+  display: none !important;
+}
+
+/* Separators */
+.searchmode-switcher-panel hr[hidden],
+.searchmode-switcher-panel-installed-engine-separator[hidden],
+.searchmode-switcher-panel-footer-separator[hidden] {
+  display: none !important;
+}
+
+.searchmode-switcher-panel hr:not([hidden]),
+.searchmode-switcher-panel-installed-engine-separator:not([hidden]),
+.searchmode-switcher-panel-footer-separator:not([hidden]) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  border: none !important;
+  border-block-start: 1px solid var(--palette-dialog-border) !important;
+  background: transparent !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 4px 6px !important;
+  padding: 0 !important;
+}
+
+
+/* One icon lane for the entire dropdown family, including CSS-only icons. */
+panel-list > panel-item::part(button) {
+  padding-inline-start: 34px !important;
+  background-position: left 8px center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+}
+
+panel-item:dir(rtl)::part(button),
+:host(panel-item:dir(rtl)) button[part="button"] {
+  background-position: right 8px center !important;
+}
+
+/* Older Firefox layouts can retain a fixed field width or an inline breakout offset. */
+:root:not([customizing]) #nav-bar-customization-target > #urlbar-container,
+:root:not([customizing]) #nav-bar > #urlbar-container {
+  flex: 1 1 0 !important;
+  width: 0 !important;
+  min-width: 160px !important;
+  max-width: none !important;
+}
+
+:root:not([customizing]) #urlbar-container > #urlbar {
+  width: 100% !important;
+  inset-inline-start: 0 !important;
+  margin-inline: 0 !important;
+}
+
+/* Menu triggers and pressed dropdown actions follow the reference state. */
+.searchmode-switcher-panel-list > panel-item:is(:active, [selected])::part(button),
+panel-list > panel-item:is(:active, [selected])::part(button) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
