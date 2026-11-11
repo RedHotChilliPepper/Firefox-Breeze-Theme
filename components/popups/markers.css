@@ -1,0 +1,61 @@
+/* popups — markers */
+
+/* GSL semantic menu markers: 18px reference checkbox for independent
+   toggles; circular radio markers for mutually exclusive choices. Center the
+   marker in the existing 16px artwork slot to preserve text alignment. */
+menuitem:is([type="checkbox"], [type="radio"], [checked]) > .menu-icon,
+:is(#context-video-fullscreen, #context-leave-dom-fullscreen, #context-media-showcontrols, #context-media-hidecontrols) > .menu-icon {
+  display: inline-block !important;
+  visibility: visible !important;
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  content: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  margin-inline-start: -1px !important;
+  margin-inline-end: 7px !important;
+  padding: 0 !important;
+  border: 1px solid var(--palette-icon-muted) !important;
+  border-radius: 3px !important;
+  box-sizing: border-box !important;
+  background: var(--palette-button-bg) !important;
+  box-shadow: none !important;
+}
+
+menuitem:is([type="checkbox"], [type="radio"], [checked]):not([disabled]:not([disabled="false"])):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
+  border-color: var(--breeze-action-hover-border) !important;
+}
+
+menuitem:not([type="radio"])[checked]:not([checked="false"]) > .menu-icon,
+:is(#context-leave-dom-fullscreen, #context-media-hidecontrols) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+  background: var(--palette-toggle-on-bg) url("chrome://global/skin/icons/check.svg") center / 11px 11px no-repeat !important;
+  -moz-context-properties: fill !important;
+  fill: var(--palette-white) !important;
+}
+
+:is(menuitem[type="radio"], menuitem[id^="sidebar-history-sort-by-"], menuitem[id^="sidebar-opentabs-sort-by-"]) > .menu-icon {
+  border-radius: 50% !important;
+  background: var(--palette-view-bg) !important;
+}
+
+:is(menuitem[type="radio"], menuitem[id^="sidebar-history-sort-by-"], menuitem[id^="sidebar-opentabs-sort-by-"])[checked]:not([checked="false"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+  background: var(--palette-view-bg) !important;
+  background-image: radial-gradient(circle 4px at center, var(--palette-blue-accent) 96%, transparent 100%) !important;
+}
+
+menuitem[disabled]:not([disabled="false"]) > .menu-icon {
+  border-color: var(--palette-icon-muted) !important;
+  opacity: 0.5 !important;
+}
+
+
+/* These paired video commands expose their off/on state through visibility. */
+:is(#context-video-fullscreen, #context-leave-dom-fullscreen, #context-media-showcontrols, #context-media-hidecontrols):not([disabled="true"]):is(:hover, [_moz-menuactive="true"]) > .menu-icon {
+  border-color: var(--palette-blue-accent) !important;
+}

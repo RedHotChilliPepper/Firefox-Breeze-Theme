@@ -1,0 +1,101 @@
+/* popups — panels */
+
+/* Arrow panels and dropdown menus (Hamburger menu, Unified Extensions panel, etc.) */
+panel[type="arrow"],
+panel.cui-widget-panel,
+#appMenu-popup,
+#unified-extensions-panel {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Explicit Breeze Panel CSS Variables used by Firefox internally */
+  --panel-background: var(--palette-popup-bg) !important;
+  --panel-background-color: var(--palette-popup-bg) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-subview-body-padding: 0px !important;
+  --panel-subview-body-padding-block: 0px !important;
+  --panel-subview-body-padding-inline: 0px !important;
+  --arrowpanel-background: var(--palette-popup-bg) !important;
+  --arrowpanel-border-color: var(--palette-dialog-border) !important;
+  --arrowpanel-border-radius: var(--breeze-menu-radius) !important;
+  --arrowpanel-padding: 4px !important;
+}
+
+/* Ensure the content box is styled with solid Breeze background and crisp 1px border */
+panel[type="arrow"]::part(content),
+panel.cui-widget-panel::part(content),
+#appMenu-popup::part(content),
+#unified-extensions-panel::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+  color: var(--kde-window-fg) !important;
+}
+
+/* Override panel-no-padding so that our 4px padding is applied cleanly */
+panel[type="arrow"].panel-no-padding::part(content),
+#appMenu-popup.panel-no-padding::part(content) {
+  padding: 4px !important;
+}
+
+/* Hide speech-bubble popover tail arrow to match Dolphin */
+.panel-arrow {
+  display: none !important;
+}
+
+/* Autocomplete panels (URL bar dropdown) */
+panel[type="autocomplete-richlistbox"] {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  --panel-background: var(--palette-popup-bg) !important;
+  --panel-background-color: var(--palette-popup-bg) !important;
+  --panel-border-color: var(--palette-dialog-border) !important;
+  --panel-border-radius: var(--breeze-menu-radius) !important;
+  --panel-padding: 4px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+}
+
+panel[type="autocomplete-richlistbox"]::part(content) {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: var(--palette-popup-bg) !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: none !important;
+  padding: 4px !important;
+}
+
+/* Intermediate containers in arrow panels reset */
+panelmultiview,
+panelview,
+.panel-viewcontainer,
+.panel-viewstack,
+.panel-subview-body {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}

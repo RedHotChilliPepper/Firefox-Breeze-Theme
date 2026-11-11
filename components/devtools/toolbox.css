@@ -1,0 +1,65 @@
+/* DevTools tool/header bars — GSL 30. Native roles and overflow stay intact. */
+@-moz-document url-prefix("chrome://devtools/"), url-prefix("about:devtools"), url-prefix("resource://devtools/") {
+  .devtools-tabbar,
+  .devtools-toolbar,
+  .tabs-navigation,
+  .tabs-menu {
+    background: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    box-sizing: border-box !important;
+  }
+
+  .devtools-tabbar { padding: 4px 6px !important; column-gap: 4px !important; min-height: 38px !important; }
+  .toolbox-tabs,
+  #toolbox-buttons-start,
+  #toolbox-buttons-end,
+  #toolbox-controls { gap: 4px !important; align-items: center !important; }
+  .toolbox-tabs { padding: 0 !important; }
+  .devtools-tabbar .devtools-separator { margin-inline: 2px !important; }
+  .devtools-toolbar { padding-inline: 6px !important; gap: 4px !important; min-height: 36px !important; }
+  .tabs-menu { gap: 4px !important; padding: 4px 6px !important; }
+
+  .devtools-tab,
+  .tabs-menu-item {
+    min-height: 28px !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+    color: var(--palette-text-main) !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    padding-inline: 6px !important;
+    transition: background-color .15s ease, border-color .15s ease !important;
+  }
+  .devtools-tab-label,
+  .tabs-menu-item > a { font-size: 13px !important; color: inherit !important; padding-inline: 0 !important; }
+  .tabs-menu-item > a { min-height: 26px !important; display: flex !important; align-items: center !important; }
+  .devtools-tab > img { margin-inline: 0 6px !important; fill: currentColor !important; }
+  .devtools-tab-line { display: none !important; }
+  .devtools-tab:is(:hover, :focus-visible),
+  .tabs-menu-item:is(:hover, :focus-within) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+  .devtools-tab:is(.selected, [aria-selected="true"], :active),
+  .tabs-menu-item:is(.is-active, :active) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+    box-shadow: none !important;
+  }
+
+  /* Both start and end groups have equal standalone action geometry. */
+  :is(#toolbox-buttons-start, #toolbox-buttons-end, #toolbox-controls) > :is(button, .devtools-button, .devtools-tabbar-button) {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    border-radius: 4px !important;
+  }
+  .devtools-toolbar label { font-size: 13px !important; }
+  .devtools-filterinput,
+  .devtools-searchinput { box-sizing: border-box !important; min-height: 26px !important; font: 13px "Noto Sans", sans-serif !important; }
+}

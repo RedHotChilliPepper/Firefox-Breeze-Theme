@@ -102,6 +102,9 @@
   }
 
   #controls .control-button {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-clip: padding-box !important;
     width: var(--pip-control-size) !important;
     min-width: var(--pip-control-size) !important;
     max-width: var(--pip-control-size) !important;
@@ -127,15 +130,17 @@
   }
 
   #controls .control-button:hover:enabled,
-  #controls .control-button:focus-visible {
+  #controls .control-button:focus-visible,
+  #controls :is(#unpip, #close):enabled:is(:hover, :focus-visible) {
     background-color: var(--breeze-action-hover-solid) !important;
     border-color: var(--breeze-action-hover-border) !important;
   }
 
-  #controls .control-button:is(:active, [aria-expanded="true"]):enabled {
+  #controls .control-button:is(:active, [aria-expanded="true"]):enabled,
+  #controls :is(#unpip, #close).control-button:is(:active, [aria-expanded="true"]):enabled {
     background-color: var(--breeze-action-active-bg) !important;
     border-color: var(--breeze-action-active-border) !important;
-    fill: var(--palette-white) !important;
+    fill: var(--sync-selection-fg, var(--palette-white)) !important;
   }
 
   #controls button:disabled {
@@ -151,7 +156,7 @@
     border-color: var(--palette-border-dark) !important;
   }
 
-  #controls #close:hover {
+  #controls #close:enabled:hover {
     background-color: var(--palette-negative) !important;
     border-color: var(--palette-negative) !important;
   }
@@ -271,14 +276,14 @@
   }
 
   #controls .playback-rate-preset:is(:hover, :focus-visible) {
-    border-color: var(--palette-blue-accent) !important;
-    background: var(--palette-groove-sep) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    background: var(--breeze-action-hover-solid) !important;
   }
 
-  #controls .playback-rate-preset[aria-pressed="true"] {
+  #controls .playback-rate-preset:is(:active, [aria-pressed="true"]) {
     border-color: var(--palette-blue-accent) !important;
     background: var(--palette-blue-accent) !important;
-    color: var(--palette-white) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
   }
 
   /* Keep every native unavailable feature and closed settings panel hidden. */
@@ -314,3 +319,48 @@
     box-shadow: none !important;
   }
 }
+
+/* GSL 37: Firefox's video-control UA shadow tree, not website buttons. */
+.videocontrols #pictureInPictureToggle {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background: none !important;
+  border: 0 !important;
+  color: var(--kde-button-fg) !important;
+  fill: currentColor !important;
+  --pip-icon-size: 18px !important;
+  --pip-toggle-margin: 5px !important;
+  --pip-icon-width-with-margins: 28px !important;
+  --pip-border-radius-toggle: 4px !important;
+  --pip-box-shadow-default: none !important;
+  --pip-box-shadow-hover: none !important;
+  --pip-highlight-width: 1px !important;
+  --pip-highlight-style: solid var(--palette-border-dark) !important;
+}
+.videocontrols #pictureInPictureToggle > :is(.pip-small, .pip-expanded),
+.videocontrols #pictureInPictureToggle .pip-explainer {
+  background-color: var(--palette-button-bg) !important;
+  color: inherit !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+.videocontrols #pictureInPictureToggle > .pip-small { width: 28px !important; height: 28px !important; }
+.videocontrols #pictureInPictureToggle > .pip-icon { top: 5px !important; left: 5px !important; }
+.videocontrols #pictureInPictureToggle:is(:hover, .hovering, :focus-visible) > :is(.pip-small, .pip-expanded) {
+  background-color: var(--breeze-action-hover-solid) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+}
+.videocontrols #pictureInPictureToggle:active { color: var(--breeze-action-active-fg) !important; }
+.videocontrols #pictureInPictureToggle:active > :is(.pip-small, .pip-expanded) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+}
+.videocontrols .controlsOverlay:not([hidetoggle="true"]).hovering > #pictureInPictureToggle,
+.videocontrols #pictureInPictureToggle:is(.hovering, :focus-visible) { opacity: 1 !important; }
+.videocontrols #pictureInPictureToggle:not(.experiment):not([small-video], [has-used]).hovering > .pip-expanded {
+  border-bottom: 0 !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+.videocontrols #pictureInPictureToggle .pip-explainer { border-top: 0 !important; border-radius: 0 0 4px 4px !important; }

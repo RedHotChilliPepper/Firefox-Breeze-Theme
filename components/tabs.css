@@ -189,8 +189,8 @@
   fill: currentColor !important;
 }
 
-#tabs-newtab-button:hover,
-#new-tab-button:hover {
+#tabs-newtab-button:is(:hover, :focus-visible),
+#new-tab-button:is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }
@@ -267,8 +267,8 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#vertical-tabs-newtab-button:hover,
-#tabbrowser-arrowscrollbox[orient="vertical"] #tabs-newtab-button:hover {
+#vertical-tabs-newtab-button:is(:hover, :focus-visible),
+#tabbrowser-arrowscrollbox[orient="vertical"] #tabs-newtab-button:is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;

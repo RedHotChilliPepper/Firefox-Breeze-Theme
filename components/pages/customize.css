@@ -1,0 +1,162 @@
+/* pages — customize */
+
+/* ==========================================================================
+   GLS Standard for Customize Firefox Toolbar (about:customizing)
+   ========================================================================== */
+#customization-container {
+  background-color: var(--palette-view-bg) !important;
+  color: var(--palette-text-main) !important;
+}
+
+
+#customization-palette-container {
+  background-color: var(--palette-view-bg) !important;
+}
+
+
+#customization-palette {
+  background-color: transparent !important;
+}
+
+
+#customization-panelWrapper > .panel-arrowcontent {
+  background-color: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px var(--palette-alpha-black-45) !important;
+}
+
+
+#customization-panelHeader,
+#customization-panelDescription {
+  color: var(--palette-text-main) !important;
+}
+
+
+toolbarpaletteitem {
+  border-radius: var(--breeze-action-radius) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+
+toolbarpaletteitem:is(:hover, :focus-visible) {
+  background-color: var(--palette-alpha-blue-16) !important;
+  outline: 1px solid var(--palette-alpha-blue-40) !important;
+}
+
+
+#customization-footer {
+  background-color: var(--palette-window-bg) !important;
+  border-top: 1px solid var(--palette-groove-sep) !important;
+  padding: 8px 16px !important;
+  min-height: 48px !important;
+  align-items: center !important;
+}
+
+
+#customization-footer .customization-checkbox > .checkbox-check,
+#customization-titlebar-visibility-checkbox > .checkbox-check {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  box-sizing: border-box !important;
+  border-radius: 3px !important;
+  border: 1px solid var(--palette-icon-muted) !important;
+  background-color: var(--palette-button-bg) !important;
+  margin-inline-end: 6px !important;
+}
+
+
+#customization-titlebar-visibility-checkbox:is(:hover, :focus-visible) > .checkbox-check {
+  border-color: var(--palette-blue-accent) !important;
+}
+
+
+#customization-titlebar-visibility-checkbox[checked]:not([checked="false"]) > .checkbox-check,
+#customization-titlebar-visibility-checkbox:checked > .checkbox-check {
+  background-color: var(--palette-toggle-on-bg) !important;
+  border-color: var(--palette-blue-accent) !important;
+  background-image: url("chrome://global/skin/icons/check.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 11px 11px !important;
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: var(--palette-white) !important;
+  stroke: var(--palette-white) !important;
+}
+
+
+#customization-reset-button,
+#customization-toolbar-visibility-button,
+#customization-uidensity-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-main) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: var(--breeze-action-radius) !important;
+  min-height: 30px !important;
+  padding: 4px 14px !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+
+#customization-reset-button:is(:hover, :focus-visible),
+#customization-toolbar-visibility-button:is(:hover, :focus-visible),
+#customization-uidensity-button:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}
+
+
+#customization-done-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--palette-btn-primary) !important;
+  border: 1px solid var(--palette-blue-accent) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border-radius: var(--breeze-action-radius) !important;
+  min-height: 30px !important;
+  padding: 4px 18px !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+
+#customization-done-button:is(:hover, :focus-visible) {
+  background-color: var(--palette-blue-accent) !important;
+  border-color: var(--palette-blue-focus) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
+}
+
+
+#customization-footer a,
+.customization-link,
+.customization-lwtheme-link {
+  color: var(--palette-link) !important;
+  text-decoration: none !important;
+}
+
+
+#customization-footer a:hover,
+.customization-link:hover,
+.customization-lwtheme-link:hover {
+  color: var(--palette-blue-accent) !important;
+  text-decoration: underline !important;
+}
+
+
+:is(#customization-reset-button, #customization-toolbar-visibility-button, #customization-uidensity-button, #customization-done-button):not([disabled="true"]):is(:active, [open="true"]) {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}

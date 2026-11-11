@@ -1,0 +1,50 @@
+/* devtools — selects */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* DevTools <select> & Toolbar Dropdowns (Fixes Memory View: Tree Map in 055946.png & Settings F1) */
+  select,
+  .devtools-toolbar-select {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+    padding: 3px 24px 3px 8px !important;
+    min-height: 28px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 13px !important;
+    background-image: url("chrome://global/skin/icons/arrow-down-12.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 6px center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-text-main) !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  select:is(:hover, :focus-visible):not(:disabled),
+  .devtools-toolbar-select:is(:hover, :focus-visible):not(:disabled),
+  select:focus,
+  .devtools-toolbar-select:focus {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+  
+}
+
+/* Pressed/open feedback follows this control family's hover rules. */
+@-moz-document url-prefix("chrome://devtools/"), url-prefix("about:devtools"), url-prefix("resource://devtools/") {
+  select:not(:disabled):is(:active, :open),
+  .devtools-toolbar-select:not(:disabled):is(:active, :open) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+}

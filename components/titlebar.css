@@ -41,7 +41,9 @@
   width: 18px !important;
   height: 18px !important;
   background: none !important;
-  -moz-context-properties: none !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: currentColor !important;
+  color: inherit !important;
 }
 
 :root[tabsintitlebar] .titlebar-min .toolbarbutton-icon {
@@ -105,3 +107,8 @@
   background-color: var(--breeze-action-active-bg) !important;
   border-color: var(--breeze-action-active-border) !important;
 }
+
+/* GSL 29: CSD glyphs follow normal, selected and destructive surfaces. */
+:root[tabsintitlebar] .titlebar-button { color: var(--kde-window-fg) !important; }
+:root[tabsintitlebar] .titlebar-button:active,
+:root[tabsintitlebar] .titlebar-close:hover { color: var(--breeze-action-active-fg) !important; }

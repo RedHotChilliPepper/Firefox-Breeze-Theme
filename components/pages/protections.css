@@ -1,0 +1,46 @@
+/* pages — protections */
+
+/* Docked protections promotion; preserve native visibility, artwork and graphs. */
+@-moz-document url("about:protections"), url("chrome://browser/content/protections.html") {
+  .new-banner {
+    background: var(--palette-window-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    color: var(--palette-text-main) !important;
+  }
+  .banner-wrapper {
+    width: min(100%, 840px) !important;
+    box-sizing: border-box !important;
+    padding: 16px 20px !important;
+    gap: 16px !important;
+    line-height: 1.45 !important;
+  }
+  .new-banner .wrapper { min-width: 0 !important; column-gap: 16px !important; }
+  .new-banner .banner-title { font: 600 14px/1.35 "Noto Sans", sans-serif !important; }
+  .new-banner .content { font: 13px/1.45 "Noto Sans", sans-serif !important; color: var(--palette-text-dim) !important; }
+  .new-banner .exit-icon {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 4px !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    background-size: 12px !important;
+    color: var(--palette-white) !important;
+  }
+  .new-banner .exit-icon:is(:hover, :focus-visible) { background-color: var(--palette-negative) !important; border-color: var(--palette-negative) !important; }
+  #vpn-banner-link {
+    min-height: 32px !important;
+    padding: 6px 14px !important;
+    border: 1px solid var(--palette-blue-accent) !important;
+    border-radius: 4px !important;
+    background-color: var(--palette-btn-primary) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+    font: 600 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+  #vpn-banner-link:is(:hover, :focus-visible, :active) { background-color: var(--palette-blue-accent) !important; }
+  @media (max-width: 700px) {
+    #report-content { width: auto !important; margin-inline: 20px !important; }
+    .new-banner .wrapper { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; }
+    .new-banner .wrapper div:first-child { padding-inline-end: 0 !important; }
+  }
+}

@@ -1,0 +1,49 @@
+/* popups — menu-shell */
+
+/* ==========================================================================
+   Qt6 Breeze Theme - Context Menus, Dropdowns & Micro-Animations
+   ========================================================================== */
+
+/* ==========================================================================
+   7. Context Menus & Popups (Authentic Qt6 Breeze / Dolphin Styling)
+   ========================================================================== */
+
+/* Authentic Qt6 Breeze context menu container (single border, solid dark background) */
+menupopup {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  box-shadow: 0 8px 24px var(--palette-alpha-black-55), 0 2px 6px var(--palette-alpha-black-35) !important;
+  padding: 4px !important;
+  margin: 0 !important;
+  color: var(--kde-window-fg) !important;
+
+  /* Nullify internal panel variables so Firefox doesn't calculate inner borders/margins */
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+}
+
+/* Eliminate duplicate inner frame, secondary borders, and nested padding inside menupopup */
+menupopup::part(content),
+menupopup::part(arrowscrollbox),
+menupopup::part(scrollbox),
+menupopup > arrowscrollbox,
+menupopup > .menupopup-arrowscrollbox,
+menupopup .menupopup-arrowscrollbox,
+.menupopup-arrowscrollbox {
+  appearance: none !important;
+  -moz-default-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}

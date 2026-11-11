@@ -1,0 +1,153 @@
+/* controls — selects */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+/* ==========================================================================
+     Form Controls: Unified Dropdowns (<moz-select>, <select>, <menulist>, <panel-list>)
+     ========================================================================== */
+
+  moz-select {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    --select-border-radius: 4px !important;
+    --button-border-radius: 4px !important;
+    --select-background-color: var(--palette-button-bg) !important;
+    --select-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --select-border-color: var(--palette-border-dark) !important;
+    --select-border-color-hover: var(--breeze-action-hover-border) !important;
+    --select-text-color: var(--palette-text-main) !important;
+    --select-text-color-hover: var(--palette-white) !important;
+    --select-min-height: 32px !important;
+    --select-space-inline: 10px !important;
+  }
+
+  .select-wrapper {
+    border-radius: 4px !important;
+    background-color: var(--palette-button-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    min-height: 32px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  .select-wrapper:is(:hover, :focus-visible),
+  .select-wrapper:focus-within {
+    border-color: var(--breeze-action-hover-border) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    color: var(--palette-white) !important;
+    outline: none !important;
+  }
+
+  .select-wrapper > select,
+  .select-wrapper > .panel-trigger {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    min-height: 30px !important;
+    color: inherit !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+  }
+
+  .select-wrapper .select-option-icon {
+    inset-inline-start: 10px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .select-wrapper .select-chevron-icon {
+    inset-inline-end: 10px !important;
+  }
+
+  .select-wrapper:not(.with-icon) > select,
+  .select-wrapper:not(.with-icon) > .panel-trigger {
+    padding-inline: 10px 30px !important;
+  }
+
+  .select-wrapper.with-icon > select,
+  .select-wrapper.with-icon > .panel-trigger {
+    padding-inline-start: 34px !important;
+    padding-inline-end: 30px !important;
+  }
+
+  select:not(.select-wrapper > select),
+  menulist {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 4px !important;
+    background-color: var(--palette-button-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    min-height: 32px !important;
+    padding: 4px 28px 4px 10px !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 12.5px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  select:not(.select-wrapper > select):not([iconic]):not([multiple]):not([size]) {
+    background-image: url("chrome://global/skin/icons/arrow-down-12.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 8px center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill !important;
+    fill: var(--palette-text-main) !important;
+  }
+
+  select:not(.select-wrapper > select):is(:hover, :focus-visible):not(:disabled),
+  menulist:is(:hover, :focus-visible):not([disabled="true"]) {
+    border-color: var(--breeze-action-hover-border) !important;
+    background-color: var(--breeze-action-hover-bg) !important;
+    color: var(--palette-white) !important;
+  }
+}
+
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+  .select-wrapper:has(select:open),
+  .select-wrapper:has(+ [open]),
+  select:not(.select-wrapper > select):is(:active, :open):enabled,
+  menulist:not([disabled="true"]):is(:active, [open="true"]) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+}

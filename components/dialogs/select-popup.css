@@ -1,0 +1,44 @@
+/* dialogs — select-popup */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* HTML <select> Popup Menu (#ContentSelectDropdown - fixes left gutter & double border) */
+#ContentSelectDropdown > menupopup {
+  background-color: var(--palette-popup-bg) !important;
+  border: 1px solid var(--palette-dialog-border) !important;
+  border-radius: var(--breeze-menu-radius) !important;
+  padding: 4px !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+  --panel-color: var(--palette-text-main) !important;
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+}
+
+
+#ContentSelectDropdown > menupopup[customoptionstyling="true"]::part(arrowscrollbox) {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+
+#ContentSelectDropdown > menupopup > menuitem > .menu-icon,
+#ContentSelectDropdown > menupopup > menu > .menu-icon {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+
+#ContentSelectDropdown > menupopup > menuitem {
+  margin: 0 !important;
+  padding-block: 4px !important;
+  padding-inline-start: 8px !important;
+  padding-inline-end: 12px !important;
+  min-height: 26px !important;
+  border-radius: 4px !important;
+}

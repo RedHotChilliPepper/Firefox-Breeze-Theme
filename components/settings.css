@@ -2,10 +2,6 @@
    Qt6 Breeze Theme - Settings, Addons, Keybinds & Profiles (Entry Point)
    ========================================================================== */
 
-@import "settings-nav.css";
-@import "settings-cards.css";
-@import "settings-controls.css";
-@import "settings-pages.css";
 
 /* ==========================================================================
    KDE Plasma 6 / Qt6 Breeze In-Content, Subdialog, Sidebar, Print, PDF & DevTools
@@ -52,15 +48,15 @@
     --in-content-box-border-color: var(--palette-border-dark) !important;
     --in-content-border-color: var(--palette-groove-sep) !important;
     --in-content-button-background: var(--palette-button-bg) !important;
-    --in-content-button-background-hover: var(--palette-groove-sep) !important;
-    --in-content-button-background-active: var(--palette-alpha-blue-28) !important;
+    --in-content-button-background-hover: var(--breeze-action-hover-bg) !important;
+    --in-content-button-background-active: var(--breeze-action-active-bg) !important;
     --in-content-button-border-radius: 4px !important;
     --in-content-button-text-color: var(--palette-text-main) !important;
     --in-content-button-text-color-hover: var(--palette-white) !important;
     --in-content-primary-button-background: var(--palette-btn-primary) !important;
-    --in-content-primary-button-text-color: var(--palette-white) !important;
+    --in-content-primary-button-text-color: var(--sync-selection-fg, var(--palette-white)) !important;
     --in-content-primary-button-hover-background: var(--palette-blue-accent) !important;
-    --in-content-primary-button-active-background: var(--palette-alpha-blue-45) !important;
+    --in-content-primary-button-active-background: var(--breeze-action-active-bg) !important;
     --in-content-focus-outline-color: var(--palette-blue-accent) !important;
     --in-content-item-hover: var(--palette-alpha-blue-18) !important;
     --in-content-item-hover-text: var(--palette-white) !important;
@@ -129,14 +125,14 @@
     --card-border-color: var(--palette-groove-sep) !important;
     --card-box-shadow: none !important;
     --card-header-background-color: transparent !important;
-    --card-header-background-color-hover: var(--palette-alpha-blue-14) !important;
-    --card-header-background-color-active: var(--palette-alpha-blue-25) !important;
+    --card-header-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --card-header-background-color-active: var(--breeze-action-active-bg) !important;
     --card-header-border-color: transparent !important;
-    --card-header-border-color-hover: var(--palette-alpha-blue-50) !important;
-    --card-header-border-color-active: var(--palette-blue-accent) !important;
+    --card-header-border-color-hover: var(--breeze-action-hover-border) !important;
+    --card-header-border-color-active: var(--breeze-action-active-border) !important;
     --card-header-text-color: var(--palette-text-main) !important;
     --card-header-text-color-hover: var(--palette-white) !important;
-    --card-header-text-color-active: var(--palette-white) !important;
+    --card-header-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
 
     /* Box Groups & Box Items (Permissions rows, Search Engines list, Autofill lists) */
     --box-border-color: var(--palette-groove-sep) !important;
@@ -149,7 +145,7 @@
     --box-button-background-color-active: var(--breeze-action-active-bg) !important;
     --box-button-text-color: var(--palette-text-main) !important;
     --box-button-text-color-hover: var(--palette-white) !important;
-    --box-button-text-color-active: var(--palette-white) !important;
+    --box-button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
 
     /* Buttons (fixes unselected blue border & triple-nested button boxes) */
     --button-border-radius: 4px !important;
@@ -164,8 +160,8 @@
     --button-border-color-selected: var(--palette-blue-accent) !important;
     --button-text-color: var(--palette-text-main) !important;
     --button-text-color-hover: var(--palette-white) !important;
-    --button-text-color-active: var(--palette-white) !important;
-    --button-text-color-selected: var(--palette-white) !important;
+    --button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-selected: var(--sync-selection-fg, var(--palette-white)) !important;
 
     --button-background-color-primary: var(--palette-btn-primary) !important;
     --button-background-color-primary-hover: var(--palette-blue-accent) !important;
@@ -173,9 +169,9 @@
     --button-border-color-primary: var(--palette-blue-accent) !important;
     --button-border-color-primary-hover: var(--palette-blue-accent) !important;
     --button-border-color-primary-active: var(--palette-blue-accent) !important;
-    --button-text-color-primary: var(--palette-white) !important;
-    --button-text-color-primary-hover: var(--palette-white) !important;
-    --button-text-color-primary-active: var(--palette-white) !important;
+    --button-text-color-primary: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-primary-hover: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-text-color-primary-active: var(--sync-selection-fg, var(--palette-white)) !important;
 
     --button-background-color-ghost: transparent !important;
     --button-background-color-ghost-hover: var(--breeze-action-hover-bg) !important;
@@ -185,23 +181,23 @@
     --button-border-color-ghost-active: var(--palette-blue-accent) !important;
     --button-text-color-ghost: var(--palette-text-main) !important;
     --button-text-color-ghost-hover: var(--palette-white) !important;
-    --button-text-color-ghost-active: var(--palette-white) !important;
+    --button-text-color-ghost-active: var(--sync-selection-fg, var(--palette-white)) !important;
 
     --button-background-color-menu: transparent !important;
     --button-background-color-menu-hover: var(--breeze-action-hover-bg) !important;
     --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
     --button-text-color-menu: var(--palette-text-main) !important;
     --button-text-color-menu-hover: var(--palette-white) !important;
-    --button-text-color-menu-active: var(--palette-white) !important;
+    --button-text-color-menu-active: var(--sync-selection-fg, var(--palette-white)) !important;
 
     /* Switch tokens and geometry are shared in base.css. */
 
     /* Select & Panel-List Tokens */
     --select-border-radius: 4px !important;
     --select-background-color: var(--palette-button-bg) !important;
-    --select-background-color-hover: var(--palette-groove-sep) !important;
+    --select-background-color-hover: var(--breeze-action-hover-bg) !important;
     --select-border-color: var(--palette-border-dark) !important;
-    --select-border-color-hover: var(--palette-blue-accent) !important;
+    --select-border-color-hover: var(--breeze-action-hover-border) !important;
     --select-text-color: var(--palette-text-main) !important;
     --select-text-color-hover: var(--palette-white) !important;
     --select-min-height: 32px !important;

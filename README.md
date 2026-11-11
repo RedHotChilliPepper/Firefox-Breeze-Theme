@@ -4,16 +4,14 @@ A Breeze Theme for Firefox
 How to install?
 Download this repo as a zip, either put the stuff into your firefox profile folder or (for easier use) use the script (if you do not trust it, please read it, I will not provide some curl bullshit).
 
-Limitations: 
-Does not support wallpapers in new tab pages (I would recommend using an extension if you want animated stuff, gladly contribute if you wanna fix it)
+Supports theming of all internal webpages of firefox up to the current point.
 
-Some pages like about:studies are not themed, most settings dialogs are though
+Supports new tab wallpapers.
 
-Animations are uneven and not present everywhere they will be in later versions
+Support theme adaption on KDE (based on colour theme in use).
 
-This is an alpha release, though it works on Firefox 159 (lower version have not been tested)
-
-The UX is not completely unified, the main goal was to unify the design though not e.g. padding between different components (contributions would be helpful)
+How to enable theme support?
+After running install.sh go to about:config and search for colour-sync and enable it.
 
 [Main Preview](media/1.png)
 <details>

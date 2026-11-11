@@ -1,0 +1,23 @@
+/* popups — devtools-host */
+
+/* DevTools HTML tooltip/menu hosts are transparent positioning wrappers.
+   The nested .tooltip-panel owns the sole GSL shell. */
+panel.tooltip-xul-wrapper,
+panel.tooltip-xul-wrapper::part(content) {
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  --panel-background: transparent !important;
+  --panel-background-color: transparent !important;
+  --panel-border-color: transparent !important;
+  --panel-border-width: 0px !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-padding-block: 0px !important;
+}

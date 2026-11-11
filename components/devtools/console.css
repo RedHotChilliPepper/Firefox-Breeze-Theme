@@ -1,0 +1,67 @@
+/* devtools — console */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* Parent Process Browser Console Header Bar (051720.png) */
+  .chrome-debug-toolbar {
+    background-color: var(--palette-window-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    color: var(--palette-text-main) !important;
+    padding: 4px 8px !important;
+  }
+
+  /* The console mode is a radio group, not a row of outlined buttons.
+     Keep the selection on the radio itself and use the shared hover state. */
+  .chrome-debug-toolbar__modes {
+    align-items: center !important;
+  }
+
+  .chrome-debug-toolbar__modes label,
+  .chrome-debug-toolbar__modes label.selected {
+    display: inline-flex !important;
+    align-items: center !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+    cursor: pointer !important;
+  }
+
+  .chrome-debug-toolbar__modes label:is(:hover, :focus-within) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+  }
+
+  /* The selected console mode keeps its active state even while hovered. */
+  .chrome-debug-toolbar__modes label:is(.selected, :has(input[type="radio"]:checked)) {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--breeze-action-active-fg) !important;
+  }
+
+  .chrome-debug-toolbar__modes label:is(.selected, :has(input[type="radio"]:checked)) .mode__sublabel {
+    color: var(--breeze-action-active-fg) !important;
+  }
+
+  /* Hide the visual radio only; it remains focusable and controls the mode. */
+  .chrome-debug-toolbar__modes input[type="radio"] {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    min-width: 1px !important;
+    min-height: 1px !important;
+    border: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  .webconsole-output,
+  .jsterm-input-container {
+    background-color: var(--palette-view-bg) !important;
+  }
+
+  
+}

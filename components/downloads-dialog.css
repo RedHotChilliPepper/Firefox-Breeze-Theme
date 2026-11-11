@@ -85,7 +85,7 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-.downloadButton:hover:not(:disabled) {
+.downloadButton:is(:hover, :focus-visible):not(:disabled) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
@@ -94,7 +94,7 @@
 .downloadButton:active:not([disabled="true"]):not(:disabled) {
   background-color: var(--breeze-action-active-bg) !important;
   border-color: var(--breeze-action-active-border) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
 }
 
 #downloadsFooter {
@@ -129,10 +129,10 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#downloadsHistory:hover,
-.downloadsPanelFooterButton:hover {
-  background-color: var(--palette-alpha-blue-28) !important;
-  border-color: var(--palette-alpha-blue-85) !important;
+#downloadsHistory:is(:hover, :focus-visible),
+.downloadsPanelFooterButton:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -178,4 +178,11 @@
 
 .downloadButton > .button-box > .button-text {
   flex: 0 0 auto !important;
+}
+
+/* Footer actions use the same pressed surface as their toolbar counterparts. */
+:is(#downloadsHistory, .downloadsPanelFooterButton):not([disabled="true"]):not(:disabled):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
 }

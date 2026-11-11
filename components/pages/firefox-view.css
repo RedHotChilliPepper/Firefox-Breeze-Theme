@@ -1,0 +1,59 @@
+/* pages — firefox-view */
+
+/* Firefox View keeps its illustrations and native tab/card structure. */
+@-moz-document url-prefix("about:firefoxview"), url-prefix("chrome://browser/content/firefoxview/") {
+  :root,
+  :host {
+    --newtab-background-color: var(--palette-view-bg) !important;
+    --newtab-background-color-secondary: var(--palette-window-bg) !important;
+    --fxview-background-color: var(--palette-view-bg) !important;
+    --fxview-background-color-secondary: var(--palette-window-bg) !important;
+    --fxview-text-primary-color: var(--palette-text-main) !important;
+    --fxview-text-secondary-color: var(--palette-text-dim) !important;
+    --fxview-text-color-hover: var(--palette-white) !important;
+    --fxview-primary-action-background: var(--palette-blue-accent) !important;
+    --fxview-element-background-hover: var(--breeze-action-hover-bg) !important;
+    --fxview-element-background-active: var(--breeze-action-active-bg) !important;
+    --fxview-border: var(--palette-groove-sep) !important;
+  }
+
+  .sticky-container.bottom-fade {
+    background: var(--palette-view-bg) !important;
+  }
+
+  .card-container {
+    background-color: var(--palette-window-bg) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+  }
+
+  .card-container.inner {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  details.card-container > summary.card-container-header {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  details.card-container > summary.card-container-header:not([toggleDisabled]):is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--breeze-action-hover-border) !important;
+    color: var(--palette-white) !important;
+  }
+
+  details.card-container > summary.card-container-header:not([toggleDisabled]):active {
+    background-color: var(--breeze-action-active-bg) !important;
+    border-color: var(--breeze-action-active-border) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
+  }
+
+  summary.card-container-header .chevron-icon {
+    background-color: transparent !important;
+  }
+}

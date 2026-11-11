@@ -1,3 +1,19 @@
+/* The panel host positions; only its content paints the shell. */
+#editBookmarkPanel {
+  min-width: 380px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-background-color: var(--palette-window-bg) !important;
+  --arrowpanel-background: var(--palette-window-bg) !important;
+  --arrowpanel-border-color: var(--palette-border-dark) !important;
+  --arrowpanel-padding: 0px !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-padding: 0px !important;
+}
+
 /* ==========================================================================
    Qt6 Breeze Theme - Bookmark Dialog & Panel (#editBookmarkPanel)
    ========================================================================== */
@@ -7,7 +23,6 @@
         Downloads Panel (#downloadsPanel - 070719.png, 071049.png)
    ========================================================================== */
 
-#editBookmarkPanel,
 #editBookmarkPanel::part(content) {
   min-width: 380px !important;
   background-color: var(--palette-window-bg) !important;
@@ -18,7 +33,7 @@
 }
 
 #editBookmarkPanel .panel-header {
-  padding: 12px 11px 10px 11px !important;
+  padding: 12px 16px 10px !important;
   border-bottom: 1px solid var(--palette-groove-sep) !important;
 }
 
@@ -27,7 +42,7 @@
 }
 
 #editBookmarkPanel .panel-subview-body {
-  padding: 12px 11px 16px 11px !important;
+  padding: 12px 16px 16px !important;
 }
 
 #editBookmarkPanelContent {
@@ -100,10 +115,9 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#editBMPanel_folderMenuList:hover,
-#editBMPanel_folderMenuList[open="true"] {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+#editBMPanel_folderMenuList:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -129,11 +143,11 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#editBookmarkPanel .expander-up:hover,
-#editBookmarkPanel .expander-down:hover,
-#editBMPanel_foldersExpander:hover,
-#editBMPanel_tagsSelectorExpander:hover,
-#editBMPanel_newFolderButton:hover {
+#editBookmarkPanel .expander-up:is(:hover, :focus-visible),
+#editBookmarkPanel .expander-down:is(:hover, :focus-visible),
+#editBMPanel_foldersExpander:is(:hover, :focus-visible),
+#editBMPanel_tagsSelectorExpander:is(:hover, :focus-visible),
+#editBMPanel_newFolderButton:is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
@@ -146,7 +160,7 @@
 #editBMPanel_newFolderButton:hover:active {
   background-color: var(--breeze-action-active-bg) !important;
   border-color: var(--breeze-action-active-border) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
 }
 
 #editBMPanel_folderTree,
@@ -166,26 +180,27 @@
 #editBookmarkPanel_showForNewBookmarks > .checkbox-check {
   appearance: none !important;
   -moz-appearance: none !important;
-  width: 16px !important;
-  height: 16px !important;
+  width: 18px !important;
+  height: 18px !important;
+  box-sizing: border-box !important;
   border-radius: 3px !important;
-  border: 1px solid var(--palette-border-dark) !important;
-  background-color: var(--palette-view-bg) !important;
+  border: 1px solid var(--palette-icon-muted) !important;
+  background-color: var(--palette-button-bg) !important;
   margin-inline-end: 6px !important;
 }
 
-#editBookmarkPanel_showForNewBookmarks:hover > .checkbox-check {
+#editBookmarkPanel_showForNewBookmarks:is(:hover, :focus-visible) > .checkbox-check {
   border-color: var(--palette-blue-accent) !important;
 }
 
-#editBookmarkPanel_showForNewBookmarks[checked="true"] > .checkbox-check,
+#editBookmarkPanel_showForNewBookmarks[checked]:not([checked="false"]) > .checkbox-check,
 #editBookmarkPanel_showForNewBookmarks:checked > .checkbox-check {
-  background-color: var(--palette-blue-accent) !important;
+  background-color: var(--palette-toggle-on-bg) !important;
   border-color: var(--palette-blue-accent) !important;
   background-image: url("chrome://global/skin/icons/check.svg") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-size: 12px 12px !important;
+  background-size: 11px 11px !important;
   -moz-context-properties: fill, fill-opacity, stroke !important;
   fill: var(--palette-white) !important;
   stroke: var(--palette-white) !important;
@@ -224,12 +239,12 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#editBookmarkPanel .panel-footer button:hover,
-#editBookmarkPanel .footer-button:hover,
-#editBookmarkPanelRemoveButton:hover,
-#editBookmarkPanelBottomButtons > button:hover {
-  background-color: var(--palette-groove-sep) !important;
-  border-color: var(--palette-blue-accent) !important;
+#editBookmarkPanel .panel-footer button:is(:hover, :focus-visible),
+#editBookmarkPanel .footer-button:is(:hover, :focus-visible),
+#editBookmarkPanelRemoveButton:is(:hover, :focus-visible),
+#editBookmarkPanelBottomButtons > button:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
 }
 
@@ -238,16 +253,16 @@
 #editBookmarkPanelBottomButtons > button[default="true"] {
   background-color: var(--palette-btn-primary) !important;
   border: 1px solid var(--palette-blue-accent) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
   font-weight: 600 !important;
 }
 
-#editBookmarkPanelDoneButton:hover,
-#editBookmarkPanel .panel-footer button[default="true"]:hover,
-#editBookmarkPanelBottomButtons > button[default="true"]:hover {
+#editBookmarkPanelDoneButton:is(:hover, :focus-visible),
+#editBookmarkPanel .panel-footer button[default="true"]:is(:hover, :focus-visible),
+#editBookmarkPanelBottomButtons > button[default="true"]:is(:hover, :focus-visible) {
   background-color: var(--palette-blue-accent) !important;
   border-color: var(--palette-blue-focus) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
 }
 
 
@@ -257,7 +272,7 @@
   border-color: transparent !important;
 }
 
-#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander):hover {
+#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }
@@ -274,3 +289,39 @@
   border-color: var(--breeze-action-active-border) !important;
   color: var(--breeze-action-active-fg) !important;
 }
+
+/* These selectors must outrank the flat expander hover surface. */
+#editBookmarkPanel :is(.expander-up, .expander-down, #editBMPanel_foldersExpander, #editBMPanel_tagsSelectorExpander, #editBMPanel_newFolderButton):not([disabled="true"]):active,
+#editBMPanel_folderMenuList:not([disabled="true"]):is(:active, [open="true"]),
+#editBookmarkPanelBottomButtons > button:not([disabled="true"]):active,
+#editBookmarkPanel :is(.footer-button, .panel-footer button):not([disabled="true"]):active {
+  background-color: var(--breeze-action-active-bg) !important;
+  border-color: var(--breeze-action-active-border) !important;
+  color: var(--breeze-action-active-fg) !important;
+}
+
+/* GSL 31: expanded folder selector, retaining native columns and tree behavior. */
+#editBMPanel_folderTree treecols:not(:has(> treecol:not([hideheader="true"]))) {
+  height: 0 !important; min-height: 0 !important; max-height: 0 !important;
+  border: 0 !important; padding: 0 !important; margin: 0 !important; overflow: hidden !important;
+}
+#editBMPanel_folderTree treechildren::-moz-tree-row {
+  height: 32px !important; min-height: 32px !important;
+  border: 1px solid transparent !important; border-radius: 5px !important;
+  background-color: var(--palette-view-bg) !important;
+  outline: none !important;
+}
+#editBMPanel_folderTree treechildren::-moz-tree-row(odd) { background-color: var(--palette-zebra-odd) !important; }
+#editBMPanel_folderTree treechildren::-moz-tree-row(hover) {
+  background-color: var(--palette-alpha-blue-14) !important;
+  border-color: var(--palette-alpha-blue-40) !important;
+}
+#editBMPanel_folderTree treechildren::-moz-tree-row(selected) {
+  background-color: var(--palette-alpha-blue-24) !important;
+  border-color: var(--palette-alpha-blue-85) !important;
+}
+#editBMPanel_folderTree treechildren::-moz-tree-cell { padding-inline: 6px !important; }
+#editBMPanel_folderTree treechildren::-moz-tree-image { margin-inline-end: 8px !important; }
+#editBMPanel_folderTree treechildren::-moz-tree-cell-text { color: var(--palette-text-main) !important; }
+#editBMPanel_folderTree treechildren::-moz-tree-cell-text(selected) { color: var(--palette-white) !important; }
+#editBMPanel_folderTree treechildren::-moz-tree-line { visibility: hidden !important; }

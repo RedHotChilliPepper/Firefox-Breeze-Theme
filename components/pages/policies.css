@@ -1,0 +1,19 @@
+/* pages — policies */
+
+/* Policy documentation groups each record in its own tbody. Keep its expansion intact. */
+@-moz-document url-prefix("about:policies"), url-prefix("chrome://browser/content/policies/aboutPolicies") {
+  tbody {
+    background-color: transparent !important;
+  }
+
+  tbody.collapsible:nth-of-type(4n + 1) > tr:not(:hover),
+  .active-policies tr.odd:not(:hover),
+  .errors tr:nth-child(odd):not(:hover) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  .content-style {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+  }
+}

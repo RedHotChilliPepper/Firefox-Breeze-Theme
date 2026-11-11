@@ -78,16 +78,53 @@
   message-bar,
   .addon-card-message,
   .disco-description-container {
-    --message-bar-background-color: var(--palette-treeheader-bg) !important;
-    --message-bar-border-color: var(--palette-groove-sep) !important;
-    --message-bar-border-radius: 6px !important;
+    --breeze-message-accent: var(--palette-blue-accent);
+    --message-bar-background-color: var(--palette-popup-bg) !important;
+    --message-bar-background-color-warning: var(--palette-popup-bg) !important;
+    --message-bar-background-color-critical: var(--palette-popup-bg) !important;
+    --message-bar-background-color-success: var(--palette-popup-bg) !important;
+    --message-bar-border-color: var(--palette-border-dark) !important;
+    --message-bar-border-radius: 4px !important;
     --message-bar-text-color: var(--palette-text-main) !important;
-    --in-content-box-info-background: var(--palette-treeheader-bg) !important;
-    background-color: var(--palette-treeheader-bg) !important;
-    border: 1px solid var(--palette-groove-sep) !important;
-    border-inline-start: 3px solid var(--palette-blue-accent) !important;
-    border-radius: 6px !important;
+    --message-bar-icon-background-color: transparent !important;
+    --message-bar-icon-background-color-warning: transparent !important;
+    --message-bar-icon-background-color-critical: transparent !important;
+    --message-bar-icon-background-color-success: transparent !important;
+    --message-bar-icon-color: var(--breeze-message-accent) !important;
+    --message-bar-icon-size: 16px !important;
+    --message-bar-icon-container-border: none !important;
+    --message-bar-icon-container-padding: 0px !important;
+    --message-bar-icon-container-padding-offset: 0px !important;
+    --message-bar-icon-container-padding-block-start: 2px !important;
+    --message-bar-icon-container-margin-block-start: 0px !important;
+    --message-bar-icon-container-margin-block-start-offset: 0px !important;
+    --message-bar-icon-container-align-items: flex-start !important;
+    --message-bar-container-padding-inline: 16px !important;
+    --message-bar-container-padding-block: 12px !important;
+    --message-bar-content-padding-inline: 0px !important;
+    --message-bar-content-padding-block: 0px !important;
+    --message-bar-text-container-padding-block: 0px !important;
+    --message-bar-text-container-gap: 8px !important;
+    --message-bar-close-margin-block-start: 0px !important;
+    --message-bar-close-margin-inline-end: 0px !important;
+    background-color: var(--palette-popup-bg) !important;
+    border: 1px solid var(--palette-border-dark) !important;
+    border-inline-start: 3px solid var(--breeze-message-accent) !important;
+    border-radius: 4px !important;
     color: var(--palette-text-main) !important;
+    font: 13px/1.45 "Noto Sans", sans-serif !important;
+  }
+
+  :is(moz-message-bar, message-bar)[type="warning"] {
+    --breeze-message-accent: var(--palette-yellow);
+  }
+
+  :is(moz-message-bar, message-bar):is([type="error"], [type="critical"]) {
+    --breeze-message-accent: var(--palette-negative);
+  }
+
+  :is(moz-message-bar, message-bar)[type="success"] {
+    --breeze-message-accent: var(--palette-positive);
   }
 
   /* ==========================================================================
@@ -137,8 +174,8 @@
     margin-bottom: 8px !important;
   }
 
-  moz-card::part(summary):hover,
-  details > summary:hover {
+  moz-card::part(summary):is(:hover, :focus-visible),
+  details > summary:is(:hover, :focus-visible) {
     background-color: var(--breeze-action-hover-bg) !important;
     border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
@@ -148,7 +185,7 @@
   details > summary:active {
     background-color: var(--breeze-action-active-bg) !important;
     border-color: var(--breeze-action-active-border) !important;
-    color: var(--palette-white) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
   }
 
   moz-card[expanded] > moz-box-group,
@@ -178,11 +215,11 @@
     --box-padding: 12px 16px !important;
     --box-icon-size: 20px !important;
     --box-button-background-color: var(--palette-window-bg) !important;
-    --box-button-background-color-hover: var(--palette-alpha-blue-14) !important;
-    --box-button-background-color-active: var(--palette-alpha-blue-25) !important;
+    --box-button-background-color-hover: var(--breeze-action-hover-bg) !important;
+    --box-button-background-color-active: var(--breeze-action-active-bg) !important;
     --box-button-text-color: var(--palette-text-main) !important;
     --box-button-text-color-hover: var(--palette-white) !important;
-    --box-button-text-color-active: var(--palette-white) !important;
+    --box-button-text-color-active: var(--sync-selection-fg, var(--palette-white)) !important;
     background-color: var(--palette-window-bg) !important;
     font-size: 13.5px !important;
   }

@@ -72,6 +72,9 @@
   --lwt-text-color: var(--kde-window-fg) !important;
   --toolbar-bgcolor: var(--kde-window-bg) !important;
   --toolbar-color: var(--kde-window-fg) !important;
+  --toolbarbutton-icon-fill: var(--kde-window-fg) !important;
+  --lwt-icons-fill: var(--kde-window-fg) !important;
+  --urlbar-icon-fill: var(--kde-view-fg) !important;
   --tab-selected-bgcolor: var(--kde-window-bg) !important;
   --tab-selected-textcolor: var(--kde-window-fg) !important;
   --tab-line-color: var(--kde-accent) !important;
@@ -153,18 +156,17 @@
   box-shadow: 0 2px 6px var(--palette-alpha-black-35) !important;
 }
 
-/* Native XUL Tooltips (GSL Breeze Dark Tooltip) */
+/* Compact native text tooltips; do not change their popup behavior. */
 tooltip {
   appearance: none !important;
   -moz-default-appearance: none !important;
-  background-color: var(--palette-popup-bg) !important;
-  color: var(--kde-tooltip-fg) !important;
+  background-color: var(--sync-tooltip-bg, var(--palette-button-bg)) !important;
+  color: var(--sync-tooltip-fg, var(--palette-white)) !important;
   border: 1px solid var(--palette-dialog-border) !important;
   border-radius: 4px !important;
-  padding: 4px 8px !important;
-  font-family: "Noto Sans", sans-serif !important;
-  font-size: 12px !important;
-  box-shadow: 0 4px 12px var(--palette-alpha-black-45) !important;
+  padding: 4px 6px !important;
+  font: 13px/1.4 "Noto Sans", sans-serif !important;
+  box-shadow: 0 2px 6px var(--palette-alpha-black-35) !important;
 }
 
 

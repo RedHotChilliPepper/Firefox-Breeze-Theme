@@ -10,6 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_PROFILE=""
 UNINSTALL=false
 KDE_FRAME=true
+PALETTE_WATCH=true
 
 show_help() {
   cat << EOF
@@ -19,6 +20,7 @@ Options:
   --profile <path>            Specify custom Firefox profile directory
   --kde-frame, --native-frame Disable integrated window frame and use native KDE window decoration (default)
   --integrated-frame, --csd   Keep integrated window frame with tabs in titlebar
+  --no-palette-watch          Generate KDE colors without installing the user watcher
   --uninstall                 Remove installed theme from Firefox profile
   --help, -h                  Show this help message
 
@@ -41,6 +43,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --integrated-frame|--csd|--enable-integrated-frame|--tabs-in-titlebar)
       KDE_FRAME=false
+      shift
+      ;;
+    --no-palette-watch)
+      PALETTE_WATCH=false
       shift
       ;;
     --uninstall)
@@ -189,6 +195,11 @@ if [[ ${#TARGET_PROFILES[@]} -eq 0 ]]; then
   exit 1
 fi
 
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "Error: Python 3 is required for KDE palette generation and watcher management." >&2
+  exit 1
+fi
+
 for TARGET_PROFILE in "${TARGET_PROFILES[@]}"; do
   echo ""
   echo "=================================================================="
@@ -198,16 +209,12 @@ for TARGET_PROFILE in "${TARGET_PROFILES[@]}"; do
 
   if $UNINSTALL; then
     echo "Uninstalling Qt6 Breeze theme from $TARGET_PROFILE..."
-    rm -f "$CHROME_DIR/userChrome.css"
-    rm -f "$CHROME_DIR/userContent.css"
-    rm -f "$CHROME_DIR/palette.css"
-    rm -f "$CHROME_DIR/breeze-theme.css"
-    rm -f "$CHROME_DIR/breeze-icons.css"
-    rm -f "$CHROME_DIR/breeze-content.css"
-    rm -f "$CHROME_DIR/kde-colors.css"
-    rm -f "$CHROME_DIR/kde-colors-content.css"
+    for css_file in "$SCRIPT_DIR"/*.css; do
+      rm -f "$CHROME_DIR/$(basename "$css_file")"
+    done
     rm -rf "$CHROME_DIR/components"
     rm -rf "$CHROME_DIR/icons"
+    rm -rf "$CHROME_DIR/helpers"
     echo "Qt6 Breeze theme uninstalled successfully from $TARGET_PROFILE."
     continue
   fi
@@ -215,27 +222,16 @@ for TARGET_PROFILE in "${TARGET_PROFILES[@]}"; do
   # Ensure chrome directory exists
   mkdir -p "$CHROME_DIR"
 
-  # Copy theme files
-  echo "Installing theme files..."
-  cp "$SCRIPT_DIR/userChrome.css" "$CHROME_DIR/"
-  cp "$SCRIPT_DIR/userContent.css" "$CHROME_DIR/"
-  cp "$SCRIPT_DIR/palette.css" "$CHROME_DIR/"
-  cp "$SCRIPT_DIR/breeze-theme.css" "$CHROME_DIR/"
-  cp "$SCRIPT_DIR/breeze-icons.css" "$CHROME_DIR/"
-  cp "$SCRIPT_DIR/breeze-content.css" "$CHROME_DIR/"
-
-  if [[ -f "$SCRIPT_DIR/kde-colors.css" ]]; then
-    cp "$SCRIPT_DIR/kde-colors.css" "$CHROME_DIR/"
-  fi
-  if [[ -f "$SCRIPT_DIR/kde-colors-content.css" ]]; then
-    cp "$SCRIPT_DIR/kde-colors-content.css" "$CHROME_DIR/"
-  fi
-
-  # Copy modular CSS components (including components/icons)
-  echo "Installing theme components & Breeze icons..."
+  # Root CSS includes palette-sync.css; leaf modules remain recursive.
+  echo "Installing theme entry points, palettes and functional modules..."
+  for css_file in "$SCRIPT_DIR"/*.css; do
+    cp "$css_file" "$CHROME_DIR/"
+  done
   rm -rf "$CHROME_DIR/components"
   rm -rf "$CHROME_DIR/icons"
   cp -r "$SCRIPT_DIR/components" "$CHROME_DIR/"
+  mkdir -p "$CHROME_DIR/helpers"
+  cp "$SCRIPT_DIR/helpers/kde_palette.py" "$CHROME_DIR/helpers/"
 
   # Configure user.js
   USER_JS="$TARGET_PROFILE/user.js"
@@ -256,6 +252,7 @@ for TARGET_PROFILE in "${TARGET_PROFILES[@]}"; do
 
   echo "Configuring Firefox preferences in user.js..."
   set_pref "toolkit.legacyUserProfileCustomizations.stylesheets" "true"
+  set_pref "svg.context-properties.content.enabled" "true"
   set_pref "layout.css.prefers-color-scheme.content-override" "2"
   set_pref "widget.use-xdg-desktop-portal.file-picker" "1"
   set_pref "widget.use-xdg-desktop-portal.mime-handler" "1"
@@ -269,6 +266,21 @@ for TARGET_PROFILE in "${TARGET_PROFILES[@]}"; do
     set_pref "browser.tabs.inTitlebar" "1"
   fi
 done
+
+# The helper registers a missing colour-sync once in prefs.js. Do not pin it
+# in user.js, which would reset the user's enabled choice on every startup.
+PALETTE_ARGS=()
+for profile in "${TARGET_PROFILES[@]}"; do
+  PALETTE_ARGS+=(--profile "$profile")
+done
+if $UNINSTALL; then
+  python3 "$SCRIPT_DIR/helpers/kde_palette.py" --unregister "${PALETTE_ARGS[@]}"
+else
+  if $PALETTE_WATCH; then
+    PALETTE_ARGS+=(--watch)
+  fi
+  python3 "$SCRIPT_DIR/helpers/kde_palette.py" --theme-root "$SCRIPT_DIR" "${PALETTE_ARGS[@]}"
+fi
 
 echo ""
 echo "=================================================================="

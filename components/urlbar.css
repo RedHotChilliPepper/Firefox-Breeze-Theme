@@ -111,8 +111,8 @@
   --focus-outline-offset: 0px !important;
 }
 
-#urlbar-search-button:hover,
-#urlbar-search-mode-indicator:hover {
+#urlbar-search-button:is(:hover, :focus-visible),
+#urlbar-search-mode-indicator:is(:hover, :focus-visible) {
   background-color: var(--kde-hover-bg) !important;
   border-color: var(--palette-alpha-blue-50) !important;
 }
@@ -187,10 +187,10 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#trust-icon-container:not([disabled="true"]):hover,
-#tracking-protection-icon-container:not([disabled="true"]):hover,
-#identity-icon-box:not([disabled="true"]):hover,
-#identity-permission-box:not([disabled="true"]):hover {
+#trust-icon-container:not([disabled="true"]):is(:hover, :focus-visible),
+#tracking-protection-icon-container:not([disabled="true"]):is(:hover, :focus-visible),
+#identity-icon-box:not([disabled="true"]):is(:hover, :focus-visible),
+#identity-permission-box:not([disabled="true"]):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }
@@ -383,10 +383,10 @@ panel-item {
   --panel-item-button-padding-inline-start: 34px !important;
   --panel-item-button-padding-inline-start-offset: 0px !important;
   --icon-size: 16px !important;
-  --button-background-color-menu-hover: var(--palette-alpha-blue-30) !important;
+  --button-background-color-menu-hover: var(--breeze-action-hover-bg) !important;
   --button-text-color-menu-hover: var(--palette-white) !important;
-  --button-background-color-menu-active: var(--palette-alpha-blue-40) !important;
-  --button-text-color-menu-active: var(--palette-white) !important;
+  --button-background-color-menu-active: var(--breeze-action-active-bg) !important;
+  --button-text-color-menu-active: var(--sync-selection-fg, var(--palette-white)) !important;
   --panel-separator-color: var(--palette-dialog-border) !important;
   --panel-separator-padding: 4px 6px !important;
   --urlbar-searchmode-switcher-panel-list-min-width: auto !important;

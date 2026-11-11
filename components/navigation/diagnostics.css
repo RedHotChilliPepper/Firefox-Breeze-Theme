@@ -1,0 +1,56 @@
+/* navigation — diagnostics */
+
+/* GSL 23 — reference 1: diagnostic sidebars start at the page edge. */
+@-moz-document url-prefix("about:telemetry"), url-prefix("about:networking"),
+               url-prefix("about:policies"), url-prefix("about:webauthn"),
+               url-prefix("chrome://global/content/aboutWebauthn"),
+               url-prefix("chrome://global/content/aboutTelemetry"),
+               url-prefix("chrome://global/content/aboutNetworking"),
+               url-prefix("chrome://browser/content/policies/aboutPolicies") {
+  html { height: auto !important; min-height: 100% !important; }
+  body {
+    display: grid !important;
+    grid-template-columns: 330px minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  #categories {
+    margin: 0 !important;
+    padding: 56px 8px 8px !important;
+    width: 330px !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  .main-content,
+  #main-content {
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 56px 28px 28px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  .main-content > .header { flex-wrap: wrap !important; gap: 12px !important; }
+  #sectionTitle { margin-block-start: 0 !important; padding-inline-start: 0 !important; }
+  #categories > .category {
+    width: auto !important;
+    min-height: 32px !important;
+    height: auto !important;
+    margin: 4px 0 !important;
+    padding: 5px 10px !important;
+    box-sizing: border-box !important;
+    font: 13px/20px "Noto Sans", sans-serif !important;
+  }
+  #categories hr {
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    margin: 12px 0 !important;
+  }
+  .main-content :is(.tab, section.active) { overflow-x: auto !important; }
+}

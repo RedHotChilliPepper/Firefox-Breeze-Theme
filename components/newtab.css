@@ -156,7 +156,7 @@
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
   }
 
-  .external-link:hover {
+  .external-link:is(:hover, :focus-visible) {
     background-color: var(--breeze-action-hover-bg) !important;
     border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
@@ -188,8 +188,8 @@
     transition: background-color 0.15s ease, border-color 0.15s ease !important;
   }
 
-  .personalize-button:not(moz-button):hover,
-  .open-customization-button:not(moz-button):hover {
+  .personalize-button:not(moz-button):is(:hover, :focus-visible),
+  .open-customization-button:not(moz-button):is(:hover, :focus-visible) {
     background-color: var(--breeze-action-hover-bg) !important;
     border-color: var(--breeze-action-hover-border) !important;
     color: var(--palette-white) !important;
@@ -203,7 +203,7 @@
   .open-customization-button:not(moz-button):is(:active, [open]) {
     background-color: var(--breeze-action-active-bg) !important;
     border-color: var(--breeze-action-active-border) !important;
-    color: var(--palette-white) !important;
+    color: var(--sync-selection-fg, var(--palette-white)) !important;
     --button-background-color-primary: var(--breeze-action-active-bg) !important;
     --button-border-color-primary: var(--palette-blue-accent) !important;
   }

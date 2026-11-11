@@ -1,0 +1,131 @@
+/* pdf — sidebar */
+
+:root:has(> head > link[href="resource://pdf.js/web/viewer.css"]) {
+  #viewsManager {
+    --sidebar-width: 248px !important;
+    --sidebar-min-width: 224px !important;
+    --sidebar-block-padding: 0px !important;
+    --sidebar-bg-color: var(--palette-window-bg) !important;
+    --views-text-color: var(--palette-text-main) !important;
+    --header-bg: var(--palette-window-bg) !important;
+    --header-shadow: none !important;
+    --button-fg: var(--palette-text-main) !important;
+    --button-hover-bg: var(--palette-alpha-blue-16) !important;
+    --button-hover-fg: var(--palette-white) !important;
+    --button-hover-border-color: var(--palette-blue-accent) !important;
+    --button-active-bg: var(--breeze-action-active-bg) !important;
+    --button-active-fg: var(--sync-selection-fg, var(--palette-white)) !important;
+    --button-active-border-color: var(--palette-blue-accent) !important;
+    --button-focus-outline-color: var(--palette-blue-accent) !important;
+    --status-actions-bg: var(--palette-window-bg) !important;
+    --image-border-width: 1px !important;
+    --image-border-color: var(--palette-border-dark) !important;
+    --image-hover-border-color: var(--palette-blue-accent) !important;
+    --image-current-border-color: var(--palette-blue-accent) !important;
+    --image-current-focused-outline-color: var(--palette-blue-accent) !important;
+    --image-page-number-bg: var(--palette-button-bg) !important;
+    --image-page-number-fg: var(--palette-text-main) !important;
+    --image-current-page-number-bg: var(--palette-deep-accent) !important;
+    --image-current-page-number-fg: var(--palette-white) !important;
+    --image-shadow: 0 0 0 1px var(--palette-border-dark) !important;
+    --image-hover-shadow: 0 0 0 1px var(--palette-blue-accent) !important;
+    --image-current-shadow: 0 0 0 2px var(--palette-blue-accent) !important;
+    height: var(--viewer-container-height) !important;
+    padding: 0 !important;
+    border: none !important;
+    border-inline-end: 1px solid var(--palette-groove-sep) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: var(--palette-window-bg) !important;
+    backdrop-filter: none !important;
+  }
+
+  #outerContainer.viewsManagerOpen #viewsManager {
+    inset-inline-start: 0 !important;
+  }
+
+  #viewsManagerHeader {
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  #viewsManagerTitle {
+    padding: 4px 8px !important;
+  }
+
+  #viewsManagerStatus {
+    background-color: var(--palette-window-bg) !important;
+  }
+
+  #viewsManagerTitle :is(#viewsManagerSelector, #viewsManagerAddFileButton, #viewsManagerCurrentOutlineButton) {
+    height: 28px !important;
+  }
+
+  #viewsManagerStatus > div {
+    min-height: 36px !important;
+    padding: 4px 8px !important;
+  }
+
+  #viewsManagerStatus > div.hidden {
+    display: none !important;
+  }
+
+  #viewsManagerStatusAction {
+    gap: 8px !important;
+  }
+
+  #viewsManagerStatusActionLabelContainer {
+    min-width: 0 !important;
+    gap: 4px !important;
+  }
+
+  #viewsManagerStatus .newBadge {
+    font-size: 10px !important;
+    padding: 1px 4px !important;
+  }
+
+  .viewsManagerLabel,
+  .viewsManagerStatusLabel {
+    font: 13px/18px "Noto Sans", sans-serif !important;
+  }
+
+  #thumbnailsView {
+    padding: 12px !important;
+    gap: 16px !important;
+    --gap-between-input-and-thumbnail: 8px !important;
+  }
+
+  .thumbnailImageContainer,
+  .thumbnailImageContainer img,
+  .thumbnailImageContainer::after {
+    border-radius: 4px !important;
+  }
+
+  .treeView {
+    --treeitem-color: var(--palette-text-main) !important;
+    --treeitem-bg-color: var(--breeze-sidebar-hover-bg) !important;
+    --treeitem-hover-color: var(--palette-white) !important;
+    --treeitem-selected-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --treeitem-selected-bg-color: var(--breeze-sidebar-selected-bg) !important;
+  }
+
+  .treeItem > a {
+    border-radius: 5px !important;
+  }
+
+  .treeItem:not(.selected) > a:not(:active):is(:hover, :focus-visible) {
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-hover-border) !important;
+  }
+
+  .treeItem > a:active {
+    background-color: var(--breeze-sidebar-selected-bg) !important;
+    color: var(--breeze-sidebar-selected-fg) !important;
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+  }
+
+  .treeItem.selected > a {
+    box-shadow: inset 0 0 0 1px var(--breeze-sidebar-selected-border) !important;
+  }
+
+  /* Annotation colors remain real swatches; the selection outline is blue. */
+}

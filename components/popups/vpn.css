@@ -1,0 +1,163 @@
+/* popups — vpn */
+
+/* ==========================================================================
+   GLS Firefox VPN Panel (#PanelUI-ipprotection - bugB6.png)
+   ========================================================================== */
+#PanelUI-ipprotection,
+#PanelUI-ipprotection-locations {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  --panel-background: var(--palette-window-bg) !important;
+  --panel-border-color: var(--palette-border-dark) !important;
+  --panel-border-radius: 8px !important;
+}
+
+#PanelUI-ipprotection::part(content),
+#PanelUI-ipprotection-locations::part(content) {
+  background-color: var(--palette-window-bg) !important;
+  border: 1px solid var(--palette-border-dark) !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 10px 30px var(--palette-alpha-black-65) !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+#ipprotection-content-wrapper,
+#unauthenticated-vpn-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-inline: 0 !important;
+  gap: 12px !important;
+}
+
+/* PanelUI-ipprotection is a panelview, so its ::part(content) does not
+   provide the inset. The real onboarding element is in a shadow tree. */
+#unauthenticated-vpn-content {
+  padding: 16px 20px !important;
+  box-sizing: border-box !important;
+}
+
+#PanelUI-ipprotection-header,
+#PanelUI-ipprotection-locations-header {
+  padding: 12px 20px !important;
+  justify-content: space-between !important;
+  text-align: start !important;
+}
+
+#PanelUI-ipprotection-header > h1,
+#PanelUI-ipprotection-locations-header > h1 {
+  margin-inline: 0 !important;
+  text-align: start !important;
+}
+
+#unauthenticated-vpn-title,
+.vpn-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+#unauthenticated-vpn-img {
+  align-self: center !important;
+  margin-block: 16px !important;
+}
+
+.vpn-description {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+#unauthenticated-vpn-message > li,
+.vpn-description li {
+  gap: 8px !important;
+  padding-block: 4px !important;
+}
+
+#unauthenticated-vpn-message > li::before,
+.vpn-description li.with-icon::before {
+  width: 16px !important;
+  height: 16px !important;
+  flex: 0 0 16px !important;
+}
+
+#unauthenticated-footer {
+  margin-block: 12px 0 !important;
+  color: var(--palette-text-dim) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  text-align: center !important;
+}
+
+#ipprotection-header-content {
+  font-size: 14px !important;
+  color: var(--palette-text-main) !important;
+  font-family: "Noto Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+#ipprotection-experiment-badge {
+  border: 1px solid var(--palette-border-dark) !important;
+  background-color: var(--palette-button-bg) !important;
+  color: var(--palette-text-dim) !important;
+  border-radius: 4px !important;
+  padding: 1px 5px !important;
+  font-size: 12px !important;
+}
+
+#ipprotection-header-button {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: var(--breeze-action-radius) !important;
+  border: 1px solid transparent !important;
+}
+
+#ipprotection-header-button:is(:hover, :focus-visible) {
+  background-color: var(--kde-hover-bg) !important;
+  border-color: var(--palette-alpha-blue-50) !important;
+}
+
+/* Hosts are layout only: the native button background owns the single frame. */
+.vpn-button,
+#vpn-settings-button,
+#upgrade-vpn-button,
+#unauthenticated-get-started,
+#unauthenticated-vpn-content moz-button[slot="action"],
+#PanelUI-ipprotection moz-button[slot="action"],
+#trustpanel-clearcookiesView moz-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  --button-border-radius: 4px !important;
+  --button-min-height: 32px !important;
+  --button-padding: 6px 14px !important;
+  --button-font-size: 13px !important;
+  --button-font-weight: 600 !important;
+  --button-border: 1px solid var(--palette-border-dark) !important;
+  --button-background-color: var(--palette-button-bg) !important;
+  --button-text-color: var(--palette-text-main) !important;
+  --button-background-color-primary: var(--palette-btn-primary) !important;
+  --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+  --button-background-color-primary-active: var(--breeze-action-active-bg) !important;
+  --button-border-color-primary: var(--palette-blue-accent) !important;
+  --button-border-color-primary-hover: var(--palette-blue-focus) !important;
+  --button-text-color-primary: var(--sync-selection-fg, var(--palette-white)) !important;
+  --button-text-color-primary-hover: var(--sync-selection-fg, var(--palette-white)) !important;
+  --button-text-color-primary-active: var(--sync-selection-fg, var(--palette-white)) !important;
+}
+
+#vpn-settings-button {
+  --button-background-color-ghost: transparent !important;
+  --button-background-color-ghost-hover: var(--palette-alpha-blue-16) !important;
+  --button-border-color-ghost: transparent !important;
+}
+
+/* Switches share the reference definition in base.css. */

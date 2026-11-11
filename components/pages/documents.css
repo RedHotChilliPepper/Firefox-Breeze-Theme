@@ -1,0 +1,23 @@
+/* pages — documents */
+
+/* GSL text documents; quotation typography and actual log contents remain native. */
+@-moz-document url("about:mozilla"), url("chrome://global/content/aboutMozilla.xhtml") {
+  html, body { background: var(--palette-view-bg) !important; color: var(--palette-text-main) !important; }
+}
+
+
+@-moz-document url-prefix("about:sync-log"), regexp("file:///.*[/]weave[/]logs[/].*\\.(txt|log)([?#].*)?$") {
+  html, body, pre {
+    background: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    font: 13px/1.5 "Noto Sans Mono", monospace !important;
+  }
+}
+
+
+@-moz-document url("https://www.mozilla.org/credits/"), url-prefix("https://www.mozilla.org/credits/?"),
+               url("about:credits") {
+  html, body { background: var(--palette-view-bg) !important; color: var(--palette-text-main) !important; }
+  a { color: var(--palette-blue-accent) !important; }
+  a:hover { color: var(--palette-blue-focus) !important; }
+}

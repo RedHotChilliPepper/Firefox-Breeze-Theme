@@ -73,7 +73,7 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#ipprotection-button:not([disabled="true"]):hover {
+#ipprotection-button:not([disabled="true"]):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }
@@ -100,8 +100,8 @@
   justify-self: center !important;
   list-style-image: url("icons/vpn.svg") !important;
   -moz-context-properties: fill, fill-opacity, stroke !important;
-  fill: var(--palette-white) !important;
-  color: var(--palette-white) !important;
+  fill: currentColor !important;
+  color: inherit !important;
 }
 
 /* Hide text label to unify into a single icon button */
@@ -142,12 +142,12 @@
 }
 
 /* All toolbar buttons and URL bar page action buttons (Translate, Star/Favorites, Reader mode, Downloads, Menu, etc.) */
-.toolbarbutton-1:not([disabled="true"]):hover,
-#downloads-button:not([disabled="true"]):hover,
-#PanelUI-menu-button:not([disabled="true"]):hover,
-#unified-extensions-button:not([disabled="true"]):hover,
-.urlbar-page-action:not([disabled="true"]):hover,
-#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):hover {
+.toolbarbutton-1:not([disabled="true"]):is(:hover, :focus-visible),
+#downloads-button:not([disabled="true"]):is(:hover, :focus-visible),
+#PanelUI-menu-button:not([disabled="true"]):is(:hover, :focus-visible),
+#unified-extensions-button:not([disabled="true"]):is(:hover, :focus-visible),
+.urlbar-page-action:not([disabled="true"]):is(:hover, :focus-visible),
+#page-action-buttons > :is(toolbarbutton, hbox):not([disabled="true"]):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }
@@ -168,6 +168,11 @@
   background-color: var(--kde-active-bg) !important;
   border-color: var(--kde-accent) !important;
 }
+
+/* GSL 29: native icon-color fallbacks can stay pale even on a light KDE bar.
+   Assign the real action foreground; later pressed rules retain precedence. */
+.toolbarbutton-1 { color: var(--kde-window-fg) !important; }
+.urlbar-page-action, #identity-icon-box { color: var(--kde-view-fg) !important; }
 
 /* Starred bookmark & reader active icon fill */
 #star-button-box[starred="true"] #star-button {
@@ -304,9 +309,9 @@
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):hover,
-#PersonalToolbar #OtherBookmarks:not([disabled="true"]):hover,
-#PersonalToolbar #import-button:not([disabled="true"]):hover {
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):is(:hover, :focus-visible),
+#PersonalToolbar #OtherBookmarks:not([disabled="true"]):is(:hover, :focus-visible),
+#PersonalToolbar #import-button:not([disabled="true"]):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
@@ -317,7 +322,7 @@
 #PersonalToolbar #import-button:not([disabled="true"]):is(:active, :hover:active) {
   background-color: var(--kde-active-bg) !important;
   border-color: var(--kde-accent) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
 }
 
 #PersonalToolbar toolbarbutton.bookmark-item > .toolbarbutton-icon,
@@ -366,7 +371,7 @@ notificationbox button.notification-button,
   appearance: none !important;
   -moz-appearance: none !important;
   background-color: var(--palette-btn-primary) !important;
-  color: var(--palette-white) !important;
+  color: var(--sync-selection-fg, var(--palette-white)) !important;
   border: 1px solid var(--palette-blue-accent) !important;
   border-radius: var(--breeze-action-radius) !important;
   font-family: "Noto Sans", sans-serif !important;
@@ -378,9 +383,9 @@ notificationbox button.notification-button,
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-notification-message button.notification-button:hover,
-notificationbox button.notification-button:hover,
-.notificationbox-stack button:hover {
+notification-message button.notification-button:is(:hover, :focus-visible),
+notificationbox button.notification-button:is(:hover, :focus-visible),
+.notificationbox-stack button:is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;
@@ -400,7 +405,7 @@ notification-message button.notification-button[type="secondary"] {
   color: var(--palette-text-main) !important;
 }
 
-notification-message button.notification-button[type="secondary"]:hover {
+notification-message button.notification-button[type="secondary"]:is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
   color: var(--palette-white) !important;

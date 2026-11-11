@@ -1,0 +1,52 @@
+/* popups — app-menu */
+
+/* ==========================================================================
+   8. Clean Hamburger Menu (Removes promo box & rainbow gradient dividers)
+   ========================================================================== */
+
+#appMenu-fxa-status2,
+#appMenu-fxa-sign-in-promo,
+#PanelUI-fxa-menu-sign-in-promo,
+.fxa-menu-sign-in-promo,
+#PanelUI-fxa-menu-setup,
+.panel-banner-item,
+.addon-banner-item,
+#appMenu-menu-message,
+#PanelUI-fxa-menu-message,
+#appMenu-fxa-separator,
+#appMenu-addon-banners,
+#appMenu-update-banner {
+  display: none !important;
+}
+
+toolbarseparator.proton-zap::before,
+.panel-separator.proton-zap::before,
+.proton-zap::before {
+  display: none !important;
+}
+
+#appMenu-zoom-controls {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+#appMenu-zoom-controls:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton,
+#appMenu-zoom-controls > .subviewbutton {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  margin: 1px 2px !important;
+  padding: 4px 10px !important;
+}
+
+#appMenu-zoom-controls > toolbarbutton:is(:hover, :focus-visible),
+#appMenu-zoom-controls > .subviewbutton:is(:hover, :focus-visible) {
+  background-color: var(--breeze-action-hover-bg) !important;
+  border-color: var(--breeze-action-hover-border) !important;
+  color: var(--palette-white) !important;
+}

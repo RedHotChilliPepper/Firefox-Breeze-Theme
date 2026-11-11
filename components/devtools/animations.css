@@ -1,0 +1,29 @@
+/* devtools — animations */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+/* The native tooltip-visible/tooltip-hidden classes drive both fade directions. */
+  .tooltip-container {
+    opacity: 0;
+    transition: opacity 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                display 0.15s allow-discrete,
+                visibility 0.15s allow-discrete !important;
+  }
+
+  .tooltip-container.tooltip-visible {
+    opacity: 1;
+  }
+
+  .tooltip-container.tooltip-hidden {
+    opacity: 0;
+  }
+
+  @starting-style {
+    .tooltip-container.tooltip-visible {
+      opacity: 0;
+    }
+  }
+
+  
+}

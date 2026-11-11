@@ -1,0 +1,76 @@
+/* print — preview */
+
+@-moz-document url("chrome://global/content/print.html") {
+  /* ==========================================================================
+     Print Preview Sidebar & Toolbar (055428.png - chrome://global/content/print.html)
+     ========================================================================== */
+
+  #print,
+  body#print {
+    background-color: var(--palette-window-bg) !important;
+    color: var(--palette-text-main) !important;
+    --background-color-canvas: var(--palette-window-bg) !important;
+    --background-color-box: var(--palette-treeheader-bg) !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+    --button-background-color-primary: var(--palette-btn-primary) !important;
+    --button-background-color-primary-hover: var(--palette-blue-accent) !important;
+    --button-border-color-primary: var(--palette-blue-accent) !important;
+    --button-text-color-primary: var(--sync-selection-fg, var(--palette-white)) !important;
+    --focus-outline: 1px solid var(--palette-blue-accent) !important;
+    --focus-outline-color: var(--palette-blue-accent) !important;
+  }
+
+  .header-container {
+    background-color: var(--palette-window-bg) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    padding: 12px 16px !important;
+  }
+
+  .body-container {
+    background-color: var(--palette-window-bg) !important;
+    padding: 12px 16px !important;
+  }
+
+  .footer-container {
+    background-color: var(--palette-window-bg) !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+    padding: 12px 16px !important;
+  }
+
+  /* The footer already supplies the inset; the native section margin doubled it. */
+  #print-footer > #button-container.section-block {
+    margin: 0 !important;
+    justify-content: flex-end !important;
+  }
+
+  #print hr {
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  /* Destination select with printer/PDF icon (#printer-picker[iconic] in 055428.png) */
+  select[iconic],
+  #printer-picker {
+    padding-inline-start: 34px !important;
+    padding-inline-end: 28px !important;
+    background-position: right 10px center, left 8px center !important;
+    background-repeat: no-repeat, no-repeat !important;
+  }
+
+  /* Orientation uses the shared segmented-control standard in settings-controls.css. */
+
+  #more-settings > summary {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    padding: 6px 8px !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  #more-settings > summary:is(:hover, :focus-visible) {
+    background-color: var(--breeze-action-hover-bg) !important;
+    border-color: var(--palette-alpha-blue-50) !important;
+  }
+
+
+}

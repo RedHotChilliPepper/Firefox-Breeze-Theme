@@ -1,0 +1,17 @@
+/* pages — checkerboard */
+
+@-moz-document url-prefix("about:checkerboard"), url-prefix("chrome://global/content/aboutCheckerboard") {
+  hr {
+    border: none !important;
+    border-top: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  #canvas,
+  #active {
+    border: 1px solid var(--palette-border-dark) !important;
+    border-radius: 4px !important;
+  }
+
+  #enabled { color: var(--palette-negative) !important; }
+  #enabled.enabled { color: var(--palette-positive) !important; }
+}

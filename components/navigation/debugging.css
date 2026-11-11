@@ -1,0 +1,34 @@
+/* navigation — debugging */
+
+/* The native Debugging grid still reserved 280px behind a 330px nav host. */
+@-moz-document url-prefix("about:debugging"), url-prefix("chrome://devtools/content/aboutdebugging/") {
+  .app {
+    --sidebar-width: 330px !important;
+    display: grid !important;
+    grid-template-columns: 330px minmax(0, 1fr) !important;
+    column-gap: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .app > moz-page-nav {
+    min-height: 100vh !important;
+    height: auto !important;
+    align-self: stretch !important;
+  }
+  .app__content {
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 56px 28px 28px !important;
+    overflow: visible !important;
+  }
+  .app__content .page {
+    min-width: 0 !important;
+    max-width: var(--page-main-content-width) !important;
+    padding-inline-end: 0 !important;
+  }
+  .app__content::after { display: none !important; }
+  .main-heading { margin-block-start: 0 !important; }
+  .sidebar-item { height: auto !important; min-height: 32px !important; }
+}

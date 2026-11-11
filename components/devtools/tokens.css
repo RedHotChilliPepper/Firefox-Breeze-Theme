@@ -1,0 +1,99 @@
+/* devtools — tokens */
+
+@-moz-document url-prefix("chrome://devtools/"),
+               url-prefix("about:devtools"),
+               url-prefix("resource://devtools/") {
+  :root {
+    --theme-body-background: var(--palette-editor-bg) !important;
+    --theme-body-emphasized-background: var(--palette-window-bg) !important;
+    --theme-body-alternate-emphasized-background: var(--palette-tab-bg) !important;
+    --theme-sidebar-background: var(--palette-window-bg) !important;
+    --theme-tab-toolbar-background: var(--palette-window-bg) !important;
+    --theme-toolbar-background: var(--palette-window-bg) !important;
+    --theme-toolbar-alternate-background: var(--palette-tab-bg) !important;
+    --theme-toolbar-color: var(--palette-text-main) !important;
+    --theme-toolbar-selected-color: var(--breeze-action-active-fg) !important;
+    --theme-toolbar-background-hover: var(--palette-alpha-blue-14) !important;
+    --theme-toolbar-background-alt: var(--palette-treeheader-bg) !important;
+    --theme-toolbar-hover: var(--palette-alpha-blue-16) !important;
+    --theme-toolbar-hover-active: var(--breeze-action-active-bg) !important;
+    --theme-toolbar-separator: var(--palette-groove-sep) !important;
+    --toolbarbutton-background: var(--palette-button-bg) !important;
+    --toolbarbutton-hover-background: var(--breeze-action-hover-bg) !important;
+    --toolbarbutton-checked-background: var(--breeze-action-active-bg) !important;
+    --toolbarbutton-checked-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --theme-accordion-header-background: var(--palette-window-bg) !important;
+    --theme-accordion-header-hover-background: var(--palette-button-bg) !important;
+    --theme-selection-background: var(--palette-alpha-blue-28) !important;
+    --theme-selection-background-hover: var(--palette-alpha-blue-16) !important;
+    --theme-selection-color: var(--palette-white) !important;
+    --theme-splitter-color: var(--palette-groove-sep) !important;
+    --theme-emphasized-splitter-color: var(--palette-border-dark) !important;
+    --theme-popup-background: var(--palette-window-bg) !important;
+    --theme-popup-color: var(--palette-text-main) !important;
+    --theme-popup-border-color: var(--palette-border-dark) !important;
+    --theme-popup-dimmed: var(--palette-alpha-blue-18) !important;
+    --theme-focus-outline-color: var(--palette-blue-accent) !important;
+    --blue-50: var(--palette-blue-accent) !important;
+    --blue-55: var(--palette-blue-accent) !important;
+    --blue-60: var(--palette-btn-primary) !important;
+    /* Kate reference: readable UI, neutral editor, and white toolbar glyphs. */
+    --theme-body-font-size: 13px !important;
+    --theme-code-font-size: 13px !important;
+    --theme-code-line-height: calc(18 / 13) !important;
+    --theme-toolbar-height: 30px !important;
+    --theme-toolbar-tall-height: 32px !important;
+    --editor-header-height: 33px !important;
+    --editor-footer-height: 29px !important;
+    --editor-searchbar-height: 31px !important;
+    --theme-body-color: var(--palette-text-main) !important;
+    --theme-text-color-alt: var(--palette-text-dim) !important;
+    --theme-text-color-strong: var(--palette-white) !important;
+    --theme-text-color-inactive: var(--palette-text-dim) !important;
+    --theme-comment: var(--palette-comment) !important;
+    --theme-icon-color: var(--palette-text-main) !important;
+    --theme-icon-hover-color: var(--palette-white) !important;
+    --theme-icon-dimmed-color: var(--palette-text-dim) !important;
+    --theme-icon-disabled-color: var(--palette-icon-muted) !important;
+    --theme-icon-checked-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --theme-icon-error-color: var(--palette-negative) !important;
+    --theme-icon-warning-color: var(--palette-yellow) !important;
+    --theme-button-background: var(--palette-button-bg) !important;
+    --theme-button-active-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbar-hover-color: var(--palette-white) !important;
+    --theme-toolbar-selected-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbar-selected-hover: var(--breeze-action-active-bg) !important;
+    --theme-toolbar-selected-hover-color: var(--breeze-action-active-fg) !important;
+    --theme-toolbarbutton-background: transparent !important;
+    --theme-toolbarbutton-color: var(--palette-text-main) !important;
+    --theme-toolbarbutton-hover-background: var(--palette-alpha-blue-16) !important;
+    --theme-toolbarbutton-hover-color: var(--palette-white) !important;
+    --theme-toolbarbutton-active-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-active-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --theme-toolbarbutton-checked-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-checked-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --theme-toolbarbutton-checked-hover-background: var(--breeze-action-active-bg) !important;
+    --theme-toolbarbutton-checked-hover-color: var(--sync-selection-fg, var(--palette-white)) !important;
+    --toolbarbutton-hover-color: var(--palette-white) !important;
+    --theme-popup-hover-background: var(--breeze-action-hover-bg) !important;
+    --theme-popup-hover-color: var(--palette-white) !important;
+    --theme-highlight-blue: var(--palette-blue-accent) !important;
+    --theme-highlight-green: var(--palette-positive) !important;
+    --theme-highlight-purple: var(--palette-purple) !important;
+    --theme-highlight-red: var(--palette-negative) !important;
+    --theme-highlight-yellow: var(--palette-yellow) !important;
+    --theme-highlight-orange: var(--palette-orange) !important;
+    --theme-highlight-lightorange: var(--palette-orange) !important;
+    --theme-highlight-gray: var(--palette-text-main) !important;
+    --table-splitter-color: var(--palette-col-divider) !important;
+    --table-zebra-background: var(--palette-zebra-odd) !important;
+    --cell-border-color: var(--palette-col-divider) !important;
+    --row-alt-background-color: var(--palette-zebra-odd) !important;
+    --row-hover-background-color: var(--palette-alpha-blue-14) !important;
+    font-family: "Noto Sans", "Cantarell", system-ui, sans-serif !important;
+    font-size: var(--theme-body-font-size) !important;
+    color: var(--palette-text-main) !important;
+  }
+
+  
+}

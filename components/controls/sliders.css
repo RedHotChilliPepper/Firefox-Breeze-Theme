@@ -1,0 +1,43 @@
+/* controls — sliders */
+
+/* GSL 24 — ordinary internal form sliders, including the native profiler. */
+@-moz-document url-prefix("about:"), url-prefix("chrome://devtools/"),
+               url-prefix("resource://devtools/"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url("chrome://global/content/print.html") {
+  input[type="range"] {
+    appearance: none !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    accent-color: var(--palette-blue-accent) !important;
+    box-shadow: none !important;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 6px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    border-radius: 999px !important;
+    background: var(--palette-groove-sep) !important;
+    box-sizing: border-box !important;
+  }
+  input[type="range"]::-moz-range-progress {
+    height: 6px !important;
+    border: none !important;
+    border-radius: 999px !important;
+    background: var(--palette-toggle-on-bg) !important;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 18px !important;
+    height: 18px !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--palette-dialog-border) !important;
+    border-radius: 50% !important;
+    background: var(--palette-button-bg) !important;
+    box-shadow: none !important;
+  }
+  input[type="range"]:enabled:is(:hover, :focus-visible)::-moz-range-thumb {
+    border-color: var(--palette-blue-accent) !important;
+  }
+  input[type="range"]:disabled { opacity: 0.5 !important; cursor: default !important; }
+}

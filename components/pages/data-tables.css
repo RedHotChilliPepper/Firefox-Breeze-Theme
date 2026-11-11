@@ -1,0 +1,95 @@
+/* pages — data-tables */
+
+/* GSL data surfaces: keep native data layout, sorting and disclosure behavior. */
+@-moz-document url-prefix("about:profiles"), url-prefix("chrome://global/content/aboutProfiles"),
+               url-prefix("about:networking"), url-prefix("about:telemetry"),
+               url-prefix("about:policies"), url-prefix("about:checkerboard"),
+               url-prefix("about:url-classifier"), url-prefix("about:cache"),
+               url("about:buildconfig"), url("about:license"),
+               url-prefix("chrome://global/content/aboutUrlClassifier"),
+               url("chrome://global/content/buildconfig.html"),
+               url("chrome://global/content/license.html"),
+               url-prefix("chrome://global/content/aboutNetworking"),
+               url-prefix("chrome://global/content/aboutTelemetry"),
+               url-prefix("chrome://global/content/aboutCheckerboard"),
+               url-prefix("chrome://browser/content/policies/aboutPolicies") {
+  :root {
+    --table-background-color: var(--palette-view-bg) !important;
+    --table-border-color: var(--palette-groove-sep) !important;
+    --table-header-background-color: var(--palette-treeheader-bg) !important;
+    --table-header-text-color: var(--palette-text-dim) !important;
+    --table-row-background-color-alternate: var(--palette-zebra-odd) !important;
+    --background-color-list-item-hover: var(--palette-alpha-blue-14) !important;
+    --text-color-list-item-hover: var(--palette-white) !important;
+  }
+
+  table {
+    background-color: var(--palette-view-bg) !important;
+    color: var(--palette-text-main) !important;
+    border: 1px solid var(--palette-groove-sep) !important;
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+  }
+
+  th {
+    background-color: var(--palette-treeheader-bg) !important;
+    color: var(--palette-text-dim) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 5px 10px !important;
+    border: 0 !important;
+    border-inline-end: 1px solid var(--palette-col-divider) !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+  }
+
+  td {
+    background-color: transparent !important;
+    padding: 8px 10px !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--palette-groove-sep) !important;
+    border-inline-end: 1px solid var(--palette-col-divider) !important;
+  }
+
+  :is(tbody > tr, table > tr):has(> td) { height: 44px !important; }
+
+  tbody > tr, table > tr {
+    background-color: var(--palette-view-bg) !important;
+  }
+
+  tbody > tr:nth-child(even), table > tr:nth-child(odd) {
+    background-color: var(--palette-zebra-odd) !important;
+  }
+
+  :is(tbody > tr, table > tr):hover {
+    background-color: var(--palette-alpha-blue-14) !important;
+    color: var(--palette-white) !important;
+  }
+  /* Round paint at the frame without clipping tables or growing data/actions. */
+  table > tr:first-of-type > :first-child,
+  table > thead:first-of-type > tr:first-child > :first-child,
+  table:not(:has(> thead, > tr)) > tbody:first-of-type > tr:first-child > :first-child { border-start-start-radius: 3px !important; }
+  table > tr:first-of-type > :last-child,
+  table > thead:first-of-type > tr:first-child > :last-child,
+  table:not(:has(> thead, > tr)) > tbody:first-of-type > tr:first-child > :last-child { border-start-end-radius: 3px !important; }
+  table > tr:last-of-type > :first-child,
+  table > tbody:last-of-type > tr:last-child > :first-child { border-end-start-radius: 3px !important; }
+  table > tr:last-of-type > :last-child,
+  table > tbody:last-of-type > tr:last-child > :last-child { border-end-end-radius: 3px !important; }
+
+}
+
+/* GSL 38: native editable preference rows keep their own layout and semantics. */
+@-moz-document url("about:config"), url-prefix("chrome://global/content/aboutconfig/") {
+  :root {
+    --table-row-background-color: var(--palette-view-bg) !important;
+    --table-row-background-color-alternate: var(--palette-zebra-odd) !important;
+    --background-color-list-item-hover: var(--palette-alpha-blue-14) !important;
+    --text-color-list-item-hover: var(--palette-white) !important;
+  }
+  #prefs { background-color: var(--palette-view-bg) !important; color: var(--palette-text-main) !important; }
+  #prefs > tr { background-color: var(--table-row-background-color) !important; }
+  #prefs > tr.odd { background-color: var(--table-row-background-color-alternate) !important; }
+  #prefs > tr:hover { background-color: var(--background-color-list-item-hover) !important; color: var(--text-color-list-item-hover) !important; }
+}

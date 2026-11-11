@@ -1,0 +1,104 @@
+/* controls — checkboxes */
+
+@-moz-document url-prefix("about:"),
+               url-prefix("chrome://browser/content/preferences/"),
+               url-prefix("chrome://browser/content/pageinfo/"),
+               url-prefix("chrome://browser/content/search/"),
+               url-prefix("chrome://browser/content/customkeys/"),
+               url-prefix("chrome://browser/content/backup/"),
+               url-prefix("chrome://browser/content/profiles/"),
+               url-prefix("chrome://browser/content/sidebar/"),
+               url-prefix("chrome://browser/content/places/"),
+               url-prefix("chrome://browser/content/syncedtabs/"),
+               url-prefix("chrome://browser/content/sanitize"),
+               url-prefix("chrome://browser/content/spotlight"),
+               url-prefix("chrome://browser/content/aboutDialog"),
+               url-prefix("chrome://global/content/"),
+               url-prefix("chrome://mozapps/content/"),
+               url-prefix("chrome://pippki/content/"),
+               url-prefix("chrome://formautofill/content/") {
+/* ==========================================================================
+     Form Controls: Checkboxes & Radio Buttons
+     Uses chrome://global/skin/icons/check.svg with -moz-context-properties so
+     checkmarks render even under strict CSP (img-src blob: chrome:; in profiles.html
+     063231.png), and preserves #input negative margin-inline inside moz-checkbox!
+     ========================================================================== */
+
+  moz-checkbox {
+    --input-width: 18px !important;
+    --input-height: 18px !important;
+    --size-item-small: 18px !important;
+    --checkbox-size: 18px !important;
+    --color-accent-primary: var(--palette-blue-accent) !important;
+    accent-color: var(--palette-blue-accent) !important;
+    width: auto !important;
+  }
+
+  moz-checkbox::part(input),
+  input[type="checkbox"]:not(.toggle-button),
+  checkbox .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--palette-icon-muted) !important;
+    background-color: var(--palette-button-bg) !important;
+    background-image: none !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: background-color 0.15s, border-color 0.15s !important;
+  }
+
+  /* Only apply explicit margin to standalone checkboxes, NOT #input inside moz-checkbox Shadow DOM! */
+  input[type="checkbox"]:not(.toggle-button):not(#input),
+  checkbox .checkbox-check {
+    margin: 2px 6px 2px 2px !important;
+  }
+
+  moz-checkbox:not([disabled]):is(:hover, :focus-within)::part(input),
+  input[type="checkbox"]:not(.toggle-button):is(:hover, :focus-visible):not(:disabled),
+  checkbox:not([disabled]):hover .checkbox-check,
+  checkbox:focus-visible .checkbox-check {
+    border-color: var(--kde-accent) !important;
+  }
+
+  moz-checkbox[checked]::part(input),
+  :host([checked]) #input[type="checkbox"],
+  input[type="checkbox"]:not(.toggle-button):checked,
+  checkbox[checked] .checkbox-check {
+    background-color: var(--palette-toggle-on-bg) !important;
+    border-color: var(--kde-accent) !important;
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 12px 12px !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    fill: var(--palette-white) !important;
+    stroke: var(--palette-white) !important;
+    color: var(--palette-white) !important;
+  }
+
+  moz-checkbox[disabled]::part(input),
+  input[type="checkbox"]:not(.toggle-button):disabled,
+  checkbox[disabled] .checkbox-check {
+    border-color: var(--palette-border-dark) !important;
+    cursor: default !important;
+  }
+
+  moz-checkbox[disabled][checked]::part(input),
+  input[type="checkbox"]:not(.toggle-button):disabled:checked,
+  checkbox[disabled][checked] .checkbox-check {
+    background-color: var(--palette-toggle-off-bg) !important;
+    fill: var(--palette-text-dim) !important;
+    stroke: var(--palette-text-dim) !important;
+  }
+
+  
+}

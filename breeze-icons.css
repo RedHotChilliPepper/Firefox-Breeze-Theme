@@ -115,7 +115,20 @@
 #ipprotection-button .toolbarbutton-icon,
 #ipprotection-button .ipprotection-icon-layer {
   -moz-context-properties: fill, fill-opacity, stroke !important;
-  fill: var(--palette-white) !important;
-  color: var(--palette-white) !important;
+  fill: currentColor !important;
+  color: inherit !important;
 }
 
+
+/* GSL 29: context-aware glyph paint follows its action, including light palettes.
+   Branding/favicons with explicit multicolor paint are not filtered/recolored. */
+.toolbarbutton-icon,
+.urlbar-icon,
+.urlbar-page-action,
+.tab-close-button,
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+  -moz-context-properties: fill, fill-opacity, stroke !important;
+  fill: currentColor !important;
+}

@@ -71,12 +71,12 @@ findbar toolbarbutton,
   transition: background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
-findbar toolbarbutton:not([disabled="true"]):hover,
-.findbar-find-previous:not([disabled="true"]):hover,
-.findbar-find-next:not([disabled="true"]):hover,
-.findbar-highlight:not([disabled="true"]):hover,
-.findbar-case-sensitive:not([disabled="true"]):hover,
-.findbar-entire-word:not([disabled="true"]):hover {
+findbar toolbarbutton:not([disabled="true"]):is(:hover, :focus-visible),
+.findbar-find-previous:not([disabled="true"]):is(:hover, :focus-visible),
+.findbar-find-next:not([disabled="true"]):is(:hover, :focus-visible),
+.findbar-highlight:not([disabled="true"]):is(:hover, :focus-visible),
+.findbar-case-sensitive:not([disabled="true"]):is(:hover, :focus-visible),
+.findbar-entire-word:not([disabled="true"]):is(:hover, :focus-visible) {
   background-color: var(--breeze-action-hover-bg) !important;
   border-color: var(--breeze-action-hover-border) !important;
 }

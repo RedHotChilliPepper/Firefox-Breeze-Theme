@@ -1,0 +1,44 @@
+/* navigation — addons */
+
+/* Add-ons must reserve the same width that its sidebar actually paints. */
+@-moz-document url-prefix("about:addons"),
+               url-prefix("chrome://mozapps/content/extensions/aboutaddons.html") {
+  :root {
+    --sidebar-width: 330px !important;
+  }
+
+  #full {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr) !important;
+  }
+
+  #sidebar {
+    width: var(--sidebar-width) !important;
+    min-width: 0 !important;
+    max-width: var(--sidebar-width) !important;
+    box-sizing: border-box !important;
+  }
+
+  categories-box {
+    display: block !important;
+    inline-size: 100% !important;
+    min-inline-size: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* categories-box owns a shadow tree: ordinary #sidebar descendant rules
+     cannot reset the navigation host inside that tree. */
+  :host(categories-box) moz-page-nav {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+  }
+
+  #content {
+    min-width: 0 !important;
+  }
+}
